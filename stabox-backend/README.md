@@ -71,3 +71,11 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+
+### Naming conventions:
+- name.type.ts
+- heroes: Hero[] = [];
+- getHeroes();
+- export class HeroListComponent { }
+- "src/app/modelsLists/"
