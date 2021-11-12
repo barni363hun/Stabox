@@ -1,7 +1,6 @@
 import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, Transaction } from "typeorm";
-import { packageEntity } from "./package.entity";
-import { shipperEntity } from "./shipper.entity";
-import { transactionEntity } from "./transaction.entity";
+import { packageEntity, shipperEntity, transactionEntity } from ".";
+
 
 @Entity()
 export class userEntity implements userInterface {

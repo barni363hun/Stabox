@@ -1,5 +1,6 @@
 import { Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { userEntity } from "./user.entity";
+import { userEntity } from ".";
+
 
 @Entity()
 export class transactionEntity implements transactionInterface{

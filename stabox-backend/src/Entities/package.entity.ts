@@ -1,5 +1,6 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { userEntity } from "./user.entity";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { shipperEntity, userEntity } from ".";
+
 
 @Entity()
 export class packageEntity implements packageInterface{
@@ -8,9 +9,10 @@ export class packageEntity implements packageInterface{
     @PrimaryGeneratedColumn()
     id: number;
 
-    @OneToMany(()=>userEntity, user=>user.packages)
+    @ManyToOne(()=>userEntity, user=>user.packages)
     user: userInterface;
 
+    @ManyToOne(()=> shipperEntity, shipper => shipper)
     shipper: shipperInterface;
 
     reciever: recieverInterface;
