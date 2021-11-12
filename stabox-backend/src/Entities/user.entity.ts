@@ -1,5 +1,5 @@
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, Transaction } from "typeorm";
-import { packageEntity, shipperEntity, transactionEntity } from ".";
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { addressEntity, packageEntity, shipperEntity, transactionEntity } from ".";
 
 
 @Entity()
@@ -28,7 +28,7 @@ export class userEntity implements userInterface {
     @Column()
     phoneNumber: string;
 
-    @Column()
+    @Column({default:0})
     stabucks: number;
 
     //Relations
@@ -37,6 +37,9 @@ export class userEntity implements userInterface {
 
     @OneToMany(()=> packageEntity, package_=> package_.user)// package name is reserved in 'strict mode'
     packages:packageEntity[]
+
+    @OneToMany(()=> addressEntity, address=> address.user)// package name is reserved in 'strict mode'
+    addresses:packageEntity[]
 
 
 

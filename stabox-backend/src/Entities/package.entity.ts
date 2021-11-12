@@ -15,24 +15,34 @@ export class packageEntity implements packageInterface{
     @ManyToOne(()=> shipperEntity, shipper => shipper)
     shipper: shipperInterface;
 
+    @Column()
     reciever: recieverInterface;
 
+    @Column()
     fromAdress: addressInterface;
 
+    @Column()
     postDate: Date;
 
+    @Column()
     shippingDate: Date;
 
+    @Column()
     size: string;
 
+    @Column()
     weight: string;
 
+    @Column()
     fragile: boolean;
 
+    @Column()
     price: number;
 
+    @Column()
     currentRegion: number;
     
+    @Column()
     code: string;
 
     //Relations

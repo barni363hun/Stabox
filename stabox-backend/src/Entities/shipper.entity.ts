@@ -1,8 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { packageEntity } from ".";
 
 @Entity()
 export class shipperEntity implements shipperInterface{
 
+    //Columns
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -12,4 +14,8 @@ export class shipperEntity implements shipperInterface{
     @Column()
     region: number;
 
+    //Relations
+    @ManyToOne(()=> packageEntity, package_=>package_)
+    packages:packageEntity[]
+    
 }
