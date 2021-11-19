@@ -1,24 +1,26 @@
+import { from } from "rxjs";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { shipperEntity, userEntity } from ".";
+import { addressEntity, shipperEntity, userEntity } from ".";
+import { recieverEntity } from "./reciever.entity";
 
 
 @Entity()
-export class packageEntity implements packageInterface{
+export class packageEntity implements packageInterface {
 
     //Columns
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(()=>userEntity, user=>user.packages)
+    @ManyToOne(() => userEntity, user => user.packages)
     user: userInterface;
 
-    @ManyToOne(()=> shipperEntity, shipper => shipper)
+    @ManyToOne(() => shipperEntity, shipper => shipper.packages)
     shipper: shipperInterface;
 
-    @Column()
+    @ManyToOne(type => recieverEntity, reciever => reciever.package)
     reciever: recieverInterface;
 
-    @Column()
+    @ManyToOne(type => addressEntity, fromAdress => fromAdress.package)
     fromAdress: addressInterface;
 
     @Column()
@@ -41,7 +43,7 @@ export class packageEntity implements packageInterface{
 
     @Column()
     currentRegion: number;
-    
+
     @Column()
     code: string;
 
