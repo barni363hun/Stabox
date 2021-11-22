@@ -15,7 +15,7 @@ export class shipperEntity implements shipperInterface{
     region: number;
 
     //Relations
-    @ManyToOne(()=> packageEntity, package_=>package_.shipper)
-    packages:packageEntity;
+    @ManyToOne(()=> packageEntity, package_=>package_.shipper) // OneToMany
+    packages:packageEntity; // []
     
 }

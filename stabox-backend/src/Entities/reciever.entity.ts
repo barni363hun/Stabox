@@ -9,7 +9,7 @@ export class recieverEntity implements recieverInterface {
     id: number;
 
     @OneToMany(type=> addressEntity, adress => adress.reciever)
-    adress: addressInterface;
+    adress: addressInterface;  // [] missing
 
     @Column()
     firstName: string;
