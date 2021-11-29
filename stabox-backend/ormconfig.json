@@ -4,8 +4,10 @@
     "port": 3306,
     "username": "root",
     "password": "",
-    "database": "Stabox",
-    "entities": ["dist/**/*.entity.js"],
+    "database": "stabox",
+    "entities": [
+        "dist/**/*.entity.js"
+    ],
     "migrations": [
         "dist/db/migrations/*.js"
     ],
