@@ -9,7 +9,7 @@ export class addressEntity implements addressInterface {
 	id: number;
 
 	@ManyToOne(() => userEntity, (user) => user.addresses)
-	user: userInterface;
+	user: userEntity;
 
 	@Column()
 	region: number;
@@ -27,9 +27,9 @@ export class addressEntity implements addressInterface {
 	houseNumber: number;
 
 	//Relations
-	@ManyToOne(type => recieverEntity, reciever => reciever.adress)
-	reciever: recieverInterface;
+	@OneToMany(type => recieverEntity, reciever => reciever.adress)
+	recievers: recieverEntity[];
 
 	@OneToMany(type => packageEntity, package_ => package_.fromAdress) // "package" is a reserved word for js
-	package: packageInterface[];
+	packages: packageEntity[];
 }

@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { addressEntity, packageEntity } from ".";
 
 @Entity()
@@ -8,8 +8,8 @@ export class recieverEntity implements recieverInterface {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @OneToMany(type=> addressEntity, adress => adress.reciever)
-    adress: addressInterface;  // [] missing
+    @ManyToOne(type => addressEntity, adress => adress.recievers)
+    adress: addressEntity;
 
     @Column()
     firstName: string;
@@ -25,6 +25,6 @@ export class recieverEntity implements recieverInterface {
 
     //Relations
     @OneToMany(type => packageEntity, package_ => package_.reciever)
-    package : packageInterface[];
+    package: packageEntity[];
 
 }

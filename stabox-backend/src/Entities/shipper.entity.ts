@@ -1,8 +1,8 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { packageEntity } from ".";
 
 @Entity()
-export class shipperEntity implements shipperInterface{
+export class shipperEntity implements shipperInterface {
 
     //Columns
     @PrimaryGeneratedColumn()
@@ -15,7 +15,7 @@ export class shipperEntity implements shipperInterface{
     region: number;
 
     //Relations
-    @ManyToOne(()=> packageEntity, package_=>package_.shipper) // OneToMany
-    packages:packageEntity; // []
-    
+    @OneToMany(() => packageEntity, package_ => package_.shipper)
+    packages: packageEntity[];
+
 }

@@ -20,7 +20,7 @@ export class packageEntity implements packageInterface {
     @ManyToOne(type => recieverEntity, reciever => reciever.package)
     reciever: recieverInterface;
 
-    @ManyToOne(type => addressEntity, fromAdress => fromAdress.package)
+    @ManyToOne(type => addressEntity, fromAdress => fromAdress.packages)
     fromAdress: addressInterface;
 
     @Column()
