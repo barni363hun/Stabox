@@ -47,5 +47,8 @@ export class packageEntity implements packageInterface {
     @Column()
     code: string;
 
+    @Column()
+    name: string;
+
     //Relations
 }

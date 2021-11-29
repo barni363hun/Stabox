@@ -26,6 +26,9 @@ export class addressEntity implements addressInterface {
 	@Column()
 	houseNumber: number;
 
+	@Column()
+	name: string;
+
 	//Relations
 	@OneToMany(type => recieverEntity, reciever => reciever.adress)
 	recievers: recieverEntity[];
