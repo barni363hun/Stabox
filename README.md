@@ -8,3 +8,6 @@ https://drive.google.com/drive/folders/1aS6iPvhOs3syn9xBn8x2ZOD_y9JpdqX3?usp=sha
 
 Entity relationship diagram:
 https://drive.google.com/file/d/16Sp48zplwlCXzkh4lGCJgLFKxFITv4Oc/view?usp=sharing
+
+Design terv:
+https://www.figma.com/community/file/1049586110990675041/Stabox-Design
