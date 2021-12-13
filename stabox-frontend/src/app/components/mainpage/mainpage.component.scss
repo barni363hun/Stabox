@@ -1,0 +1,25 @@
+.bgImage {
+  height: 400%;
+  width: 100%;
+  background: url("../../../assets/images/MainPageBG.jpg");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* HIDE SCROLLBAR IN FIREFOX AND EDGE */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* HIDE SCROLLBAR IN CHROME, SAFARI AND OPERA */
+::-webkit-scrollbar {
+    display: none;
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+
