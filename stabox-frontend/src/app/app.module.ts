@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { MainpageComponent } from './components/pages/mainpage/mainpage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LogoComponent } from './components/logo/logo.component';
+import { SignInButtonComponent } from './components/buttons/sign-in-button/sign-in-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainpageComponent,
-    LogoComponent
+    LogoComponent,
+    SignInButtonComponent
   ],
   imports: [
     BrowserModule,
