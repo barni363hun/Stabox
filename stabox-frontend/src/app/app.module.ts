@@ -3,20 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainpageComponent } from './components/mainpage/mainpage.component';
+import { MainpageComponent } from './components/pages/mainpage/mainpage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { LogoComponent } from './components/logo/logo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainpageComponent
+    MainpageComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule, 
-    MatGridListModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
