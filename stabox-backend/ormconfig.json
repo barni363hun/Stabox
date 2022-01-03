@@ -5,6 +5,7 @@
     "username": "root",
     "password": "",
     "database": "stabox",
+    "synchronize": true,
     "entities": [
         "dist/**/*.entity.js"
     ],
