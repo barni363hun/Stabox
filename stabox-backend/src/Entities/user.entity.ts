@@ -9,9 +9,10 @@ export class userEntity implements userInterface {
     @PrimaryGeneratedColumn()
     id: number;
 
+
     @OneToOne(type => shipperEntity)
     @JoinColumn()
-    shipper: shipperEntity;
+    shipper: shipperEntity | null;
 
     @Column()
     email: string;
@@ -28,18 +29,18 @@ export class userEntity implements userInterface {
     @Column()
     phoneNumber: string;
 
-    @Column({default:0})
+    @Column({ default: 0 })
     stabucks: number;
 
     //Relations
-    @OneToMany(()=> transactionEntity, transaction=>transaction.user)
-    transactions:transactionEntity[]
+    @OneToMany(() => transactionEntity, transaction => transaction.user)
+    transactions: transactionEntity[]
 
-    @OneToMany(()=> packageEntity, package_=> package_.user)// package name is reserved in 'strict mode'
-    packages:packageEntity[]
+    @OneToMany(() => packageEntity, package_ => package_.user)// package name is reserved in 'strict mode'
+    packages: packageEntity[]
 
-    @OneToMany(()=> addressEntity, address=> address.user)// package name is reserved in 'strict mode'
-    addresses:packageEntity[]
+    @OneToMany(() => addressEntity, address => address.user)// package name is reserved in 'strict mode'
+    addresses: packageEntity[]
 
 
 
