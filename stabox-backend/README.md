@@ -25,6 +25,10 @@
 $ npm install
 ```
 
+## Required to start
+
+- MySql database named "stabox"
+
 ## Running the app
 
 ```bash
