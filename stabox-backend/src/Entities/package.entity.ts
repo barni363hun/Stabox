@@ -1,5 +1,5 @@
 import { from } from "rxjs";
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, } from "typeorm";
 import { addressEntity, shipperEntity, userEntity } from ".";
 import { recieverEntity } from "./reciever.entity";
 
@@ -23,13 +23,13 @@ export class packageEntity implements packageInterface {
     @ManyToOne(type => addressEntity, fromAdress => fromAdress.packages)
     fromAdress: addressInterface;
 
-    @Column()
+    @Column({ nullable: false })
     postDate: Date;
 
     @Column()
     shippingDate: Date;
 
-    @Column()
+    @Column({ nullable: false })
     size: string;
 
     @Column()
