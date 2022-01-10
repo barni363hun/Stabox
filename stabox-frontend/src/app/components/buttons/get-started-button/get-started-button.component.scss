@@ -1,50 +1,30 @@
-#btn {
-    text-decoration: none;
-}
-
-#btnImgDiv {
-    height: fit-content;
-    width: fit-content;
-    display: grid;
-}
-  
-#btnImg {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-#btnText {
-    grid-column: 1;
-    grid-row: 1;
-
-    font-size: 36px;
+#getStartedBtn {
+    transition: 0.5s;
+    border-radius: 50px;
+    border: none;
+    padding: 15px 35px 15px 35px;
+    background-color: #f2da00;
+    background: linear-gradient(to right, #f2da00, #e29704);
+    font-size: 28px;
     font-family: 'PT Sans Caption', sans-serif;
     color: white;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-#arrowIconDiv {
-    grid-column: 1;
-    grid-row: 1;
-
-    display: grid;
-    justify-content: end;
+#getStartedBtn:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    box-shadow: 0 0 3px rgba(#f2da00, 0.075), 0 0 10px rgba(#e29704, 0.6);
 }
 
 #arrowIcon {
-    grid-column: 1;
-    grid-row: 1;
-
-    transform: scale(3);
-    z-index: 1;
-    color: white;
+    transform: scale(1.75);
+    display: inline-block;
+    vertical-align: middle;
+    text-shadow: 1.5px 1.5px 1px rgba(0, 0, 0, 0.5);
+    margin-left: 10px;
 }
 
-#arrowIconShadow {
-    grid-column: 1;
-    grid-row: 1;
-
-    color: rgba(0, 0, 0, 0.5);
-    transform: scale(3) translate(0.5px, 0.5px);
-    filter: blur(0.35px);
+#btnDiv {
+    text-align: center;
 }

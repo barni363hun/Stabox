@@ -1,10 +1,10 @@
 .nav {
     background: transparent;
-
     padding: 20px 40px 20px 40px;
 }
 
 .navText {
+    transition: 0.5s;
     font-size: 32px;
     font-family: 'PT Sans Caption', sans-serif;
 
@@ -15,21 +15,21 @@
     -webkit-text-fill-color: transparent;
 }
 
+.navText:hover {
+    transform: scale(1.15);
+    transition: 0.5s;
+}
+
 .left {
     width: 75%;
     height: fit-content;
 }
 
 .right {
-    width: 75%;
+    width: 100%;
     height: fit-content;
 }
 
 .navBarList {
-    position: relative;
-}
-
-.languageIcon {
-    position: absolute;
-    right: 0;
+    justify-content: end;
 }

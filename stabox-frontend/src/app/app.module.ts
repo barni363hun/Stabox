@@ -13,6 +13,16 @@ import { SignUpButtonComponent } from './components/buttons/sign-up-button/sign-
 import { GetStartedButtonComponent } from './components/buttons/get-started-button/get-started-button.component';
 import { MainpageNavbarComponent } from './components/mainpage-navbar/mainpage-navbar.component';
 import { LanguageIconComponent } from './components/language-icon/language-icon.component';
+import { EmailInputComponent } from './components/form/email-input/email-input.component';
+import { LandingCardComponent } from './components/pages/mainpage/landing-card/landing-card.component';
+import { FirstCardComponent } from './components/pages/mainpage/first-card/first-card.component';
+import { SecondCardComponent } from './components/pages/mainpage/second-card/second-card.component';
+import { ThirdCardComponent } from './components/pages/mainpage/third-card/third-card.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NameInputComponent } from './components/form/name-input/name-input.component';
+import { MessageInputComponent } from './components/form/message-input/message-input.component';
+import { DividerComponent } from './components/divider/divider.component';
+import { ContactUsButtonComponent } from './components/buttons/contact-us-button/contact-us-button.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +34,16 @@ import { LanguageIconComponent } from './components/language-icon/language-icon.
     GetStartedButtonComponent,
     MainpageNavbarComponent,
     LanguageIconComponent,
+    EmailInputComponent,
+    LandingCardComponent,
+    FirstCardComponent,
+    SecondCardComponent,
+    ThirdCardComponent,
+    FooterComponent,
+    NameInputComponent,
+    MessageInputComponent,
+    DividerComponent,
+    ContactUsButtonComponent
   ],
   imports: [
     BrowserModule,

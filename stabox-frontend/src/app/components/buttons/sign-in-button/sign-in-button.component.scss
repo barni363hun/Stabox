@@ -1,25 +1,44 @@
-#btn {
-    text-decoration: none;
-}
-
-#btnImgDiv {
-    height: fit-content;
-    width: fit-content;
-    display: grid;
-}
-  
-#btnImg {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-#btnText {
-    grid-column: 1;
-    grid-row: 1;
-
-    text-align: center;
-    font-size: 24px;
-    font-family: 'PT Sans Caption', sans-serif;
+#signInBtn {
+    background-color: #161518;
+    border: none;
     color: white;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    font-size: 24px;
+    font-family: 'PT Sans Caption', sans-serif;
+    padding: 4px 35px 4px 35px;
 }
+
+#gradientOutline {
+    transition: 0.5s;
+    width: fit-content;
+    position: relative;
+    background: linear-gradient(to right, #f2da00, #e29704);
+    padding: 6px;
+    border-radius: 50px;
+}
+
+#gradientOutline:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    box-shadow: 0 0 3px rgba(#f2da00, 0.075), 0 0 10px rgba(#e29704, 0.6);
+}
+
+// #signInBtn {
+//     transition: 0.5s;
+//     border-radius: 50px;
+//     border: 5px solid #f2da00;
+
+//     padding: 5px 35px 5px 35px;
+//     background-color: transparent;
+//     font-size: 24px;
+//     font-family: 'PT Sans Caption', sans-serif;
+//     color: white;
+//     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+// }
+
+// #signInBtn:hover {
+//     transform: scale(1.1);
+//     transition: 0.5s;
+//     box-shadow: 0 0 3px rgba(#f2da00, 0.075), 0 0 10px rgba(#e29704, 0.6);
+// }

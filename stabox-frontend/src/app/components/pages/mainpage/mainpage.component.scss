@@ -3,7 +3,7 @@
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #1e1b34;
+    background-color: #161518;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -20,13 +20,11 @@
 
     scrollbar-color: #e29704 #1e1b34;
     scrollbar-width: thin;
+
+    color: white;
+    background-color: #161518;
 }
 
-#bg {
-    height: 400%;
-    width: 100%;
-    background-image: url("../../../../assets/images/MainPageBG.jpg");
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+#mainPage {
+    width: 95%;;
 }
