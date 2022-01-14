@@ -1,0 +1,97 @@
+<div id="content">
+    <app-account-page-navbar></app-account-page-navbar>
+
+    <div class="mx-auto pt-5" id="accountPage">
+
+        <form>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-6 text-center" style="position: relative; padding: 0">
+                        <img id="profilePicture" src="https://cataas.com/cat" alt="">
+                        <a href="">
+                            <mat-icon id="profilePictureEditIcon">edit</mat-icon>
+                        </a>
+                    </div>
+
+                    <div class="col-xl-6" id="accountInfo">
+                        <div id="accountInfoInputs">
+                            <div class="col-xl-12 input">
+                                <mat-icon class="icon">person</mat-icon>
+                                <input class="accountDataInput" type="text" name="" id="" value="J. K. Meowling">
+                            </div>
+                            <div class="col-xl-12 input">
+                                <mat-icon class="icon">verified_user</mat-icon>
+                                <input class="accountDataInput" type="text" name="" id="" value="Hairy Pooper">
+                            </div>
+                            <div class="col-xl-12 input">
+                                <mat-icon class="icon">email</mat-icon>
+                                <input class="accountDataInput" type="email" name="" id="" value="meow@meow.meow">
+                            </div>
+                            <div class="col-xl-12 input">
+                                <mat-icon class="icon">phone</mat-icon>
+                                <input class="accountDataInput" type="tel" name="" id="" value="69 42 6964269">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 py-5">
+                        <div class="row text-center">
+                            <div class="col-xl-3"></div>
+                            <div class="col-xl-3 text-center py-5">
+                                <button class="bigBtn" href="">
+                                    <img class="bigBtnImg" src="../../../../assets/images/ShipperIcon.svg" alt="">
+                                    <p class="bigIconText">Become a shipper</p>
+                                </button>
+                            </div>
+                            <div class="col-xl-3 text-center py-5">
+                                <button class="bigBtn" href="">
+                                    <img class="bigBtnImg" src="../../../../assets/images/BoxIcon.svg" alt="">
+                                    <p class="bigIconText">My Packages</p>
+                                </button>
+                            </div>
+                            <div class="col-xl-3"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 text-center mb-5">
+                        <p class="text">Exchange Dates</p>
+                        <app-divider></app-divider>
+                        <div class="w-75 mx-auto">
+                            <mat-icon class="addressIcon">home</mat-icon>
+                            <input class="addressInput" type="datetime-local" name="" id="" value="">
+                            <input class="addressInput" type="datetime-local" name="" id="" value="">
+
+                            <mat-icon class="addressIcon">work</mat-icon>
+                            <input class="addressInput" type="datetime-local" name="" id="" value="">
+
+                            <button class="addBtn">
+                                <mat-icon class="addIcon">add</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 text-center mb-5">
+                        <p class="text">Addresses</p>
+                        <app-divider></app-divider>
+                        <div class="w-75 mx-auto">
+                            <mat-icon class="addressIcon">home</mat-icon>
+                            <input class="addressInput" type="text" name="" id="" value="Győr Fő u. 5">
+
+                            <mat-icon class="addressIcon">work</mat-icon>
+                            <input class="addressInput" type="text" name="" id="" value="Vác Petőfi u. 1">
+
+                            <button class="addBtn">
+                                <mat-icon class="addIcon">add</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="saveChangesBtn">
+                <input type="submit" value="Save">
+            </div>
+        </form>
+
+    </div>
+</div>

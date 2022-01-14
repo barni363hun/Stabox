@@ -24,6 +24,10 @@ import { NameInputComponent } from './components/form/name-input/name-input.comp
 import { MessageInputComponent } from './components/form/message-input/message-input.component';
 import { DividerComponent } from './components/divider/divider.component';
 import { ContactUsButtonComponent } from './components/buttons/contact-us-button/contact-us-button.component';
+import { AccountPageNavbarComponent } from './components/account-page-navbar/account-page-navbar.component';
+import { AccountPageComponent } from './components/pages/account-page/account-page.component';
+import { AccountButtonComponent } from './components/buttons/account-button/account-button.component';
+import { HomeIconComponent } from './components/home-icon/home-icon.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,11 @@ import { ContactUsButtonComponent } from './components/buttons/contact-us-button
     NameInputComponent,
     MessageInputComponent,
     DividerComponent,
-    ContactUsButtonComponent
+    ContactUsButtonComponent,
+    AccountPageNavbarComponent,
+    AccountPageComponent,
+    AccountButtonComponent,
+    HomeIconComponent
   ],
   imports: [
     BrowserModule,
