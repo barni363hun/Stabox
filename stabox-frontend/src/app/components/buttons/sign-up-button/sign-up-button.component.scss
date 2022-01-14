@@ -1,0 +1,18 @@
+#signUpBtn {
+    transition: 0.5s;
+    border-radius: 50px;
+    border: none;
+    padding: 10px 35px 10px 35px;
+    background-color: #f2da00;
+    background: linear-gradient(to right, #f2da00, #e29704);
+    font-size: 24px;
+    font-family: 'PT Sans Caption', sans-serif;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+#signUpBtn:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    box-shadow: 0 0 3px rgba(#f2da00, 0.075), 0 0 10px rgba(#e29704, 0.6);
+}

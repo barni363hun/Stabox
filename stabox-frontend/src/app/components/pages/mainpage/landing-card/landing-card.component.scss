@@ -1,0 +1,33 @@
+h1, p {
+    font-family: 'PT Sans Caption', sans-serif;
+}
+
+h1 {
+    font-size: 64px;
+}
+
+p {
+    color: rgba($color: #CAC8D9, $alpha: 0.75);
+    font-size: 28px;
+}
+
+
+#landingCard {
+    margin-bottom: 200px;
+}
+
+#cardText {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#landingCardDesc {
+    width: 100%;
+    text-align: left;
+}
+
+#getStartedBtn {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 50px;
+}

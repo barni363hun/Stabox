@@ -1,0 +1,43 @@
+h1, p {
+    font-family: 'PT Sans Caption', sans-serif;
+}
+
+h1 {
+    font-size: 64px;
+}
+
+p {
+    color: rgba($color: #CAC8D9, $alpha: 0.75);
+    font-size: 28px;
+}
+
+#firstCard {
+    margin-bottom: 200px;
+}
+
+#cardText {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.servicesCard {
+    margin-bottom: 50px;
+}
+
+.servicesCardTitle {
+    background-color: #f2da00;
+    background: linear-gradient(to right, #f2da00, #e29704);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.servicesCardDesc {
+    font-size: 24px;
+    text-align: left;
+}
+
+#drawing {
+    margin-top: 50px;
+}
+
