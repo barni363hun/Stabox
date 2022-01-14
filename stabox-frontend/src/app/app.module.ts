@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainpageComponent } from './components/pages/mainpage/mainpage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
-
+import { AuthModule } from '@auth0/auth0-angular';
+import { AuthButtonComponent } from './auth/auth-button/auth-button.component';
+import { UserProfileComponent } from './auth/user-profile/user-profile.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { SignInButtonComponent } from './components/buttons/sign-in-button/sign-in-button.component';
 import { SignUpButtonComponent } from './components/buttons/sign-up-button/sign-up-button.component';
@@ -28,6 +29,8 @@ import { ContactUsButtonComponent } from './components/buttons/contact-us-button
   declarations: [
     AppComponent,
     MainpageComponent,
+    AuthButtonComponent,
+    UserProfileComponent,
     LogoComponent,
     SignInButtonComponent,
     SignUpButtonComponent,
@@ -49,9 +52,13 @@ import { ContactUsButtonComponent } from './components/buttons/contact-us-button
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    AuthModule.forRoot({
+      domain: 'barni363hun.eu.auth0.com',
+      clientId: '70x759xfYo7pvQS39ptmBpnpBRv8MUkA',
+    }),
     MatIconModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

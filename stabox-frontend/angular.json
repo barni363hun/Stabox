@@ -109,5 +109,8 @@
       }
     }
   },
-  "defaultProject": "stabox-frontend"
+  "defaultProject": "stabox-frontend",
+  "cli": {
+    "analytics": "c91990f9-fdd0-43cb-84ef-7b3c9b664f6a"
+  }
 }
