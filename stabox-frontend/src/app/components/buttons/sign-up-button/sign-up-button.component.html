@@ -1,3 +1,5 @@
-<button type="button" id="signUpBtn">
+<ng-container *ngIf="!(auth.isAuthenticated$ | async)">
+  <button type="button" id="signUpBtn" (click)="auth.loginWithRedirect()">
     Sign up
-</button>
+  </button>
+</ng-container>

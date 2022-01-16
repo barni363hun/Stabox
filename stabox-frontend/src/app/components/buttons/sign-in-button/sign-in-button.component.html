@@ -1,6 +1,11 @@
 <div id="gradientOutline">
-    <button type="button" id="signInBtn">
-        Sign in
+  <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+    <button (click)="auth.logout({ returnTo: document.location.origin })">
+      Sign out
     </button>
-</div>
+  </ng-container>
 
+  <ng-template #loggedOut>
+    <button (click)="auth.loginWithRedirect()">Sign in</button>
+  </ng-template>
+</div>
