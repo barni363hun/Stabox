@@ -1,0 +1,8 @@
+image:
+  file: .gitpod.Dockerfile
+tasks:
+  - init: yarn install
+  - name: backend
+    command: yarn nx serve api
+  - name: frontend
+    command: yarn nx serve todos
