@@ -4,7 +4,6 @@
 }
 
 .navText {
-    transition: 0.5s;
     font-size: 32px;
     font-family: 'PT Sans Caption', sans-serif;
 
@@ -13,11 +12,6 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.navText:hover {
-    transform: scale(1.15);
-    transition: 0.5s;
 }
 
 .left {
