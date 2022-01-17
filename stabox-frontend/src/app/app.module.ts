@@ -8,7 +8,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { AuthModule } from '@auth0/auth0-angular';
 import { LogoComponent } from './components/logo/logo.component';
 import { SignInButtonComponent } from './components/buttons/sign-in-button/sign-in-button.component';
-import { SignUpButtonComponent } from './components/buttons/sign-up-button/sign-up-button.component';
 import { GetStartedButtonComponent } from './components/buttons/get-started-button/get-started-button.component';
 import { MainpageNavbarComponent } from './components/mainpage-navbar/mainpage-navbar.component';
 import { LanguageIconComponent } from './components/language-icon/language-icon.component';
@@ -29,7 +28,6 @@ import { ContactUsButtonComponent } from './components/buttons/contact-us-button
     MainpageComponent,
     LogoComponent,
     SignInButtonComponent,
-    SignUpButtonComponent,
     GetStartedButtonComponent,
     MainpageNavbarComponent,
     LanguageIconComponent,

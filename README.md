@@ -1,4 +1,5 @@
 # Stabox
+
 Vizsgaremek
 
 Naming conventions follow the angular syntax both on backend and frontend.
@@ -11,3 +12,19 @@ https://drive.google.com/file/d/16Sp48zplwlCXzkh4lGCJgLFKxFITv4Oc/view?usp=shari
 
 Design terv:
 https://www.figma.com/community/file/1049586110990675041/Stabox-Design
+
+### Required to start backend
+
+- MySql database named "stabox"
+
+## backend execution
+
+- cd .\stabox-backend\
+- npm i
+- npm run start
+
+## frontend execution
+
+- cd .\stabox-frontend\
+- npm i
+- npm run start
