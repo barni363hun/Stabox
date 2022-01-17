@@ -2,7 +2,4 @@ image:
   file: .gitpod.Dockerfile
 tasks:
   - init: npm i
-  - name: backend
-    command: ng serve api
-  - name: frontend
     command: ng serve stabox-frontend

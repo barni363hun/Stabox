@@ -1,4 +1,4 @@
-FROM gitpod/workspace-full
+FROM gitpod/workspace-mysql
 RUN sudo apt-get update
 # Install Cypress-base dependencies
 RUN sudo apt-get install -y \
