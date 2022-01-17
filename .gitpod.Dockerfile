@@ -20,4 +20,4 @@ RUN sudo apt-get install -y \
 Run npm install -g npm@^8.3.0
 Run npm install -g nx
 Run npm install -g @angular/cli
-Run mysql -e "CREATE DATABASE stabox"
+# Run mysql -e "CREATE DATABASE stabox"

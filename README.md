@@ -1,26 +1,48 @@
 # Stabox
 
-This project was generated using [Nx](https://nx.dev).
+<p style="text-align: center;"><img src="https://drive.google.com/uc?export=view&id=1wnxXt-08N5PoJNZN2JBUZTo6ij7rneQ1" width="450"></p>
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+![Angular](https://img.shields.io/static/v1?style=for-the-badge&message=Angular&color=DD0031&logo=Angular&logoColor=FFFFFF&label=)
+![Nx](https://img.shields.io/static/v1?style=for-the-badge&message=Nx&color=143055&logo=Nx&logoColor=FFFFFF&label=)
+![NestJS](https://img.shields.io/static/v1?style=for-the-badge&message=NestJS&color=E0234E&logo=NestJS&logoColor=FFFFFF&label=)
+![Visual Studio Code](https://img.shields.io/static/v1?style=for-the-badge&message=Visual+Studio+Code&color=007ACC&logo=Visual+Studio+Code&logoColor=FFFFFF&label=)
+![GitHub](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label=)
+![MySQL](https://img.shields.io/static/v1?style=for-the-badge&message=MySQL&color=4479A1&logo=MySQL&logoColor=FFFFFF&label=)
 
-🔎 **Smart, Fast and Extensible Build System**
+**Smart, Fast and New way of package transportation**
 
-## Quick Start & Documentation
+## For guests
 
-[Nx Documentation](https://nx.dev/angular)
+:page_facing_up:
+<br/>
+[Development documentation](https://drive.google.com/drive/folders/1aS6iPvhOs3syn9xBn8x2ZOD_y9JpdqX3?usp=sharing)
 
-[10-minute video showing all Nx features](https://nx.dev/getting-started/intro)
+[Design preview](https://www.figma.com/community/file/1049586110990675041/Stabox-Design)
 
-[Interactive Tutorial](https://nx.dev/tutorial/01-create-application)
+## For developers
+
+Naming conventions follow the angular syntax both on backend and frontend.
+
+Entity relationship diagram:
+https://drive.google.com/file/d/16Sp48zplwlCXzkh4lGCJgLFKxFITv4Oc/view?usp=sharing
+
+### Required to start backend
+
+- MySql database named "stabox"
+
+## backend execution
+
+- cd .\stabox-backend\
+- npm i
+- npm run start
+
+## frontend execution
+
+- cd .\stabox-frontend\
+- npm i
+- npm run start
 
 ## Adding capabilities to your workspace
-
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
-
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
-
-Below are our core plugins:
 
 - [Angular](https://angular.io)
   - `ng add @nrwl/angular`
@@ -96,3 +118,5 @@ Nx Cloud pairs with Nx in order to enable you to build and test code more rapidl
 Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
+
+![GitHub Contributors Image](https://contrib.rocks/image?repo=barni363hun/stabox)
