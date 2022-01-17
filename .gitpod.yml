@@ -1,8 +1,8 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - init: yarn install
+  - init: npm i
   - name: backend
-    command: yarn nx serve api
+    command: ng serve api
   - name: frontend
-    command: yarn nx serve todos
+    command: ng serve stabox-frontend
