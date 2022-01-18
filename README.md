@@ -14,38 +14,71 @@
 ## For guests
 
 :memo:
-*[Development documentation](https://drive.google.com/drive/folders/1aS6iPvhOs3syn9xBn8x2ZOD_y9JpdqX3?usp=sharing)*
+_[Development documentation](https://drive.google.com/drive/folders/1aS6iPvhOs3syn9xBn8x2ZOD_y9JpdqX3?usp=sharing)_
 
 :art:
-*[Design preview](https://www.figma.com/community/file/1049586110990675041/Stabox-Design)*
+_[Design preview](https://www.figma.com/community/file/1049586110990675041/Stabox-Design)_
 
 ## For developers
-:bar_chart:
-*[Entity relationship diagram](https://drive.google.com/file/d/16Sp48zplwlCXzkh4lGCJgLFKxFITv4Oc/view?usp=sharing)*
+
+:bar*chart:
+*[Entity relationship diagram](https://drive.google.com/file/d/16Sp48zplwlCXzkh4lGCJgLFKxFITv4Oc/view?usp=sharing)\_
 
 Naming conventions follow the angular syntax both on backend and frontend.
 
-### Required to start backend
+### Required to start
 
-- MySql database named "stabox"
+For both:
 
-## Backend execution
+- `npm i`
 
-- cd .\stabox-backend\
-- npm i
-- npm run start
+For backend:
 
-## Frontend execution
+- MySql database named "stabox" (`mysql -e "CREATE DATABASE stabox"`)
 
-- cd .\stabox-frontend\
-- npm i
-- npm run start
+### Execution
 
-## Here you can start coding instantly:
+Frontend _(you can reach it on http://localhost:4200/)_:
+
+- `nx serve stabox-frontend`
+
+Backend _(you can reach it on http://localhost:3333/)_:
+
+- `nx serve api`
+
+Test:
+
+- `nx e2e todos-e2e --watch` _(not works on gitpod)_
+  <sub><sup>If cypress not works on local scroll down </sup></sub>
+
+### Build
+
+- `nx run todos:build`
+- `nx run-many --target=build --projects=todos,api`
+
+### Other useful commands
+
+- Run `nx affected:apps` to get all apps which you have changed.
+- Run `nx affected:libs` to get all libraries which you have changed.
+- Run `nx affected:test` to test all apps which you have changed.
+- Run `nx affected:test -- --only-failed` to test all apps which failed last time.
+- Run `nx test stabox-frontend` to test the 'stabox-frontend' app.
+- Run `ng g @nrwl/angular:lib new-lib` to generate the 'new-lib' library.
+- Run `ng g component components/my-component --project=stabox-frontend` to add 'my-component' component to the 'stabox-frontend' project
+- Run `nx test stabox frontend`
+- Run `nx test stabox frontend`
+- Run `nx test stabox frontend`
+
+If you have issues with cypress try running:
+
+- `npm cache clear -f`
+- `npm i cypress -D`
+- `node_modules/.bin/cypress install`
+
+## Here you can run the app online:
+
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/barni363hun/Stabox)
 
-##
-Run `ng serve stabox-frontend` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+## Made by:
 
-## Made by
-<a href="https://angular.io/">![GitHub Contributors Image](https://contrib.rocks/image?repo=barni363hun/stabox)</a>
+<a href="https://github.com/barni363hun/Stabox/graphs/contributors">![GitHub Contributors Image](https://contrib.rocks/image?repo=barni363hun/stabox)</a>
