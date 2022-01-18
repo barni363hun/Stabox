@@ -77,7 +77,7 @@ If you have issues with cypress try running:
 
 ## Here you can run the app online:
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/barni363hun/Stabox)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/barni363hun/Stabox/tree/Barni)
 
 ## Made by:
 
