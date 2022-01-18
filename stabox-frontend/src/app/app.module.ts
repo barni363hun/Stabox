@@ -28,6 +28,9 @@ import { AccountPageNavbarComponent } from './components/navbars/account-page-na
 import { AccountPageComponent } from './components/pages/account-page/account-page.component';
 import { AccountButtonComponent } from './components/buttons/account-button/account-button.component';
 import { HomeIconComponent } from './components/icons/home-icon/home-icon.component';
+import { ShipperDetailsComponent } from './components/pages/account-page/shipper-details/shipper-details.component';
+import { CloseIconComponent } from './components/icons/close-icon/close-icon.component';
+import { AddIconComponent } from './components/icons/add-icon/add-icon.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import { HomeIconComponent } from './components/icons/home-icon/home-icon.compon
     AccountPageNavbarComponent,
     AccountPageComponent,
     AccountButtonComponent,
-    HomeIconComponent
+    HomeIconComponent,
+    ShipperDetailsComponent,
+    CloseIconComponent,
+    AddIconComponent
   ],
   imports: [
     BrowserModule,

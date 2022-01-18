@@ -1,0 +1,24 @@
+#closeIconDiv {
+    transition: 0.25s;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    right: 60px;
+    padding: 10px 12px 5px 12px;
+    border-radius: 50%;
+}
+
+#closeIcon {
+    transform: scale(1.5);
+    color: rgba(#CAC8D9, 0.75);
+}
+
+#closeIconDiv:hover {
+    cursor: pointer;
+    transition: 0.25s;
+    background-color: rgba(#CAC8D9, 0.1);
+}
+
+#closeIconDiv:active {
+    transform: translateY(5px);
+}
