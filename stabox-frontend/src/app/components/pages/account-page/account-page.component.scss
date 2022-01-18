@@ -1,0 +1,231 @@
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #161518;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(#f2da00, #e29704);
+    box-shadow: #e29704 0 0 3px inset;
+}
+
+#content {
+    width: 100%;
+    height: 100vh;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    scrollbar-color: #e29704 #1e1b34;
+    scrollbar-width: thin;
+}
+
+#accountPage {
+    width: 85%;
+}
+
+.accountDataInput {
+    grid-row: 1;
+    grid-column: 1;
+
+    padding-left: 60px;
+    margin-top: 7px;
+    width: 100%;
+
+    border-radius: 10px;
+
+    background: transparent;
+    border: none;
+    color: white;
+}
+
+input:focus {
+    outline: none;
+    border-color: #e29704;
+    box-shadow: inset 0 1px 1px rgba(#f2da00, 0.075), 0 0 8px rgba(#e29704, 0.6);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.icon {
+    grid-row: 1;
+    grid-column: 1;
+
+    margin: 15px 0 0 10px;
+    transform: scale(1.2);
+
+    background-color: #f2da00;
+    background: linear-gradient(to right, #f2da00, #e29704);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#profilePicture {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+}
+
+#profilePictureEditIcon {
+    position: absolute;
+    bottom: 0;
+    transform: scale(1.5);
+
+    background-color: #f2da00;
+    background: linear-gradient(to right, #f2da00, #e29704);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#accountInfo {
+    font-size: 24px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+#accountInfoInputs {
+    width: 100%;
+    margin: auto 0 auto 0;
+}
+
+.input {
+    display: grid;
+}
+
+.bigIconText {
+    font-size: 24px;
+    margin: 7.5px 0 0 30px;
+    margin-right: 25px;
+    color: white;
+}
+
+#currencyAmount {
+    font-size: 24px;
+    margin: 7.5px 0 0 0;
+    margin-right: 30px;
+}
+
+.text {
+    font-size: 42px;
+    background-color: #f2da00;
+    background: linear-gradient(to right, #f2da00 40%, #e29704 60%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bigBtn {
+    width: fit-content;
+    transition: 0.5s;
+    background-color: transparent;
+    border: none;
+    border-radius: 25px;
+    box-shadow: inset 0 1px 1px rgba(#f2da00, 0.075), 0 0 8px rgba(#e29704, 0.6);
+    padding: 15px;
+}
+
+.bigBtn:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    transform: scale(1.1);
+}
+
+.bigBtn:active {
+    transform: translateY(10px);
+}
+
+.bigBtnImg {
+    height: 100px;
+}
+
+.addBtn {
+    transition: 0.25s;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%; 
+    padding: 5px;
+}
+
+.addBtn:hover {
+    transition: 0.25s;
+    box-shadow: inset 0 1px 1px rgba(#f2da00, 0.075), 0 0 8px rgba(#e29704, 0.6);
+}
+
+.addIcon {
+    transform: scale(1.5);
+
+    margin: 8px;
+
+    background-color: #f2da00;
+    background: linear-gradient(to right, #f2da00, #e29704);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.addressInput {
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px 15px 5px 15px;
+    margin-bottom: 10px;
+
+    background: transparent;
+    border: none;
+    color: white;
+}
+
+.addressIcon {
+    margin-bottom: 15px;
+
+    transform: scale(1.5);
+
+    background-color: #f2da00;
+    background: linear-gradient(to right, #f2da00, #e29704);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#saveChangesBtn {
+    transition: 0.5s;
+    width: fit-content;
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    background: linear-gradient(to right, #f2da00, #e29704);
+    padding: 3px;
+    border-radius: 50px;
+}
+
+#saveChangesBtn input {
+    background-color: #161518;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 5px 15px 5px 15px;
+    font-size: 20px;
+}
+
+#saveChangesBtn:hover {
+    transition: 0.5s;
+    transform: scale(1.1);
+    box-shadow: inset 0 0 10px rgba(#f2da00, 0.075), 0 0 15px rgba(#e29704, 0.6);
+}
+
+#saveChangesBtn:active {
+    transform: translateY(10px);
+}

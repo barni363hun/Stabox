@@ -9,8 +9,8 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { LogoComponent } from './components/logo/logo.component';
 import { SignInButtonComponent } from './components/buttons/sign-in-button/sign-in-button.component';
 import { GetStartedButtonComponent } from './components/buttons/get-started-button/get-started-button.component';
-import { MainpageNavbarComponent } from './components/mainpage-navbar/mainpage-navbar.component';
-import { LanguageIconComponent } from './components/language-icon/language-icon.component';
+import { MainpageNavbarComponent } from './components/navbars/mainpage-navbar/mainpage-navbar.component';
+import { LanguageIconComponent } from './components/icons/language-icon/language-icon.component';
 import { EmailInputComponent } from './components/form/email-input/email-input.component';
 import { LandingCardComponent } from './components/pages/mainpage/landing-card/landing-card.component';
 import { FirstCardComponent } from './components/pages/mainpage/first-card/first-card.component';
@@ -21,6 +21,13 @@ import { NameInputComponent } from './components/form/name-input/name-input.comp
 import { MessageInputComponent } from './components/form/message-input/message-input.component';
 import { DividerComponent } from './components/divider/divider.component';
 import { ContactUsButtonComponent } from './components/buttons/contact-us-button/contact-us-button.component';
+import { AccountPageNavbarComponent } from './components/navbars/account-page-navbar/account-page-navbar.component';
+import { AccountPageComponent } from './components/pages/account-page/account-page.component';
+import { AccountButtonComponent } from './components/buttons/account-button/account-button.component';
+import { HomeIconComponent } from './components/icons/home-icon/home-icon.component';
+import { ShipperDetailsComponent } from './components/pages/account-page/shipper-details/shipper-details.component';
+import { CloseIconComponent } from './components/icons/close-icon/close-icon.component';
+import { AddIconComponent } from './components/icons/add-icon/add-icon.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +48,13 @@ import { ContactUsButtonComponent } from './components/buttons/contact-us-button
     MessageInputComponent,
     DividerComponent,
     ContactUsButtonComponent,
+    AccountPageNavbarComponent,
+    AccountPageComponent,
+    AccountButtonComponent,
+    HomeIconComponent,
+    ShipperDetailsComponent,
+    CloseIconComponent,
+    AddIconComponent,
   ],
   imports: [
     BrowserModule,
