@@ -21,8 +21,8 @@ _[Design preview](https://www.figma.com/community/file/1049586110990675041/Stabo
 
 ## For developers
 
-:bar*chart:
-*[Entity relationship diagram](https://drive.google.com/file/d/16Sp48zplwlCXzkh4lGCJgLFKxFITv4Oc/view?usp=sharing)\_
+:bar_chart:
+*[Entity relationship diagram](https://drive.google.com/file/d/16Sp48zplwlCXzkh4lGCJgLFKxFITv4Oc/view?usp=sharing)*
 
 Naming conventions follow the angular syntax both on backend and frontend.
 
