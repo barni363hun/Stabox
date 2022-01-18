@@ -6,11 +6,8 @@ import { MainpageComponent } from './components/pages/mainpage/mainpage.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthModule } from '@auth0/auth0-angular';
-import { AuthButtonComponent } from './auth/auth-button/auth-button.component';
-import { UserProfileComponent } from './auth/user-profile/user-profile.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { SignInButtonComponent } from './components/buttons/sign-in-button/sign-in-button.component';
-import { SignUpButtonComponent } from './components/buttons/sign-up-button/sign-up-button.component';
 import { GetStartedButtonComponent } from './components/buttons/get-started-button/get-started-button.component';
 import { MainpageNavbarComponent } from './components/navbars/mainpage-navbar/mainpage-navbar.component';
 import { LanguageIconComponent } from './components/icons/language-icon/language-icon.component';
@@ -36,11 +33,8 @@ import { AddIconComponent } from './components/icons/add-icon/add-icon.component
   declarations: [
     AppComponent,
     MainpageComponent,
-    AuthButtonComponent,
-    UserProfileComponent,
     LogoComponent,
     SignInButtonComponent,
-    SignUpButtonComponent,
     GetStartedButtonComponent,
     MainpageNavbarComponent,
     LanguageIconComponent,
@@ -60,7 +54,7 @@ import { AddIconComponent } from './components/icons/add-icon/add-icon.component
     HomeIconComponent,
     ShipperDetailsComponent,
     CloseIconComponent,
-    AddIconComponent
+    AddIconComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +64,7 @@ import { AddIconComponent } from './components/icons/add-icon/add-icon.component
       domain: 'barni363hun.eu.auth0.com',
       clientId: '70x759xfYo7pvQS39ptmBpnpBRv8MUkA',
     }),
-    MatIconModule
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
