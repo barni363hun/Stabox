@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'stabox-divider',
+  selector: 'app-divider',
   templateUrl: './divider.component.html',
-  styleUrls: ['./divider.component.scss'],
+  styleUrls: ['./divider.component.scss']
 })
 export class DividerComponent implements OnInit {
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
 }

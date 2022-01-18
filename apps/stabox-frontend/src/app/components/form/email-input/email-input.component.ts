@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'stabox-email-input',
+  selector: 'app-email-input',
   templateUrl: './email-input.component.html',
-  styleUrls: ['./email-input.component.scss'],
+  styleUrls: ['./email-input.component.scss']
 })
 export class EmailInputComponent implements OnInit {
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
 }

@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'stabox-first-card',
+  selector: 'app-first-card',
   templateUrl: './first-card.component.html',
-  styleUrls: ['./first-card.component.scss'],
+  styleUrls: ['./first-card.component.scss']
 })
 export class FirstCardComponent implements OnInit {
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
 }

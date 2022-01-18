@@ -1,0 +1,30 @@
+#addIcon {
+    transform: scale(1.5);
+
+    margin: 8px;
+
+    background-color: #f2da00;
+    background: linear-gradient(to right, #f2da00, #e29704);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#addBtn {
+    transition: 0.25s;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%; 
+    padding: 5px;
+    width: fit-content;
+}
+
+#addBtn:hover {
+    cursor: pointer;
+    transition: 0.25s;
+    box-shadow: inset 0 1px 1px rgba(#f2da00, 0.075), 0 0 8px rgba(#e29704, 0.6);
+}
+
+#addBtn:active {
+    transform: translateY(10px);
+}

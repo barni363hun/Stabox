@@ -6,4 +6,14 @@ export class AppService {
   getData(): Message {
     return { message: 'Welcome to api!' };
   }
+  getDog(): string {
+    return 'woof';
+  }
+  getCat(): string {
+    return 'meow';
+  }
+
+  getHello(): string {
+    return 'Hello World!';
+  }
 }

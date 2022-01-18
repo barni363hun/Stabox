@@ -3,7 +3,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
-  selector: 'stabox-sign-in-button',
+  selector: 'app-sign-in-button',
   templateUrl: './sign-in-button.component.html',
   styleUrls: ['./sign-in-button.component.scss'],
 })

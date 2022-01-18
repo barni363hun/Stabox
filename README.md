@@ -40,34 +40,34 @@ For backend:
 
 Frontend _(you can reach it on http://localhost:4200/)_:
 
-- `nx serve stabox-frontend`
+- `npx nx serve stabox-frontend`
 
 Backend _(you can reach it on http://localhost:3333/)_:
 
-- `nx serve api`
+- `npx nx serve api`
 
 Test:
 
-- `nx e2e todos-e2e --watch` _(not works on gitpod)_
+- `npx nx e2e todos-e2e --watch` _(not works on gitpod)_
   <sub><sup>If cypress not works on local scroll down </sup></sub>
 
 ### Build
 
-- `nx run todos:build`
-- `nx run-many --target=build --projects=todos,api`
+- `npx nx run todos:build`
+- `npx nx run-many --target=build --projects=todos,api`
 
 ### Other useful commands
 
-- Run `nx affected:apps` to get all apps which you have changed.
-- Run `nx affected:libs` to get all libraries which you have changed.
-- Run `nx affected:test` to test all apps which you have changed.
-- Run `nx affected:test -- --only-failed` to test all apps which failed last time.
-- Run `nx test stabox-frontend` to test the 'stabox-frontend' app.
-- Run `ng g @nrwl/angular:lib new-lib` to generate the 'new-lib' library.
-- Run `ng g component components/my-component --project=stabox-frontend` to add 'my-component' component to the 'stabox-frontend' project
-- Run `nx test stabox frontend`
-- Run `nx test stabox frontend`
-- Run `nx test stabox frontend`
+- Run `npx nx affected:apps` to get all apps which you have changed.
+- Run `npx nx affected:libs` to get all libraries which you have changed.
+- Run `npx nx affected:test` to test all apps which you have changed.
+- Run `npx nx affected:test -- --only-failed` to test all apps which failed last time.
+- Run `npx nx test stabox-frontend` to test the 'stabox-frontend' app.
+- Run `npx ng g @nrwl/angular:lib new-lib` to generate the 'new-lib' library.
+- Run `npx ng g component components/my-component --project=stabox-frontend` to add 'my-component' component to the 'stabox-frontend' project
+- Run `npx nx test stabox frontend`
+- Run `npx nx test stabox frontend`
+- Run `npx nx test stabox frontend`
 
 If you have issues with cypress try running:
 
