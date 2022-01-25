@@ -3,18 +3,22 @@ import { Controller, Get, UseGuards } from '@nestjs/common';
 import { Message } from '@stabox/stabox-lib';
 
 import { AppService } from './app.service';
-import { AuthorizationGuard } from './authorization/authorization.guard';
+import { AuthGuard } from './auth/auth.guard';
+import { PermissionsGuard } from './auth/permissions.guard';
+import { Permissions } from './auth/permissions.decorator';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  @UseGuards(AuthGuard, PermissionsGuard)
   @Get('hello')
+  @Permissions('update:user')
   getData(): Message {
     return this.appService.getData();
   }
 
-  @UseGuards(AuthorizationGuard)
+  @UseGuards(AuthGuard)
   @Get('/cat')
   getCat(): string {
     return this.appService.getCat();

@@ -10,7 +10,7 @@ import * as jwt from 'express-jwt';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()
-export class AuthorizationGuard implements CanActivate {
+export class AuthGuard implements CanActivate {
   private AUTH0_AUDIENCE: string;
   private AUTH0_DOMAIN: string;
 
@@ -34,7 +34,7 @@ export class AuthorizationGuard implements CanActivate {
         audience: this.AUTH0_AUDIENCE,
         issuer: this.AUTH0_DOMAIN,
         algorithms: ['RS256'],
-      }),
+      })
     );
 
     try {
