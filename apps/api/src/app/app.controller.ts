@@ -1,24 +1,23 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Controller, Get, SetMetadata, UseGuards } from '@nestjs/common';
 
 import { Message } from '@stabox/stabox-lib';
 
 import { AppService } from './app.service';
 import { AuthGuard } from './auth/auth.guard';
 import { PermissionsGuard } from './auth/permissions.guard';
-import { Permissions } from './auth/permissions.decorator';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @UseGuards(AuthGuard, PermissionsGuard)
+  @UseGuards(AuthGuard)
   @Get('hello')
-  @Permissions('update:user')
   getData(): Message {
     return this.appService.getData();
   }
 
-  @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['read:cats'])
   @Get('/cat')
   getCat(): string {
     return this.appService.getCat();
