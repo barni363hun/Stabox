@@ -10,7 +10,7 @@ export class PermissionsGuard implements CanActivate {
     context: ExecutionContext
   ): boolean | Promise<boolean> | Observable<boolean> {
     const routePermissions = this.reflector.get<string[]>(
-      'permissions',
+      'https://localhost:7000',
       context.getHandler()
     );
 
