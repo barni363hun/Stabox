@@ -8,12 +8,13 @@ import { Reflector } from '@nestjs/core';
 
 @Injectable()
 export class PermissionsGuard implements CanActivate {
-  constructor(private reflector: Reflector) {}
-  canActivate(context: ExecutionContext): boolean {
-    const [req] = context.getArgs();
-    const userPermissions = req?.user?.permissions || [];
-    const requiredPermissions = this.reflector.get(
-      'permissions',
+  constructor(private readonly reflector: Reflector) {}
+
+  canActivate(
+    context: ExecutionContext
+  ): boolean | Promise<boolean> | Observable<boolean> {
+    const routePermissions = this.reflector.get<string[]>(
+      'https://localhost:7000',
       context.getHandler()
     );
     const hasAllRequiredPermissions = requiredPermissions.every((permission) =>
