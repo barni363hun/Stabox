@@ -69,8 +69,8 @@ Test:
 - Run `npx nx test stabox-frontend` to test the 'stabox-frontend' app.
 - Run `npx ng g @nrwl/angular:lib new-lib` to generate the 'new-lib' library.
 - Run `npx ng g component components/my-component --project=stabox-frontend` to add 'my-component' component to the 'stabox-frontend' project
-- Run `npx nx test stabox frontend`
-- Run `npx nx test stabox frontend`
+- Run `npx nx dep-graph --watch` to open the dependency graph in browser
+- Run `npx nx dep-graph --file=graph.json` or idk
 - Run `npx nx test stabox frontend`
 
 If you have issues with cypress try running:
