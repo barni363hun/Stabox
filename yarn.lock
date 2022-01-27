@@ -4350,19 +4350,19 @@
   "resolved" "https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-0.9.3.tgz"
   "version" "0.9.3"
 
+"esbuild-linux-64@0.13.13":
+  "integrity" "sha512-kzhjlrlJ+6ESRB/n12WTGll94+y+HFeyoWsOrLo/Si0s0f+Vip4b8vlnG0GSiS6JTsWYAtGHReGczFOaETlKIw=="
+  "resolved" "https://registry.npmjs.org/esbuild-linux-64/-/esbuild-linux-64-0.13.13.tgz"
+  "version" "0.13.13"
+
+"esbuild-linux-64@0.14.11":
+  "integrity" "sha512-oeR6dIrrojr8DKVrxtH3xl4eencmjsgI6kPkDCRIIFwv4p+K7ySviM85K66BN01oLjzthpUMvBVfWSJkBLeRbg=="
+  "resolved" "https://registry.npmjs.org/esbuild-linux-64/-/esbuild-linux-64-0.14.11.tgz"
+  "version" "0.14.11"
+
 "esbuild-wasm@0.14.11":
   "integrity" "sha512-9e1R6hv0hiU+BkJI2edqUuWfXUbOP2Mox+Ijl/uY1vLLlSsunkrcADqD/4Rz+VCEDzw6ecscJM+uJqR2fRmEUg=="
   "resolved" "https://registry.npmjs.org/esbuild-wasm/-/esbuild-wasm-0.14.11.tgz"
-  "version" "0.14.11"
-
-"esbuild-windows-64@0.13.13":
-  "integrity" "sha512-oMrgjP4CjONvDHe7IZXHrMk3wX5Lof/IwFEIbwbhgbXGBaN2dke9PkViTiXC3zGJSGpMvATXVplEhlInJ0drHA=="
-  "resolved" "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.13.13.tgz"
-  "version" "0.13.13"
-
-"esbuild-windows-64@0.14.11":
-  "integrity" "sha512-h9FmMskMuGeN/9G9+LlHPAoiQk9jlKDUn9yA0MpiGzwLa82E7r1b1u+h2a+InprbSnSLxDq/7p5YGtYVO85Mlg=="
-  "resolved" "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.14.11.tgz"
   "version" "0.14.11"
 
 "esbuild@0.13.13":
@@ -7118,7 +7118,15 @@
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
 
-"node-addon-api@^3.2.1":
+"nice-napi@^1.0.2":
+  "integrity" "sha512-px/KnJAJZf5RuBGcfD+Sp2pAKq0ytz8j+1NehvgIGFkvtvFrDM3T8E4x/JJODXK9WZow8RRGrbA9QQ3hs+pDhA=="
+  "resolved" "https://registry.npmjs.org/nice-napi/-/nice-napi-1.0.2.tgz"
+  "version" "1.0.2"
+  dependencies:
+    "node-addon-api" "^3.0.0"
+    "node-gyp-build" "^4.2.2"
+
+"node-addon-api@^3.0.0", "node-addon-api@^3.2.1":
   "integrity" "sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A=="
   "resolved" "https://registry.npmjs.org/node-addon-api/-/node-addon-api-3.2.1.tgz"
   "version" "3.2.1"
@@ -7135,7 +7143,7 @@
   "resolved" "https://registry.npmjs.org/node-forge/-/node-forge-0.10.0.tgz"
   "version" "0.10.0"
 
-"node-gyp-build@^4.3.0":
+"node-gyp-build@^4.2.2", "node-gyp-build@^4.3.0":
   "integrity" "sha512-iWjXZvmboq0ja1pUGULQBexmxq8CV4xBhX7VDOTbL7ZR4FOowwY/VOtRxBN/yKxmdGoIp4j5ysNT4u3S2pDQ3Q=="
   "resolved" "https://registry.npmjs.org/node-gyp-build/-/node-gyp-build-4.3.0.tgz"
   "version" "4.3.0"
