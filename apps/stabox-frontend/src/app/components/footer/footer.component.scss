@@ -1,0 +1,49 @@
+#socialIcons {
+    width: 25%;
+}
+
+.socialIcon {
+    transform: scale(0.8);
+}
+
+#footer {
+    width: 100%;
+    text-align: center;
+}
+
+#email {
+    font-size: 22px;
+    font-family: 'PT Sans Caption', sans-serif;
+
+    background-color: #f2da00;
+    background: linear-gradient(to right, #f2da00, #e29704 70%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    font-family: 'PT Sans Caption', sans-serif;
+    color: rgba($color: #CAC8D9, $alpha: 0.75);
+    font-size: 32px;
+}
+
+#copyrightIcon {
+    display: inline-block;
+    color: rgba($color: #CAC8D9, $alpha: 0.75);
+    transform: scale(2);
+    margin-right: 35px;
+}
+
+#copyrightText {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#creators {
+    font-size: 20px;
+}
+
+.divider {
+    width: 75%;
+}
