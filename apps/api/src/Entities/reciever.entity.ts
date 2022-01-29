@@ -1,30 +1,33 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { addressEntity, packageEntity } from ".";
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { addressEntity, packageEntity } from '.';
 
 @Entity()
-export class recieverEntity implements recieverInterface {
+export class recieverEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
 
+  @ManyToOne((type) => addressEntity, (adress) => adress.recievers)
+  adress: addressEntity;
 
-    @PrimaryGeneratedColumn()
-    id: number;
+  @Column()
+  firstName: string;
 
-    @ManyToOne(type => addressEntity, adress => adress.recievers)
-    adress: addressEntity;
+  @Column()
+  lastName: string;
 
-    @Column()
-    firstName: string;
+  @Column()
+  email: string;
 
-    @Column()
-    lastName: string;
+  @Column()
+  phoneNumber: string;
 
-    @Column()
-    email: string;
-
-    @Column()
-    phoneNumber: string;
-
-    //Relations
-    @OneToMany(type => packageEntity, package_ => package_.reciever)
-    package: packageEntity[];
-
+  //Relations
+  @OneToMany((type) => packageEntity, (package_) => package_.reciever)
+  package: packageEntity[];
 }

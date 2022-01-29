@@ -1,10 +1,7 @@
-import { Controller, Get, SetMetadata, UseGuards } from '@nestjs/common';
-
-import { Message } from '@stabox/stabox-lib';
-
+import { Controller, Get, Req, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
-import { AuthGuard } from './auth/auth.guard';
-import { RoleGuard } from './auth/role.guard';
+import { AuthGuard, authRequest, RoleGuard } from './auth';
+import { Roles } from './auth/roles.decorator';
 
 @Controller()
 export class AppController {
@@ -13,20 +10,20 @@ export class AppController {
   //needs to be logged in
   @UseGuards(AuthGuard)
   @Get('hello')
-  getData(): Message {
-    return this.appService.getData();
+  getData(@Req() req: authRequest) {
+    return req.user;
   }
 
   //needs admin role
   @UseGuards(AuthGuard, RoleGuard)
-  @SetMetadata('roles', ['admin'])
+  @Roles('admin')
   @Get('/cat')
   getCat(): string {
     return this.appService.getCat();
   }
 
   @Get('/dog')
-  getDog(): string {
-    return this.appService.getDog();
+  getDog(@Req() req): string {
+    return req.user + ' and a dog';
   }
 }

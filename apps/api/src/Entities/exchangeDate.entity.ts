@@ -1,19 +1,17 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { userEntity } from ".";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { userEntity } from '.';
 
- @Entity()
- export class exchangeDateEntity implements exchangeDateInterface{
+@Entity()
+export class exchangeDateEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @PrimaryGeneratedColumn()
-     id: number;
+  @ManyToOne(() => userEntity, (user) => user)
+  user: userEntity;
 
-     @ManyToOne(()=> userEntity, user=> user)
-     user: userInterface;
+  @Column()
+  startDate: Date;
 
-     @Column()
-     startDate: Date;
-     
-     @Column()
-     endDate: Date;
-
- }
+  @Column()
+  endDate: Date;
+}

@@ -4,7 +4,7 @@ import {
   JoinColumn,
   OneToMany,
   OneToOne,
-  PrimaryGeneratedColumn,
+  PrimaryColumn,
 } from 'typeorm';
 import {
   addressEntity,
@@ -14,16 +14,16 @@ import {
 } from '.';
 
 @Entity()
-export class userEntity implements userInterface {
+export class userEntity {
   //Columns
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryColumn()
+  id: string;
 
   @OneToOne((type) => shipperEntity)
   @JoinColumn()
   shipper: shipperEntity;
 
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Column()

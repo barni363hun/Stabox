@@ -3,22 +3,22 @@ import { addressEntity, shipperEntity, userEntity } from '.';
 import { recieverEntity } from './reciever.entity';
 
 @Entity()
-export class packageEntity implements packageInterface {
+export class packageEntity {
   //Columns
   @PrimaryGeneratedColumn()
   id: number;
 
   @ManyToOne(() => userEntity, (user) => user.packages)
-  user: userInterface;
+  user: userEntity;
 
   @ManyToOne(() => shipperEntity, (shipper) => shipper.packages)
-  shipper: shipperInterface;
+  shipper: shipperEntity;
 
   @ManyToOne((type) => recieverEntity, (reciever) => reciever.package)
-  reciever: recieverInterface;
+  reciever: recieverEntity;
 
   @ManyToOne((type) => addressEntity, (fromAdress) => fromAdress.packages)
-  fromAdress: addressInterface;
+  fromAdress: addressEntity;
 
   @Column()
   postDate: Date;

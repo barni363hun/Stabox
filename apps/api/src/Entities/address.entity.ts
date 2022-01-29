@@ -1,38 +1,43 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { packageEntity, userEntity } from '.';
 import { recieverEntity } from './reciever.entity';
 
 @Entity()
-export class addressEntity implements addressInterface {
+export class addressEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-	@PrimaryGeneratedColumn()
-	id: number;
+  @ManyToOne(() => userEntity, (user) => user.addresses)
+  user: userEntity;
 
-	@ManyToOne(() => userEntity, (user) => user.addresses)
-	user: userEntity;
+  @Column()
+  region: number;
 
-	@Column()
-	region: number;
+  @Column()
+  zipCode: number;
 
-	@Column()
-	zipCode: number;
+  @Column()
+  cityName: string;
 
-	@Column()
-	cityName: string;
+  @Column()
+  street: string;
 
-	@Column()
-	street: string;
+  @Column()
+  houseNumber: number;
 
-	@Column()
-	houseNumber: number;
+  @Column()
+  name: string;
 
-	@Column()
-	name: string;
+  //Relations
+  @OneToMany((type) => recieverEntity, (reciever) => reciever.adress)
+  recievers: recieverEntity[];
 
-	//Relations
-	@OneToMany(type => recieverEntity, reciever => reciever.adress)
-	recievers: recieverEntity[];
-
-	@OneToMany(type => packageEntity, package_ => package_.fromAdress) // "package" is a reserved word for js
-	packages: packageEntity[];
+  @OneToMany((type) => packageEntity, (package_) => package_.fromAdress) // "package" is a reserved word for js
+  packages: packageEntity[];
 }

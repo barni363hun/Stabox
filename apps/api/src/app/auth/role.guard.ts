@@ -4,18 +4,14 @@ import {
   ForbiddenException,
   Injectable,
 } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import { Reflector } from '@nestjs/core';
 
 @Injectable()
 export class RoleGuard implements CanActivate {
-  constructor(
-    private reflector: Reflector,
-    private configService: ConfigService
-  ) {}
+  constructor(private reflector: Reflector) {}
   canActivate(context: ExecutionContext): boolean {
     const [req] = context.getArgs();
-    const userRoles = req?.user[this.configService.get('AUTH0_ROLES')] || [];
+    const userRoles = req?.user[process.env.AUTH0_ROLES] || [];
     const requiredRoles = this.reflector.get('roles', context.getHandler());
     const hasAllRequiredRoles = requiredRoles.every((permission) =>
       userRoles.includes(permission)
