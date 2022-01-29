@@ -1,3 +1,5 @@
+<div align="center">
+  
 # Stabox
 
 <a href="https://www.stabox.hu"><img src="https://drive.google.com/uc?export=view&id=1wnxXt-08N5PoJNZN2JBUZTo6ij7rneQ1" width="450"/></a>
@@ -10,6 +12,8 @@
 <a href="https://angular.io/">![Angular](https://img.shields.io/static/v1?style=for-the-badge&message=Angular&color=DD0031&logo=Angular&logoColor=FFFFFF&label=)</a>
 
 **Smart, Fast and New way of package transportation**
+</div>
+
 
 ## For guests
 
@@ -77,7 +81,7 @@ If you have issues with cypress try running:
 
 ## Here you can run the app online:
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/barni363hun/Stabox/tree/Barni)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/barni363hun/Stabox)
 
 ## Made by:
 

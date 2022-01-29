@@ -3,3 +3,6 @@ image:
 tasks:
   - init: npm i
     command: ng serve stabox-frontend
+ports:
+  - port: 7000
+    onOpen: notify
