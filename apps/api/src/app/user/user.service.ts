@@ -46,14 +46,12 @@ export class UserService {
   }
   modify(authId: string, user: userDto) {
     const newUser: {
-      email: string;
       username: string;
       id: string;
       firstName: string;
       lastName: string;
       phoneNumber: string;
     } = {
-      email: user.email,
       username: user.username,
       id: authId,
       firstName: user.firstName,
