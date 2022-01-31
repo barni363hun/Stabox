@@ -3,17 +3,26 @@ import {
   Controller,
   Delete,
   Get,
-  Param,
+  NotFoundException,
   Patch,
+  Post,
   Put,
   Req,
   UseGuards,
 } from '@nestjs/common';
+import { IsString } from 'class-validator';
+import { FindManyOptions } from 'typeorm';
 import { userEntity } from '../../Entities';
-import { AuthGuard, authRequest } from '../auth';
-import { userDto } from './user.DTO';
+import { AuthGuard, authRequest, RoleGuard } from '../auth';
+import { Roles } from '../auth/roles.decorator';
+import { userUpdateDto } from './userUpdate.DTO';
 import { UserService } from './user.service';
 import { userMinDto } from './userMin.DTO';
+
+class idDto {
+  @IsString()
+  id: string;
+}
 
 @Controller('user')
 export class UserController {
@@ -30,7 +39,7 @@ export class UserController {
   @UseGuards(AuthGuard)
   @Get('/all')
   getAll() {
-    return this.userService.getAll();
+    return this.userService.getAllUsername();
   }
 
   //Create user
@@ -41,7 +50,7 @@ export class UserController {
     @Body() body: userMinDto
   ): Promise<userEntity> {
     //const body: userMin = { id: 0, username: '', email: '', authId: '' };
-    return this.userService.create(req.user.sub, body);
+    return this.userService.new(req.user.sub, body);
   }
 
   //Delete user
@@ -54,17 +63,40 @@ export class UserController {
   //Modify user
   @UseGuards(AuthGuard)
   @Patch()
-  modify(@Req() req: authRequest, @Body() body: userDto) {
-    return this.userService.modify(req.user.sub, body);
+  modify(@Req() req: authRequest, @Body() body: userUpdateDto) {
+    const newUser: {
+      username: string;
+      id: string;
+      firstName: string;
+      lastName: string;
+      phoneNumber: string;
+    } = {
+      username: body.username,
+      id: req.user.sub,
+      firstName: body.firstName,
+      lastName: body.lastName,
+      phoneNumber: body.phoneNumber,
+    };
+    return this.userService.update(newUser.id, newUser);
   }
 
-  // //Add role to user
-  // @Post()
-  // addRole() {
-  //   return this.userService.addRole();
-  // }
+  //get all user's all information
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles('admin')
+  @Post()
+  find(@Body() body: FindManyOptions) {
+    return this.userService.find(body);
+  }
 
-  // //Remove role to user
+  //Add role to user
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles('admin')
+  @Post('/role')
+  addRole(@Body() body: idDto) {
+    return this.userService.addUserRole(body.id);
+  }
+
+  // //Remove role from user
   // @Post()
   // removeRole() {
   //   return this.userService.removeRole();

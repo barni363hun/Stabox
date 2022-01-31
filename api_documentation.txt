@@ -1,0 +1,42 @@
+- auth0 
+    - login
+    - registration
+- user
+    - create
+    - update
+    - delete
+    - getAllUsername
+    - getMyData
+    - getAllUser - admin
+    - assignUserRole - admin
+- transaction
+    - getMyTransactions
+    - getAllTransactions
+    - buyStabucks
+- exchangeDate
+    - create
+    - delete
+    - getMyExchangeDates
+    - update
+- shipper
+    - create
+    - modify
+    - delete
+    - getMyShipperInfo
+    - acceptPackage
+    - getActivePackages
+    - selectPostDate
+    - addShippingDate
+- vehicle
+    - create
+    - delete
+    - getMyVehicles
+- address
+    - create
+    - delete
+    - getMyAddresses
+- package
+    - create
+    - getAllPackage
+    - delete
+    - sent
