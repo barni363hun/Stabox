@@ -13,5 +13,11 @@ export class SignInButtonComponent implements OnInit {
     public auth: AuthService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.auth.isAuthenticated$) {
+      this.auth.user$.subscribe((user) => {
+        console.log(user);
+      });
+    }
+  }
 }
