@@ -11,7 +11,7 @@
     - assignUserRole - admin
 - transaction
     - getMyTransactions
-    - getAllTransactions
+    - getAllTransactions - admin
     - buyStabucks
 - exchangeDate
     - create
@@ -20,12 +20,9 @@
     - update
 - shipper
     - create
-    - modify
     - delete
-    - getMyShipperInfo
     - acceptPackage
     - getActivePackages
-    - selectPostDate
     - addShippingDate
 - vehicle
     - create
@@ -37,6 +34,6 @@
     - getMyAddresses
 - package
     - create
-    - getAllPackage
+    - getAllPackage // a tokenben más benne lesz a user-nek a joga?
     - delete
     - sent

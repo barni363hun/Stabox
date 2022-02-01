@@ -1,8 +1,6 @@
-import { shipperInterface } from './shipper.interface';
-
 export interface userInterface {
-  id: number;
-  shipper: shipperInterface;
+  id: string;
+  shipper: number;
   email: string;
   username: string;
   firstName: string;

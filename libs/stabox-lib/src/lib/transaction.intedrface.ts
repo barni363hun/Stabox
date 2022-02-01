@@ -1,8 +1,6 @@
-import { userInterface } from '..';
-
 export interface transactionInterface {
   id: number;
-  user: userInterface;
+  user: string;
   amount: number;
   direction: boolean;
 }

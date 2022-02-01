@@ -1,16 +1,9 @@
-import {
-  addressInterface,
-  recieverInterface,
-  shipperInterface,
-  userInterface,
-} from '..';
-
 export interface packageInterface {
   id: number;
-  user: userInterface;
-  shipper: shipperInterface;
-  reciever: recieverInterface;
-  fromAdress: addressInterface;
+  user: string;
+  shipper: number;
+  reciever: number;
+  fromAdress: number;
   postDate: Date;
   shippingDate: Date;
   size: string;

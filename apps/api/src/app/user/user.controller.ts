@@ -3,7 +3,6 @@ import {
   Controller,
   Delete,
   Get,
-  NotFoundException,
   Patch,
   Post,
   Put,
@@ -18,6 +17,7 @@ import { Roles } from '../auth/roles.decorator';
 import { userUpdateDto } from './userUpdate.DTO';
 import { UserService } from './user.service';
 import { userMinDto } from './userMin.DTO';
+import { userInterface } from '@stabox/stabox-lib';
 
 class idDto {
   @IsString()
@@ -48,7 +48,7 @@ export class UserController {
   create(
     @Req() req: authRequest,
     @Body() body: userMinDto
-  ): Promise<userEntity> {
+  ): Promise<userInterface> {
     //const body: userMin = { id: 0, username: '', email: '', authId: '' };
     return this.userService.new(req.user.sub, body);
   }
@@ -77,6 +77,7 @@ export class UserController {
       lastName: body.lastName,
       phoneNumber: body.phoneNumber,
     };
+    this.userService.addUserRole(newUser.id);
     return this.userService.update(newUser.id, newUser);
   }
 
