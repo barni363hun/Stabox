@@ -1,0 +1,40 @@
+- auth0 
+    - login
+    - registration
+- user
+    - create
+    - update
+    - delete
+    - getAllUsername
+    - getMyData
+    - getAllUser - admin
+    - assignUserRole - admin
+- transaction
+    - getMyTransactions
+    - getAllTransactions - admin
+    - buyStabucks
+- exchangeDate
+    - create
+    - delete
+    - getMyExchangeDates
+    - update
+    - getAll - admin
+- shipper
+    - create
+    - delete
+    - acceptPackage
+    - getActivePackages
+    - addShippingDate
+- vehicle
+    - create
+    - delete
+    - getMyVehicles
+- address
+    - create
+    - delete
+    - getMyAddresses
+- package
+    - create
+    - getAllPackage // a tokenben más benne lesz a user-nek a joga?
+    - delete
+    - sent

@@ -2,7 +2,7 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { packageEntity } from '.';
 
 @Entity()
-export class shipperEntity implements shipperInterface {
+export class shipperEntity {
   //Columns
   @PrimaryGeneratedColumn()
   id: number;

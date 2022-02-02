@@ -7,16 +7,15 @@ import {
 import { expressJwtSecret } from 'jwks-rsa';
 import { promisify } from 'util';
 import * as jwt from 'express-jwt';
-import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
   private AUTH0_AUDIENCE: string;
   private AUTH0_DOMAIN: string;
 
-  constructor(private configService: ConfigService) {
-    this.AUTH0_AUDIENCE = this.configService.get('AUTH0_AUDIENCE');
-    this.AUTH0_DOMAIN = this.configService.get('AUTH0_DOMAIN');
+  constructor() {
+    this.AUTH0_AUDIENCE = process.env.AUTH0_AUDIENCE;
+    this.AUTH0_DOMAIN = process.env.AUTH0_DOMAIN;
   }
 
   async canActivate(context: ExecutionContext): Promise<boolean> {

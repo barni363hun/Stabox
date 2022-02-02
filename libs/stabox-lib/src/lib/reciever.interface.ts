@@ -1,8 +1,6 @@
-import { addressInterface } from '..';
-
 export interface recieverInterface {
   id: number;
-  adress: addressInterface;
+  adress: number;
   firstName: string;
   lastName: string;
   email: string;
