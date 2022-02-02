@@ -31,11 +31,11 @@ export abstract class GenericService<T> {
     return await this.repository.save(result);
   }
 
-  async update(id: string, data: object): Promise<UpdateResult> {
+  async update(id: number, data: object): Promise<UpdateResult> {
     return await this.repository.update(id, data);
   }
 
-  async delete(id: string): Promise<DeleteResult> {
+  async delete(id: number): Promise<DeleteResult> {
     return await this.repository.delete(id);
   }
 }

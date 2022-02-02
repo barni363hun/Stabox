@@ -57,7 +57,7 @@ export class UserController {
   @UseGuards(AuthGuard)
   @Delete()
   delete(@Req() req: authRequest) {
-    return this.userService.delete(req.user.sub);
+    return this.userService.deletee(req.user.sub);
   }
 
   //Modify user
@@ -78,7 +78,7 @@ export class UserController {
       phoneNumber: body.phoneNumber,
     };
     this.userService.addUserRole(newUser.id);
-    return this.userService.update(newUser.id, newUser);
+    return this.userService.updatee(newUser.id, newUser);
   }
 
   //get all user's all information

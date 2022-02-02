@@ -18,6 +18,7 @@
     - delete
     - getMyExchangeDates
     - update
+    - getAll - admin
 - shipper
     - create
     - delete

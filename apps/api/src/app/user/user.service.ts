@@ -45,6 +45,13 @@ export class UserService extends GenericService<userInterface> {
       }
     });
   }
+  async deletee(id: string) {
+    return await this.userRepository.delete(id);
+  }
+
+  async updatee(id: string, data: object) {
+    return await this.userRepository.update(id, data);
+  }
 
   async new(authId: string, user: userMinDto): Promise<userInterface> {
     const newUser: {
