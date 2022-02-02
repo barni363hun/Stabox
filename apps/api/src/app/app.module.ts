@@ -15,6 +15,7 @@ import {
 } from '../Entities';
 import { AuthModule } from './auth/auth.module';
 import { ExchangeDateModule } from './exchange-date/exchange-date.module';
+import { TransactionModule } from './transaction/transaction.module';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { ExchangeDateModule } from './exchange-date/exchange-date.module';
     }),
     UserModule,
     ExchangeDateModule,
+    TransactionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
