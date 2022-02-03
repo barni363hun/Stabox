@@ -9,13 +9,14 @@ import {
   exchangeDateEntity,
   packageEntity,
   recieverEntity,
-  shipperEntity,
   transactionEntity,
   userEntity,
+  vehicleEntity,
 } from '../Entities';
 import { AuthModule } from './auth/auth.module';
 import { ExchangeDateModule } from './exchange-date/exchange-date.module';
 import { TransactionModule } from './transaction/transaction.module';
+import { VehicleModule } from './vehicle/vehicle.module';
 
 @Module({
   imports: [
@@ -34,7 +35,7 @@ import { TransactionModule } from './transaction/transaction.module';
         exchangeDateEntity,
         packageEntity,
         recieverEntity,
-        shipperEntity,
+        vehicleEntity,
         transactionEntity,
       ],
       autoLoadEntities: true, //only in development mode
@@ -43,6 +44,7 @@ import { TransactionModule } from './transaction/transaction.module';
     UserModule,
     ExchangeDateModule,
     TransactionModule,
+    VehicleModule,
   ],
   controllers: [AppController],
   providers: [AppService],

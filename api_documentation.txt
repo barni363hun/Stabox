@@ -9,6 +9,10 @@
     - getMyData
     - getAllUser - admin
     - assignUserRole - admin
+    - assignShipperRole
+    - acceptPackage - shipper
+    - getActivePackages - shipper
+    - addShippingDate - shipper
 - transaction
     - getMyTransactions
     - getAllTransactions - admin
@@ -19,22 +23,17 @@
     - getMyExchangeDates
     - update
     - getAll - admin
-- shipper
-    - create
-    - delete
-    - acceptPackage
-    - getActivePackages
-    - addShippingDate
 - vehicle
-    - create
-    - delete
-    - getMyVehicles
+    - create - shipper
+    - delete - shipper
+    - update - shipper
+    - getMyVehicles - shipper
 - address
     - create
     - delete
     - getMyAddresses
 - package
     - create
-    - getAllPackage // a tokenben más benne lesz a user-nek a joga?
-    - delete
+    - assignVehicle - shipper
+    - getAllPackage
     - sent

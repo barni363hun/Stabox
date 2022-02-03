@@ -45,6 +45,32 @@ export class UserService extends GenericService<userInterface> {
       }
     });
   }
+
+  async addShipperRole(id: string) {
+    return this.userRepository.findOne({ id: id }).then((res) => {
+      if (res == undefined) {
+        throw new NotFoundException('This user does not exist!');
+      } else {
+        const options = {
+          headers: {
+            'content-type': 'application/json',
+            authorization: 'Bearer ' + process.env.AUTH0_API_TOKEN,
+            'cache-control': 'no-cache',
+          },
+          data: { roles: ['rol_72IOyNuWHPWpC03o'] },
+        };
+        const data = { roles: ['rol_72IOyNuWHPWpC03o'] };
+        return this.httpService
+          .post(
+            process.env.AUTH0_DOMAIN + 'api/v2/users/' + id + '/roles',
+            data,
+            options
+          )
+          .subscribe((asd) => asd);
+      }
+    });
+  }
+
   async deletee(id: string) {
     return await this.userRepository.delete(id);
   }

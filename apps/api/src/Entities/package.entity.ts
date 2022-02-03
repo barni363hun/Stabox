@@ -1,5 +1,5 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { addressEntity, shipperEntity, userEntity } from '.';
+import { addressEntity, userEntity } from '.';
 import { recieverEntity } from './reciever.entity';
 
 @Entity()
@@ -11,13 +11,13 @@ export class packageEntity {
   @ManyToOne(() => userEntity, (user) => user.packages)
   user: userEntity;
 
-  @ManyToOne(() => shipperEntity, (shipper) => shipper.packages)
-  shipper: shipperEntity;
+  @ManyToOne(() => userEntity, (user) => user.packages)
+  shipper: userEntity;
 
-  @ManyToOne((type) => recieverEntity, (reciever) => reciever.package)
+  @ManyToOne(() => recieverEntity, (reciever) => reciever.package)
   reciever: recieverEntity;
 
-  @ManyToOne((type) => addressEntity, (fromAdress) => fromAdress.packages)
+  @ManyToOne(() => addressEntity, (fromAdress) => fromAdress.packages)
   fromAdress: addressEntity;
 
   @Column()
