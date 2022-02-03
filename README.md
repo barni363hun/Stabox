@@ -12,8 +12,8 @@
 <a href="https://angular.io/">![Angular](https://img.shields.io/static/v1?style=for-the-badge&message=Angular&color=DD0031&logo=Angular&logoColor=FFFFFF&label=)</a>
 
 **Smart, Fast and New way of package transportation**
-</div>
 
+</div>
 
 ## For guests
 
@@ -26,7 +26,7 @@ _[Design preview](https://www.figma.com/community/file/1049586110990675041/Stabo
 ## For developers
 
 :bar_chart:
-*[Entity relationship diagram](https://drive.google.com/file/d/16Sp48zplwlCXzkh4lGCJgLFKxFITv4Oc/view?usp=sharing)*
+_[Entity relationship diagram](https://drive.google.com/file/d/16Sp48zplwlCXzkh4lGCJgLFKxFITv4Oc/view?usp=sharing)_
 
 Naming conventions follow the angular syntax both on backend and frontend.
 
@@ -52,13 +52,13 @@ Backend _(you can reach it on http://localhost:3333/)_:
 
 Test:
 
-- `npx nx e2e todos-e2e --watch` _(not works on gitpod)_
+- `npx nx e2e stabox-frontend-e2e --watch` _(not works on gitpod)_
   <sub><sup>If cypress not works on local scroll down </sup></sub>
 
 ### Build
 
-- `npx nx run todos:build`
-- `npx nx run-many --target=build --projects=todos,api`
+- `npx nx run api:build`
+- `npx nx run-many --target=build --projects=stabox-frontend,api`
 
 ### Other useful commands
 

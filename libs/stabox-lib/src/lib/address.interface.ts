@@ -1,8 +1,6 @@
-import { userInterface } from '..';
-
 export interface addressInterface {
   id: number;
-  user: userInterface;
+  user: string;
   region: number;
   zipCode: number;
   cityName: string;
