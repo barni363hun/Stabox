@@ -13,6 +13,9 @@ export class addressEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column() //TODO a többi kapcsolathoz is felvenni a ezt az ID-s dolgot
+  userId: string;
+
   @ManyToOne(() => userEntity, (user) => user.addresses)
   user: userEntity;
 
@@ -29,7 +32,7 @@ export class addressEntity {
   street: string;
 
   @Column()
-  houseNumber: number;
+  houseNumber: string;
 
   @Column()
   name: string;

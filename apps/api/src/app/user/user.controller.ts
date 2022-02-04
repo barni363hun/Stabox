@@ -32,7 +32,7 @@ export class UserController {
   @UseGuards(AuthGuard)
   @Get()
   getMyData(@Req() req: authRequest) {
-    return this.userService.getMyData(req.user.sub);
+    return this.userService.getMyData(req);
   }
 
   //gets all username

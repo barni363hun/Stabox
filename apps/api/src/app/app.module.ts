@@ -17,6 +17,7 @@ import { AuthModule } from './auth/auth.module';
 import { ExchangeDateModule } from './exchange-date/exchange-date.module';
 import { TransactionModule } from './transaction/transaction.module';
 import { VehicleModule } from './vehicle/vehicle.module';
+import { AddressModule } from './address/address.module';
 
 @Module({
   imports: [
@@ -45,6 +46,7 @@ import { VehicleModule } from './vehicle/vehicle.module';
     ExchangeDateModule,
     TransactionModule,
     VehicleModule,
+    AddressModule,
   ],
   controllers: [AppController],
   providers: [AppService],
