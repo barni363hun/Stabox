@@ -38,7 +38,7 @@ export class addressEntity {
   name: string;
 
   //Relations
-  @OneToMany((type) => recieverEntity, (reciever) => reciever.adress)
+  @OneToMany((type) => recieverEntity, (reciever) => reciever.address)
   recievers: recieverEntity[];
 
   @OneToMany((type) => packageEntity, (package_) => package_.fromAdress) // "package" is a reserved word for js

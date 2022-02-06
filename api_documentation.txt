@@ -37,3 +37,7 @@
     - assignVehicle - shipper
     - getAllPackage
     - sent
+- reciever
+    - create
+    - getAllreciever - admin
+    - getMyRecievers

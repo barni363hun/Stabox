@@ -12,8 +12,11 @@ export class recieverEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne((type) => addressEntity, (adress) => adress.recievers)
-  adress: addressEntity;
+  @Column() //TODO a többi kapcsolathoz is felvenni a ezt az ID-s dolgot
+  addressId: number;
+
+  @ManyToOne((type) => addressEntity, (address) => address.recievers)
+  address: addressEntity;
 
   @Column()
   firstName: string;
