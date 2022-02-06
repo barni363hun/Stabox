@@ -34,9 +34,14 @@
     - getMyAddresses
 - package
     - create
-    - assignVehicle - shipper
-    - getAllPackage
-    - sent
+    - delete
+    - assignDateAndVehicle - shipper
+    - getAllPackages
+    - shipped
+    - sent (add current region)
+    - getAvaibleDates - shipper
+    - getPackageByVehicleId - shipper
+    - getMyPackages
 - reciever
     - create
     - getAllreciever - admin

@@ -9,5 +9,6 @@ import { ExchangeDateService } from './exchange-date.service';
   imports: [TypeOrmModule.forFeature([exchangeDateEntity]), UserModule],
   controllers: [ExchangeDateController],
   providers: [ExchangeDateService],
+  exports: [ExchangeDateService],
 })
 export class ExchangeDateModule {}

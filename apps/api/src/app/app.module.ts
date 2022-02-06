@@ -19,6 +19,7 @@ import { TransactionModule } from './transaction/transaction.module';
 import { VehicleModule } from './vehicle/vehicle.module';
 import { AddressModule } from './address/address.module';
 import { RecieverModule } from './reciever/reciever.module';
+import { PackageModule } from './package/package.module';
 
 @Module({
   imports: [
@@ -49,6 +50,7 @@ import { RecieverModule } from './reciever/reciever.module';
     VehicleModule,
     AddressModule,
     RecieverModule,
+    PackageModule,
   ],
   controllers: [AppController],
   providers: [AppService],

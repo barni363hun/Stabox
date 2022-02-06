@@ -1,5 +1,5 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { addressEntity, userEntity } from '.';
+import { addressEntity, userEntity, vehicleEntity } from '.';
 import { recieverEntity } from './reciever.entity';
 
 @Entity()
@@ -8,17 +8,29 @@ export class packageEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column()
+  userId: string;
+
+  @Column()
+  vehicleId: number;
+
+  @ManyToOne(() => vehicleEntity, (vehicle) => vehicle.id)
+  vehicle: vehicleEntity;
+
   @ManyToOne(() => userEntity, (user) => user.packages)
   user: userEntity;
 
-  @ManyToOne(() => userEntity, (user) => user.packages)
-  shipper: userEntity;
+  @Column()
+  recieverId: number;
 
   @ManyToOne(() => recieverEntity, (reciever) => reciever.package)
   reciever: recieverEntity;
 
-  @ManyToOne(() => addressEntity, (fromAdress) => fromAdress.packages)
-  fromAdress: addressEntity;
+  @Column()
+  fromAddressId: number;
+
+  @ManyToOne(() => addressEntity, (fromAddress) => fromAddress.packages)
+  fromAddress: addressEntity;
 
   @Column()
   postDate: Date;
@@ -42,10 +54,5 @@ export class packageEntity {
   currentRegion: number;
 
   @Column()
-  code: string;
-
-  @Column()
   name: string;
-
-  //Relations
 }

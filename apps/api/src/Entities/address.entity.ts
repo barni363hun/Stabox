@@ -41,6 +41,6 @@ export class addressEntity {
   @OneToMany((type) => recieverEntity, (reciever) => reciever.address)
   recievers: recieverEntity[];
 
-  @OneToMany((type) => packageEntity, (package_) => package_.fromAdress) // "package" is a reserved word for js
+  @OneToMany((type) => packageEntity, (package_) => package_.fromAddress) // "package" is a reserved word for js
   packages: packageEntity[];
 }
