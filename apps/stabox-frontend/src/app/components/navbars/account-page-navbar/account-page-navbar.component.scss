@@ -1,27 +1,40 @@
+$colorLightGray: #CAC8D9;
+$colorDarkGray: #565656;
+$colorWhite: white;
+$colorLightBlue: #00B3EC;
+$colorDarkBlue: #007FC7;
+$colorLightYellow: #f2da00;
+$colorDarkYellow: #e29704;
+
+$bgColorWhite: #fefefc;
+$bgColorBlack: #161518;
+
+$shadeColor: black;
+
 .lightMode .nav {
-  color: #565656;
-  background-color: rgba(#fefefc, 0.95);
-  border-bottom: 2px solid rgba(#565656, 0.1);
+  color: $colorDarkGray;
+  background-color: rgba($bgColorWhite, 0.95);
+  border-bottom: 2px solid rgba($colorDarkGray, 0.1);
 }
 
 .lightMode .navText,
 .lightMode #coinAmount,
 .lightMode #sideBarItemCoinAmount {
-  color: #565656;
+  color: $colorDarkGray;
 }
 
 .lightMode .navUnderline {
-  background-color: #00B3EC;
-  background: linear-gradient(to right, #00B3EC, #007FC7);
+  background-color: $colorLightBlue;
+  background: linear-gradient(to right,  $colorLightBlue,  $colorDarkBlue);
 }
 
 .lightMode #sideBar {
-  color: #565656;
-  background-color: #fefefc;
+  color: $colorDarkGray;
+  background-color: $bgColorWhite;
 }
 
 .lightMode .sideBarItemDiv {
-  border-bottom: 2px solid rgba(#565656, 0.1);
+  border-bottom: 2px solid rgba($colorDarkGray, 0.1);
 }
 
 
@@ -40,9 +53,9 @@
 }
 
 .nav {
-  background-color: rgba(#161518, 0.95);
+  background-color: rgba($bgColorBlack, 0.95);
   padding: 10px 40px 10px 40px;
-  border-bottom: 2px solid rgba(#CAC8D9, 0.1);
+  border-bottom: 2px solid rgba($colorLightGray, 0.1);
 }
   
 .nav-item {
@@ -52,7 +65,7 @@
 
 .navText  {
   font-size: 28px;
-  color: white;
+  color: $colorWhite;
   text-decoration: none;
   margin: 0 10px 0 10px;
 }
@@ -68,7 +81,7 @@
   height: 3px;
   margin: 0 auto;
   border-radius: 10px;
-  background: linear-gradient(to right, #f2da00, #e29704);
+  background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow);
 }
   
 #coinsIcon {
@@ -79,7 +92,7 @@
 }
   
 #coinAmount {
-  color: white;
+  color: $colorWhite;
   margin-right: 20px;
   font-size: 26px;
   display: inline;
@@ -116,8 +129,8 @@
 }
 
 @keyframes shadeAppear {
-  from {background-color: rgba(0, 0, 0, 0);}
-  to {background-color: rgba(0, 0, 0, 0.85);}
+  from {background-color: rgba($shadeColor, 0);}
+  to {background-color: rgba($shadeColor, 0.85);}
 }
 
 #sideBarShade {
@@ -126,7 +139,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba($shadeColor, 0.85);
   margin-top: 75px;
 
   animation: shadeAppear ease 0.15s;
@@ -138,13 +151,12 @@
 }
 
 #sideBar {
-  transition: 0.15s;
   width: 50%;
   height: 100%;
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #161518;
+  background-color: $bgColorBlack;
   padding-top: 75px;
 
   animation: sideBarAppear ease 0.15s;
@@ -163,7 +175,7 @@
 
 .sideBarItemDiv {
   width: 100%;
-  border-bottom: 2px solid rgba(#CAC8D9, 0.1);
+  border-bottom: 2px solid rgba($colorLightGray, 0.1);
   padding: 15px 0;
 }
 
@@ -183,7 +195,7 @@
 }
   
 #sideBarItemCoinAmount {
-  color: white;
+  color: $colorWhite;
   margin-right: 20px;
   font-size: 28px;
   display: inline;
