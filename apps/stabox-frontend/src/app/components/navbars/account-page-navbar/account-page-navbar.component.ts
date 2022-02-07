@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-account-page-navbar',
   templateUrl: './account-page-navbar.component.html',
@@ -7,9 +6,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountPageNavbarComponent implements OnInit {
 
-  constructor() { }
+  showSideBar = false;
+
+  @Output() lightModeEvent = new EventEmitter<String>();
+  lightMode = false;
+
+  theme = "dark"
+
+  constructor() {
+    if (localStorage.getItem('theme') == "light") {
+      this.lightMode = true;
+    }
+    else {
+      this.lightMode = false;
+    }
+  }
 
   ngOnInit(): void {
   }
 
+  emitLightModeOn() {
+    this.theme = "light";
+    localStorage.setItem('theme', this.theme);
+    this.lightMode = true;
+    this.lightModeEvent.emit(localStorage.getItem('theme')?.toString());
+  }
+
+  emitLightModeOff() {
+    this.theme = "dark";
+    localStorage.setItem('theme', this.theme);
+    this.lightMode = false;
+    this.lightModeEvent.emit(localStorage.getItem('theme')?.toString());
+  }
 }

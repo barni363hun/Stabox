@@ -1,3 +1,25 @@
+.lightMode #shipperDetails {
+    background-color: #fefefc;
+    color: #565656;
+}
+
+.lightMode input {
+    color: #565656;
+}
+
+.lightMode input:focus {
+    box-shadow: inset 0 1px 1px rgba(#00B3EC, 0.075), 0 0 8px rgba(#007FC7, 0.6);
+}
+
+.lightMode .icon,
+.lightMode .deleteIcon {
+    background-color: #00B3EC;
+    background: linear-gradient(to right, #00B3EC, #007FC7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 #shade {
     width: 100%;
     height: 100%;
@@ -7,22 +29,101 @@
 }
 
 #shipperDetails {
-    z-index: 1;
     background-color: #161518;
     width: 75%;
     height: 75%;
     position: relative;
     padding: 60px;
+    border-radius: 100px;
+
     margin: auto;
     top: 50%;
     transform: translateY(-50%);
-    border-radius: 100px;
+
+    animation-name: appear;
+    animation-duration: 0.15s;
 }
 
-#content {
-    margin-top: 50px;
+@keyframes appear {
+    from {transform: translateY(-50%) scale(0.75);}
+    to {transform: translateY(-50%) scale(1);}
+}
+
+#shipperDetailsDiv {
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
 }
 
 p {
     font-size: 28px;
+}
+
+#stopBeingShipperIcon {
+    width: 125px;
+}
+
+#stopBeingShipperIcon:hover {
+    cursor: pointer;
+}
+
+input:focus {
+    outline: none;
+    transition: 0.25s;
+    box-shadow: inset 0 1px 1px rgba(#f2da00, 0.075), 0 0 8px rgba(#e29704, 0.6);
+}
+
+input {
+    background: transparent;
+    color: white;
+    border-radius: 7.5px;
+    border: none;
+    font-size: 24px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.icon {
+    transform: scale(2);
+    background-color: #f2da00;
+    background: linear-gradient(to right, #f2da00, #e29704);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.deleteIcon {
+    transform: scale(1.5);
+    background-color: #f2da00;
+    background: linear-gradient(to right, #f2da00, #e29704);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.deleteIcon:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1200px) {
+    #shipperDetails {
+        width: 95%;
+        padding: 30px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #shipperDetails input {
+        font-size: 90%;
+    }
+    .icon {
+        transform: scale(1.15);
+    }
+    .deleteIcon {
+        transform: scale(1);
+    }
 }

@@ -7,9 +7,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountPageComponent implements OnInit {
 
-  constructor() { }
+  viewDetails = false;
+  lightMode = false;
+  theme = "dark"
+
+  constructor() {
+    if (localStorage.getItem('theme') == "light") {
+      this.lightMode = true;
+    }
+    else {
+      this.lightMode = false;
+    }
+  }
 
   ngOnInit(): void {
+  }
+
+  getViewShipperDetails(data: any) {
+    this.viewDetails = data;
+  }
+
+  getLightModeToggle(data: any) {
+    if (data == "light") {
+      this.lightMode = true;
+    }
+    else {
+      this.lightMode = false;
+    }
   }
   
 }

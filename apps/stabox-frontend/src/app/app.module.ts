@@ -28,6 +28,8 @@ import { HomeIconComponent } from './components/icons/home-icon/home-icon.compon
 import { ShipperDetailsComponent } from './components/pages/account-page/shipper-details/shipper-details.component';
 import { CloseIconComponent } from './components/icons/close-icon/close-icon.component';
 import { AddIconComponent } from './components/icons/add-icon/add-icon.component';
+import { MyPackagesPageComponent } from './components/pages/my-packages-page/my-packages-page.component';
+import { ShowMoreButtonComponent } from './components/buttons/show-more-button/show-more-button.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { AddIconComponent } from './components/icons/add-icon/add-icon.component
     ShipperDetailsComponent,
     CloseIconComponent,
     AddIconComponent,
+    MyPackagesPageComponent,
+    ShowMoreButtonComponent,
   ],
   imports: [
     BrowserModule,

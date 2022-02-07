@@ -1,3 +1,5 @@
-<div id="closeIconDiv">
-    <mat-icon id="closeIcon">close</mat-icon>
+<div [ngClass]="{'lightMode': lightMode == true}">
+    <div id="closeIconDiv">
+        <mat-icon id="closeIcon">close</mat-icon>
+    </div>
 </div>
