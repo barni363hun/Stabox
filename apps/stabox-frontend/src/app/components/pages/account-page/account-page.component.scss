@@ -16,6 +16,10 @@
     box-shadow: #e29704 0 0 3px inset;
 }
 
+.lightMode #content {
+    scrollbar-color: #00B3EC #fefefc;
+}
+
 .lightMode::-webkit-scrollbar-thumb {
     background: linear-gradient(#00B3EC, #007FC7);
     box-shadow: #007FC7 0 0 3px inset;
@@ -56,8 +60,6 @@
 }
 
 #content {
-    transition: 0.25s;
-
     width: 100%;
     height: 100vh;
 

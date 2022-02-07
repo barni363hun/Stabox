@@ -30,11 +30,11 @@
             <div class="me-4" routerLink="/account">
                 <app-account-button [lightMode]="lightMode"></app-account-button>
             </div>
-            <div class="lightModeIconDiv" *ngIf="lightMode == true" (click)="emitLightModeOff()" title="Turn Light Theme Off">
-                <img class="lightModeIcon" src="../../../../assets/images/LightMode/LightModeIcon.svg">
+            <div class="themeSwitchIconDiv" *ngIf="lightMode == true" (click)="emitLightModeOff()" title="Turn Light Theme Off">
+                <img class="themeSwitchIcon" src="../../../../assets/images/LightMode/LightModeIcon.svg">
             </div>
-            <div class="lightModeIconDiv" *ngIf="lightMode == false" (click)="emitLightModeOn()" title="Turn Light Theme On">
-                <img class="lightModeIcon" src="../../../../assets/images/DarkMode/DarkModeIcon.svg">
+            <div class="themeSwitchIconDiv" *ngIf="lightMode == false" (click)="emitLightModeOn()" title="Turn Light Theme On">
+                <img class="themeSwitchIcon" src="../../../../assets/images/DarkMode/DarkModeIcon.svg">
             </div>
         </div>
     </nav>
@@ -75,11 +75,11 @@
         </div>
 
         <div class="sideBarItemDiv">
-            <div class="lightModeIconDiv" *ngIf="lightMode == true" (click)="emitLightModeOff()" title="Turn Light Theme Off">
-                <img class="lightModeIcon" src="../../../../assets/images/LightMode/LightModeIcon.svg">
+            <div class="themeSwitchIconDiv" *ngIf="lightMode == true" (click)="emitLightModeOff()" title="Turn Light Theme Off">
+                <img class="themeSwitchIcon" src="../../../../assets/images/LightMode/LightModeIcon.svg">
             </div>
-            <div class="lightModeIconDiv" *ngIf="lightMode == false" (click)="emitLightModeOn()" title="Turn Light Theme On">
-                <img class="lightModeIcon" src="../../../../assets/images/DarkMode/DarkModeIcon.svg">
+            <div class="themeSwitchIconDiv" *ngIf="lightMode == false" (click)="emitLightModeOn()" title="Turn Light Theme On">
+                <img class="themeSwitchIcon" src="../../../../assets/images/DarkMode/DarkModeIcon.svg">
             </div>
         </div>
 

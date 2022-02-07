@@ -40,7 +40,6 @@
 }
 
 .nav {
-  transition: 0.25s;
   background-color: rgba(#161518, 0.95);
   padding: 10px 40px 10px 40px;
   border-bottom: 2px solid rgba(#CAC8D9, 0.1);
@@ -91,17 +90,17 @@
   cursor: pointer;
 }
 
-.lightModeIcon {
-  width: 30px;
+.themeSwitchIcon {
+  width: 45px;
 }
 
-.lightModeIconDiv {
-  padding: 7.5px;
+.themeSwitchIconDiv {
+  padding: 10px;
   border-radius: 10px;
   text-align: center;
 }
 
-.lightModeIconDiv:hover {
+.themeSwitchIconDiv:hover {
   cursor: pointer;
 }
 
