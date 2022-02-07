@@ -1,15 +1,17 @@
+@import '../../../styles/settings/variables';
+
 .lightMode p,
 .lightMode #copyrightIcon {
-    color: #565656;
+    color: $colorDarkGray;
 }
 
 .lightMode #footer {
-    border-top: 1px solid rgba(#565656, 0.15);
+    border-top: 1px solid rgba($colorDarkGray, 0.15);
 }
 
 .lightMode #email {
-    background-color: #00B3EC;
-    background: linear-gradient(to right, #00B3EC, #007FC7);
+    background-color: $colorLightBlue;
+    background: linear-gradient(to right, $colorLightBlue, $colorDarkBlue);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -20,12 +22,11 @@
     text-align: center;
     margin: 150px 0 0 0;
     padding: 20px 0 10px 0;
-    border-top: 1px solid rgba(#CAC8D9, 0.1);
+    border-top: 1px solid rgba($colorLightGray, 0.1);
 }
 
 #socialIconsDistance {
     width: 40%;
-    background-color: red;
 }
 
 .socialIcon {
@@ -47,8 +48,8 @@
     font-family: 'PT Sans Caption', sans-serif;
     margin: 0;
 
-    background-color: #f2da00;
-    background: linear-gradient(to right, #f2da00, #e29704 70%);
+    background-color: $colorLightYellow;
+    background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow 70%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -56,13 +57,13 @@
 
 p {
     font-family: 'PT Sans Caption', sans-serif;
-    color: rgba($color: #CAC8D9, $alpha: 0.75);
+    color: rgba($color: $colorLightGray, $alpha: 0.75);
     font-size: 32px;
 }
 
 #copyrightIcon {
     display: inline-block;
-    color: rgba(#CAC8D9, 0.75);
+    color: rgba($colorLightGray, 0.75);
     margin-right: 10px;
 }
 
