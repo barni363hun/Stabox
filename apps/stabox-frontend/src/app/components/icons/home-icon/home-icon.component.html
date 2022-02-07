@@ -1,3 +1,9 @@
-<a href="">
-    <mat-icon id="homeIcon">home</mat-icon>
-</a>
+<div [ngClass]="{'lightMode': lightMode == true}">
+    <div id="homeIconDiv">
+        <a routerLink="/">
+            <mat-icon id="homeIcon">home</mat-icon>
+        </a>
+    </div>
+</div>
+
+

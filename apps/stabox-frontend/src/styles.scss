@@ -26,7 +26,7 @@ $stabox-frontend-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$stabox-frontend-theme: mat.define-light-theme(
+$stabox-frontend-theme: (
   (
     color: (
       primary: $stabox-frontend-primary,
@@ -49,5 +49,5 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+
 }

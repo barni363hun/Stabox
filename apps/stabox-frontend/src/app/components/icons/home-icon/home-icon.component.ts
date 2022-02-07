@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-home-icon',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-icon.component.scss']
 })
 export class HomeIconComponent implements OnInit {
+
+  @Input() lightMode = false;
 
   constructor() { }
 

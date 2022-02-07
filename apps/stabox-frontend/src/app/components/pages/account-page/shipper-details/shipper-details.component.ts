@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-shipper-details',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShipperDetailsComponent implements OnInit {
 
+  @Output() viewDetailsEvent = new EventEmitter<Boolean>();
+  viewDetails: boolean = false;
+
+  @Input() lightMode = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  close() {
+    this.viewDetailsEvent.emit(this.viewDetails);
   }
 
 }

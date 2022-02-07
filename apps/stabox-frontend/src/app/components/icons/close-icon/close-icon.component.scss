@@ -1,3 +1,11 @@
+.lightMode #closeIcon { 
+    color: #565656;
+}
+
+.lightMode #closeIconDiv:hover {
+    background-color: rgba(#565656, 0.1);
+}
+
 #closeIconDiv {
     transition: 0.25s;
     width: fit-content;
@@ -10,15 +18,11 @@
 
 #closeIcon {
     transform: scale(1.5);
-    color: rgba(#CAC8D9, 0.75);
+    color: white;
 }
 
 #closeIconDiv:hover {
     cursor: pointer;
     transition: 0.25s;
     background-color: rgba(#CAC8D9, 0.1);
-}
-
-#closeIconDiv:active {
-    transform: translateY(5px);
 }

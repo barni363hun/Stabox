@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-account-button',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-button.component.scss']
 })
 export class AccountButtonComponent implements OnInit {
+
+  @Input() lightMode = false;
 
   constructor() { }
 
