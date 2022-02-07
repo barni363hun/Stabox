@@ -32,7 +32,7 @@ export class UserController {
   @UseGuards(AuthGuard)
   @Get()
   getMyData(@Req() req: authRequest) {
-    return this.userService.getMyData(req.user.sub);
+    return this.userService.getMyData(req);
   }
 
   //gets all username
@@ -92,9 +92,17 @@ export class UserController {
   //Add role to user
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('admin')
-  @Post('/role')
-  addRole(@Body() body: idDto) {
+  @Post('/user')
+  addUserRole(@Body() body: idDto) {
     return this.userService.addUserRole(body.id);
+  }
+
+  //Add role to user
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles('user')
+  @Post('/shipper')
+  addShipperRole(@Body() body: idDto) {
+    return this.userService.addShipperRole(body.id);
   }
 
   // //Remove role from user

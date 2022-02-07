@@ -4,19 +4,16 @@ import {
   Delete,
   Get,
   MethodNotAllowedException,
-  NotFoundException,
   Patch,
   Post,
   Put,
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { exchangeDateInterface } from '@stabox/stabox-lib';
 import { IsDateString, IsNumber } from 'class-validator';
 import { exchangeDateEntity } from '../../Entities';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
 import { Roles } from '../auth/roles.decorator';
-import { UserService } from '../user/user.service';
 import { ExchangeDateService } from './exchange-date.service';
 
 class idDto {
@@ -97,7 +94,7 @@ export class ExchangeDateController {
   @Patch()
   update(@Req() req: authRequest, @Body() body: myExchangeDateDTO) {
     return this.exchangeDateService.getById(body.id).then((a) => {
-      if (a.userId.toString() == req.user.sub) {
+      if (a.userId == req.user.sub) {
         const newDates: exchangeDateDTO = {
           startDate: body.startDate,
           endDate: body.endDate,

@@ -8,6 +8,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { userInterface } from '@stabox/stabox-lib';
 import { Repository } from 'typeorm';
 import { userEntity } from '../../Entities';
+import { authRequest } from '../auth';
 import { GenericService } from '../generics/generic.service';
 import { userMinDto } from './userMin.DTO';
 
@@ -45,6 +46,32 @@ export class UserService extends GenericService<userInterface> {
       }
     });
   }
+
+  async addShipperRole(id: string) {
+    return this.userRepository.findOne({ id: id }).then((res) => {
+      if (res == undefined) {
+        throw new NotFoundException('This user does not exist!');
+      } else {
+        const options = {
+          headers: {
+            'content-type': 'application/json',
+            authorization: 'Bearer ' + process.env.AUTH0_API_TOKEN,
+            'cache-control': 'no-cache',
+          },
+          data: { roles: ['rol_72IOyNuWHPWpC03o'] },
+        };
+        const data = { roles: ['rol_72IOyNuWHPWpC03o'] };
+        return this.httpService
+          .post(
+            process.env.AUTH0_DOMAIN + 'api/v2/users/' + id + '/roles',
+            data,
+            options
+          )
+          .subscribe((asd) => asd);
+      }
+    });
+  }
+
   async deletee(id: string) {
     return await this.userRepository.delete(id);
   }
@@ -84,15 +111,19 @@ export class UserService extends GenericService<userInterface> {
       return res.map((user) => user.username);
     });
   }
-  async getMyData(authId: string): Promise<userInterface> {
-    //TODO role-okat visszaadni
-    return this.userRepository.findOne({ id: authId }).then((res) => {
+  async getMyData(req: authRequest) {
+    return this.userRepository.findOne({ id: req.user.sub }).then((res) => {
       if (res == undefined) {
         throw new NotFoundException(
           'You can only get your data if you already have a user!'
         );
       } else {
-        return res;
+        const asd: { 'https://www.stabox.hu/roles': string[] } = {
+          'https://www.stabox.hu/roles': [
+            ...req.user['https://www.stabox.hu/roles'],
+          ],
+        };
+        return { ...asd, ...res }; // TODO: test this
       }
     });
   }
