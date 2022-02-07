@@ -1,40 +1,36 @@
-<div class="container-fluid">
+<div class="container-fluid p-0" [ngClass]="{'lightMode': lightMode == true}">
     <div class="row" id="footer">
-        <div class="col-xl-12">
-            <img class="mt-2 mb-5 divider" src="../../../../assets/images/DividerLine.svg" alt="">
+        <div class="col-xl-12 p-0 my-1">
+            <p id="email">stabox@stabox.hu</p>
         </div>
 
-        <div class="col-xl-12">
-            <div class="row mx-auto mb-4" id="socialIcons">
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                    <img class="socialIcon" src="../../../assets/images/FacebookIcon.svg" alt="">
+        <div class="col-xl-12 p-0 my-1">
+            <div class="row mx-auto socialsRow">
+                <div class="socialIconDiv col-3 p-0">
+                    <img class="socialIcon" [src]="lightMode ? '../../../../assets/images/LightMode/FacebookIcon.svg' : '../../../../assets/images/DarkMode/FacebookIcon.svg'">
                 </div>
 
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                    <img class="socialIcon" src="../../../assets/images/Instagramicon.svg" alt="">
+                <div class="socialIconDiv col-3 p-0">
+                    <img class="socialIcon" [src]="lightMode ? '../../../../assets/images/LightMode/InstagramIcon.svg' : '../../../../assets/images/DarkMode/InstagramIcon.svg'">
                 </div>
 
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                    <img class="socialIcon" src="../../../assets/images/TwitterIcon.svg" alt="">
+                <div class="socialIconDiv col-3 p-0">
+                    <img class="socialIcon" [src]="lightMode ? '../../../../assets/images/LightMode/TwitterIcon.svg' : '../../../../assets/images/DarkMode/TwitterIcon.svg'">
                 </div>
 
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                    <img class="socialIcon" src="../../../assets/images/Linkedinicon.svg" alt="">
+                <div class="socialIconDiv col-3 p-0">
+                    <img class="socialIcon" [src]="lightMode ? '../../../../assets/images/LightMode/LinkedinIcon.svg' : '../../../../assets/images/DarkMode/LinkedinIcon.svg'">
                 </div>
             </div>
         </div>
 
-        <div class="col-xl-12">
-            <p id="email">stabox@stabox.hu</p>
+        <div class="col-xl-12 p-0 my-1">
+            <p id="developers">Cserpák Róbert · Princzes Barnabás · Tamás Attila</p>
         </div>
 
-        <div class="col-xl-12">
+        <div class="col-xl-12 p-0 my-1 copyRightDiv">
             <mat-icon id="copyrightIcon">copyright</mat-icon>
             <p id="copyrightText">2022 All rights reserved</p>
-        </div>
-
-        <div class="col-xl-12">
-            <p id="creators">Cserpák Róbert · Princzes Barnabás · Tamás Attila</p>
         </div>
 
     </div>

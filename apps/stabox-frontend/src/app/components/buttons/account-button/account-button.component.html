@@ -1,6 +1,8 @@
-<div id="gradientOutline">
-    <button type="button" id="accountBtn" href="">
-        <mat-icon id="accountIcon">person</mat-icon>
-        Account
-    </button>
+<div [ngClass]="{'lightMode': lightMode == true}">
+    <div id="gradientOutline">
+        <button type="button" id="accountBtn">
+            <mat-icon id="accountIcon">person</mat-icon>
+            Account
+        </button>
+    </div>
 </div>
