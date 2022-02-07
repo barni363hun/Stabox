@@ -1,10 +1,7 @@
 import {
   Body,
   Controller,
-  Delete,
   Get,
-  MethodNotAllowedException,
-  Patch,
   Post,
   Put,
   Req,
@@ -16,12 +13,7 @@ import { AuthGuard, authRequest, RoleGuard } from '../auth';
 import { Roles } from '../auth/roles.decorator';
 import { RecieverService } from './reciever.service';
 
-class idDto {
-  @IsNumber()
-  id: number;
-}
-
-class recieverWithAddressDTO {
+class recieverWithAddressDto {
   @IsString()
   firstName: string;
   @IsString()
@@ -42,27 +34,12 @@ class recieverWithAddressDTO {
   houseNumber: string;
 }
 
-class myRecieverDTO {
-  @IsNumber()
-  id: number;
-  @IsNumber()
-  addressId: number;
-  @IsString()
-  firstName: string;
-  @IsString()
-  lastName: string;
-  @IsEmail()
-  email: string;
-  @IsPhoneNumber()
-  phoneNumber: string;
-}
-
 @Controller('reciever')
 export class RecieverController {
   constructor(
     private readonly recieverService: RecieverService,
     private readonly addressService: AddressService
-  ) {}
+  ) { }
 
   //creates reciever with address
   @UseGuards(AuthGuard, RoleGuard)
@@ -70,7 +47,7 @@ export class RecieverController {
   @Put()
   createWithAddress(
     @Req() req: authRequest,
-    @Body() body: recieverWithAddressDTO
+    @Body() body: recieverWithAddressDto
   ) {
     return this.addressService
       .create({

@@ -42,7 +42,7 @@ export class UserService extends GenericService<userInterface> {
             data,
             options
           )
-          .subscribe((asd) => asd);
+          .subscribe((res) => res);
       }
     });
   }
@@ -67,7 +67,7 @@ export class UserService extends GenericService<userInterface> {
             data,
             options
           )
-          .subscribe((asd) => asd);
+          .subscribe((res) => res);
       }
     });
   }
@@ -118,12 +118,12 @@ export class UserService extends GenericService<userInterface> {
           'You can only get your data if you already have a user!'
         );
       } else {
-        const asd: { 'https://www.stabox.hu/roles': string[] } = {
+        const roles: { 'https://www.stabox.hu/roles': string[] } = {
           'https://www.stabox.hu/roles': [
             ...req.user['https://www.stabox.hu/roles'],
           ],
         };
-        return { ...asd, ...res }; // TODO: test this
+        return { ...roles, ...res }; // TODO: test this
       }
     });
   }

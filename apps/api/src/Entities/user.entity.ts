@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
-import { addressEntity, packageEntity, transactionEntity } from '.';
+import { addressEntity, packageEntity, transactionEntity, vehicleEntity } from '.';
 
 @Entity()
 export class userEntity {
@@ -30,7 +30,7 @@ export class userEntity {
   transactions: transactionEntity[];
 
   @OneToMany(() => transactionEntity, (vehicles) => vehicles.user)
-  vehicles: transactionEntity[];
+  vehicles: vehicleEntity[];
 
   @OneToMany(() => packageEntity, (package_) => package_.user) // package name is reserved in 'strict mode'
   packages: packageEntity[];

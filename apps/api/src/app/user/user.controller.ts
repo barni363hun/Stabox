@@ -11,7 +11,6 @@ import {
 } from '@nestjs/common';
 import { IsString } from 'class-validator';
 import { FindManyOptions } from 'typeorm';
-import { userEntity } from '../../Entities';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
 import { Roles } from '../auth/roles.decorator';
 import { userUpdateDto } from './userUpdate.DTO';
@@ -26,7 +25,7 @@ class idDto {
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService) { }
 
   //gets own user data
   @UseGuards(AuthGuard)

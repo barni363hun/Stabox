@@ -21,7 +21,7 @@ class idDto {
   id: number;
 }
 
-class addressDTO {
+class addressDto {
   @IsNumber()
   region: number;
   @IsNumber()
@@ -36,7 +36,7 @@ class addressDTO {
   name: string;
 }
 
-class myAddressDTO {
+class myAddressDto {
   @IsNumber()
   id: number;
   @IsNumber()
@@ -55,13 +55,13 @@ class myAddressDTO {
 
 @Controller('address')
 export class AddressController {
-  constructor(private readonly addressService: AddressService) {}
+  constructor(private readonly addressService: AddressService) { }
 
   //creates address
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
   @Put()
-  create(@Req() req: authRequest, @Body() body: addressDTO) {
+  create(@Req() req: authRequest, @Body() body: addressDto) {
     return this.addressService.create({
       id: 0,
       userId: req.user.sub,
@@ -98,7 +98,7 @@ export class AddressController {
   @Delete()
   delete(@Req() req: authRequest, @Body() body: idDto) {
     return this.addressService.getById(body.id).then((a) => {
-      if (a.userId.toString() == req.user.sub) {
+      if (a.userId == req.user.sub) {
         return this.addressService.delete(body.id);
       } else {
         throw new MethodNotAllowedException(
@@ -112,10 +112,10 @@ export class AddressController {
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
   @Patch()
-  update(@Req() req: authRequest, @Body() body: myAddressDTO) {
+  update(@Req() req: authRequest, @Body() body: myAddressDto) {
     return this.addressService.getById(body.id).then((a) => {
       if (a.userId == req.user.sub) {
-        const newDates: addressDTO = {
+        const newDates: addressDto = {
           region: body.region,
           zipCode: body.zipCode,
           cityName: body.cityName,
