@@ -6,6 +6,9 @@ export class transactionEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column()
+  userId: number;
+
   @ManyToOne(() => userEntity, (user) => user.transactions)
   user: userEntity;
 
@@ -14,4 +17,7 @@ export class transactionEntity {
 
   @Column()
   direction: boolean;
+
+  @Column('timestamp')
+  timeStamp: Date;
 }

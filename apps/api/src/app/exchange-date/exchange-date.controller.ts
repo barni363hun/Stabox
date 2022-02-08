@@ -4,19 +4,16 @@ import {
   Delete,
   Get,
   MethodNotAllowedException,
-  NotFoundException,
   Patch,
   Post,
   Put,
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { exchangeDateInterface } from '@stabox/stabox-lib';
 import { IsDateString, IsNumber } from 'class-validator';
 import { exchangeDateEntity } from '../../Entities';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
 import { Roles } from '../auth/roles.decorator';
-import { UserService } from '../user/user.service';
 import { ExchangeDateService } from './exchange-date.service';
 
 class idDto {
@@ -24,14 +21,14 @@ class idDto {
   id: number;
 }
 
-class exchangeDateDTO {
+class exchangeDateDto {
   @IsDateString()
   startDate: Date;
   @IsDateString()
   endDate: Date;
 }
 
-class myExchangeDateDTO {
+class myExchangeDateDto {
   @IsNumber()
   id: number;
   @IsDateString()
@@ -42,13 +39,13 @@ class myExchangeDateDTO {
 
 @Controller('EXdate')
 export class ExchangeDateController {
-  constructor(private readonly exchangeDateService: ExchangeDateService) {}
+  constructor(private readonly exchangeDateService: ExchangeDateService) { }
 
   //creates exchangeDate
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
   @Put()
-  create(@Req() req: authRequest, @Body() body: exchangeDateDTO) {
+  create(@Req() req: authRequest, @Body() body: exchangeDateDto) {
     return this.exchangeDateService.create({
       id: 0,
       userId: req.user.sub,
@@ -81,7 +78,7 @@ export class ExchangeDateController {
   @Delete()
   delete(@Req() req: authRequest, @Body() body: idDto) {
     return this.exchangeDateService.getById(body.id).then((a) => {
-      if (a.userId.toString() == req.user.sub) {
+      if (a.userId == req.user.sub) {
         return this.exchangeDateService.delete(body.id);
       } else {
         throw new MethodNotAllowedException(
@@ -95,10 +92,10 @@ export class ExchangeDateController {
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
   @Patch()
-  update(@Req() req: authRequest, @Body() body: myExchangeDateDTO) {
+  update(@Req() req: authRequest, @Body() body: myExchangeDateDto) {
     return this.exchangeDateService.getById(body.id).then((a) => {
-      if (a.userId.toString() == req.user.sub) {
-        const newDates: exchangeDateDTO = {
+      if (a.userId == req.user.sub) {
+        const newDates: exchangeDateDto = {
           startDate: body.startDate,
           endDate: body.endDate,
         };

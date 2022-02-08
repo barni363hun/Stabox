@@ -2,19 +2,16 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { userEntity } from '.';
 
 @Entity()
-export class exchangeDateEntity {
+export class vehicleEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   userId: string;
 
-  @ManyToOne(() => userEntity, (user) => user)
+  @ManyToOne(() => userEntity, (user) => user.vehicles)
   user: userEntity;
 
   @Column()
-  startDate: Date;
-
-  @Column()
-  endDate: Date;
+  name: string;
 }
