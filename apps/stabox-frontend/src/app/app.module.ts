@@ -5,12 +5,11 @@ import { AppComponent } from './app.component';
 import { MainpageComponent } from './components/pages/mainpage/mainpage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
 import { LogoComponent } from './components/logo/logo.component';
 import { SignInButtonComponent } from './components/buttons/sign-in-button/sign-in-button.component';
 import { GetStartedButtonComponent } from './components/buttons/get-started-button/get-started-button.component';
 import { MainpageNavbarComponent } from './components/navbars/mainpage-navbar/mainpage-navbar.component';
-import { LanguageIconComponent } from './components/icons/language-icon/language-icon.component';
 import { EmailInputComponent } from './components/form/email-input/email-input.component';
 import { LandingCardComponent } from './components/pages/mainpage/landing-card/landing-card.component';
 import { FirstCardComponent } from './components/pages/mainpage/first-card/first-card.component';
@@ -30,6 +29,7 @@ import { CloseIconComponent } from './components/icons/close-icon/close-icon.com
 import { AddIconComponent } from './components/icons/add-icon/add-icon.component';
 import { MyPackagesPageComponent } from './components/pages/my-packages-page/my-packages-page.component';
 import { ShowMoreButtonComponent } from './components/buttons/show-more-button/show-more-button.component';
+import { UserIconComponent } from './components/icons/user-icon/user-icon.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,6 @@ import { ShowMoreButtonComponent } from './components/buttons/show-more-button/s
     SignInButtonComponent,
     GetStartedButtonComponent,
     MainpageNavbarComponent,
-    LanguageIconComponent,
     EmailInputComponent,
     LandingCardComponent,
     FirstCardComponent,
@@ -59,6 +58,7 @@ import { ShowMoreButtonComponent } from './components/buttons/show-more-button/s
     AddIconComponent,
     MyPackagesPageComponent,
     ShowMoreButtonComponent,
+    UserIconComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +70,6 @@ import { ShowMoreButtonComponent } from './components/buttons/show-more-button/s
     }),
     MatIconModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

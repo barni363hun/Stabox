@@ -1,10 +1,10 @@
-<ng-container *ngIf="!(auth.isAuthenticated$ | async)">
+<ng-container *ngIf="auth.isAuthenticated$ | async">
+  <a routerLink="/packages">
+    <button type="button" id="signUpBtn">Stabox WebApp</button>
+  </a>
+</ng-container>
+<ng-container *ngIf="(auth.isAuthenticated$ | async) !== true">
   <button type="button" id="signUpBtn" (click)="auth.loginWithRedirect()">
     Sign in
-  </button>
-</ng-container>
-<ng-container *ngIf="auth.isAuthenticated$ | async"
-  ><button type="button" id="signUpBtn" (click)="auth.loginWithRedirect()">
-    Renew token
   </button>
 </ng-container>

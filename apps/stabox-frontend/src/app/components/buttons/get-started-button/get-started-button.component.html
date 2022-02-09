@@ -1,6 +1,13 @@
 <div id="btnDiv">
-    <button type="button" id="getStartedBtn">
-        Get started
-        <mat-icon id="arrowIcon">arrow_right_alt</mat-icon>
+  <ng-container *ngIf="auth.isAuthenticated$ | async">
+    <a routerLink="/packages">
+      <button type="button" id="getStartedBtn">Stabox WebApp</button>
+    </a>
+  </ng-container>
+  <ng-container *ngIf="(auth.isAuthenticated$ | async) !== true">
+    <button type="button" id="getStartedBtn" (click)="auth.loginWithRedirect()">
+      Get started
+      <mat-icon id="arrowIcon">arrow_right_alt</mat-icon>
     </button>
+  </ng-container>
 </div>

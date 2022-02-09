@@ -1,39 +1,37 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 @Component({
   selector: 'app-account-page-navbar',
   templateUrl: './account-page-navbar.component.html',
-  styleUrls: ['./account-page-navbar.component.scss']
+  styleUrls: ['./account-page-navbar.component.scss'],
 })
 export class AccountPageNavbarComponent implements OnInit {
-
   showSideBar = false;
 
   @Output() lightModeEvent = new EventEmitter<String>();
   lightMode = false;
 
-  theme = "dark"
+  theme = 'dark';
 
-  constructor() {
-    if (localStorage.getItem('theme') == "light") {
+  constructor(public auth: AuthService) {
+    if (localStorage.getItem('theme') == 'light') {
       this.lightMode = true;
-    }
-    else {
+    } else {
       this.lightMode = false;
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   emitLightModeOn() {
-    this.theme = "light";
+    this.theme = 'light';
     localStorage.setItem('theme', this.theme);
     this.lightMode = true;
     this.lightModeEvent.emit(localStorage.getItem('theme')?.toString());
   }
 
   emitLightModeOff() {
-    this.theme = "dark";
+    this.theme = 'dark';
     localStorage.setItem('theme', this.theme);
     this.lightMode = false;
     this.lightModeEvent.emit(localStorage.getItem('theme')?.toString());

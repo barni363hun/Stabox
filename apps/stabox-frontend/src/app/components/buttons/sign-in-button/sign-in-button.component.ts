@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
 import { DOCUMENT } from '@angular/common';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-sign-in-button',
@@ -8,16 +8,7 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./sign-in-button.component.scss'],
 })
 export class SignInButtonComponent implements OnInit {
-  constructor(
-    @Inject(DOCUMENT) public document: Document,
-    public auth: AuthService
-  ) {}
+  constructor(public auth: AuthService) {}
 
-  ngOnInit(): void {
-    if (this.auth.isAuthenticated$) {
-      this.auth.user$.subscribe((user) => {
-        console.log(user);
-      });
-    }
-  }
+  ngOnInit(): void {}
 }

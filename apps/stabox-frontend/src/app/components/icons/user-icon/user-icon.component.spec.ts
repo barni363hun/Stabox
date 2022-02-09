@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LanguageIconComponent } from './language-icon.component';
+import { UserIconComponent } from './user-icon.component';
 
-describe('LanguageIconComponent', () => {
-  let component: LanguageIconComponent;
-  let fixture: ComponentFixture<LanguageIconComponent>;
+describe('UserIconComponent', () => {
+  let component: UserIconComponent;
+  let fixture: ComponentFixture<UserIconComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LanguageIconComponent ]
+      declarations: [ UserIconComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LanguageIconComponent);
+    fixture = TestBed.createComponent(UserIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
