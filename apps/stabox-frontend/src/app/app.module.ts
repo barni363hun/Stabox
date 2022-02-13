@@ -31,6 +31,8 @@ import { AddIconComponent } from './components/icons/add-icon/add-icon.component
 import { MyPackagesPageComponent } from './components/pages/my-packages-page/my-packages-page.component';
 import { ShowMoreButtonComponent } from './components/buttons/show-more-button/show-more-button.component';
 import { PackageCardComponent } from './components/package/package-card/package-card.component';
+import { AddPackageComponent } from './components/package/add-package/add-package.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,7 @@ import { PackageCardComponent } from './components/package/package-card/package-
     MyPackagesPageComponent,
     ShowMoreButtonComponent,
     PackageCardComponent,
+    AddPackageComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,9 @@ import { PackageCardComponent } from './components/package/package-card/package-
       clientId: '70x759xfYo7pvQS39ptmBpnpBRv8MUkA',
     }),
     MatIconModule,
+    FormsModule,
   ],
+  
   providers: [],
   bootstrap: [AppComponent],
 })

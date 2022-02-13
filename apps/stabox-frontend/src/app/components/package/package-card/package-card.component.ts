@@ -7,6 +7,7 @@ import { packageInterface } from 'libs/stabox-lib/src/index'
 })
 export class PackageCardComponent implements OnInit {
   @Input() package!: packageInterface
+  isAvailable: boolean = false
 
   constructor() { }
 
