@@ -1,24 +1,51 @@
-<div>
+<div class="col-6">
+    <div class="packageCard">
+        <p class="packageTitle">Package Title (My Packages)</p>
+        <app-divider></app-divider>
+        <div class="row">
+            <div class="col-6">
+                <p class="packageText">Delivery price:</p>
+            </div>
+            <div class="col-6">
+                <p class="packageData">Paid</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p class="packageText">Shipper:</p>
+            </div>
+            <div class="col-6">
+                <p class="packageData">Robika22</p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12 text-center">
+                <stabox-show-more-button></stabox-show-more-button>
+            </div>
+        </div>
+    </div>
+
+
     <table>
         <tr>
             <td style="text-align: end; padding-right:15px;">Region:</td>
-            <td>{{package.address.region}}</td>
+            <td>{{package.fromAddress.region}}</td>
         </tr>
         <tr>
             <td style="text-align: end; padding-right:15px;">Zip code:</td>
-            <td>{{package.address.zipCode}}</td>
+            <td>{{package.fromAddress.zipCode}}</td>
         </tr>
         <tr>
             <td style="text-align: end; padding-right:15px;">City</td>
-            <td>{{package.address.city}}</td>
+            <td>{{package.fromAddress.city}}</td>
         </tr>
         <tr>
             <td style="text-align: end; padding-right:15px;">Street:</td>
-            <td>{{package.address.street}}</td>
+            <td>{{package.fromAddress.street}}</td>
         </tr>
         <tr>
             <td style="text-align: end; padding-right:15px;">House Number:</td>
-            <td>{{package.address.houseNumber}}</td>
+            <td>{{package.fromAddress.houseNumber}}</td>
         </tr>
         <tr>
             <td style="text-align: end; padding-right:15px;">Size:</td>

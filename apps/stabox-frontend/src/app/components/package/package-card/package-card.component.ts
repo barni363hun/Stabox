@@ -4,19 +4,21 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './package-card.component.html',
   styleUrls: ['./package-card.component.scss']
 })
+
 export class PackageCardComponent implements OnInit {
-  @Input() package: packageInterface = {
-    address: {
-      city: "city",
-      region: "region",
-      street: "street",
-      zipCode: 1111,
-      houseNumber: 1
-    },
-    size: "size",
-    weight: "sok g",
-    fragile: true
-  }
+  @Input() package!: packageInterface
+  //   = {
+  //   address: {
+  //     city: "city",
+  //     region: "region",
+  //     street: "street",
+  //     zipCode: 1111,
+  //     houseNumber: 1
+  //   },
+  //   size: "size",
+  //   weight: "sok g",
+  //   fragile: true
+  // }
   isAvailable: boolean = false
 
   constructor() { }
@@ -24,17 +26,14 @@ export class PackageCardComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
-
-
-
 }
 
 interface packageInterface {
-  address: addressInterface,
+  fromAddress: addressInterface,
   size: string,
   weight: string,
-  fragile: boolean
+  fragile: boolean,
+  price: number
 }
 interface addressInterface {
   region: string
