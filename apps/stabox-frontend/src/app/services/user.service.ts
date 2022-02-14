@@ -9,30 +9,33 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   user: User | undefined | null = {};
-  userInitialized: Observable<User | undefined | null> = this.authService.user$;
+  userInit: Observable<User | undefined | null> = this.authService.user$;
+  private userInitialized = false;
 
   constructor(private authService: AuthService, private http: HttpClient) {
-    this.userInitialized.subscribe((u) => {
-      this.user = u;
-      console.group('user');
-      console.log(u);
-      console.groupEnd();
-      if (u && !this.user) {
-        this.createUser(u);
+    this.userInit.subscribe((u) => {
+      if (!this.userInitialized) {
+        console.group('user');
+        console.log(u);
+        this.userInitialized = true;
+        console.groupEnd();
+        this.user = u;
+        if (this.user && u) {
+          this.createUser(u);
+        }
       }
     });
   }
 
   private createUser(u: User) {
+    console.group('create user');
     this.http
-      .get(environment.apiURL + '/cat', { responseType: 'text' })
-      .subscribe((resp) => console.log(resp));
-    // this.http
-    //   .put(environment.apiURL + '/user', {
-    //     email: u.email,
-    //     username: u.nickname,
-    //   })
-    //   .subscribe((data) => console.log(data));
+      .put(environment.apiURL + '/user', {
+        email: u.email,
+        username: u.nickname,
+      })
+      .subscribe((res) => console.log(res));
+    console.groupEnd();
   }
 
   public login() {
