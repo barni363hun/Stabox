@@ -8,13 +8,13 @@ export class PackageCardComponent implements OnInit {
   @Input() package: packageInterface = {
     address: {
       city: "city",
-      county: "county",
+      region: "region",
       street: "street",
       zipCode: 1111,
       houseNumber: 1
     },
     size: "size",
-    weight: "sok",
+    weight: "sok g",
     fragile: true
   }
   isAvailable: boolean = false
@@ -37,7 +37,7 @@ interface packageInterface {
   fragile: boolean
 }
 interface addressInterface {
-  county: string,
+  region: string
   zipCode: number,
   city: string,
   street: string,
