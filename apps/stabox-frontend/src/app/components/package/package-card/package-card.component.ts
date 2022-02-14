@@ -1,12 +1,22 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { packageInterface } from 'libs/stabox-lib/src/index'
 @Component({
   selector: 'stabox-package-card',
   templateUrl: './package-card.component.html',
   styleUrls: ['./package-card.component.scss']
 })
 export class PackageCardComponent implements OnInit {
-  @Input() package!: packageInterface
+  @Input() package: packageInterface = {
+    address: {
+      city: "city",
+      county: "county",
+      street: "street",
+      zipCode: 1111,
+      houseNumber: 1
+    },
+    size: "size",
+    weight: "sok",
+    fragile: true
+  }
   isAvailable: boolean = false
 
   constructor() { }
@@ -20,5 +30,17 @@ export class PackageCardComponent implements OnInit {
 
 }
 
+interface packageInterface {
+  address: addressInterface,
+  size: string,
+  weight: string,
+  fragile: boolean
+}
+interface addressInterface {
+  county: string,
+  zipCode: number,
+  city: string,
+  street: string,
+  houseNumber: number
 
-
+}
