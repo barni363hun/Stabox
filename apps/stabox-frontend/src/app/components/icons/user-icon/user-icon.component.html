@@ -1,1 +1,6 @@
-<img *ngIf="this.pic" [src]="pic" alt="{{ name }}" title="{{ name }}" />
+<img
+  *ngIf="this.userService.user"
+  [src]="pic"
+  alt="{{ name }}"
+  title="{{ name }}"
+/>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { UserService } from '../../../services/user.service';
 @Component({
   selector: 'app-account-page-navbar',
   templateUrl: './account-page-navbar.component.html',
@@ -13,7 +13,7 @@ export class AccountPageNavbarComponent implements OnInit {
 
   theme = 'dark';
 
-  constructor(public auth: AuthService) {
+  constructor(public userService: UserService) {
     if (localStorage.getItem('theme') == 'light') {
       this.lightMode = true;
     } else {

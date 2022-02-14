@@ -45,7 +45,11 @@
         </li>
         <li class="nav-item">
           <a class="mt-1 navText">
-            <button type="button" id="getStartedBtn" (click)="auth.logout()">
+            <button
+              type="button"
+              id="getStartedBtn"
+              (click)="this.userService.logout()"
+            >
               Logout
             </button>
           </a>

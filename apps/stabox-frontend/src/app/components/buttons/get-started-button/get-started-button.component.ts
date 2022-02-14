@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-get-started-button',
@@ -7,7 +7,7 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./get-started-button.component.scss'],
 })
 export class GetStartedButtonComponent implements OnInit {
-  constructor(public auth: AuthService) {}
+  constructor(public userService: UserService) {}
 
   ngOnInit(): void {}
 }

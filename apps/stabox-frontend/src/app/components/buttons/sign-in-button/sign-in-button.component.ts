@@ -1,6 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { AuthService } from '@auth0/auth0-angular';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-sign-in-button',
@@ -8,7 +7,7 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./sign-in-button.component.scss'],
 })
 export class SignInButtonComponent implements OnInit {
-  constructor(public auth: AuthService) {}
+  constructor(public userService: UserService) {}
 
   ngOnInit(): void {}
 }

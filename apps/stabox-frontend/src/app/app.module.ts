@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { MainpageComponent } from './components/pages/mainpage/mainpage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
-import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
+import { AuthModule } from '@auth0/auth0-angular';
 import { LogoComponent } from './components/logo/logo.component';
 import { SignInButtonComponent } from './components/buttons/sign-in-button/sign-in-button.component';
 import { GetStartedButtonComponent } from './components/buttons/get-started-button/get-started-button.component';
@@ -30,6 +30,9 @@ import { AddIconComponent } from './components/icons/add-icon/add-icon.component
 import { MyPackagesPageComponent } from './components/pages/my-packages-page/my-packages-page.component';
 import { ShowMoreButtonComponent } from './components/buttons/show-more-button/show-more-button.component';
 import { UserIconComponent } from './components/icons/user-icon/user-icon.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -64,12 +67,13 @@ import { UserIconComponent } from './components/icons/user-icon/user-icon.compon
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AuthModule.forRoot({
-      domain: 'barni363hun.eu.auth0.com',
-      clientId: '70x759xfYo7pvQS39ptmBpnpBRv8MUkA',
-    }),
+    HttpClientModule,
+    AuthModule.forRoot({ ...environment.auth }),
     MatIconModule,
   ],
   bootstrap: [AppComponent],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
 })
 export class AppModule {}
