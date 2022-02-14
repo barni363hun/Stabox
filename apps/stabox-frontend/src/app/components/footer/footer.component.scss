@@ -1,82 +1,54 @@
 @import '../../../styles/settings/variables';
 
-.lightMode p,
+.lightMode #copyrightText,
 .lightMode #copyrightIcon {
     color: $colorDarkGray;
 }
 
-.lightMode #footer {
-    border-top: 1px solid rgba($colorDarkGray, 0.15);
-}
-
-.lightMode #email {
-    background-color: $colorLightBlue;
+.lightMode #underline {
     background: linear-gradient(to right, $colorLightBlue, $colorDarkBlue);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 #footer {
     width: 100%;
     text-align: center;
     margin: 150px 0 0 0;
-    padding: 20px 0 10px 0;
-    border-top: 1px solid rgba($colorLightGray, 0.1);
 }
 
-#socialIconsDistance {
-    width: 40%;
+#underline {
+    width: 100%;
+    height: 2px;
+    margin: 0 0 7.5px 0;
+    background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow 50%);
 }
 
 .socialIcon {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 }
 
 .socialIconDiv {
     width: fit-content;
-    margin: 0 10px 0 10px;
+    margin: 0 5px 0 5px;
 }
 
 .socialsRow {
     width: fit-content;
 }
 
-#email {
-    font-size: 18px;
-    font-family: 'PT Sans Caption', sans-serif;
-    margin: 0;
-
-    background-color: $colorLightYellow;
-    background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow 70%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-p {
-    font-family: 'PT Sans Caption', sans-serif;
-    color: rgba($color: $colorLightGray, $alpha: 0.75);
-    font-size: 32px;
-}
-
 #copyrightIcon {
     display: inline-block;
     color: rgba($colorLightGray, 0.75);
-    margin-right: 10px;
+    transform: scale(0.85);
+    margin-right: 2px;
 }
 
 #copyrightText {
     display: inline-block;
     vertical-align: middle;
-    font-size: 14px;
+    font-size: 12px;
     margin: 0;
-}
-
-#developers {
-    font-size: 16px;
-    margin: 0;
+    color: rgba($colorLightGray, 0.75);
 }
 
 .copyRightDiv {
