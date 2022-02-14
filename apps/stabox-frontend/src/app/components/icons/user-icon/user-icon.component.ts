@@ -11,7 +11,7 @@ export class UserIconComponent implements OnInit {
   name: string | undefined = this.userService.user?.name;
   constructor(public userService: UserService) {}
   ngOnInit(): void {
-    this.userService.userChanged.subscribe((u) => {
+    this.userService.userInitialized.subscribe((u) => {
       this.name = u?.name;
       this.pic = u?.picture;
     });

@@ -1,41 +1,34 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AuthService, User } from '@auth0/auth0-angular';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  userChanged: EventEmitter<User | undefined | null> = new EventEmitter();
   user: User | undefined | null = {};
+  userInitialized: Observable<User | undefined | null> = this.authService.user$;
 
   constructor(private authService: AuthService, private http: HttpClient) {
-    this.authService.user$.subscribe((u) => {
+    this.userInitialized.subscribe((u) => {
       this.user = u;
-      this.userLoggedIn(u);
-    });
-    this.userChanged.subscribe((u) => {
       console.group('user');
       console.log(u);
       console.groupEnd();
-      if (u) {
-        this.createUser();
+      if (u && !this.user) {
+        this.createUser(u);
       }
     });
   }
 
-  private userLoggedIn(u: User | undefined | null) {
-    this.userChanged.emit(u);
-  }
-
-  private createUser() {
+  private createUser(u: User) {
     this.http
-      .get(environment.apiURL + '/dog', { responseType: 'text' })
+      .get(environment.apiURL + '/cat', { responseType: 'text' })
       .subscribe((resp) => console.log(resp));
-
     // this.http
-    //   .put<any>(environment.apiURL + '/user', {
+    //   .put(environment.apiURL + '/user', {
     //     email: u.email,
     //     username: u.nickname,
     //   })
@@ -43,7 +36,7 @@ export class UserService {
   }
 
   public login() {
-    this.authService.loginWithRedirect().subscribe((a) => console.log(a));
+    this.authService.loginWithRedirect();
   }
 
   public logout() {

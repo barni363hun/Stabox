@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { MainpageComponent } from './components/pages/mainpage/mainpage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthModule, AuthHttpInterceptor } from '@auth0/auth0-angular';
 import { LogoComponent } from './components/logo/logo.component';
 import { SignInButtonComponent } from './components/buttons/sign-in-button/sign-in-button.component';
 import { GetStartedButtonComponent } from './components/buttons/get-started-button/get-started-button.component';
@@ -31,7 +31,6 @@ import { MyPackagesPageComponent } from './components/pages/my-packages-page/my-
 import { ShowMoreButtonComponent } from './components/buttons/show-more-button/show-more-button.component';
 import { UserIconComponent } from './components/icons/user-icon/user-icon.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenInterceptor } from './interceptors/token.interceptor';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -68,12 +67,24 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AuthModule.forRoot({ ...environment.auth }),
+    AuthModule.forRoot({
+      ...environment.auth,
+      httpInterceptor: {
+        allowedList: [
+          {
+            uri: `${environment.apiURL}/*`,
+            tokenOptions: {
+              audience: environment.auth.audience,
+            },
+          },
+        ],
+      },
+    }),
     MatIconModule,
   ],
   bootstrap: [AppComponent],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },
   ],
 })
 export class AppModule {}
