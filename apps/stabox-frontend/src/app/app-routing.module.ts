@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: MainpageComponent },
   { path: 'account', component: AccountPageComponent },
   { path: 'mypackages', component: MyPackagesPageComponent },
-  { path: 'test', component: PackageCardComponent },
+  { path: 'test', component: AddPackageComponent },
 ];
 
 @NgModule({
