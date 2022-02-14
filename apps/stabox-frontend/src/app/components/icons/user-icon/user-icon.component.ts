@@ -8,7 +8,7 @@ import { UserService } from '../../../services/user.service';
 })
 export class UserIconComponent implements OnInit {
   pic: string | undefined = this.userService.user?.picture;
-  name: string | undefined = this.userService.user?.name;
+  name: string | undefined = this.userService.user?.username;
   constructor(public userService: UserService) {}
   ngOnInit(): void {
     this.userService.userInit.subscribe((u) => {
