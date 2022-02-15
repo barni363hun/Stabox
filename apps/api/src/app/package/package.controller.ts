@@ -71,6 +71,7 @@ export class PackageController {
   create(@Req() req: authRequest, @Body() body: packageDto) {
     return this.packageService.create({
       userId: req.user.sub,
+      price: 500,
       ...body
     });
   }
