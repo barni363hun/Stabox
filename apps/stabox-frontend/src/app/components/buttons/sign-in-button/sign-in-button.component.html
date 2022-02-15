@@ -1,9 +1,9 @@
-<ng-container *ngIf="userService.user">
+<ng-container *ngIf="userService.userLoggedIn()">
   <a routerLink="/packages">
     <button type="button" id="signUpBtn">Stabox WebApp</button>
   </a>
 </ng-container>
-<ng-container *ngIf="!userService.user">
+<ng-container *ngIf="!userService.userLoggedIn()">
   <button type="button" id="signUpBtn" (click)="userService.login()">
     Sign in
   </button>

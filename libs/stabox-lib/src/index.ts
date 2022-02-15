@@ -6,3 +6,4 @@ export * from './lib/reciever.interface';
 export * from './lib/shipper.interface';
 export * from './lib/transaction.intedrface';
 export * from './lib/user.interface';
+export * from './lib/console.styles';

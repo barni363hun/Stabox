@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { userInterface } from '@stabox/stabox-lib';
 import { UserService } from '../../../services/user.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class AccountPageComponent implements OnInit {
   lightMode = false;
   theme = 'dark';
 
-  constructor(private userService: UserService) {
+  constructor(public userService: UserService) {
     if (localStorage.getItem('theme') == 'light') {
       this.lightMode = true;
     } else {
@@ -19,7 +20,9 @@ export class AccountPageComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userService.refreshUserData();
+  }
 
   getViewShipperDetails(data: any) {
     this.viewDetails = data;

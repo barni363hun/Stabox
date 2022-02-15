@@ -32,6 +32,7 @@ import { ShowMoreButtonComponent } from './components/buttons/show-more-button/s
 import { UserIconComponent } from './components/icons/user-icon/user-icon.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     HttpClientModule,
     AuthModule.forRoot({
       ...environment.auth,
