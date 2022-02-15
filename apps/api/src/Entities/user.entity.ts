@@ -1,5 +1,10 @@
 import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
-import { addressEntity, packageEntity, transactionEntity, vehicleEntity } from '.';
+import {
+  addressEntity,
+  packageEntity,
+  transactionEntity,
+  vehicleEntity,
+} from '.';
 
 @Entity()
 export class userEntity {

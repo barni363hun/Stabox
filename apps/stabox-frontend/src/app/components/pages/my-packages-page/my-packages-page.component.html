@@ -1,29 +1,44 @@
 <div id="content">
-    <app-account-page-navbar></app-account-page-navbar>
-    <div class="mx-auto" id="myPackagesPage">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-4 col-4 text-center titleDiv" (click)="filterAllPackages()">
-                    <p class="title">All Packages</p>
-                    <div class="titleUnderline" [ngStyle]="{'width': _filterAllPackages ? '100%' : '0'}"></div>
-                </div>
-                <div class="col-xl-4 col-4 text-center titleDiv" (click)="filterMyPackages()">
-                    <p class="title">My Packages</p>
-                    <div class="titleUnderline"></div>
-                </div>
-                <div class="col-xl-4 col-4 text-center titleDiv" (click)="filterToDeliver()">
-                    <p class="title">To Deliver</p>
-                    <div class="titleUnderline"></div>
-                </div>
-            </div>
+  <app-account-page-navbar></app-account-page-navbar>
+  <div class="mx-auto" id="myPackagesPage">
+    <div class="container-fluid">
+      <div class="row">
+        <div
+          class="col-xl-4 col-4 text-center titleDiv"
+          (click)="filterAllPackages()"
+        >
+          <p class="title">All Packages</p>
+          <div
+            class="titleUnderline"
+            [ngStyle]="{ width: _filterAllPackages ? '100%' : '0' }"
+          ></div>
         </div>
+        <div
+          class="col-xl-4 col-4 text-center titleDiv"
+          (click)="filterMyPackages()"
+        >
+          <p class="title">My Packages</p>
+          <div class="titleUnderline"></div>
+        </div>
+        <div
+          class="col-xl-4 col-4 text-center titleDiv"
+          (click)="filterToDeliver()"
+        >
+          <p class="title">To Deliver</p>
+          <div class="titleUnderline"></div>
+        </div>
+      </div>
+    </div>
 
-        <div *ngIf="_filterAllPackages == true" class="container-fluid mt-4">
-            <div class="row">
-                <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2" *ngFor="let package of packages">
-                    <!-- *ngFor="" goes on this line  -->
-                    <stabox-package-card [package]="package"></stabox-package-card>
-                    <!-- <div class="packageCard">
+    <div *ngIf="_filterAllPackages == true" class="container-fluid mt-4">
+      <div class="row">
+        <div
+          class="col-xl-4 col-lg-6 col-md-12 col-12 my-2"
+          *ngFor="let package of packages"
+        >
+          <!-- *ngFor="" goes on this line  -->
+          <stabox-package-card [package]="package"></stabox-package-card>
+          <!-- <div class="packageCard">
                         <p class="packageTitle">Package Title (All Packages)</p>
                         <app-divider></app-divider>
                         <div class="row">
@@ -50,91 +65,90 @@
                                 <p class="packageData">Robika22</p>
                             </div>
                         </div> -->
-                </div>
-            </div>
         </div>
+      </div>
     </div>
+  </div>
 
-
-    <div *ngIf="_filterMyPackages == true" class="container-fluid mt-4">
-        <div class="row">
-            <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2">
-                <!-- *ngFor="" goes on this line  -->
-                <div class="packageCard">
-                    <p class="packageTitle">Package Title (My Packages)</p>
-                    <app-divider></app-divider>
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="packageText">Estimated time:</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="packageData">12h 25m</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="packageText">Delivery price:</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="packageData">Paid</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="packageText">Shipper:</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="packageData">Robika22</p>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-12 text-center">
-                            <stabox-show-more-button></stabox-show-more-button>
-                        </div>
-                    </div>
-                </div>
+  <div *ngIf="_filterMyPackages == true" class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2">
+        <!-- *ngFor="" goes on this line  -->
+        <div class="packageCard">
+          <p class="packageTitle">Package Title (My Packages)</p>
+          <app-divider></app-divider>
+          <div class="row">
+            <div class="col-6">
+              <p class="packageText">Estimated time:</p>
             </div>
-        </div>
-    </div>
-
-    <div *ngIf="_filterToDeliver == true" class="container-fluid mt-4">
-        <div class="row">
-            <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2">
-                <!-- *ngFor="" goes on this line  -->
-                <div class="packageCard">
-                    <p class="packageTitle">Package Title (To Deliver)</p>
-                    <app-divider></app-divider>
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="packageText">Estimated time:</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="packageData">12h 25m</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="packageText">Delivery price:</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="packageData">Paid</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="packageText">Shipper:</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="packageData">Robika22</p>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-12 text-center">
-                            <stabox-show-more-button></stabox-show-more-button>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-6">
+              <p class="packageData">12h 25m</p>
             </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <p class="packageText">Delivery price:</p>
+            </div>
+            <div class="col-6">
+              <p class="packageData">Paid</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <p class="packageText">Shipper:</p>
+            </div>
+            <div class="col-6">
+              <p class="packageData">Robika22</p>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-12 text-center">
+              <stabox-show-more-button></stabox-show-more-button>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+
+  <div *ngIf="_filterToDeliver == true" class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2">
+        <!-- *ngFor="" goes on this line  -->
+        <div class="packageCard">
+          <p class="packageTitle">Package Title (To Deliver)</p>
+          <app-divider></app-divider>
+          <div class="row">
+            <div class="col-6">
+              <p class="packageText">Estimated time:</p>
+            </div>
+            <div class="col-6">
+              <p class="packageData">12h 25m</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <p class="packageText">Delivery price:</p>
+            </div>
+            <div class="col-6">
+              <p class="packageData">Paid</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <p class="packageText">Shipper:</p>
+            </div>
+            <div class="col-6">
+              <p class="packageData">Robika22</p>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-12 text-center">
+              <stabox-show-more-button></stabox-show-more-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

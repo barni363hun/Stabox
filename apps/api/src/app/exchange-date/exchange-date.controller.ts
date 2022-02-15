@@ -39,7 +39,7 @@ class myExchangeDateDto {
 
 @Controller('EXdate')
 export class ExchangeDateController {
-  constructor(private readonly exchangeDateService: ExchangeDateService) { }
+  constructor(private readonly exchangeDateService: ExchangeDateService) {}
 
   //creates exchangeDate
   @UseGuards(AuthGuard, RoleGuard)

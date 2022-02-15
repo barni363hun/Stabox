@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-account-page',
   templateUrl: './account-page.component.html',
-  styleUrls: ['./account-page.component.scss']
+  styleUrls: ['./account-page.component.scss'],
 })
 export class AccountPageComponent implements OnInit {
-
   viewDetails = false;
   lightMode = false;
-  theme = "dark"
+  theme = 'dark';
 
-  constructor() {
-    if (localStorage.getItem('theme') == "light") {
+  constructor(public userService: UserService) {
+    if (localStorage.getItem('theme') == 'light') {
       this.lightMode = true;
-    }
-    else {
+    } else {
       this.lightMode = false;
     }
   }
 
   ngOnInit(): void {
+    this.userService.refreshUserData();
   }
 
   getViewShipperDetails(data: any) {
@@ -28,12 +28,10 @@ export class AccountPageComponent implements OnInit {
   }
 
   getLightModeToggle(data: any) {
-    if (data == "light") {
+    if (data == 'light') {
       this.lightMode = true;
-    }
-    else {
+    } else {
       this.lightMode = false;
     }
   }
-  
 }

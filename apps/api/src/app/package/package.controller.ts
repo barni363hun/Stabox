@@ -62,7 +62,7 @@ export class PackageController {
     private readonly addressService: AddressService,
     private readonly exchangeDateService: ExchangeDateService,
     private readonly vehicleService: VehicleService
-  ) { }
+  ) {}
 
   //creates package
   @UseGuards(AuthGuard, RoleGuard)

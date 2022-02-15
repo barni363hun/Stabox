@@ -39,7 +39,7 @@ export class RecieverController {
   constructor(
     private readonly recieverService: RecieverService,
     private readonly addressService: AddressService
-  ) { }
+  ) {}
 
   //creates reciever with address
   @UseGuards(AuthGuard, RoleGuard)
