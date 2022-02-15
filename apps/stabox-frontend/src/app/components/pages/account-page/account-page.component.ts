@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { userInterface } from '@stabox/stabox-lib';
 import { UserService } from '../../../services/user.service';
 
 @Component({

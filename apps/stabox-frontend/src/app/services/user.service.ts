@@ -16,35 +16,40 @@ export class UserService {
     username: '',
     picture: '',
   };
+  public authUser: User = {};
   //TODO userInit triggers twice on login IDK why (rework with emit)
-  public userInit: Observable<User | undefined | null> = this.authService.user$;
+  public authUserInit: Observable<User | undefined | null> =
+    this.authService.user$;
   public userInitialized = false;
+  //user: EventEmitter<any> = new EventEmitter();
 
   constructor(private authService: AuthService, private http: HttpClient) {
-    this.userInit.subscribe((authUser) => {
-      if (!this.userInitialized) {
-        console.log('authUser');
-        console.log(authUser);
-        this.userInitialized = true;
+    this.authUserInit.subscribe({
+      next: (authU) => {
         if (
-          authUser &&
-          authUser.email &&
-          authUser.picture &&
-          authUser.nickname &&
-          authUser.sub
+          !this.userInitialized &&
+          authU &&
+          authU.email &&
+          authU.picture &&
+          authU.nickname &&
+          authU.sub
         ) {
+          cSuccess("authUser's been got");
+          this.userInitialized = true;
+          this.authUser = authU;
+          console.log(authU);
           const newUser: userInterface = {
-            email: authUser.email,
-            firstName: authUser.given_name,
-            lastName: authUser.family_name,
-            picture: authUser.picture,
-            username: authUser.nickname,
-            id: authUser.sub,
-            roles: authUser['https://www.stabox.hu/roles'],
+            email: authU.email,
+            firstName: authU.given_name,
+            lastName: authU.family_name,
+            picture: authU.picture,
+            username: authU.nickname,
+            id: authU.sub,
+            roles: authU['https://www.stabox.hu/roles'],
             //TODO possible to add 'email_verified' if needed
           };
-          if (authUser.phone_number_verified) {
-            newUser.phoneNumber = authUser.phone_number;
+          if (authU.phone_number_verified) {
+            newUser.phoneNumber = authU.phone_number;
           }
           this.getMyData().subscribe({
             next: (res) => {
@@ -60,25 +65,33 @@ export class UserService {
               console.log(this.user);
             },
           });
-        } else {
-          console.error(
-            'User cannot be initialized from ' + authUser + 'auth0 response'
-          );
         }
-      }
+      },
+      error: (err) => {
+        cError(err.error.message);
+      },
     });
   }
 
   public update() {
-    console.log('updating user data');
-    // TODO rework!
-    if (this.user.roles) {
-      return this.http
-        .patch<any>(environment.apiURL + '/user', this.user)
-        .subscribe((a) => console.log(a.message));
-    } else {
-      throw new Error('user is not initialized');
-    }
+    console.log('updating user information');
+    this.http
+      .patch<userInterface>(environment.apiURL + '/user', {
+        email: this.user.email,
+        username: this.user.username,
+        firstName: this.user.firstName,
+        lastName: this.user.lastName,
+        phoneNumber: this.user.phoneNumber,
+      })
+      .subscribe({
+        next: (res) => {
+          cSuccess('user info updated');
+          console.log(this.user);
+        },
+        error: (err) => {
+          cError(err.error.message);
+        },
+      });
   }
 
   private getMyData(): Observable<userInterface> {
@@ -90,7 +103,7 @@ export class UserService {
     console.log('refreshing user information');
     this.http.get<userInterface>(environment.apiURL + '/user').subscribe({
       next: (res) => {
-        cSuccess('refreshed');
+        cSuccess('user info refreshed');
         this.user = res;
         console.log(this.user);
       },
@@ -98,7 +111,6 @@ export class UserService {
         cError(err.error.message);
       },
     });
-    // TODO user refresh emit
   }
 
   private createUser(u: userInterface) {

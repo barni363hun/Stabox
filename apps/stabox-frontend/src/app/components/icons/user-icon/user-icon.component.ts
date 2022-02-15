@@ -7,11 +7,11 @@ import { UserService } from '../../../services/user.service';
   styleUrls: ['./user-icon.component.scss'],
 })
 export class UserIconComponent implements OnInit {
-  pic: string | undefined = this.userService.user?.picture;
-  name: string | undefined = this.userService.user?.username;
+  pic: string | undefined = this.userService.authUser.picture;
+  name: string | undefined = this.userService.authUser.name;
   constructor(public userService: UserService) {}
   ngOnInit(): void {
-    this.userService.userInit.subscribe((u) => {
+    this.userService.authUserInit.subscribe((u) => {
       this.name = u?.name;
       this.pic = u?.picture;
     });
