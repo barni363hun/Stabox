@@ -71,14 +71,7 @@ export class PackageController {
   create(@Req() req: authRequest, @Body() body: packageDto) {
     return this.packageService.create({
       userId: req.user.sub,
-      vehicleId: 0,
-      recieverId: body.recieverId,
-      fromAddressId: body.fromAddressId,
-      size: body.size,
-      weight: body.weight,
-      fragile: body.fragile,
-      price: 5,
-      name: body.name,
+      ...body
     });
   }
 

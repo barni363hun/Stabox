@@ -11,7 +11,7 @@ export class packageEntity {
   @Column()
   userId: string;
 
-  @Column()
+  @Column({ nullable: true })
   vehicleId: number;
 
   @ManyToOne(() => vehicleEntity, (vehicle) => vehicle.id)
