@@ -7,6 +7,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyPackagesPageComponent implements OnInit {
 
+  packages: packageInterface[] = [{
+    fragile: false,
+    fromAddress: {
+      city: 'asdasd',
+      houseNumber: 0,
+      region: 'asd',
+      street: '423',
+      zipCode: 0
+    },
+    size: 'kléklélk',
+    weight: 'kléklé',
+    price: 100
+
+  }, {
+    fragile: false,
+    fromAddress: {
+      city: 'dgg',
+      houseNumber: 0,
+      region: 'asd',
+      street: 'jhg',
+      zipCode: 0
+    },
+    size: 'zui',
+    weight: 'oiu',
+    price: 100
+
+  }, {
+    fragile: false,
+    fromAddress: {
+      city: ',m.-.m,-',
+      houseNumber: 0,
+      region: 'asd',
+      street: 'm,.-m,.-',
+      zipCode: 0
+    },
+    size: 'm,.-,.m',
+    weight: ',-.,m-',
+    price: 200
+
+  }];
+
+
   _filterMyPackages: boolean = false;
   _filterAllPackages: boolean = false;
   _filterToDeliver: boolean = false;
@@ -33,4 +75,21 @@ export class MyPackagesPageComponent implements OnInit {
     this._filterMyPackages = false;
     this._filterToDeliver = true;
   }
+}
+
+
+interface packageInterface {
+  fromAddress: addressInterface,
+  size: string,
+  weight: string,
+  fragile: boolean,
+  price: number
+}
+interface addressInterface {
+  region: string
+  zipCode: number,
+  city: string,
+  street: string,
+  houseNumber: number
+
 }
