@@ -32,6 +32,8 @@ import { ShowMoreButtonComponent } from './components/buttons/show-more-button/s
 import { UserIconComponent } from './components/icons/user-icon/user-icon.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { PackageCardComponent } from './components/package/package-card/package-card.component';
+import { AddPackageComponent } from './components/package/add-package/add-package.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -62,6 +64,8 @@ import { FormsModule } from '@angular/forms';
     MyPackagesPageComponent,
     ShowMoreButtonComponent,
     UserIconComponent,
+    PackageCardComponent,
+    AddPackageComponent,
   ],
   imports: [
     BrowserModule,

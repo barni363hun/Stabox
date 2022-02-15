@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { recieverEntity } from '../../Entities';
-import { authRequest } from '../auth';
 import { GenericService } from '../generics/generic.service';
 
 @Injectable()

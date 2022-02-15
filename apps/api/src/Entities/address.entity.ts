@@ -13,7 +13,7 @@ export class addressEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column() //TODO a többi kapcsolathoz is felvenni a ezt az ID-s dolgot
+  @Column()
   userId: string;
 
   @ManyToOne(() => userEntity, (user) => user.addresses)

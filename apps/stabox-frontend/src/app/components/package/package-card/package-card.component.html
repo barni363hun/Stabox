@@ -1,0 +1,117 @@
+<div class="col-6">
+    <div class="packageCard">
+        <p class="packageTitle">Package Title (My Packages)</p>
+        <app-divider></app-divider>
+
+        <div class="row">
+            <div class="col-6">
+                <p class="packageText">Shipper:</p>
+            </div>
+            <div class="col-6">
+                <p class="packageData">{{"TODO Shipper"}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p class="packageText">Zip code:</p>
+            </div>
+            <div class="col-6">
+                <p class="packageData">{{package.fromAddress.zipCode}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p class="packageText">City:</p>
+            </div>
+            <div class="col-6">
+                <p class="packageData">{{package.fromAddress.city}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p class="packageText">Street:</p>
+            </div>
+            <div class="col-6">
+                <p class="packageData">{{package.fromAddress.street}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p class="packageText">House Number:</p>
+            </div>
+            <div class="col-6">
+                <p class="packageData">{{package.fromAddress.houseNumber}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p class="packageText">Size:</p>
+            </div>
+            <div class="col-6">
+                <p class="packageData">{{package.size}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p class="packageText">Weight:</p>
+            </div>
+            <div class="col-6">
+                <p class="packageData">{{package.weight}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p class="packageText">Fragility:</p>
+            </div>
+            <div class="col-6">
+                <p class="packageData">{{package.fragile?'Fragile':'Not Fraile'}}</p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12 text-center">
+                <stabox-show-more-button></stabox-show-more-button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <table>
+        <tr>
+            <td style="text-align: end; padding-right:15px;">Region:</td>
+            <td>{{package.fromAddress.region}}</td>
+        </tr>
+        <tr>
+            <td style="text-align: end; padding-right:15px;">Zip code:</td>
+            <td>{{package.fromAddress.zipCode}}</td>
+        </tr>
+        <tr>
+            <td style="text-align: end; padding-right:15px;">City</td>
+            <td>{{package.fromAddress.city}}</td>
+        </tr>
+        <tr>
+            <td style="text-align: end; padding-right:15px;">Street:</td>
+            <td>{{package.fromAddress.street}}</td>
+        </tr>
+        <tr>
+            <td style="text-align: end; padding-right:15px;">House Number:</td>
+            <td>{{package.fromAddress.houseNumber}}</td>
+        </tr>
+        <tr>
+            <td style="text-align: end; padding-right:15px;">Size:</td>
+            <td>{{package.size}}</td>
+        </tr>
+        <tr>
+            <td style="text-align: end; padding-right:15px;">Weight</td>
+            <td>{{package.weight}}</td>
+        </tr>
+        <tr>
+            <td style="text-align: end; padding-right:15px;">Fragility</td>
+            <td>{{package.fragile?"Fragile":"Not Fragile"}}</td>
+        </tr>
+        <tr *ngIf="isAvailable">
+            <td colspan="2">aasdasdsa</td>
+        </tr>
+    </table> -->
+
+
+</div>

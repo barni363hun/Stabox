@@ -31,7 +31,7 @@ class idDateDto {
   shipped: Date;
 }
 
-class packageDTO {
+class packageDto {
   @IsString()
   size: string;
   @IsString()
@@ -46,7 +46,7 @@ class packageDTO {
   recieverId: number;
 }
 
-class assignMeDTO {
+class assignMeDto {
   @IsNumber()
   id: number;
   @IsNumber()
@@ -68,7 +68,7 @@ export class PackageController {
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
   @Put()
-  create(@Req() req: authRequest, @Body() body: packageDTO) {
+  create(@Req() req: authRequest, @Body() body: packageDto) {
     return this.packageService.create({
       userId: req.user.sub,
       vehicleId: 0,
@@ -106,7 +106,7 @@ export class PackageController {
   @Delete()
   delete(@Req() req: authRequest, @Body() body: idDto) {
     return this.packageService.getById(body.id).then((a) => {
-      if (a.userId.toString() == req.user.sub) {
+      if (a.userId == req.user.sub) {
         return this.packageService.delete(body.id);
       } else {
         throw new MethodNotAllowedException(
@@ -120,9 +120,9 @@ export class PackageController {
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('shipper')
   @Patch()
-  assignMe(@Req() req: authRequest, @Body() body: assignMeDTO) {
+  assignMe(@Req() req: authRequest, @Body() body: assignMeDto) {
     return this.packageService.getById(body.id).then((a) => {
-      if (a.userId.toString() == req.user.sub) {
+      if (a.userId == req.user.sub) {
         return this.packageService.delete(body.id);
       } else {
         throw new MethodNotAllowedException(

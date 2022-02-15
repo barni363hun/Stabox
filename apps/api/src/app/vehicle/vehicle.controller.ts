@@ -21,12 +21,12 @@ class idDto {
   id: number;
 }
 
-class vehicleDTO {
+class vehicleDto {
   @IsString()
   name: string;
 }
 
-class myVehicleDTO {
+class myVehicleDto {
   @IsNumber()
   id: number;
   @IsString()
@@ -41,7 +41,7 @@ export class VehicleController {
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('shipper')
   @Put()
-  create(@Req() req: authRequest, @Body() body: vehicleDTO) {
+  create(@Req() req: authRequest, @Body() body: vehicleDto) {
     return this.vehicleService.create({
       id: 0,
       userId: req.user.sub,
@@ -57,17 +57,17 @@ export class VehicleController {
     return this.vehicleService.getAll();
   }
 
-  // gets user's all exchange date
+  // gets user's all vehicles
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('shipper')
   @Get()
-  getMyExchangeDates(@Req() req: authRequest): Promise<vehicleEntity[]> {
+  getMyVehicles(@Req() req: authRequest): Promise<vehicleEntity[]> {
     return this.vehicleService.find({
       where: { userId: req.user.sub },
     });
   }
 
-  // delete own exchange date
+  // delete own vehicles
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('shipper')
   @Delete()
@@ -83,20 +83,20 @@ export class VehicleController {
     });
   }
 
-  //modify own exchange date
+  //modify own vehicles
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('shipper')
   @Patch()
-  update(@Req() req: authRequest, @Body() body: myVehicleDTO) {
+  update(@Req() req: authRequest, @Body() body: myVehicleDto) {
     return this.vehicleService.getById(body.id).then((a) => {
       if (a.userId == req.user.sub) {
-        const newVehicle: vehicleDTO = {
+        const newVehicle: vehicleDto = {
           name: body.name,
         };
         return this.vehicleService.update(body.id, newVehicle);
       } else {
         throw new MethodNotAllowedException(
-          'You can only modify your own exchange dates'
+          'You can only modify your own vehicles'
         );
       }
     });
