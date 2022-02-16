@@ -5,21 +5,16 @@
     color: $colorDarkGray;
 }
 
-.lightMode #underline {
-    background: linear-gradient(to right, $colorLightBlue, $colorDarkBlue);
+.lightMode #footer {
+    border-top: 1px solid rgba($colorLightGray, 0.5);
 }
 
 #footer {
     width: 100%;
     text-align: center;
     margin: 150px 0 0 0;
-}
-
-#underline {
-    width: 100%;
-    height: 2px;
-    margin: 0 0 7.5px 0;
-    background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow 50%);
+    padding-top: 15px;
+    border-top: 1px solid rgba($colorDarkGray, 0.25);
 }
 
 .socialIcon {
@@ -28,8 +23,15 @@
 }
 
 .socialIconDiv {
+    transition: 0.25s;
     width: fit-content;
     margin: 0 5px 0 5px;
+}
+
+.socialIconDiv:hover {
+    cursor: pointer;
+    transition: 0.25s;
+    transform: scale(1.15);
 }
 
 .socialsRow {
@@ -49,10 +51,4 @@
     font-size: 12px;
     margin: 0;
     color: rgba($colorLightGray, 0.75);
-}
-
-.copyRightDiv {
-    display:flex;
-    align-items:center;
-    justify-content:center;
 }

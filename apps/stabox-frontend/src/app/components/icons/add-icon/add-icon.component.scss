@@ -1,30 +1,23 @@
 @import '../../../../styles/settings/variables';
 
-.lightMode #addIcon {
+.lightMode .gradient {
     background-color: $colorLightBlue;
-    background: linear-gradient(to right, $colorLightBlue, $colorDarkBlue);
+    background: linear-gradient(to right, $colorLightBlue 40%, $colorDarkBlue);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.lightMode #addBtn:hover {
+.lightMode #addIconDiv:hover {
     box-shadow: inset 0 1px 1px rgba($colorLightBlue, 0.075), 0 0 8px rgba($colorDarkBlue, 0.6);
 }
 
-#addIcon {
+.addIcon {
     transform: scale(1.5);
-
     margin: 8px;
-
-    background-color: $colorLightYellow;
-    background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
-#addBtn {
+#addIconDiv {
     transition: 0.25s;
     background-color: transparent;
     border: none;
@@ -33,7 +26,7 @@
     width: fit-content;
 }
 
-#addBtn:hover {
+#addIconDiv:hover {
     cursor: pointer;
     transition: 0.25s;
     box-shadow: inset 0 1px 1px rgba($colorLightYellow, 0.075), 0 0 8px rgba($colorDarkYellow, 0.6);

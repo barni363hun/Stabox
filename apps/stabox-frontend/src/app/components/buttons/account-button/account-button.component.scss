@@ -14,8 +14,8 @@
     background-color: $bgColorWhite;
 }
 
-#accountBtn {
-    background-color: #161518;
+.accountBtn {
+    background-color: $bgColorBlack;
     border: none;
     color: $colorWhite;
     border-radius: 75px;
@@ -23,7 +23,7 @@
     padding: 5px 20px 5px 20px;
 }
 
-#gradientOutline {
+.outline {
     width: fit-content;
     position: relative;
     background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow);

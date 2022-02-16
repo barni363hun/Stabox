@@ -6,24 +6,21 @@
         <img id="stopBeingShipperIcon" [src]="lightMode ? '../../../../assets/images/LightMode/StopBeingShipperIcon.svg' : '../../../../assets/images/DarkMode/StopBeingShipperIcon.svg'" title="Stop Being a Shipper">
         <div id="content">
             <div class="text-center mx-auto mt-2" style="width: fit-content;">
-                <p class="m-0">Transportation Mode</p>
-                <app-divider [lightMode]="lightMode"></app-divider>
-                <div class="row m-0 mt-2">
-                    <div class="col-xl-1 col-1 p-0"></div>
-                    <div class="col-xl-10 col-10 p-0">
-                        <mat-icon class="icon">local_shipping</mat-icon>
-                    </div>
-                    <div class="col-xl-1 col-1 p-0"></div>
+                <div>
+                    <mat-icon class="icon gradient">local_shipping</mat-icon>
+                    <p class="title ms-4">Vehicles</p>
                 </div>
+                
+                <app-divider [lightMode]="lightMode"></app-divider>
 
                 <div class="my-2">
                     <div class="row m-0 mt-1">
                         <div class="col-xl-1 col-1 p-0"></div>
                         <div class="col-xl-10 col-10 p-0">
-                            <input type="text" placeholder="Vehicle Type">
+                            <input type="text" placeholder="Type">
                         </div>
                         <div class="col-xl-1 col-1 p-0 my-auto">
-                            <mat-icon class="deleteIcon" title="Remove Vehicle">delete</mat-icon>
+                            <mat-icon class="icon gradient" title="Remove Vehicle">delete</mat-icon>
                         </div>
                     </div>
                 </div>

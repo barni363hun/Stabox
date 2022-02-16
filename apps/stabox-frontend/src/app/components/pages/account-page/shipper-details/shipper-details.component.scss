@@ -1,45 +1,36 @@
+@import '../../../../../styles/settings/variables';
+
 .lightMode #shipperDetails {
-    background-color: #fefefc;
-    color: #565656;
+    background-color: $bgColorWhite;
+    color: $colorDarkGray;
 }
 
 .lightMode input {
-    color: #565656;
+    color: $colorDarkGray;
 }
 
 .lightMode input:focus {
-    box-shadow: inset 0 1px 1px rgba(#00B3EC, 0.075), 0 0 8px rgba(#007FC7, 0.6);
-}
-
-.lightMode .icon,
-.lightMode .deleteIcon {
-    background-color: #00B3EC;
-    background: linear-gradient(to right, #00B3EC, #007FC7);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    box-shadow: inset 0 1px 1px rgba($colorLightBlue, 0.075), 0 0 8px rgba($colorDarkBlue, 0.6);
 }
 
 #shade {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba($shadeColor, 0.85);
     position: absolute;
     top: 0;
 }
 
 #shipperDetails {
-    background-color: #161518;
+    background-color: $bgColorBlack;
     width: 75%;
     height: 75%;
     position: relative;
     padding: 60px;
     border-radius: 100px;
-
     margin: auto;
     top: 50%;
     transform: translateY(-50%);
-
     animation-name: appear;
     animation-duration: 0.15s;
 }
@@ -52,7 +43,6 @@
 #shipperDetailsDiv {
     position: absolute;
     top: 0;
-
     width: 100%;
     height: 100%;
 }
@@ -69,10 +59,15 @@ p {
     cursor: pointer;
 }
 
+.title {
+    margin: 0;
+    display: inline-block;
+}
+
 input:focus {
     outline: none;
     transition: 0.25s;
-    box-shadow: inset 0 1px 1px rgba(#f2da00, 0.075), 0 0 8px rgba(#e29704, 0.6);
+    box-shadow: inset 0 1px 1px rgba($colorLightYellow, 0.075), 0 0 8px rgba($colorDarkYellow, 0.6);
 }
 
 input {
@@ -88,21 +83,8 @@ input {
 }
 
 .icon {
-    transform: scale(2);
-    background-color: #f2da00;
-    background: linear-gradient(to right, #f2da00, #e29704);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.deleteIcon {
-    transform: scale(1.5);
-    background-color: #f2da00;
-    background: linear-gradient(to right, #f2da00, #e29704);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    transform: scale(1.75);
+    display: inline-block;
 }
 
 .deleteIcon:hover {
