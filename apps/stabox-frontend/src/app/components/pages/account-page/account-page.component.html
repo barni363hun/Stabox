@@ -117,6 +117,24 @@
           <p class="title">Exchange Dates</p>
           <app-divider [lightMode]="lightMode"></app-divider>
           <div class="w-75 mx-auto">
+            <div
+              *ngFor="
+                let EXDate of exchangeDateService.localeExchangeDates;
+                index as i
+              "
+            >
+              <input
+                class="accountDataInput"
+                type="text"
+                [(ngModel)]="EXDate.startDate"
+                (change)="exchangeDateService.save(EXDate)"
+              />
+              <input
+                type="button"
+                value="delete"
+                (click)="exchangeDateService.delete(i)"
+              />
+            </div>
             <!-- <mat-icon class="addressIcon">home</mat-icon> -->
             <input
               class="addressInput"
@@ -135,7 +153,10 @@
               value=""
             />
 
-            <app-add-icon [lightMode]="lightMode"></app-add-icon>
+            <app-add-icon
+              (click)="exchangeDateService.localeAddExchangeDate()"
+              [lightMode]="lightMode"
+            ></app-add-icon>
           </div>
         </div>
 

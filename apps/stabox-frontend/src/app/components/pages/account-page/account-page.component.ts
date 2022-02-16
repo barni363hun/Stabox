@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExchangeDateService } from '../../../services/exchange-date.service';
 import { UserService } from '../../../services/user.service';
 
 @Component({
@@ -11,7 +12,10 @@ export class AccountPageComponent implements OnInit {
   lightMode = false;
   theme = 'dark';
 
-  constructor(public userService: UserService) {
+  constructor(
+    public userService: UserService,
+    public exchangeDateService: ExchangeDateService
+  ) {
     if (localStorage.getItem('theme') == 'light') {
       this.lightMode = true;
     } else {
