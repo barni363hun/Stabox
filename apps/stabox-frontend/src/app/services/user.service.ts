@@ -113,6 +113,15 @@ export class UserService {
     });
   }
 
+  public deleteUser() {
+    if (window.confirm('Are you sure you want to delete your accaunt?')) {
+      //TODO delete accaunt
+      this.logout();
+    } else {
+      window.alert('uh... that was close');
+    }
+  }
+
   private createUser(u: userInterface) {
     console.log('create user');
     this.http

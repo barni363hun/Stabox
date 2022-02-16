@@ -65,6 +65,17 @@
                   [(ngModel)]="userService.user.phoneNumber"
                 />
               </div>
+
+              <div class="my-4">
+                <mat-icon class="accountDataIcon">delete</mat-icon>
+                <p class="accountDataTitle">DELETE</p>
+                <div class="accountDataUnderline"></div>
+                <input
+                  type="button"
+                  (click)="userService.deleteUser()"
+                  value="Delete"
+                />
+              </div>
             </div>
           </div>
         </div>
