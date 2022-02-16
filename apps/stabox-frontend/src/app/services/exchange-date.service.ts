@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { cError, cSuccess, exchangeDateInterface } from '@stabox/stabox-lib';
+import { UserService } from '.';
 import { environment } from '../../environments/environment';
-import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -50,8 +50,9 @@ export class ExchangeDateService {
         })
         .subscribe({
           next: (res) => {
-            cSuccess('exchangeDates refreshed');
+            cSuccess('exchangeDates saved');
             console.log(this.localeExchangeDates);
+            this.getExchangeDates();
           },
           error: (err) => {
             cError(err.error.message);
@@ -70,6 +71,7 @@ export class ExchangeDateService {
         next: (res) => {
           cSuccess('exchangeDate' + exDate.id + ' created');
           console.log(this.localeExchangeDates);
+          this.getExchangeDates();
         },
         error: (err) => {
           cError(err.error.message);

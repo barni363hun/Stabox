@@ -164,6 +164,40 @@
           <p class="title">Addresses</p>
           <app-divider [lightMode]="lightMode"></app-divider>
           <div class="w-75 mx-auto">
+            <div
+              *ngFor="let address of addressService.localeAddresses; index as i"
+            >
+              <input
+                class="accountDataInput"
+                type="text"
+                [(ngModel)]="address.name"
+                (change)="addressService.save(address)"
+              />
+              <input
+                class="accountDataInput"
+                type="text"
+                [(ngModel)]="address.cityName"
+                (change)="addressService.save(address)"
+              />
+              <input
+                class="accountDataInput"
+                type="text"
+                [(ngModel)]="address.street"
+                (change)="addressService.save(address)"
+              />
+              <input
+                class="accountDataInput"
+                type="text"
+                [(ngModel)]="address.houseNumber"
+                (change)="addressService.save(address)"
+              />
+              <input
+                type="button"
+                value="delete"
+                (click)="addressService.delete(i)"
+              />
+            </div>
+
             <!-- <mat-icon class="addressIcon">home</mat-icon> -->
             <input
               class="addressInput"
@@ -182,7 +216,10 @@
               value="Vác Petőfi u. 1"
             />
 
-            <app-add-icon [lightMode]="lightMode"></app-add-icon>
+            <app-add-icon
+              (click)="addressService.localeAddAddress()"
+              [lightMode]="lightMode"
+            ></app-add-icon>
           </div>
         </div>
       </div>
