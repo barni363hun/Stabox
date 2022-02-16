@@ -90,6 +90,7 @@ export class ExchangeDateService {
         next: (res) => {
           cSuccess('exchangeDate ' + id + ' deleted');
           console.log(this.localeExchangeDates);
+          this.getExchangeDates();
         },
         error: (err) => {
           cError(err.error.message);
