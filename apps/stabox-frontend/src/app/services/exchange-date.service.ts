@@ -9,7 +9,6 @@ import { UserService } from './user.service';
 })
 export class ExchangeDateService {
   localeExchangeDates: exchangeDateInterface[] = [];
-  oldExchangeDates: exchangeDateInterface[] = [];
   constructor(private userService: UserService, private http: HttpClient) {
     this.getExchangeDates();
   }
@@ -43,21 +42,22 @@ export class ExchangeDateService {
   save(exDate: exchangeDateInterface) {
     if (exDate.id === 0) {
       this.create(exDate);
+    } else {
+      console.log('saving exchangeDate ' + exDate.id);
+      this.http
+        .patch<exchangeDateInterface>(environment.apiURL + '/EXdate', {
+          ...exDate,
+        })
+        .subscribe({
+          next: (res) => {
+            cSuccess('exchangeDates refreshed');
+            console.log(this.localeExchangeDates);
+          },
+          error: (err) => {
+            cError(err.error.message);
+          },
+        });
     }
-    console.log('saving exchangeDate ' + exDate.id);
-    this.http
-      .patch<exchangeDateInterface>(environment.apiURL + '/EXdate', {
-        ...exDate,
-      })
-      .subscribe({
-        next: (res) => {
-          cSuccess('exchangeDates refreshed');
-          console.log(this.localeExchangeDates);
-        },
-        error: (err) => {
-          cError(err.error.message);
-        },
-      });
   }
 
   private create(exDate: exchangeDateInterface) {
