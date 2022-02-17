@@ -30,8 +30,8 @@ class recieverWithAddressDto {
   cityName: string;
   @IsString()
   street: string;
-  @IsString()
-  houseNumber: string;
+  @IsNumber()
+  houseNumber: number;
 }
 
 @Controller('reciever')

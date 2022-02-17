@@ -55,32 +55,7 @@ class assignMeDto {
   postDate: Date;
 }
 
-class packageWithAddressDto {
-  @IsString()
-  name: string;
-  @IsString()
-  size: string;
-  @IsString()
-  weight: string;
-  @IsBoolean()
-  fragile: boolean;
-  @IsObject()
-  fromAddress: addressDto;
-  @IsNumber()
-  recieverId: number;
-};
-class addressDto {
-  @IsString()
-  region: string;
-  @IsNumber()
-  zipCode: number;
-  @IsString()
-  city: string;
-  @IsString()
-  street: string;
-  @IsNumber()
-  houseNumber: number;
-};
+
 
 @Controller('package')
 export class PackageController {
@@ -107,7 +82,7 @@ export class PackageController {
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
   @Put('/add')
-  createWithAddress(@Req() req: authRequest, @Body() body: packageWithAddressDto) {
+  createWithAddress(@Req() req: authRequest, @Body() body: packageDto) {
     console.log(body)
     return this.packageService.create({
       userId: req.user.sub,

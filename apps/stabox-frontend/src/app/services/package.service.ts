@@ -19,7 +19,6 @@ export class PackageService {
     this.http.put(environment.apiURL+'/package/add',{..._package,recieverId:1}).subscribe({
       next:(res)=>console.log(res),
       error:(err)=>console.log(err)
-      
     })
   }
 }

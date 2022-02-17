@@ -52,7 +52,6 @@ export class AddPackageComponent implements OnInit {
 
     return true
   }
-
 }
 interface packageInterface {
   name:string
