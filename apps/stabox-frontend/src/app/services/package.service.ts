@@ -16,7 +16,7 @@ export class PackageService {
   }
 
   addPackage(_package:any){
-    this.http.put(environment.apiURL+'/package',{..._package,recieverId:1}).subscribe({
+    this.http.put(environment.apiURL+'/package/add',{..._package,recieverId:1}).subscribe({
       next:(res)=>console.log(res),
       error:(err)=>console.log(err)
       

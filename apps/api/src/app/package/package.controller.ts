@@ -10,7 +10,7 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { IsBoolean, IsDateString, IsNumber, IsString } from 'class-validator';
+import { IsBoolean, IsDateString, IsNumber, IsObject, isObject, IsString } from 'class-validator';
 import { addressEntity, packageEntity } from '../../Entities';
 import { AddressService } from '../address/address.service';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
@@ -38,8 +38,8 @@ class packageDto {
   weight: string;
   @IsBoolean()
   fragile: boolean;
-  @IsNumber()
-  fromAddressId: addressEntity;
+  @IsObject()
+  fromAddressId: number;
   @IsString()
   name: string;
   @IsNumber()
@@ -55,6 +55,33 @@ class assignMeDto {
   postDate: Date;
 }
 
+class packageWithAddressDto {
+  @IsString()
+  name: string;
+  @IsString()
+  size: string;
+  @IsString()
+  weight: string;
+  @IsBoolean()
+  fragile: boolean;
+  @IsObject()
+  fromAddress: addressDto;
+  @IsNumber()
+  recieverId: number;
+};
+class addressDto {
+  @IsString()
+  region: string;
+  @IsNumber()
+  zipCode: number;
+  @IsString()
+  city: string;
+  @IsString()
+  street: string;
+  @IsNumber()
+  houseNumber: number;
+};
+
 @Controller('package')
 export class PackageController {
   constructor(
@@ -62,7 +89,7 @@ export class PackageController {
     private readonly addressService: AddressService,
     private readonly exchangeDateService: ExchangeDateService,
     private readonly vehicleService: VehicleService
-  ) {}
+  ) { }
 
   //creates package
   @UseGuards(AuthGuard, RoleGuard)
@@ -76,7 +103,19 @@ export class PackageController {
     });
   }
 
-  
+  //create package with address
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles('user')
+  @Put('/add')
+  createWithAddress(@Req() req: authRequest, @Body() body: packageWithAddressDto) {
+    console.log(body)
+    return this.packageService.create({
+      userId: req.user.sub,
+      price: 500,
+      ...body
+    });
+  }
+
 
   // gets all packages
   @UseGuards(AuthGuard, RoleGuard)
@@ -86,7 +125,7 @@ export class PackageController {
     return this.packageService.getAll();
   }
 
-  // gets user's all package
+  // gets user packages
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
   @Get()
@@ -102,7 +141,7 @@ export class PackageController {
   getMyPackagesWithAddress(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
       where: { userId: req.user.sub },
-      relations:['fromAddress']
+      relations: ['fromAddress']
     });
   }
 

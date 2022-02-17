@@ -18,8 +18,8 @@ export class AddPackageComponent implements OnInit {
       zipCode: 0
     },
     size: '',
-    weight: ''
-
+    weight: '',
+    name:'',
   }
 
   constructor(private packageService:PackageService) { }
@@ -55,10 +55,11 @@ export class AddPackageComponent implements OnInit {
 
 }
 interface packageInterface {
+  name:string
   fromAddress: addressInterface,
   size: string,
   weight: string,
-  fragile: boolean
+  fragile: boolean,
 }
 interface addressInterface {
   
