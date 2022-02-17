@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AddressService } from '../../../services/address-service';
 import { PackageService } from '../../../services/package.service';
 
 @Component({
@@ -15,10 +16,15 @@ export class AddPackageComponent implements OnInit {
     weight: '',
     name:'',
   }
+  addresses:any[]=[];
 
-  constructor(private packageService:PackageService) { }
+  constructor(private packageService:PackageService, private addressService:AddressService) { }
 
   ngOnInit(): void {
+    this.addressService.getMyAddresses().subscribe({
+      next:(res)=>this.addresses=res,
+      error:(err)=>this.addresses=err}
+    )
   }
 
   addPackage() {
