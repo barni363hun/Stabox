@@ -25,7 +25,11 @@
 .socialIconDiv {
     transition: 0.25s;
     width: fit-content;
+    height: fit-content;
     margin: 0 5px 0 5px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .socialIconDiv:hover {
@@ -36,6 +40,7 @@
 
 .socialsRow {
     width: fit-content;
+    height: fit-content;
 }
 
 #copyrightIcon {
@@ -51,4 +56,80 @@
     font-size: 12px;
     margin: 0;
     color: rgba($colorLightGray, 0.75);
+}
+
+@media only screen and (max-width: 1200px) {
+    #footer {
+        margin: 125px 0 0 0;
+        padding-top: 12.5px;
+    }
+    .socialIcon {
+        width: 45px;
+    }
+    #copyrightText {
+        font-size: 11px;
+    }
+    #copyrightIcon {
+        transform: scale(0.8);
+    }
+    .socialIconDiv {
+        height: 50px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    #footer {
+        margin: 100px 0 0 0;
+        padding-top: 10px;
+    }
+    .socialIcon {
+        width: 40px;
+    }
+    #copyrightText {
+        font-size: 10px;
+    }
+    #copyrightIcon {
+        transform: scale(0.75);
+    }
+    .socialIconDiv {
+        height: 45px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #footer {
+        margin: 75px 0 0 0;
+        padding-top: 7.5px;
+    }
+    .socialIcon {
+        width: 35px;
+    }
+    #copyrightText {
+        font-size: 9px;
+    }
+    #copyrightIcon {
+        transform: scale(0.7);
+    }
+    .socialIconDiv {
+        height: 40px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #footer {
+        margin: 50px 0 0 0;
+        padding-top: 5px;
+    }
+    .socialIcon {
+        width: 30px;
+    }
+    #copyrightText {
+        font-size: 8px;
+    }
+    #copyrightIcon {
+        transform: scale(0.65);
+    }
+    .socialIconDiv {
+        height: 35px;
+    }
 }

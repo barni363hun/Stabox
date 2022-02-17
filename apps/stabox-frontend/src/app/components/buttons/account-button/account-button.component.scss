@@ -21,6 +21,9 @@
     border-radius: 75px;
     font-size: 24px;
     padding: 5px 20px 5px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .outline {
@@ -31,9 +34,19 @@
     border-radius: 75px;
 }
 
-#accountIcon {
+.accountIcon {
     transform: scale(1.5);
-    margin: 0 8px 5px 0;
+    margin-right: 10px;
     display: inline-block;
     vertical-align: middle;
+}
+
+@media only screen and (max-width: 320px) {
+    .accountBtn {
+        font-size: 18px;
+    }
+    .accountIcon {
+        margin-right: 5px;
+        transform: scale(1.15);
+    }
 }

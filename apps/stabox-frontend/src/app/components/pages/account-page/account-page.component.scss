@@ -98,65 +98,126 @@
     transform: scale(2);
 }
 
-.accountDataInputDiv {
-    width: 45%;
-    margin: 0 auto;
-    padding: 0;
-    margin-top: 40px;
-}
+// .accountDataInputDiv {
+//     width: 45%;
+//     margin: 0 auto;
+//     padding: 0;
+//     margin-top: 40px;
+// }
 
-.accountDataInputs {
-    width: 85%;
-    margin: 0 auto;
-}
 
 @media only screen and (max-width: 1400px) {
     .accountImage {
-        width: 365px;
-        height: 365px;
-    }
-    .accountDataTitle {
-        font-size: 30px;
-    }
-    .accountDataUnderline {
-        width: 185px;
-    }
-    .bigBtnImg {
-        height: 120px;
-    }
-    .bigBtnText {
-        font-size: 28px;
-    }
-    .title {
-        font-size: 38px;
-    }
-    .accountDataInput {
-        font-size: 22px;
-    }
-}
-
-@media only screen and (max-width: 1200px) {
-    .accountImage{
-        width: 355px;
-        height: 355px;
+        width: 350px;
+        height: 350px;
     }
     .accountDataTitle {
         font-size: 28px;
     }
     .accountDataUnderline {
-        width: 170px;
+        width: 180px;
     }
     .bigBtnImg {
-        height: 120px;
+        height: 115px;
     }
     .bigBtnText {
         font-size: 26px;
     }
     .title {
-        font-size: 34px;
+        font-size: 36px;
     }
-    .accountDataInput {
+    input {
         font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .accountImage{
+        width: 300px;
+        height: 300px;
+    }
+    .accountDataTitle {
+        font-size: 26px;
+    }
+    .accountDataUnderline {
+        width: 170px;
+    }
+    .bigBtnImg {
+        height: 100px;
+    }
+    .bigBtnText {
+        font-size: 20px;
+    }
+    .title {
+        font-size: 32px;
+    }
+}
+
+@media only screen and (max-width: 1130px) {
+    .bigBtnImg {
+        height: 90px;
+    }
+    .bigBtnText {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .accountImage{
+        width: 375px;
+        height: 375px;
+    }
+    .bigBtnImg {
+        height: 100px;
+    }
+    .bigBtnText {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .accountImage{
+        width: 350px;
+        height: 350px;
+    }
+}
+
+@media only screen and (max-width: 860px) {
+    .accountImage{
+        width: 325px;
+        height: 325px;
+    }
+}
+
+@media only screen and (max-width: 790px) {
+    .accountImage{
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .title {
+        font-size: 30px;
+    }
+    input {
+        font-size: 22px;
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 468px) {
+    .title {
+        font-size: 28px;
+    }
+    input {
+        font-size: 18px;
+    }
+    .bigBtnImg {
+        height: 85px;
+    }
+    .bigBtnText {
+        font-size: 18px;
     }
 }
 
@@ -170,6 +231,21 @@
     }
     .accountDataInput {
         font-size: 18px;
+    }
+    .bigBtnImg {
+        height: 75px;
+    }
+    .bigBtnText {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    .title {
+        font-size: 24px;
+    }
+    input {
+        font-size: 16px;
     }
 }
 

@@ -160,6 +160,7 @@
 .sideBarItem {
   width: fit-content;
   margin: 0 auto;
+  text-align: center;
 }
 
 .sideBarItemDiv {
@@ -193,4 +194,16 @@
 
 #sideBarItemCoinsDiv:hover {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 320px) {
+  .navText {
+    font-size: 24px;
+  }
+  #sideBarItemCoinAmount {
+    font-size: 22px; 
+  }
+  #sideBarItemCoinsIcon {
+    width: 40px;
+  }
 }

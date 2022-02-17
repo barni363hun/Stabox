@@ -1,9 +1,9 @@
 <div [ngClass]="{'lightMode': lightMode == true}">
     <div class="content">
         <app-account-page-navbar (lightModeEvent)="getLightModeToggle($event)"></app-account-page-navbar>
-    
+
         <div class="page">
-    
+
             <form>
                 <div class="container-fluid">
                     <div class="row">
@@ -23,7 +23,7 @@
                                         <div class="accountDataUnderline gradientBg"></div>
                                         <input type="text" value="Hairy Pooper">
                                     </div>
-                                    
+
                                     <div class="accountDataDiv">
                                         <mat-icon class="accountDataIcon gradient">person</mat-icon>
                                         <p class="accountDataTitle gradient">Full Name</p>
@@ -37,14 +37,14 @@
                                             </div>
                                         </div>
                                     </div>
-    
+
                                     <div class="accountDataDiv">
                                         <mat-icon class="accountDataIcon gradient">email</mat-icon>
                                         <p class="accountDataTitle gradient">Email</p>
                                         <div class="accountDataUnderline gradientBg"></div>
                                         <input type="email" value="meow@meow.meow">
                                     </div>
-    
+
                                     <div class="accountDataDiv">
                                         <mat-icon class="accountDataIcon gradient">phone</mat-icon>
                                         <p class="accountDataTitle gradient">Phone</p>
@@ -55,7 +55,7 @@
 
                             </div>
                         </div>
-    
+
                         <div class="col-xl-4 col-lg-3 col-md-12">
                             <div class="row text-center h-100">
 
@@ -76,44 +76,44 @@
                             </div>
                         </div>
                     </div>
-    
-                    <div class="row mt-5 p-0">
-                        <div class="col-xl-6 text-center accountDataInputDiv">
+
+                    <div class="row mt-4 p-0">
+                        <div class="col-xl-6 col-12 my-4 text-center">
                             <p class="title gradient">Exchange</p>
                             <app-divider [lightMode]="lightMode"></app-divider>
                             <div class="accountDataInputs">
-                                <input class="accountDataInput" type="text" value="2022.02.16 - 2022.02.18">
-                                <input class="accountDataInput" type="text" value="2022.02.20 - 2022.02.27">
+                                <input type="text" value="2022.02.16 - 2022.02.18">
+                                <input type="text" value="2022.02.20 - 2022.02.27">
                                 <app-add-icon [lightMode]="lightMode"></app-add-icon>
                             </div>
                         </div>
-    
-                        <div class="col-xl-6 text-center accountDataInputDiv">
+
+                        <div class="col-xl-6 col-12 my-4 text-center">
                             <p class="title gradient">Addresses</p>
                             <app-divider [lightMode]="lightMode"></app-divider>
                             <div class="accountDataInputs">
-                                <input class="accountDataInput" type="text" value="Győr Fő u. 5">
-                                <input class="accountDataInput" type="text" value="Vác Petőfi u. 1">
+                                <input type="text" value="Győr Fő u. 5">
+                                <input type="text" value="Vác Petőfi u. 1">
                                 <app-add-icon [lightMode]="lightMode"></app-add-icon>
                             </div>
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="saveIcon" title="Save Changes">
                     <button type="submit">
                         <mat-icon class="gradient">save</mat-icon>
                     </button>
                 </div>
             </form>
-    
+
         </div>
-    
+
         <div>
             <app-shipper-details [lightMode]="lightMode" (viewDetailsEvent)="getViewShipperDetails($event)" *ngIf="viewDetails"></app-shipper-details>
         </div>
-    
+
         <app-footer [lightMode]="lightMode"></app-footer>
-    
+
     </div>
 </div>
