@@ -5,28 +5,26 @@
         <app-close-icon [lightMode]="lightMode" (click)="close()"></app-close-icon>
         <img id="stopBeingShipperIcon" [src]="lightMode ? '../../../../assets/images/LightMode/StopBeingShipperIcon.svg' : '../../../../assets/images/DarkMode/StopBeingShipperIcon.svg'" title="Stop Being a Shipper">
         <div id="content">
-            <div class="text-center mx-auto mt-2" style="width: fit-content;">
-                <div>
-                    <mat-icon class="icon gradient">local_shipping</mat-icon>
-                    <p class="title ms-4">Vehicles</p>
-                </div>
-                
-                <app-divider [lightMode]="lightMode"></app-divider>
+            <div class="title">
+                <img class="vehicleIcon" [src]="lightMode ? '../../../../assets/images/LightMode/ShipperIcon.svg' : '../../../../assets/images/DarkMode/ShipperIcon.svg'">
+                <p class="titleText ms-4">Vehicles</p>
+            </div>
 
-                <div class="my-2">
-                    <div class="row m-0 mt-1">
-                        <div class="col-xl-1 col-1 p-0"></div>
-                        <div class="col-xl-10 col-10 p-0">
-                            <input type="text" placeholder="Type">
-                        </div>
-                        <div class="col-xl-1 col-1 p-0 my-auto">
-                            <mat-icon class="icon gradient" title="Remove Vehicle">delete</mat-icon>
-                        </div>
+            <app-divider [lightMode]="lightMode"></app-divider>
+
+            <div class="my-2">
+                <div class="row m-0 mt-1">
+                    <div class="col-xl-1 col-1 p-0"></div>
+                    <div class="col-xl-10 col-10 p-0">
+                        <input type="text" placeholder="Type">
+                    </div>
+                    <div class="col-xl-1 col-1 p-0 my-auto">
+                        <mat-icon class="deleteIcon gradient" title="Remove Vehicle">delete</mat-icon>
                     </div>
                 </div>
-
-                <app-add-icon [lightMode]="lightMode"></app-add-icon>
             </div>
+
+            <app-add-icon [lightMode]="lightMode"></app-add-icon>
         </div>
     </div>
 </div>

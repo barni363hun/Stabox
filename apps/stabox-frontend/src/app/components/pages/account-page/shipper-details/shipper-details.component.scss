@@ -21,6 +21,13 @@
     top: 0;
 }
 
+#shipperDetailsDiv {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
 #shipperDetails {
     background-color: $bgColorBlack;
     width: 75%;
@@ -40,11 +47,11 @@
     to {transform: translateY(-50%) scale(1);}
 }
 
-#shipperDetailsDiv {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
+#content {
+    margin: 0 auto;
+    margin-top: 16px;
+    width: fit-content;
+    text-align: center;
 }
 
 p {
@@ -59,30 +66,27 @@ p {
     cursor: pointer;
 }
 
+.vehicleIcon {
+    width: 100px;
+}
+
 .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleText {
     margin: 0;
     display: inline-block;
 }
 
-input:focus {
-    outline: none;
-    transition: 0.25s;
-    box-shadow: inset 0 1px 1px rgba($colorLightYellow, 0.075), 0 0 8px rgba($colorDarkYellow, 0.6);
-}
-
-input {
-    background: transparent;
-    color: white;
-    border-radius: 7.5px;
-    border: none;
-    font-size: 24px;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-}
-
 .icon {
+    transform: scale(1.75);
+    display: inline-block;
+}
+
+.deleteIcon {
     transform: scale(1.75);
     display: inline-block;
 }
@@ -99,13 +103,10 @@ input {
 }
 
 @media only screen and (max-width: 576px) {
-    #shipperDetails input {
-        font-size: 90%;
-    }
-    .icon {
-        transform: scale(1.15);
-    }
     .deleteIcon {
-        transform: scale(1);
+        transform: scale(1.3);
+    }
+    input {
+        font-size: 22px;
     }
 }

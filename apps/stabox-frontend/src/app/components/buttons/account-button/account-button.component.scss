@@ -1,15 +1,10 @@
 @import '../../../../styles/settings/variables';
 
-.lightMode #gradientOutline {
-    background-color: $colorLightBlue;
-    background: linear-gradient(to right, $colorLightBlue, $colorDarkBlue);
-}
-
-.lightMode #accountIcon {
+.lightMode .accountIcon {
     color: $colorDarkGray;
 }
 
-.lightMode #accountBtn {
+.lightMode .accountBtn {
     color: $colorDarkGray;
     background-color: $bgColorWhite;
 }

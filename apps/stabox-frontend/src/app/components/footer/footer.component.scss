@@ -1,15 +1,15 @@
 @import '../../../styles/settings/variables';
 
-.lightMode #copyrightText,
-.lightMode #copyrightIcon {
+.lightMode .copyrightText,
+.lightMode .copyrightIcon {
     color: $colorDarkGray;
 }
 
-.lightMode #footer {
+.lightMode .footer {
     border-top: 1px solid rgba($colorLightGray, 0.5);
 }
 
-#footer {
+.footer {
     width: 100%;
     text-align: center;
     margin: 150px 0 0 0;
@@ -26,7 +26,6 @@
     transition: 0.25s;
     width: fit-content;
     height: fit-content;
-    margin: 0 5px 0 5px;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -41,16 +40,18 @@
 .socialsRow {
     width: fit-content;
     height: fit-content;
+    margin: 0 auto;
+    padding: 0;
 }
 
-#copyrightIcon {
+.copyrightIcon {
     display: inline-block;
     color: rgba($colorLightGray, 0.75);
     transform: scale(0.85);
     margin-right: 2px;
 }
 
-#copyrightText {
+.copyrightText {
     display: inline-block;
     vertical-align: middle;
     font-size: 12px;
@@ -59,17 +60,17 @@
 }
 
 @media only screen and (max-width: 1200px) {
-    #footer {
+    .footer {
         margin: 125px 0 0 0;
         padding-top: 12.5px;
     }
     .socialIcon {
         width: 45px;
     }
-    #copyrightText {
+    .copyrightText {
         font-size: 11px;
     }
-    #copyrightIcon {
+    .copyrightIcon {
         transform: scale(0.8);
     }
     .socialIconDiv {
@@ -78,17 +79,17 @@
 }
 
 @media only screen and (max-width: 992px) {
-    #footer {
+    .footer {
         margin: 100px 0 0 0;
         padding-top: 10px;
     }
     .socialIcon {
         width: 40px;
     }
-    #copyrightText {
+    .copyrightText {
         font-size: 10px;
     }
-    #copyrightIcon {
+    .copyrightIcon {
         transform: scale(0.75);
     }
     .socialIconDiv {
@@ -97,17 +98,17 @@
 }
 
 @media only screen and (max-width: 768px) {
-    #footer {
+    .footer {
         margin: 75px 0 0 0;
         padding-top: 7.5px;
     }
     .socialIcon {
         width: 35px;
     }
-    #copyrightText {
+    .copyrightText {
         font-size: 9px;
     }
-    #copyrightIcon {
+    .copyrightIcon {
         transform: scale(0.7);
     }
     .socialIconDiv {
@@ -116,17 +117,17 @@
 }
 
 @media only screen and (max-width: 576px) {
-    #footer {
+    .footer {
         margin: 50px 0 0 0;
         padding-top: 5px;
     }
     .socialIcon {
         width: 30px;
     }
-    #copyrightText {
+    .copyrightText {
         font-size: 8px;
     }
-    #copyrightIcon {
+    .copyrightIcon {
         transform: scale(0.65);
     }
     .socialIconDiv {

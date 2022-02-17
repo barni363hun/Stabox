@@ -17,16 +17,17 @@
     margin: 8px;
 }
 
-#addIconDiv {
+.addIconDiv {
     transition: 0.25s;
     background-color: transparent;
     border: none;
     border-radius: 50%; 
     padding: 5px;
+    margin: 0 auto;
     width: fit-content;
 }
 
-#addIconDiv:hover {
+.addIconDiv:hover {
     cursor: pointer;
     transition: 0.25s;
     box-shadow: inset 0 1px 1px rgba($colorLightYellow, 0.075), 0 0 8px rgba($colorDarkYellow, 0.6);
