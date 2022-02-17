@@ -83,7 +83,11 @@
         <div class="col-xl-4 col-lg-3 col-md-12">
           <div class="row text-center h-100">
             <div class="col-xl-12 col-lg-12 col-md-6 centerElements">
-              <div class="bigBtn" (click)="viewDetails = true">
+              <div
+                class="bigBtn"
+                *ngIf="userService.isShipper"
+                (click)="viewDetails = true"
+              >
                 <img
                   class="bigBtnImg"
                   [src]="
@@ -93,6 +97,21 @@
                   "
                 />
                 <p class="bigBtnText">Shipper Details</p>
+              </div>
+              <div
+                class="bigBtn"
+                *ngIf="!userService.isShipper"
+                (click)="wantToBeShipper()"
+              >
+                <img
+                  class="bigBtnImg"
+                  [src]="
+                    lightMode
+                      ? '../../../../assets/images/LightMode/ShipperIcon.svg'
+                      : '../../../../assets/images/DarkMode/ShipperIcon.svg'
+                  "
+                />
+                <p class="bigBtnText">Do you want to be a shipper?</p>
               </div>
             </div>
             <div class="col-xl-12 col-lg-12 col-md-6 centerElements">

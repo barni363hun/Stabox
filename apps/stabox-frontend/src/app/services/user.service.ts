@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AuthService, User } from '@auth0/auth0-angular';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { catchError, map, observable, Observable } from 'rxjs';
+import { catchError, map, observable, Observable, window } from 'rxjs';
 import { cError, cSuccess, userInterface } from '@stabox/stabox-lib';
 
 @Injectable({
@@ -10,7 +10,7 @@ import { cError, cSuccess, userInterface } from '@stabox/stabox-lib';
 })
 export class UserService {
   public user: userInterface = {
-    roles: [],
+    ['https://www.stabox.hu/roles']: [],
     id: '',
     email: '',
     username: '',
@@ -21,6 +21,8 @@ export class UserService {
   public authUserInit: Observable<User | undefined | null> =
     this.authService.user$;
   public userInitialized = false;
+  isUser = false;
+  isShipper = false;
   //user: EventEmitter<any> = new EventEmitter();
 
   constructor(private authService: AuthService, private http: HttpClient) {
@@ -37,6 +39,12 @@ export class UserService {
           cSuccess("authUser's been got");
           this.userInitialized = true;
           this.authUser = authU;
+          if (this.hasRole('user')) {
+            this.isUser = true;
+          }
+          if (this.hasRole('shipper')) {
+            this.isShipper = true;
+          }
           console.log(authU);
           const newUser: userInterface = {
             email: authU.email,
@@ -45,7 +53,8 @@ export class UserService {
             picture: authU.picture,
             username: authU.nickname,
             id: authU.sub,
-            roles: authU['https://www.stabox.hu/roles'],
+            ['https://www.stabox.hu/roles']:
+              authU['https://www.stabox.hu/roles'],
             //TODO possible to add 'email_verified' if needed
           };
           if (authU.phone_number_verified) {
@@ -85,10 +94,15 @@ export class UserService {
       })
       .subscribe({
         next: (res) => {
+          alert('user info saved successfully');
           cSuccess('user info updated');
           console.log(this.user);
+          if (!this.isUser) {
+            this.login();
+          }
         },
         error: (err) => {
+          alert('error ' + err.error.message);
           cError(err.error.message);
         },
       });
@@ -114,11 +128,11 @@ export class UserService {
   }
 
   public deleteUser() {
-    if (window.confirm('Are you sure you want to delete your accaunt?')) {
+    if (confirm('Are you sure you want to delete your accaunt?')) {
       //TODO delete accaunt
       this.logout();
     } else {
-      window.alert('uh... that was close');
+      alert('uh... that was close');
     }
   }
 
@@ -154,5 +168,31 @@ export class UserService {
 
   public logout() {
     this.authService.logout();
+  }
+
+  private hasRole(str: string): boolean {
+    if (this.authUser['https://www.stabox.hu/roles'].includes(str)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public beShipper() {
+    console.log('assigning shipper role');
+    this.http
+      .post(environment.apiURL + '/user/shipper', {
+        id: this.user.id,
+      })
+      .subscribe({
+        next: (res) => {
+          cSuccess('shipper role assigned');
+          console.log(res);
+          this.login();
+        },
+        error: (err) => {
+          cError(err.error.message);
+        },
+      });
   }
 }

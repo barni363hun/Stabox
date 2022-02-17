@@ -33,7 +33,20 @@ export class AccountPageComponent implements OnInit {
     this.addressService.getAddresses();
   }
 
+  wantToBeShipper() {
+    if (this.userService.isUser) {
+      if (confirm('Do you want to be a shipper?')) {
+        this.userService.beShipper();
+      } else {
+        alert('okaly');
+      }
+    } else {
+      alert('Please fill all of your data!');
+    }
+  }
+
   getViewShipperDetails(data: any) {
+    console.log('asdfasdfdsf');
     this.viewDetails = data;
   }
 
