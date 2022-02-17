@@ -5,13 +5,21 @@
     border: 2px solid rgba($colorLightGray, 0.25);
 }
 
-.lightMode .bigBtn:hover,
-.lightMode #saveChangesBtn:hover {
+.lightMode .bigBtn:hover {
     border-color: $colorLightBlue;
     box-shadow: inset 0 1px 1px rgba($colorLightBlue, 0.075), 0 0 8px rgba($colorDarkBlue, 0.6);
 }
 
-.outline {
+.lightMode .saveButton {
+    background: $colorWhite;
+    color: $colorDarkGray;
+}
+
+.lightMode .saveButtonOutline:hover .saveButton {
+    color: $colorWhite;
+}
+
+.accountImageOutline {
     width: fit-content;
     position: relative;
     padding: 2px;
@@ -73,6 +81,38 @@
 
 .title {
     font-size: 42px;
+}
+
+.saveButtonDiv {
+    position: relative;
+}
+
+.saveButtonOutline {
+    width: fit-content;
+    position: relative;
+    padding: 4px;
+    border-radius: 75px;
+
+    position: absolute;
+    bottom: 325px;
+    left: 0;
+    right: 0;
+    margin: auto
+}
+
+
+.saveButtonOutline:hover .saveButton {
+    background: transparent;
+    text-shadow: 1px 1px 4px rgba($colorBlack, 0.75);
+}
+
+.saveButton {
+    background: $bgColorBlack;
+    color: $colorWhite;
+    border: none;
+    border-radius: 75px;
+    font-size: 24px;
+    padding: 2px 40px 2px 40px;
 }
 
 .saveIcon {
