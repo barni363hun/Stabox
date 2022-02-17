@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { VehicleService } from 'apps/stabox-frontend/src/app/services';
+import { VehicleService } from '../../../../services';
 
 @Component({
   selector: 'app-shipper-details',
