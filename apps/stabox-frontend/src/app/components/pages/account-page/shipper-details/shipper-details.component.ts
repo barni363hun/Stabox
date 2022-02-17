@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { VehicleService } from 'apps/stabox-frontend/src/app/services';
 
 @Component({
   selector: 'app-shipper-details',
@@ -11,20 +12,16 @@ export class ShipperDetailsComponent implements OnInit {
 
   @Input() lightMode = false;
 
-  constructor() {
-    // if (confirm('Do you want to be a shipper?')) {
-    //   // if (this.user['https://www.stabox.hu/roles'].includes('user')) {
-    //   //   // TODO assign shipper role
-    //   // } else {
-    //   //   window.alert('you need to be a full role user first!');
-    //   // }
-    //   console.log('yes');
-    // } else {
-    //   this.close();
-    // }
+  constructor(public vehicleService: VehicleService) {}
+
+  ngOnInit(): void {
+    this.vehicleService.getVehicles();
   }
 
-  ngOnInit(): void {}
+  stopBeingShipper() {
+    // TODO
+    alert('This is not avaible at now');
+  }
 
   close() {
     this.viewDetailsEvent.emit(this.viewDetails);

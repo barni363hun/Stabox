@@ -46,7 +46,6 @@ export class AccountPageComponent implements OnInit {
   }
 
   getViewShipperDetails(data: any) {
-    console.log('asdfasdfdsf');
     this.viewDetails = data;
   }
 

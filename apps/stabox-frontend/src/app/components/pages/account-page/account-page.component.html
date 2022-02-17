@@ -138,7 +138,7 @@
           <div class="w-75 mx-auto">
             <div
               *ngFor="
-                let EXDate of exchangeDateService.localeExchangeDates;
+                let EXDate of exchangeDateService.exchangeDates;
                 index as i
               "
             >
@@ -183,9 +183,7 @@
           <p class="title">Addresses</p>
           <app-divider [lightMode]="lightMode"></app-divider>
           <div class="w-75 mx-auto">
-            <div
-              *ngFor="let address of addressService.localeAddresses; index as i"
-            >
+            <div *ngFor="let address of addressService.addresses; index as i">
               <input
                 class="accountDataInput"
                 type="text"

@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class AddressService {
-  localeAddresses: addressInterface[] = [];
+  addresses: addressInterface[] = [];
   constructor(private userService: UserService, private http: HttpClient) {
     this.getAddresses();
   }
@@ -24,8 +24,8 @@ export class AddressService {
       street: 'street name',
       houseNumber: 'house number',
     };
-    this.localeAddresses.push(newADR);
-    console.log(this.localeAddresses);
+    this.addresses.push(newADR);
+    console.log(this.addresses);
   }
 
   getAddresses() {
@@ -35,8 +35,8 @@ export class AddressService {
       .subscribe({
         next: (res) => {
           cSuccess('addresses refreshed');
-          this.localeAddresses = res;
-          console.log(this.localeAddresses);
+          this.addresses = res;
+          console.log(this.addresses);
         },
         error: (err) => {
           cError(err.error.message);
@@ -55,7 +55,7 @@ export class AddressService {
         .subscribe({
           next: (res) => {
             cSuccess('address saved');
-            console.log(this.localeAddresses);
+            console.log(this.addresses);
             this.getAddresses();
           },
           error: (err) => {
@@ -74,7 +74,7 @@ export class AddressService {
       .subscribe({
         next: (res) => {
           cSuccess('address' + exDate.id + ' created');
-          console.log(this.localeAddresses);
+          console.log(this.addresses);
           this.getAddresses();
         },
         error: (err) => {
@@ -84,7 +84,7 @@ export class AddressService {
   }
 
   delete(id: number) {
-    const deleteEX: addressInterface = this.localeAddresses[id];
+    const deleteEX: addressInterface = this.addresses[id];
     console.log('deleting address ' + deleteEX.id);
     const headers = {};
     this.http
@@ -95,7 +95,7 @@ export class AddressService {
       .subscribe({
         next: (res) => {
           cSuccess('address ' + id + ' deleted');
-          console.log(this.localeAddresses);
+          console.log(this.addresses);
           this.getAddresses();
         },
         error: (err) => {

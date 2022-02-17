@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class ExchangeDateService {
-  localeExchangeDates: exchangeDateInterface[] = [];
+  exchangeDates: exchangeDateInterface[] = [];
   constructor(private userService: UserService, private http: HttpClient) {
     this.getExchangeDates();
   }
@@ -20,8 +20,8 @@ export class ExchangeDateService {
       startDate: new Date(Date.now()).toISOString(),
       endDate: new Date(Date.now()).toISOString(),
     };
-    this.localeExchangeDates.push(newEX);
-    console.log(this.localeExchangeDates);
+    this.exchangeDates.push(newEX);
+    console.log(this.exchangeDates);
   }
 
   getExchangeDates() {
@@ -31,8 +31,8 @@ export class ExchangeDateService {
       .subscribe({
         next: (res) => {
           cSuccess('exchangeDates refreshed');
-          this.localeExchangeDates = res;
-          console.log(this.localeExchangeDates);
+          this.exchangeDates = res;
+          console.log(this.exchangeDates);
         },
         error: (err) => {
           cError(err.error.message);
@@ -51,7 +51,7 @@ export class ExchangeDateService {
         .subscribe({
           next: (res) => {
             cSuccess('exchangeDates saved');
-            console.log(this.localeExchangeDates);
+            console.log(this.exchangeDates);
             this.getExchangeDates();
           },
           error: (err) => {
@@ -70,7 +70,7 @@ export class ExchangeDateService {
       .subscribe({
         next: (res) => {
           cSuccess('exchangeDate' + exDate.id + ' created');
-          console.log(this.localeExchangeDates);
+          console.log(this.exchangeDates);
           this.getExchangeDates();
         },
         error: (err) => {
@@ -80,7 +80,7 @@ export class ExchangeDateService {
   }
 
   delete(id: number) {
-    const deleteEX: exchangeDateInterface = this.localeExchangeDates[id];
+    const deleteEX: exchangeDateInterface = this.exchangeDates[id];
     console.log('deleting exchangeDate ' + deleteEX.id);
     const headers = {};
     this.http
@@ -91,7 +91,7 @@ export class ExchangeDateService {
       .subscribe({
         next: (res) => {
           cSuccess('exchangeDate ' + id + ' deleted');
-          console.log(this.localeExchangeDates);
+          console.log(this.exchangeDates);
           this.getExchangeDates();
         },
         error: (err) => {
