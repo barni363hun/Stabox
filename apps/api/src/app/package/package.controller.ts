@@ -90,7 +90,17 @@ export class PackageController {
   @Get()
   getMyPackages(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
+      where: { userId: req.user.sub }
+    });
+  }
+
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles('user')
+  @Get('/withaddress')
+  getMyPackagesWithAddress(@Req() req: authRequest): Promise<packageEntity[]> {
+    return this.packageService.find({
       where: { userId: req.user.sub },
+      relations:['fromAddress']
     });
   }
 

@@ -6,7 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 
 export class PackageCardComponent implements OnInit {
-  @Input() package!: packageInterface
+  @Input() package!: any;
+  // packageInterface
   //   = {
   //   address: {
   //     city: "city",
@@ -28,18 +29,18 @@ export class PackageCardComponent implements OnInit {
   }
 }
 
-interface packageInterface {
-  fromAddress: addressInterface,
-  size: string,
-  weight: string,
-  fragile: boolean,
-  price: number
-}
-interface addressInterface {
-  region: string
-  zipCode: number,
-  city: string,
-  street: string,
-  houseNumber: number
+// interface packageInterface {
+//   fromAddress: addressInterface,
+//   size: string,
+//   weight: string,
+//   fragile: boolean,
+//   price: number
+// }
+// interface addressInterface {
+//   region: string
+//   zipCode: number,
+//   cityName: string,
+//   street: string,
+//   houseNumber: number
 
-}
+// }
