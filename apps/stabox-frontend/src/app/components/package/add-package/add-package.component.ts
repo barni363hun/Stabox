@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PackageService } from '../../../services/package.service';
 
 @Component({
   selector: 'stabox-add-package',
@@ -21,7 +22,7 @@ export class AddPackageComponent implements OnInit {
 
   }
 
-  constructor() { }
+  constructor(private packageService:PackageService) { }
 
   ngOnInit(): void {
   }
@@ -33,8 +34,9 @@ export class AddPackageComponent implements OnInit {
   }
 
   addPackage() {
+    console.log('asdsad')
     if (this.checkInputs()) {
-      //TODO send package to backend
+      this.packageService.addPackage({...this.package})
     }
   }
 
@@ -59,6 +61,7 @@ interface packageInterface {
   fragile: boolean
 }
 interface addressInterface {
+  
   region: string
   zipCode: number,
   city: string,

@@ -14,4 +14,12 @@ export class PackageService {
   getMypackages():Observable<any> {
     return this.http.get(environment.apiURL + "/package/withaddress")
   }
+
+  addPackage(_package:any){
+    this.http.put(environment.apiURL+'/package',{..._package,recieverId:1}).subscribe({
+      next:(res)=>console.log(res),
+      error:(err)=>console.log(err)
+      
+    })
+  }
 }

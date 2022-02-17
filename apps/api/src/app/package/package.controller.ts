@@ -11,7 +11,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { IsBoolean, IsDateString, IsNumber, IsString } from 'class-validator';
-import { packageEntity } from '../../Entities';
+import { addressEntity, packageEntity } from '../../Entities';
 import { AddressService } from '../address/address.service';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
 import { Roles } from '../auth/roles.decorator';
@@ -39,7 +39,7 @@ class packageDto {
   @IsBoolean()
   fragile: boolean;
   @IsNumber()
-  fromAddressId: number;
+  fromAddressId: addressEntity;
   @IsString()
   name: string;
   @IsNumber()
@@ -75,6 +75,8 @@ export class PackageController {
       ...body
     });
   }
+
+  
 
   // gets all packages
   @UseGuards(AuthGuard, RoleGuard)
