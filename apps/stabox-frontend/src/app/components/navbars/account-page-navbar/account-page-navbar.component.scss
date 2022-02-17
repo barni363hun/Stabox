@@ -2,7 +2,7 @@
 
 .lightMode .nav {
   color: $colorDarkGray;
-  background-color: rgba($bgColorWhite, 0.95);
+  background-color: $bgColorWhite;
   border-bottom: 2px solid rgba($colorDarkGray, 0.1);
 }
 
@@ -42,7 +42,7 @@
 }
 
 .nav {
-  background-color: rgba($bgColorBlack, 0.95);
+  background-color: $bgColorBlack;
   padding: 10px 40px 10px 40px;
   border-bottom: 2px solid rgba($colorLightGray, 0.1);
 }

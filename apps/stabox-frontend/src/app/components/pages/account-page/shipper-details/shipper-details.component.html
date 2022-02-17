@@ -3,11 +3,16 @@
 
     <div id="shipperDetails">
         <app-close-icon [lightMode]="lightMode" (click)="close()"></app-close-icon>
-        <img id="stopBeingShipperIcon" [src]="lightMode ? '../../../../assets/images/LightMode/StopBeingShipperIcon.svg' : '../../../../assets/images/DarkMode/StopBeingShipperIcon.svg'" title="Stop Being a Shipper">
+
+        <div class="stopBeingShipperDiv">
+            <img class="stopBeingShipperIcon" src="../../../../../assets/images/StopBeingShipperIcon.svg">
+            <p class="stopBeingShipperText gradientRed">Stop being a shipper</p>
+        </div>
+
         <div id="content">
             <div class="title">
                 <img class="vehicleIcon" [src]="lightMode ? '../../../../assets/images/LightMode/ShipperIcon.svg' : '../../../../assets/images/DarkMode/ShipperIcon.svg'">
-                <p class="titleText ms-4">Vehicles</p>
+                <p class="titleText ms-2">Vehicles</p>
             </div>
 
             <app-divider [lightMode]="lightMode"></app-divider>

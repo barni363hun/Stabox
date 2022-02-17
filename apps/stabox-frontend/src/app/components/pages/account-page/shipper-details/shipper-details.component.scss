@@ -50,7 +50,7 @@
 #content {
     margin: 0 auto;
     margin-top: 16px;
-    width: fit-content;
+    width: 85%;
     text-align: center;
 }
 
@@ -58,16 +58,28 @@ p {
     font-size: 28px;
 }
 
-#stopBeingShipperIcon {
-    width: 125px;
+.stopBeingShipperDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -35px 0 115px 0;
 }
 
-#stopBeingShipperIcon:hover {
+.stopBeingShipperDiv:hover {
     cursor: pointer;
 }
 
+.stopBeingShipperIcon {
+    width: 55px;
+}
+
+.stopBeingShipperText {
+    font-size: 14px;
+    margin: 0 0 0 5px;
+}
+
 .vehicleIcon {
-    width: 100px;
+    width: 95px;
 }
 
 .title {
@@ -100,6 +112,9 @@ p {
         width: 95%;
         padding: 30px;
     }
+    .stopBeingShipperDiv {
+        margin: -15px 0 95px 0;
+    }
 }
 
 @media only screen and (max-width: 576px) {
@@ -108,5 +123,8 @@ p {
     }
     input {
         font-size: 22px;
+    }
+    .stopBeingShipperText {
+        display: none;
     }
 }

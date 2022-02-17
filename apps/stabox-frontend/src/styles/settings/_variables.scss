@@ -6,6 +6,8 @@ $colorLightBlue: #00B3EC;
 $colorDarkBlue: #007FC7;
 $colorLightYellow: #f2da00;
 $colorDarkYellow: #e29704;
+$colorLightRed: #FF9C9D;
+$colorDarkRed: #FF0000;
 
 $bgColorWhite: #fefefc;
 $bgColorBlack: #161518;
@@ -90,6 +92,13 @@ $shadeColor: black;
 }
 .gradientBg {
     background: linear-gradient(to right, $colorLightYellow 40%, $colorDarkYellow);
+}
+.gradientRed {
+    background-color: $colorDarkRed;
+    background: linear-gradient(to right, $colorLightRed 40%, $colorDarkRed);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 a {
     text-decoration: none;
