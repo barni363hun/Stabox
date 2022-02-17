@@ -1,87 +1,157 @@
-<div class="container-fluid p-0" [ngClass]="{'lightMode': lightMode == true}">
-    <nav class="navbar fixed-top navbar-expand-xl navbar-dark nav">
-        <div class="left me-5">
-            <app-home-icon [lightMode]="lightMode"></app-home-icon>
-        </div>
+<div class="container-fluid p-0" [ngClass]="{ lightMode: lightMode == true }">
+  <nav class="navbar fixed-top navbar-expand-xl navbar-dark nav">
+    <div class="left me-5">
+      <a routerLink="/home">
+        <app-home-icon [lightMode]="lightMode"></app-home-icon>
+      </a>
+    </div>
 
-        <button class="navbar-toggler" type="button" *ngIf="showSideBar == false" (click)="showSideBar = true">
-            <span class="navbar-toggler-icon" [ngStyle]="{'background-image': lightMode ? 'url(../../../../assets/images/LightMode/MenuIcon.svg)' : 'url(../../../../assets/images/DarkMode/MenuIcon.svg)'}"></span>
-        </button>
-        <button class="navbar-toggler" type="button" *ngIf="showSideBar == true" (click)="showSideBar = false">
-            <span class="navbar-toggler-icon" [ngStyle]="{'background-image': lightMode ? 'url(../../../../assets/images/LightMode/CloseIcon.svg)' : 'url(../../../../assets/images/DarkMode/CloseIcon.svg)'}"></span>
-        </button>
+    <button
+      class="navbar-toggler"
+      type="button"
+      *ngIf="showSideBar == false"
+      (click)="showSideBar = true"
+    >
+      <span
+        class="navbar-toggler-icon"
+        [ngStyle]="{
+          'background-image': lightMode
+            ? 'url(../../../../assets/images/LightMode/MenuIcon.svg)'
+            : 'url(../../../../assets/images/DarkMode/MenuIcon.svg)'
+        }"
+      ></span>
+    </button>
+    <button
+      class="navbar-toggler"
+      type="button"
+      *ngIf="showSideBar == true"
+      (click)="showSideBar = false"
+    >
+      <span
+        class="navbar-toggler-icon"
+        [ngStyle]="{
+          'background-image': lightMode
+            ? 'url(../../../../assets/images/LightMode/CloseIcon.svg)'
+            : 'url(../../../../assets/images/DarkMode/CloseIcon.svg)'
+        }"
+      ></span>
+    </button>
 
-        <div class="collapse navbar-collapse navBarList" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item me-3">
-                    <a class="mt-1 navText" routerLink="/mypackages">My Packages</a>
-                    <div class="navUnderline"></div>
-                </li>
-                <li class="nav-item">
-                    <a class="mt-1 navText" href="#">Available Packages</a>
-                    <div class="navUnderline"></div>
-                </li>
-            </ul>
+    <div class="collapse navbar-collapse navBarList" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item me-3">
+          <a class="mt-1 navText" routerLink="/packages">Packages</a>
+          <div class="navUnderline"></div>
+        </li>
+        <li class="nav-item">
+          <a class="mt-1 navText">
+            <button
+              type="button"
+              id="getStartedBtn"
+              (click)="this.userService.logout()"
+            >
+              Logout
+            </button>
+          </a>
+          <div class="navUnderline"></div>
+        </li>
+      </ul>
 
-            <div id="coinsDiv" title="View transactions">
-                <p id="coinAmount">69 420</p>
-                <img id="coinsIcon" src="../../../../assets/images/CoinsIcon.svg">
-            </div>
-            <div class="me-4" routerLink="/account">
-                <app-account-button [lightMode]="lightMode"></app-account-button>
-            </div>
-            <div class="themeSwitchIconDiv" *ngIf="lightMode == true" (click)="emitLightModeOff()" title="Turn Light Theme Off">
-                <img class="themeSwitchIcon" src="../../../../assets/images/LightMode/LightModeIcon.svg">
-            </div>
-            <div class="themeSwitchIconDiv" *ngIf="lightMode == false" (click)="emitLightModeOn()" title="Turn Light Theme On">
-                <img class="themeSwitchIcon" src="../../../../assets/images/DarkMode/DarkModeIcon.svg">
-            </div>
-        </div>
-    </nav>
+      <div id="coinsDiv" title="View transactions">
+        <p id="coinAmount">69 420</p>
+        <img id="coinsIcon" src="../../../../assets/images/CoinsIcon.svg" />
+      </div>
+      <div class="me-4" routerLink="/account">
+        <app-account-button [lightMode]="lightMode"></app-account-button>
+      </div>
+      <div
+        class="lightModeIconDiv"
+        *ngIf="lightMode == true"
+        (click)="emitLightModeOff()"
+        title="Turn Light Theme Off"
+      >
+        <img
+          class="lightModeIcon"
+          src="../../../../assets/images/LightMode/LightModeIcon.svg"
+        />
+      </div>
+      <div
+        class="lightModeIconDiv"
+        *ngIf="lightMode == false"
+        (click)="emitLightModeOn()"
+        title="Turn Light Theme On"
+      >
+        <img
+          class="lightModeIcon"
+          src="../../../../assets/images/DarkMode/DarkModeIcon.svg"
+        />
+      </div>
+    </div>
+  </nav>
 </div>
 
-
-<div id="sideBarDiv" *ngIf="showSideBar == true" [ngClass]="{'lightMode': lightMode == true}">
-    <div id="sideBarShade" (click)="showSideBar = false"></div>
-    <div id="sideBar">
-
-        <div class="sideBarItemDiv" routerLink="/mypackages">
-            <div class="sideBarItem">
-                <a class="mt-1 navText">My Packages</a>
-                <div class="navUnderline"></div>
-            </div>
-        </div>
-
-        <div class="sideBarItemDiv" routerLink="/mypackages">
-            <div class="sideBarItem">
-                <a class="mt-1 navText">Available Packages</a>
-                <div class="navUnderline"></div>
-            </div>
-        </div>
-
-        <div class="sideBarItemDiv">
-            <div class="sideBarItem">
-                <div id="sideBarItemCoinsDiv" title="View transactions">
-                    <p id="sideBarItemCoinAmount">69 420</p>
-                    <img id="sideBarItemCoinsIcon" src="../../../../assets/images/CoinsIcon.svg">
-                </div>
-            </div>
-        </div>
-
-        <div class="sideBarItemDiv" routerLink="/account">
-            <div class="sideBarItem">
-                <app-account-button [lightMode]="lightMode"></app-account-button>
-            </div>
-        </div>
-
-        <div class="sideBarItemDiv">
-            <div class="themeSwitchIconDiv" *ngIf="lightMode == true" (click)="emitLightModeOff()" title="Turn Light Theme Off">
-                <img class="themeSwitchIcon" src="../../../../assets/images/LightMode/LightModeIcon.svg">
-            </div>
-            <div class="themeSwitchIconDiv" *ngIf="lightMode == false" (click)="emitLightModeOn()" title="Turn Light Theme On">
-                <img class="themeSwitchIcon" src="../../../../assets/images/DarkMode/DarkModeIcon.svg">
-            </div>
-        </div>
-
+<div
+  id="sideBarDiv"
+  *ngIf="showSideBar == true"
+  [ngClass]="{ lightMode: lightMode == true }"
+>
+  <div id="sideBarShade" (click)="showSideBar = false"></div>
+  <div id="sideBar">
+    <div class="sideBarItemDiv" routerLink="/mypackages">
+      <div class="sideBarItem">
+        <a class="mt-1 navText">My Packages</a>
+        <div class="navUnderline"></div>
+      </div>
     </div>
+
+    <div class="sideBarItemDiv" routerLink="/mypackages">
+      <div class="sideBarItem">
+        <a class="mt-1 navText">Available Packages</a>
+        <div class="navUnderline"></div>
+      </div>
+    </div>
+
+    <div class="sideBarItemDiv">
+      <div class="sideBarItem">
+        <div id="sideBarItemCoinsDiv" title="View transactions">
+          <p id="sideBarItemCoinAmount">69 420</p>
+          <img
+            id="sideBarItemCoinsIcon"
+            src="../../../../assets/images/CoinsIcon.svg"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="sideBarItemDiv" routerLink="/account">
+      <div class="sideBarItem">
+        <app-account-button [lightMode]="lightMode"></app-account-button>
+      </div>
+    </div>
+
+    <div class="sideBarItemDiv">
+      <div
+        class="lightModeIconDiv"
+        *ngIf="lightMode == true"
+        (click)="emitLightModeOff()"
+        title="Turn Light Theme Off"
+      >
+        <img
+          class="lightModeIcon"
+          src="../../../../assets/images/LightMode/LightModeIcon.svg"
+        />
+      </div>
+      <div
+        class="lightModeIconDiv"
+        *ngIf="lightMode == false"
+        (click)="emitLightModeOn()"
+        title="Turn Light Theme On"
+      >
+        <img
+          class="lightModeIcon"
+          src="../../../../assets/images/DarkMode/DarkModeIcon.svg"
+        />
+      </div>
+    </div>
+  </div>
 </div>

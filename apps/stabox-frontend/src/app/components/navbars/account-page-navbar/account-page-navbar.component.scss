@@ -11,8 +11,8 @@
 }
 
 .lightMode .navUnderline {
-  background-color: #00B3EC;
-  background: linear-gradient(to right, #00B3EC, #007FC7);
+  background-color: #00b3ec;
+  background: linear-gradient(to right, #00b3ec, #007fc7);
 }
 
 .lightMode #sideBar {
@@ -24,17 +24,18 @@
   border-bottom: 2px solid rgba(#565656, 0.1);
 }
 
-
-.navbar-dark .navbar-toggler-icon{
+.navbar-dark .navbar-toggler-icon {
   border: none;
 }
 
-.navbar-toggler{
+.navbar-toggler {
   border: none;
   border-radius: 10px;
 }
 
-.navbar-toggler:focus, .navbar-toggler:active, .navbar-toggler-icon:focus {
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
   outline: none;
   box-shadow: none;
 }
@@ -42,15 +43,15 @@
 .nav {
   background-color: rgba(#161518, 0.95);
   padding: 10px 40px 10px 40px;
-  border-bottom: 2px solid rgba(#CAC8D9, 0.1);
+  border-bottom: 2px solid rgba(#cac8d9, 0.1);
 }
-  
+
 .nav-item {
   width: fit-content;
   padding-top: 3px;
 }
 
-.navText  {
+.navText {
   font-size: 28px;
   color: white;
   text-decoration: none;
@@ -70,14 +71,14 @@
   border-radius: 10px;
   background: linear-gradient(to right, #f2da00, #e29704);
 }
-  
+
 #coinsIcon {
   width: 60px;
   margin-right: 35px;
   display: inline;
   vertical-align: middle;
 }
-  
+
 #coinAmount {
   color: white;
   margin-right: 20px;
@@ -116,8 +117,12 @@
 }
 
 @keyframes shadeAppear {
-  from {background-color: rgba(0, 0, 0, 0);}
-  to {background-color: rgba(0, 0, 0, 0.85);}
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.85);
+  }
 }
 
 #sideBarShade {
@@ -133,8 +138,12 @@
 }
 
 @keyframes sideBarAppear {
-  from {transform: translateX(50%);}
-  to {transform: translateX(0);}
+  from {
+    transform: translateX(50%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 #sideBar {
@@ -163,7 +172,7 @@
 
 .sideBarItemDiv {
   width: 100%;
-  border-bottom: 2px solid rgba(#CAC8D9, 0.1);
+  border-bottom: 2px solid rgba(#cac8d9, 0.1);
   padding: 15px 0;
 }
 
@@ -181,7 +190,7 @@
   display: inline;
   vertical-align: middle;
 }
-  
+
 #sideBarItemCoinAmount {
   color: white;
   margin-right: 20px;

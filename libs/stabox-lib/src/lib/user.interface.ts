@@ -1,10 +1,11 @@
 export interface userInterface {
+  roles: string[];
   id: string;
-  shipper: number;
   email: string;
   username: string;
-  firstName: string;
-  lastName: string;
-  phoneNumber: string;
-  stabucks: number;
+  firstName?: string;
+  lastName?: string;
+  phoneNumber?: string;
+  stabucks?: number;
+  picture: string;
 }

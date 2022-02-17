@@ -5,12 +5,11 @@ import { AppComponent } from './app.component';
 import { MainpageComponent } from './components/pages/mainpage/mainpage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthModule, AuthHttpInterceptor } from '@auth0/auth0-angular';
 import { LogoComponent } from './components/logo/logo.component';
 import { SignInButtonComponent } from './components/buttons/sign-in-button/sign-in-button.component';
 import { GetStartedButtonComponent } from './components/buttons/get-started-button/get-started-button.component';
 import { MainpageNavbarComponent } from './components/navbars/mainpage-navbar/mainpage-navbar.component';
-import { LanguageIconComponent } from './components/icons/language-icon/language-icon.component';
 import { EmailInputComponent } from './components/form/email-input/email-input.component';
 import { LandingCardComponent } from './components/pages/mainpage/landing-card/landing-card.component';
 import { FirstCardComponent } from './components/pages/mainpage/first-card/first-card.component';
@@ -30,6 +29,9 @@ import { CloseIconComponent } from './components/icons/close-icon/close-icon.com
 import { AddIconComponent } from './components/icons/add-icon/add-icon.component';
 import { MyPackagesPageComponent } from './components/pages/my-packages-page/my-packages-page.component';
 import { ShowMoreButtonComponent } from './components/buttons/show-more-button/show-more-button.component';
+import { UserIconComponent } from './components/icons/user-icon/user-icon.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { environment } from '../environments/environment';
 import { PackageCardComponent } from './components/package/package-card/package-card.component';
 import { AddPackageComponent } from './components/package/add-package/add-package.component';
 import { FormsModule } from '@angular/forms';
@@ -42,7 +44,6 @@ import { FormsModule } from '@angular/forms';
     SignInButtonComponent,
     GetStartedButtonComponent,
     MainpageNavbarComponent,
-    LanguageIconComponent,
     EmailInputComponent,
     LandingCardComponent,
     FirstCardComponent,
@@ -62,6 +63,7 @@ import { FormsModule } from '@angular/forms';
     AddIconComponent,
     MyPackagesPageComponent,
     ShowMoreButtonComponent,
+    UserIconComponent,
     PackageCardComponent,
     AddPackageComponent,
   ],
@@ -69,15 +71,26 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
     AuthModule.forRoot({
-      domain: 'barni363hun.eu.auth0.com',
-      clientId: '70x759xfYo7pvQS39ptmBpnpBRv8MUkA',
+      ...environment.auth,
+      httpInterceptor: {
+        allowedList: [
+          {
+            uri: `${environment.apiURL}/*`,
+            tokenOptions: {
+              audience: environment.auth.audience,
+            },
+          },
+        ],
+      },
     }),
     MatIconModule,
-    FormsModule,
   ],
-  
-  providers: [],
   bootstrap: [AppComponent],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },
+  ],
 })
 export class AppModule {}

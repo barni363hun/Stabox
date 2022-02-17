@@ -55,7 +55,7 @@ class myAddressDto {
 
 @Controller('address')
 export class AddressController {
-  constructor(private readonly addressService: AddressService) { }
+  constructor(private readonly addressService: AddressService) {}
 
   //creates address
   @UseGuards(AuthGuard, RoleGuard)

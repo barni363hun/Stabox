@@ -35,7 +35,7 @@ class myVehicleDto {
 
 @Controller('vehicle')
 export class VehicleController {
-  constructor(private readonly vehicleService: VehicleService) { }
+  constructor(private readonly vehicleService: VehicleService) {}
 
   //creates vehicle
   @UseGuards(AuthGuard, RoleGuard)
