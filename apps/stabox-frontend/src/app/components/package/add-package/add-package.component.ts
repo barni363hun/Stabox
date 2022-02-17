@@ -8,15 +8,9 @@ import { PackageService } from '../../../services/package.service';
 })
 export class AddPackageComponent implements OnInit {
 
-  package: packageInterface = {
+  package: any = {
     fragile: false,
-    fromAddress: {
-      city: '',
-      houseNumber: 0,
-      region: 'asd',
-      street: '',
-      zipCode: 0
-    },
+    fromAddressId: 1,
     size: '',
     weight: '',
     name:'',
@@ -27,26 +21,17 @@ export class AddPackageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  asd() {
-    console.log(this.package)
-    console.log(this.checkInputs())
-
-  }
-
   addPackage() {
-    console.log('asdsad')
-    if (this.checkInputs()) {
-      this.packageService.addPackage({...this.package})
-    }
+    console.log('asdsad');
+
+      console.log('amogus');
+      this.packageService.addPackage({...this.package});
+    
   }
 
   //TODO? normális hibaüzenetek az input mezőkre
   checkInputs(): boolean {
-    if (!this.package.fromAddress.city.trim()) return false;
-    if (!this.package.fromAddress.houseNumber && typeof this.package.fromAddress.houseNumber == 'number') return false;
-    if (!this.package.fromAddress.region.trim()) return false;
-    if (!this.package.fromAddress.street.trim()) return false;
-    if (!this.package.fromAddress.zipCode && typeof this.package.fromAddress.zipCode == 'number') return false;
+    if (!this.package.name.trim()) return false;
     if (!this.package.size.trim()) return false;
     if (!this.package.weight.trim()) return false;
 

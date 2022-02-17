@@ -38,7 +38,7 @@ class packageDto {
   weight: string;
   @IsBoolean()
   fragile: boolean;
-  @IsObject()
+  @IsNumber()
   fromAddressId: number;
   @IsString()
   name: string;
