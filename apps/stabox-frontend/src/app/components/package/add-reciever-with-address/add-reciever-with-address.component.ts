@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'apps/stabox-frontend/src/environments/environment';
+import { RecieverService } from '../../../services/reciever.service';
 
 @Component({
   selector: 'stabox-add-reciever-with-address',
@@ -22,30 +23,29 @@ export class AddRecieverWithAddressComponent implements OnInit {
   }
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private recieverService:RecieverService) { }
 
   ngOnInit(): void {
   }
 
   addToDB() {
+    console.log(this.reciever);
+    
     if (this.checkInputs()) {
-      this.http.put(environment.apiURL + '/reciever', this.reciever).subscribe({
-        next:(res)=>console.log(res),
-        error:(err)=>console.log(err)
-      })
+      this.recieverService.addReciever(this.reciever)
     }
   }
 
   checkInputs(): boolean {
-    if (!this.reciever.cityName.trim()) return false;
-    if (!this.reciever.houseNumber && typeof this.reciever.houseNumber == 'number') return false;
-    if (!this.reciever.region&& typeof this.reciever.region == 'number') return false;
-    if (!this.reciever.street.trim()) return false;
-    if (!this.reciever.zipCode && typeof this.reciever.zipCode == 'number') return false;
-    if (!this.reciever.firstName.trim()) return false;
-    if (!this.reciever.lastName.trim()) return false;
-    if (!this.reciever.phoneNumber.trim()) return false;
-    if (!this.reciever.email.trim()) return false;
+    // if (!this.reciever.cityName.trim()) return false;
+    // if (!this.reciever.houseNumber && typeof this.reciever.houseNumber == 'number') return false;
+    // if (!this.reciever.region&& typeof this.reciever.region == 'number') return false;
+    // if (!this.reciever.street.trim()) return false;
+    // if (!this.reciever.zipCode && typeof this.reciever.zipCode == 'number') return false;
+    // if (!this.reciever.firstName.trim()) return false;
+    // if (!this.reciever.lastName.trim()) return false;
+    // if (!this.reciever.phoneNumber.trim()) return false;
+    // if (!this.reciever.email.trim()) return false;
 
     return true
   }

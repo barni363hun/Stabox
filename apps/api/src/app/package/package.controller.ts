@@ -83,7 +83,6 @@ export class PackageController {
   @Roles('user')
   @Put('/add')
   createWithAddress(@Req() req: authRequest, @Body() body: packageDto) {
-    console.log(body)
     return this.packageService.create({
       userId: req.user.sub,
       price: 500,
