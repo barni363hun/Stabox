@@ -19,7 +19,7 @@ export class RecieverService extends GenericService<recieverEntity> {
         return this.getRecByAdId(id);
       })
     );
-    return recievers;
+    return [].concat(...recievers);
   }
   private async getRecByAdId(id: number): Promise<recieverEntity[]> {
     return this.recieverRepository.find({

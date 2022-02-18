@@ -86,7 +86,7 @@ export class RecieverController {
   async getMyRecieveres(@Req() req: authRequest) {
     const addressIds: number[] = await this.addressService
       .find({
-        where: { userId: req.user.sub, name: '' },
+        where: { userId: req.user.sub},
       })
       .then((addresses) => {
         return addresses.map((a) => a.id);

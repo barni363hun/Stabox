@@ -30,8 +30,16 @@
         <tr>
             <td style="text-align: end; padding-right:15px;">FromAddress</td>
             <td>
-                <select name="" id="">
-                    <option *ngFor="let address of addresses" [value]="address.value">not fragile</option>
+                <select name="address" id="" [(ngModel)]="selectedAddress">
+                    <option *ngFor="let address of addresses" [value]="address.id">{{address.name}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: end; padding-right:15px;">Reciever</td>
+            <td>
+                <select name="reciever" id="" [(ngModel)]="selectedReciever">
+                    <option *ngFor="let reciever of recievers" [value]="reciever.id">{{reciever.firstName+' '+reciever.lastName}}</option>
                 </select>
             </td>
         </tr>

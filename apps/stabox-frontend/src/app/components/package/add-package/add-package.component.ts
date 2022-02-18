@@ -1,38 +1,67 @@
 import { Component, OnInit } from '@angular/core';
 import { AddressService } from '../../../services/address-service';
 import { PackageService } from '../../../services/package.service';
+import { RecieverService } from '../../../services/reciever.service';
 
 @Component({
   selector: 'stabox-add-package',
   templateUrl: './add-package.component.html',
-  styleUrls: ['./add-package.component.scss']
+  styleUrls: ['./add-package.component.scss'],
 })
 export class AddPackageComponent implements OnInit {
-
-  package: any = {
+  package: packageInterface = {
     fragile: false,
-    fromAddressId: 1,
     size: '',
     weight: '',
-    name:'',
-  }
-  addresses:any[]=[];
+    name: '',
+  };
 
-  constructor(private packageService:PackageService, private addressService:AddressService) { }
+  selectedReciever: number = 0;
+  selectedAddress: number = 0;
+
+  addresses: addressInterface[] = [];
+  recievers: recieverInterface[] = [];
+
+  constructor(
+    private packageService: PackageService,
+    private addressService: AddressService,
+    private recieverService: RecieverService
+  ) {}
 
   ngOnInit(): void {
+    //get user's addresses
     this.addressService.getMyAddresses().subscribe({
-      next:(res)=>this.addresses=res,
-      error:(err)=>this.addresses=err}
-    )
+      next: (res) => {
+        this.addresses = res;
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+
+    //get user's recievers
+    this.recieverService.getRecievers().subscribe({
+      next: (res) => {
+        this.recievers = res;
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   addPackage() {
-    console.log('asdsad');
-
-      console.log('amogus');
-      this.packageService.addPackage({...this.package});
-    
+    console.log('addpackage()');
+    if (this.checkInputs()) {
+      console.log('inputs checked');
+      this.packageService.addPackage({
+        ...this.package,
+        recieverId: Number(this.selectedReciever),
+        fromAddressId: Number(this.selectedAddress),
+      });
+    }
   }
 
   //TODO? normális hibaüzenetek az input mezőkre
@@ -41,22 +70,30 @@ export class AddPackageComponent implements OnInit {
     if (!this.package.size.trim()) return false;
     if (!this.package.weight.trim()) return false;
 
-    return true
+    return true;
   }
 }
 interface packageInterface {
-  name:string
-  fromAddress: addressInterface,
-  size: string,
-  weight: string,
-  fragile: boolean,
+  name: string;
+  size: string;
+  weight: string;
+  fragile: boolean;
+}
+interface recieverInterface {
+  addressId: number;
+  email: string;
+  firstName: string;
+  id: number;
+  lastName: string;
+  phoneNumber: string;
 }
 interface addressInterface {
-  
-  region: string
-  zipCode: number,
-  city: string,
-  street: string,
-  houseNumber: number
-
+  region: string;
+  zipCode: number;
+  cityName: string;
+  street: string;
+  houseNumber: number;
+  id: number;
+  name: string;
+  userId: string;
 }

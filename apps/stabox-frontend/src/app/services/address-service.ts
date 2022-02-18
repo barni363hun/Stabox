@@ -11,6 +11,6 @@ export class AddressService {
   constructor(private http:HttpClient) { }
 
   getMyAddresses():Observable<any>{
-    return this.http.get(environment.apiURL+'address')
+    return this.http.get(environment.apiURL+'/address/reciever')
   }
 }

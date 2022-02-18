@@ -15,10 +15,21 @@ export class PackageService {
     return this.http.get(environment.apiURL + "/package/withaddress")
   }
 
-  addPackage(_package:any){
-    this.http.put(environment.apiURL+'/package/add',{..._package,recieverId:1}).subscribe({
+  addPackage(_package:packageInterface){
+    this.http.put(environment.apiURL+'/package/add',_package).subscribe({
       next:(res)=>console.log(res),
       error:(err)=>console.log(err)
     })
   }
+
+
+  
+}
+interface packageInterface {
+  name:string
+  size: string,
+  weight: string,
+  fragile: boolean,
+  recieverId:number,
+  fromAddressId:number
 }
