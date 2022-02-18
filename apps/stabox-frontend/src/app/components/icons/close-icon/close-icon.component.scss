@@ -1,9 +1,11 @@
+@import '../../../../styles/settings/variables';
+
 .lightMode #closeIcon { 
-    color: #565656;
+    color: $colorDarkGray;
 }
 
 .lightMode #closeIconDiv:hover {
-    background-color: rgba(#565656, 0.1);
+    background-color: rgba($colorDarkGray, 0.1);
 }
 
 #closeIconDiv {
@@ -18,11 +20,11 @@
 
 #closeIcon {
     transform: scale(1.5);
-    color: white;
+    color: $colorWhite;
 }
 
 #closeIconDiv:hover {
     cursor: pointer;
     transition: 0.25s;
-    background-color: rgba(#CAC8D9, 0.1);
+    background-color: rgba($colorLightGray, 0.1);
 }
