@@ -62,6 +62,8 @@ export class ExchangeDateService {
   }
 
   private create(exDate: exchangeDateInterface) {
+    // TODO only for users with USER role
+
     console.log('creating exchangeDate ' + exDate.id);
     this.http
       .put<exchangeDateInterface>(environment.apiURL + '/EXdate', {
