@@ -73,7 +73,7 @@
   background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow);
 }
   
-#coinsIcon {
+.coinsIcon {
   width: 60px;
   margin-right: 35px;
   display: inline;
@@ -106,7 +106,7 @@
   cursor: pointer;
 }
 
-#sideBarDiv {
+.sideBarDiv {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -178,7 +178,7 @@
   width: 100%;
 }
 
-#sideBarItemCoinsIcon {
+.sideBarItemCoinsIcon {
   width: 55px;
   display: inline;
   vertical-align: middle;
@@ -203,7 +203,7 @@
   #sideBarItemCoinAmount {
     font-size: 22px; 
   }
-  #sideBarItemCoinsIcon {
+  .sideBarItemCoinsIcon {
     width: 40px;
   }
 }

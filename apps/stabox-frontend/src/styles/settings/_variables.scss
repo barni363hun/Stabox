@@ -12,14 +12,29 @@ $colorDarkRed: #FF0000;
 $bgColorWhite: #fefefc;
 $bgColorBlack: #161518;
 
-$shadeColor: blue;
+$shadeColor: black;
 
-.lightMode {
-    color: $colorDarkGray;
-    background-color: $bgColorWhite;
+
+
+.centerElements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
 }
+.unselectable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
 .lightMode .content {
     scrollbar-color: $colorLightBlue $bgColorWhite;
+    color: $colorDarkGray;
+    background-color: $bgColorWhite;
 }
 .lightMode .content::-webkit-scrollbar-thumb {
     background: linear-gradient($colorLightBlue, $colorDarkBlue);
@@ -130,12 +145,4 @@ input:focus {
     color: $colorWhite;
     width: 50%;
     display: inline-block;
-}
-
-
-.centerElements {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
 }

@@ -33,7 +33,7 @@
 }
 
 .accountDataDiv {
-    margin: 25px 0;
+    margin: 15px 0;
 }
 
 .accountDataIcon {
@@ -83,23 +83,13 @@
     font-size: 42px;
 }
 
-.saveButtonDiv {
-    position: relative;
-}
-
 .saveButtonOutline {
     width: fit-content;
     position: relative;
-    padding: 4px;
+    padding: 3px;
     border-radius: 75px;
-
-    position: absolute;
-    bottom: 325px;
-    left: 0;
-    right: 0;
-    margin: auto
+    margin: 0 auto;
 }
-
 
 .saveButtonOutline:hover .saveButton {
     background: transparent;
@@ -111,31 +101,12 @@
     color: $colorWhite;
     border: none;
     border-radius: 75px;
-    font-size: 24px;
-    padding: 2px 40px 2px 40px;
+    font-size: 20px;
+    padding: 2px 35px 2px 35px;
 }
 
-.saveIcon {
-    transition: 0.25s;
-    position: absolute;
-    bottom: 3%;
-    right: 3%;
-    padding: 15px 10px 10px 10px;
-    border-radius: 10px;
-}
-
-.saveIcon:hover {
-    transition: 0.25s;
-    box-shadow: inset 0 1px 1px rgba($colorLightYellow, 0.075), 0 0 8px rgba($colorDarkYellow, 0.6);
-}
-
-.saveIcon button {
-    background: transparent;
-    border: none;
-}
-
-.saveIcon mat-icon {
-    transform: scale(2);
+.disabled {
+    visibility: hidden;
 }
 
 @media only screen and (max-width: 1400px) {

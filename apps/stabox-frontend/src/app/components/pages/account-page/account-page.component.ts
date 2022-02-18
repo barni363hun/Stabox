@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountPageComponent implements OnInit {
 
+  userDataChanged = true;
   viewDetails = false;
   lightMode = false;
   theme = "dark"
