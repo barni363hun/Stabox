@@ -10,15 +10,15 @@ import { environment } from 'apps/stabox-frontend/src/environments/environment';
 export class AddRecieverWithAddressComponent implements OnInit {
 
   reciever: recieverWithAddress = {
-    firstName: 'string',
-    lastName: 'string',
-    email: 'string@gmail.com',
-    phoneNumber: '+36302886298',
-    region: 1,
-    zipCode: 1,
-    cityName: 'string',
-    street: 'string',
-    houseNumber: 1
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    region: 0,
+    zipCode: 0,
+    cityName: '',
+    street: '',
+    houseNumber: 0
   }
 
 
