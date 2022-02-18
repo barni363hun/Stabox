@@ -14,7 +14,7 @@
 
 .lightMode .navUnderline {
   background-color: $colorLightBlue;
-  background: linear-gradient(to right,  $colorLightBlue,  $colorDarkBlue);
+  background: linear-gradient(to right, $colorLightBlue, $colorDarkBlue);
 }
 
 .lightMode #sideBar {
@@ -26,17 +26,18 @@
   border-bottom: 2px solid rgba($colorDarkGray, 0.1);
 }
 
-
-.navbar-dark .navbar-toggler-icon{
+.navbar-dark .navbar-toggler-icon {
   border: none;
 }
 
-.navbar-toggler{
+.navbar-toggler {
   border: none;
   border-radius: 10px;
 }
 
-.navbar-toggler:focus, .navbar-toggler:active, .navbar-toggler-icon:focus {
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
   outline: none;
   box-shadow: none;
 }
@@ -46,13 +47,13 @@
   padding: 10px 40px 10px 40px;
   border-bottom: 2px solid rgba($colorLightGray, 0.1);
 }
-  
+
 .nav-item {
   width: fit-content;
   padding-top: 3px;
 }
 
-.navText  {
+.navText {
   font-size: 28px;
   color: $colorWhite;
   text-decoration: none;
@@ -72,14 +73,14 @@
   border-radius: 10px;
   background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow);
 }
-  
+
 .coinsIcon {
   width: 60px;
   margin-right: 35px;
   display: inline;
   vertical-align: middle;
 }
-  
+
 #coinAmount {
   color: $colorWhite;
   margin-right: 20px;
@@ -118,8 +119,12 @@
 }
 
 @keyframes shadeAppear {
-  from {background-color: rgba($shadeColor, 0);}
-  to {background-color: rgba($shadeColor, 0.85);}
+  from {
+    background-color: rgba($shadeColor, 0);
+  }
+  to {
+    background-color: rgba($shadeColor, 0.85);
+  }
 }
 
 #sideBarShade {
@@ -135,8 +140,12 @@
 }
 
 @keyframes sideBarAppear {
-  from {transform: translateX(50%);}
-  to {transform: translateX(0);}
+  from {
+    transform: translateX(50%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 #sideBar {
@@ -183,7 +192,7 @@
   display: inline;
   vertical-align: middle;
 }
-  
+
 #sideBarItemCoinAmount {
   color: $colorWhite;
   margin-right: 20px;
@@ -201,7 +210,7 @@
     font-size: 24px;
   }
   #sideBarItemCoinAmount {
-    font-size: 22px; 
+    font-size: 22px;
   }
   .sideBarItemCoinsIcon {
     width: 40px;

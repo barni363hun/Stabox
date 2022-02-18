@@ -12,8 +12,11 @@ export class recieverEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne((type) => addressEntity, (adress) => adress.recievers)
-  adress: addressEntity;
+  @Column()
+  addressId: number;
+
+  @ManyToOne((type) => addressEntity, (address) => address.recievers)
+  address: addressEntity;
 
   @Column()
   firstName: string;
