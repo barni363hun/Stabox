@@ -1,9 +1,10 @@
 export interface addressInterface {
   id: number;
-  user: string;
+  name: string;
+  userId: string;
   region: number;
   zipCode: number;
   cityName: string;
   street: string;
-  houseNumber: number;
+  houseNumber: string;
 }

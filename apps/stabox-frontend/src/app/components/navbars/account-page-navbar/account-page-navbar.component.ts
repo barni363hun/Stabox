@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { UserService } from '../../../services/user.service';
+import { UserService } from '../../../services';
 @Component({
   selector: 'app-account-page-navbar',
   templateUrl: './account-page-navbar.component.html',

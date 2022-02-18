@@ -1,141 +1,220 @@
-<div [ngClass]="{'lightMode': lightMode == true}">
-    <div class="content">
-        <app-account-page-navbar (lightModeEvent)="getLightModeToggle($event)"></app-account-page-navbar>
+<div [ngClass]="{ lightMode: lightMode == true }">
+  <div class="content">
+    <app-account-page-navbar
+      (lightModeEvent)="getLightModeToggle($event)"
+    ></app-account-page-navbar>
 
-        <div class="page">
-
-            <form>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-8 col-12 text-center">
-                            <div class="row">
-
-                                <div class="col-xl-6 col-lg-6 col-12 centerElements">
-                                    <div class="accountImageOutline gradientBg">
-                                        <img class="accountImage unselectable" 
-                [src]="userService.authUser.picture"
-                alt="{{ userService.user.username }}"
-                title="{{ userService.user.username }}">
-                                    </div>
-                                </div>
-
-                                <div class="col-xl-6 col-lg-6 col-12">
-                                    <div class="accountDataDiv">
-                                        <mat-icon class="accountDataIcon gradient">verified_user</mat-icon>
-                                        <p class="accountDataTitle gradient unselectable">Username</p>
-                                        <div class="accountDataUnderline gradientBg"></div>
-                                        <input type="text" [(ngModel)]="userService.user.username">
-                                    </div>
-
-                                    <div class="accountDataDiv">
-                                        <mat-icon class="accountDataIcon gradient">person</mat-icon>
-                                        <p class="accountDataTitle gradient unselectable">Full Name</p>
-                                        <div class="accountDataUnderline gradientBg"></div>
-                                        <div class="row">
-                                            <div class="col-xl-6 col-12 p-0">
-                                                <input type="text" [(ngModel)]="userService.user.firstName">
-                                            </div>
-                                            <div class="col-xl-6 col-12 p-0">
-                                                <input type="text" [(ngModel)]="userService.user.lastName">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="accountDataDiv">
-                                        <mat-icon class="accountDataIcon gradient">email</mat-icon>
-                                        <p class="accountDataTitle gradient unselectable">Email</p>
-                                        <div class="accountDataUnderline gradientBg"></div>
-                                        <input type="email" [(ngModel)]="userService.user.email">
-                                    </div>
-
-                                    <div class="accountDataDiv">
-                                        <mat-icon class="accountDataIcon gradient">phone</mat-icon>
-                                        <p class="accountDataTitle gradient unselectable">Phone</p>
-                                        <div class="accountDataUnderline gradientBg"></div>
-                                        <input type="tel" [(ngModel)]="userService.user.phoneNumber">
-                                    </div>
-
-                                    <div class="accountDataDiv">
-                                        <div class="saveButtonOutline gradientBg unselectable" (click)="userService.update()" [ngClass]="{'disabled': userDataChanged == false}">
-                                            <button class="saveButton" type="submit">
-                                                Save
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="col-xl-4 col-12">
-                            <div class="row text-center h-100">
-
-                                <div class="col-xl-12 col-sm-6 col-12 centerElements">
-                                    <div class="bigBtn unselectable" (click)="viewDetails = true">
-                                        <img class="bigBtnImg" [src]="lightMode ? '../../../../assets/images/LightMode/ShipperIcon.svg' : '../../../../assets/images/DarkMode/ShipperIcon.svg'">
-                                        <p class="bigBtnText">Shipper Details</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-xl-12 col-sm-6 col-12 centerElements">
-                                    <div class="bigBtn unselectable" routerLink="/mypackages">
-                                        <img class="bigBtnImg" [src]="lightMode ?'../../../../assets/images/LightMode/BoxIcon.svg' : '../../../../assets/images/DarkMode/BoxIcon.svg'">
-                                        <p class="bigBtnText">My Packages</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row mt-4 p-0">
-                        <div class="col-xl-6 col-12 my-4 text-center">
-                            <p class="title gradient unselectable">Exchange</p>
-                            <app-divider [lightMode]="lightMode"></app-divider>
-                            <div class="accountDataInputs">
-                                <input type="text" value="2022.02.16 - 2022.02.18">
-                                <input type="text" value="2022.02.20 - 2022.02.27">
-                                <app-add-icon [lightMode]="lightMode"></app-add-icon>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-6 col-12 my-4 text-center">
-                            <p class="title gradient unselectable">Addresses</p>
-                            <app-divider [lightMode]="lightMode"></app-divider>
-                            <div class="accountDataInputs">
-                                <input type="text" value="Győr Fő u. 5">
-                                <input type="text" value="Vác Petőfi u. 1">
-                                <app-add-icon [lightMode]="lightMode"></app-add-icon>
-                            </div>
-                        </div>
-                    </div>
+    <div class="page">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-8 col-12 text-center">
+            <div class="row">
+              <div class="col-xl-6 col-lg-6 col-12 centerElements">
+                <div class="accountImageOutline gradientBg">
+                  <img
+                    class="accountImage unselectable"
+                    [src]="userService.authUser.picture"
+                    alt="{{ userService.user.username }}"
+                    title="{{ userService.user.username }}"
+                  />
                 </div>
-            </form>
+              </div>
 
+              <div class="col-xl-6 col-lg-6 col-12">
+                <div class="accountDataDiv">
+                  <mat-icon class="accountDataIcon gradient"
+                    >verified_user</mat-icon
+                  >
+                  <p class="accountDataTitle gradient unselectable">Username</p>
+                  <div class="accountDataUnderline gradientBg"></div>
+                  <input type="text" [(ngModel)]="userService.user.username" />
+                </div>
+
+                <div class="accountDataDiv">
+                  <mat-icon class="accountDataIcon gradient">person</mat-icon>
+                  <p class="accountDataTitle gradient unselectable">
+                    Full Name
+                  </p>
+                  <div class="accountDataUnderline gradientBg"></div>
+                  <div class="row">
+                    <div class="col-xl-6 col-12 p-0">
+                      <input
+                        type="text"
+                        [(ngModel)]="userService.user.firstName"
+                      />
+                    </div>
+                    <div class="col-xl-6 col-12 p-0">
+                      <input
+                        type="text"
+                        [(ngModel)]="userService.user.lastName"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accountDataDiv">
+                  <mat-icon class="accountDataIcon gradient">email</mat-icon>
+                  <p class="accountDataTitle gradient unselectable">Email</p>
+                  <div class="accountDataUnderline gradientBg"></div>
+                  <input type="email" [(ngModel)]="userService.user.email" />
+                </div>
+
+                <div class="accountDataDiv">
+                  <mat-icon class="accountDataIcon gradient">phone</mat-icon>
+                  <p class="accountDataTitle gradient unselectable">Phone</p>
+                  <div class="accountDataUnderline gradientBg"></div>
+                  <input
+                    type="tel"
+                    [(ngModel)]="userService.user.phoneNumber"
+                  />
+                </div>
+
+                <div class="accountDataDiv">
+                  <div
+                    class="saveButtonOutline gradientBg unselectable"
+                    [ngClass]="{ disabled: userDataChanged == false }"
+                    (click)="userService.update()"
+                  >
+                    <button class="saveButton" type="submit">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-12">
+            <div class="row text-center h-100">
+              <div class="col-xl-12 col-sm-6 col-12 centerElements">
+                <div
+                  class="bigBtn unselectable"
+                  *ngIf="userService.isShipper"
+                  (click)="viewDetails = true"
+                >
+                  <img
+                    class="bigBtnImg"
+                    [src]="
+                      lightMode
+                        ? '../../../../assets/images/LightMode/ShipperIcon.svg'
+                        : '../../../../assets/images/DarkMode/ShipperIcon.svg'
+                    "
+                  />
+                  <p class="bigBtnText">Shipper Details</p>
+                </div>
+                <div
+                  class="bigBtn unselectable"
+                  *ngIf="!userService.isShipper"
+                  (click)="wantToBeShipper()"
+                >
+                  <img
+                    class="bigBtnImg"
+                    [src]="
+                      lightMode
+                        ? '../../../../assets/images/LightMode/ShipperIcon.svg'
+                        : '../../../../assets/images/DarkMode/ShipperIcon.svg'
+                    "
+                  />
+                  <p class="bigBtnText">Do you want to be a shipper?</p>
+                </div>
+              </div>
+
+              <div class="col-xl-12 col-sm-6 col-12 centerElements">
+                <div class="bigBtn unselectable" routerLink="/mypackages">
+                  <img
+                    class="bigBtnImg"
+                    [src]="
+                      lightMode
+                        ? '../../../../assets/images/LightMode/BoxIcon.svg'
+                        : '../../../../assets/images/DarkMode/BoxIcon.svg'
+                    "
+                  />
+                  <p class="bigBtnText">My Packages</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div>
-            <app-shipper-details [lightMode]="lightMode" (viewDetailsEvent)="getViewShipperDetails($event)" *ngIf="viewDetails"></app-shipper-details>
+        <div class="row mt-4 p-0">
+          <div class="col-xl-6 col-12 my-4 text-center">
+            <p class="title gradient unselectable">Exchange</p>
+            <app-divider [lightMode]="lightMode"></app-divider>
+            <div class="accountDataInputs">
+              <div
+                *ngFor="
+                  let EXDate of exchangeDateService.exchangeDates;
+                  index as i
+                "
+              >
+                <input
+                  type="text"
+                  [(ngModel)]="EXDate.startDate"
+                  (change)="exchangeDateService.save(EXDate)"
+                />
+                <input
+                  type="button"
+                  value="delete"
+                  (click)="exchangeDateService.delete(i)"
+                />
+              </div>
+              <app-add-icon
+                [lightMode]="lightMode"
+                (click)="exchangeDateService.localeAddExchangeDate()"
+              ></app-add-icon>
+            </div>
+          </div>
+
+          <div class="col-xl-6 col-12 my-4 text-center">
+            <p class="title gradient unselectable">Addresses</p>
+            <app-divider [lightMode]="lightMode"></app-divider>
+            <div class="accountDataInputs">
+              <div *ngFor="let address of addressService.addresses; index as i">
+                <input
+                  type="text"
+                  [(ngModel)]="address.name"
+                  (change)="addressService.save(address)"
+                />
+                <!-- <input
+                class="accountDataInput"
+                type="text"
+                [(ngModel)]="address.cityName"
+                (change)="addressService.save(address)"
+              />
+              <input
+                class="accountDataInput"
+                type="text"
+                [(ngModel)]="address.street"
+                (change)="addressService.save(address)"
+              />
+              <input
+                class="accountDataInput"
+                type="text"
+                [(ngModel)]="address.houseNumber"
+                (change)="addressService.save(address)"
+              /> -->
+                <input
+                  type="button"
+                  value="delete"
+                  (click)="addressService.delete(i)"
+                />
+              </div>
+              <app-add-icon
+                [lightMode]="lightMode"
+                (click)="addressService.localeAddAddress()"
+              ></app-add-icon>
+            </div>
+          </div>
         </div>
-
-        <app-footer [lightMode]="lightMode"></app-footer>
-
+      </div>
     </div>
 
-    <div id="saveChangesBtn" title="Save Changes">
-      <button type="submit" (click)="userService.update()">
-        <mat-icon>save</mat-icon>
-      </button>
+    <div>
+      <app-shipper-details
+        [lightMode]="lightMode"
+        (viewDetailsEvent)="getViewShipperDetails($event)"
+        *ngIf="viewDetails"
+      ></app-shipper-details>
     </div>
-  </div>
 
-  <div>
-    <app-shipper-details
-      [lightMode]="lightMode"
-      (viewDetailsEvent)="getViewShipperDetails($event)"
-      *ngIf="viewDetails"
-    ></app-shipper-details>
+    <app-footer [lightMode]="lightMode"></app-footer>
   </div>
-
-  <app-footer [lightMode]="lightMode"></app-footer>
 </div>

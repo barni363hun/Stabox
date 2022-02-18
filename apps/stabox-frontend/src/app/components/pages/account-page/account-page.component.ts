@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../services/user.service';
+import {
+  AddressService,
+  ExchangeDateService,
+  UserService,
+} from '../../../services';
 
 @Component({
   selector: 'app-account-page',
@@ -12,7 +16,11 @@ export class AccountPageComponent implements OnInit {
   lightMode = false;
   theme = 'dark';
 
-  constructor(public userService: UserService) {
+  constructor(
+    public userService: UserService,
+    public exchangeDateService: ExchangeDateService,
+    public addressService: AddressService
+  ) {
     if (localStorage.getItem('theme') == 'light') {
       this.lightMode = true;
     } else {
@@ -22,6 +30,20 @@ export class AccountPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.refreshUserData();
+    this.exchangeDateService.getExchangeDates();
+    this.addressService.getAddresses();
+  }
+
+  wantToBeShipper() {
+    if (this.userService.isUser) {
+      if (confirm('Do you want to be a shipper?')) {
+        this.userService.beShipper();
+      } else {
+        alert('okaly');
+      }
+    } else {
+      alert('Please fill all of your data!');
+    }
   }
 
   getViewShipperDetails(data: any) {

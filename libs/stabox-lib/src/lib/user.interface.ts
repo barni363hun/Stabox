@@ -1,5 +1,5 @@
 export interface userInterface {
-  roles: string[];
+  ['https://www.stabox.hu/roles']: string[];
   id: string;
   email: string;
   username: string;
