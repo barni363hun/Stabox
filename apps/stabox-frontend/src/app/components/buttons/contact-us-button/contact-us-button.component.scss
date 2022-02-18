@@ -1,10 +1,12 @@
+@import '../../../../styles/settings/variables';
+
 input {
     transition: 0.5s;
     border-radius: 50px;
     border: none;
     padding: 10px 35px 10px 35px;
-    background-color: #f2da00;
-    background: linear-gradient(to right, #f2da00, #e29704);
+    background-color: $colorLightYellow;
+    background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow);
     font-size: 28px;
     font-family: 'PT Sans Caption', sans-serif;
     color: white;
@@ -14,5 +16,5 @@ input {
 #contactUsBtn:hover {
     transform: scale(1.1);
     transition: 0.5s;
-    box-shadow: 0 0 3px rgba(#f2da00, 0.075), 0 0 10px rgba(#e29704, 0.6);
+    box-shadow: 0 0 3px rgba($colorLightYellow, 0.075), 0 0 10px rgba($colorDarkYellow, 0.6);
 }

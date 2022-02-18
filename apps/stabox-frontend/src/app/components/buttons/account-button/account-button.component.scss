@@ -1,37 +1,47 @@
-.lightMode #gradientOutline {
-    background-color: #00B3EC;
-    background: linear-gradient(to right, #00B3EC, #007FC7);
+@import '../../../../styles/settings/variables';
+
+.lightMode .accountIcon {
+    color: $colorDarkGray;
 }
 
-.lightMode #accountIcon {
-    color: #565656;
+.lightMode .accountBtn {
+    color: $colorDarkGray;
+    background-color: $bgColorWhite;
 }
 
-.lightMode #accountBtn {
-    color: #565656;
-    background-color: #fefefc;
-}
-
-#accountBtn {
-    background-color: #161518;
+.accountBtn {
+    background-color: $bgColorBlack;
     border: none;
-    color: white;
+    color: $colorWhite;
     border-radius: 75px;
     font-size: 24px;
     padding: 5px 20px 5px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#gradientOutline {
+.outline {
     width: fit-content;
     position: relative;
-    background: linear-gradient(to right, #f2da00, #e29704);
+    background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow);
     padding: 5px;
     border-radius: 75px;
 }
 
-#accountIcon {
+.accountIcon {
     transform: scale(1.5);
-    margin: 0 8px 5px 0;
+    margin-right: 10px;
     display: inline-block;
     vertical-align: middle;
+}
+
+@media only screen and (max-width: 320px) {
+    .accountBtn {
+        font-size: 18px;
+    }
+    .accountIcon {
+        margin-right: 5px;
+        transform: scale(1.15);
+    }
 }

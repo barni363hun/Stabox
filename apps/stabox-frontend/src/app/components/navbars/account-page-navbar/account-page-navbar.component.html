@@ -1,4 +1,7 @@
-<div class="container-fluid p-0" [ngClass]="{ lightMode: lightMode == true }">
+<div
+  class="container-fluid p-0 unselectable"
+  [ngClass]="{ lightMode: lightMode == true }"
+>
   <nav class="navbar fixed-top navbar-expand-xl navbar-dark nav">
     <div class="left me-5">
       <a routerLink="/home">
@@ -59,30 +62,30 @@
 
       <div id="coinsDiv" title="View transactions">
         <p id="coinAmount">69 420</p>
-        <img id="coinsIcon" src="../../../../assets/images/CoinsIcon.svg" />
+        <img class="coinsIcon" src="../../../../assets/images/CoinsIcon.svg" />
       </div>
       <div class="me-4" routerLink="/account">
         <app-account-button [lightMode]="lightMode"></app-account-button>
       </div>
       <div
-        class="lightModeIconDiv"
+        class="themeSwitchIconDiv"
         *ngIf="lightMode == true"
         (click)="emitLightModeOff()"
         title="Turn Light Theme Off"
       >
         <img
-          class="lightModeIcon"
+          class="themeSwitchIcon"
           src="../../../../assets/images/LightMode/LightModeIcon.svg"
         />
       </div>
       <div
-        class="lightModeIconDiv"
+        class="themeSwitchIconDiv"
         *ngIf="lightMode == false"
         (click)="emitLightModeOn()"
         title="Turn Light Theme On"
       >
         <img
-          class="lightModeIcon"
+          class="themeSwitchIcon"
           src="../../../../assets/images/DarkMode/DarkModeIcon.svg"
         />
       </div>
@@ -91,7 +94,7 @@
 </div>
 
 <div
-  id="sideBarDiv"
+  class="sideBarDiv unselectable"
   *ngIf="showSideBar == true"
   [ngClass]="{ lightMode: lightMode == true }"
 >
@@ -116,7 +119,7 @@
         <div id="sideBarItemCoinsDiv" title="View transactions">
           <p id="sideBarItemCoinAmount">69 420</p>
           <img
-            id="sideBarItemCoinsIcon"
+            class="sideBarItemCoinsIcon"
             src="../../../../assets/images/CoinsIcon.svg"
           />
         </div>
@@ -131,27 +134,77 @@
 
     <div class="sideBarItemDiv">
       <div
-        class="lightModeIconDiv"
+        class="themeSwitchIconDiv"
         *ngIf="lightMode == true"
         (click)="emitLightModeOff()"
         title="Turn Light Theme Off"
       >
         <img
-          class="lightModeIcon"
+          class="themeSwitchIcon"
           src="../../../../assets/images/LightMode/LightModeIcon.svg"
         />
       </div>
       <div
-        class="lightModeIconDiv"
+        class="themeSwitchIconDiv"
         *ngIf="lightMode == false"
         (click)="emitLightModeOn()"
         title="Turn Light Theme On"
       >
         <img
-          class="lightModeIcon"
+          class="themeSwitchIcon"
           src="../../../../assets/images/DarkMode/DarkModeIcon.svg"
         />
       </div>
+    </div>
+  </div>
+
+  <div class="sideBarItemDiv" routerLink="/mypackages">
+    <div class="sideBarItem">
+      <a class="mt-1 navText">Available Packages</a>
+      <div class="navUnderline"></div>
+    </div>
+  </div>
+
+  <div class="sideBarItemDiv">
+    <div class="sideBarItem">
+      <div id="sideBarItemCoinsDiv" title="View transactions">
+        <p id="sideBarItemCoinAmount">69 420</p>
+        <img
+          id="sideBarItemCoinsIcon"
+          src="../../../../assets/images/CoinsIcon.svg"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="sideBarItemDiv" routerLink="/account">
+    <div class="sideBarItem">
+      <app-account-button [lightMode]="lightMode"></app-account-button>
+    </div>
+  </div>
+
+  <div class="sideBarItemDiv">
+    <div
+      class="lightModeIconDiv"
+      *ngIf="lightMode == true"
+      (click)="emitLightModeOff()"
+      title="Turn Light Theme Off"
+    >
+      <img
+        class="lightModeIcon"
+        src="../../../../assets/images/LightMode/LightModeIcon.svg"
+      />
+    </div>
+    <div
+      class="lightModeIconDiv"
+      *ngIf="lightMode == false"
+      (click)="emitLightModeOn()"
+      title="Turn Light Theme On"
+    >
+      <img
+        class="lightModeIcon"
+        src="../../../../assets/images/DarkMode/DarkModeIcon.svg"
+      />
     </div>
   </div>
 </div>

@@ -7,6 +7,7 @@ import { UserService } from '../../../services/user.service';
   styleUrls: ['./account-page.component.scss'],
 })
 export class AccountPageComponent implements OnInit {
+  userDataChanged = true;
   viewDetails = false;
   lightMode = false;
   theme = 'dark';
