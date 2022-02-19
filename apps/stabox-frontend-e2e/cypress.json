@@ -1,6 +1,7 @@
 {
   "fileServerFolder": ".",
   "fixturesFolder": "./src/fixtures",
+  "ignoreTestFiles": "registerTestUser.spec.ts",
   "integrationFolder": "./src/integration",
   "modifyObstructiveCode": false,
   "supportFile": "./src/support/index.ts",

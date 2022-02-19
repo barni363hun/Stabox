@@ -37,7 +37,6 @@ export class UserService {
           authU.sub
         ) {
           cSuccess("authUser's been got");
-          this.userInitialized = true;
           this.authUser = authU;
           if (this.hasRole('user')) {
             this.isUser = true;
@@ -74,6 +73,7 @@ export class UserService {
               console.log(this.user);
             },
           });
+          this.userInitialized = true;
         }
       },
       error: (err) => {
