@@ -1,6 +1,6 @@
 import { testAuthUser } from '../fixtures/testAuthUser';
 
-describe('accountPage', () => {
+describe('accountPageUserInfo', () => {
   it('get started', () => {
     cy.visit('/');
     cy.get('#getStartedBtn').click();
