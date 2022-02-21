@@ -1,4 +1,4 @@
-import { testUser } from '../../fixtures/testUser';
+import { testAuthUser } from '../../fixtures/testAuthUser';
 
 describe('login with test user', () => {
   it('get started', () => {
@@ -6,7 +6,7 @@ describe('login with test user', () => {
     cy.get('#getStartedBtn').click();
   });
   it('auth0 login with testUser', () => {
-    cy.auth0Login(testUser.email, testUser.password);
+    cy.auth0Login(testAuthUser.email, testAuthUser.password);
   });
   it('logout', () => {
     cy.visit('/logout');
