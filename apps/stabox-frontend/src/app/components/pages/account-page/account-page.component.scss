@@ -7,8 +7,7 @@
 
 .lightMode .bigBtn:hover {
   border-color: $colorLightBlue;
-  box-shadow: inset 0 1px 1px rgba($colorLightBlue, 0.075),
-    0 0 8px rgba($colorDarkBlue, 0.6);
+  box-shadow: inset 0 1px 1px rgba($colorLightBlue, 0.075), 0 0 8px rgba($colorDarkBlue, 0.6);
 }
 
 .lightMode .saveButton {
@@ -18,6 +17,10 @@
 
 .lightMode .saveButtonOutline:hover .saveButton {
   color: $colorWhite;
+}
+
+.lightMode .group {
+  border-color: rgba($colorLightBlue, 0.15);
 }
 
 .accountImageOutline {
@@ -111,6 +114,14 @@
   visibility: hidden;
 }
 
+.deleteIcon {
+  transform: scale(1.75);
+}
+
+.deleteIcon:hover {
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 1400px) {
   .accountImage {
     width: 350px;
@@ -133,6 +144,9 @@
   }
   input {
     font-size: 20px;
+  }
+  .deleteIcon{
+    transform: scale(1.5);
   }
 }
 
@@ -163,6 +177,9 @@
     font-size: 24px;
     width: 85%;
   }
+  .deleteIcon{
+    transform: scale(1.35);
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -171,6 +188,9 @@
   }
   .bigBtnText {
     font-size: 24px;
+  }
+  .deleteIcon{
+    transform: scale(1.1);
   }
 }
 
@@ -200,7 +220,7 @@
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 575px) {
   .accountImage {
     width: 250px;
     height: 250px;
@@ -228,6 +248,12 @@
   }
   .bigBtnText {
     font-size: 18px;
+  }
+  .group {
+    border: 2px solid rgba($colorLightYellow, 0.25);
+    border-radius: 15px;
+    margin-top: 5px;
+    padding: 5px;
   }
 }
 

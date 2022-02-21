@@ -100,13 +100,17 @@
             <p class="title gradient unselectable">Exchange</p>
             <app-divider [lightMode]="lightMode"></app-divider>
             <div class="accountDataInputs">
-              <div *ngFor="
-                  let EXDate of exchangeDateService.exchangeDates;
-                  index as i
-                ">
-                <input class="inlineInput" type="text" [(ngModel)]="EXDate.startDate" (change)="exchangeDateService.save(EXDate)"/>
-                <input class="inlineInput" type="text" [(ngModel)]="EXDate.endDate" (change)="exchangeDateService.save(EXDate)"/>
-                <input type="button" value="delete" (click)="exchangeDateService.delete(i)" />
+              <div class="row group" *ngFor="let EXDate of exchangeDateService.exchangeDates;index as i">
+                <div class="col-sm-1 col-12"></div>
+                <div class="col-sm-5 col-12 p-0 m-0">
+                  <input class="w-100" type="text" [(ngModel)]="EXDate.startDate" (change)="exchangeDateService.save(EXDate)"/>
+                </div>
+                <div class="col-sm-5 col-12 p-0 m-0">
+                  <input class="w-100" type="text" [(ngModel)]="EXDate.endDate" (change)="exchangeDateService.save(EXDate)"/>
+                </div>
+                <div class="col-sm-1 col-12 centerElements">
+                  <mat-icon class="deleteIcon gradient" (click)="exchangeDateService.delete(i)" title="Remove date">delete</mat-icon>
+                </div>
               </div>
               <app-add-icon [lightMode]="lightMode" (click)="exchangeDateService.localeAddExchangeDate()"></app-add-icon>
             </div>

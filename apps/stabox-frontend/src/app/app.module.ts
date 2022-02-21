@@ -67,7 +67,7 @@ import { AddRecieverWithAddressComponent } from './components/package/add-reciev
     UserIconComponent,
     PackageCardComponent,
     AddPackageComponent,
-    AddRecieverWithAddressComponent,
+    AddRecieverWithAddressComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +88,7 @@ import { AddRecieverWithAddressComponent } from './components/package/add-reciev
         ],
       },
     }),
-    MatIconModule,
+    MatIconModule
   ],
   bootstrap: [AppComponent],
   providers: [

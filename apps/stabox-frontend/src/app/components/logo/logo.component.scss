@@ -1,28 +1,18 @@
-#logo {
-    text-decoration: none;
-}
+@import '../../../styles/settings/variables';
 
-#logoDiv {
-    transition: 0.5s;
-    height: fit-content;
+.logoDiv {
     width: fit-content;
+    height: fit-content;
 }
 
-#logoImg {
+.logoImg {
     display: inline;
     vertical-align: middle;
+    width: 75px;
 }
 
-#logoText {
+.logoText {
     display: inline;
     vertical-align: middle;
-
     font-size: 32px;
-    font-family: 'PT Sans Caption', sans-serif;
-
-    background-color: #f2da00;
-    background: linear-gradient(to right, #f2da00, #e29704);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
