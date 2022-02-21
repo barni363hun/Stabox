@@ -14,10 +14,9 @@ describe('accountPageVehicles', () => {
   it('accountpage vehicles', () => {
     cy.visit('/account').then(() => {
       cy.get(':nth-child(1) > .bigBtn').click()
-      cy.get('#addVehicle').children()
-      cy.get('mat-icon').should('have.value', 'add')
+      //.should('have.class','addIconDiv')
+      cy.get('#addVehicle').click().click().click()
     })
-    
   });
   // it('logout', () => {
   //   cy.visit('/logout');
