@@ -5,6 +5,7 @@
     "esbenp.prettier-vscode",
     "firsttris.vscode-jest-runner",
     "dbaeumer.vscode-eslint",
-    "mhutchie.git-graph"
+    "mhutchie.git-graph",
+    "TabNine.tabnine-vscode"
   ]
 }
