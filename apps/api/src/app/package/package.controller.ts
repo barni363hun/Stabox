@@ -99,6 +99,8 @@ export class PackageController {
     return this.packageService.getAll();
   }
 
+
+
   // gets user packages
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
@@ -109,12 +111,27 @@ export class PackageController {
     });
   }
 
+  //returns user's active packages
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
   @Get('/withaddress')
   getMyPackagesWithAddress(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
-      where: { userId: req.user.sub },
+      where: [{ userId: req.user.sub }, { shippingDate: false }],
+
+      //   userId: req.user.sub, shippingDate: false,
+      // },
+
+      relations: ['fromAddress', 'vehicle']
+    });
+  }
+  // gets acceptable packages
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles('user')
+  @Get('/acceptable')
+  getAcceptable(): Promise<packageEntity[]> {
+    return this.packageService.find({
+      where: { vehicleId: null },
       relations: ['fromAddress']
     });
   }
@@ -142,9 +159,9 @@ export class PackageController {
   assignMe(@Req() req: authRequest, @Body() body: assignMeDto) {
     return this.packageService.getById(body.id).then((a) => {
       if (a.userId == req.user.sub) {
-        return this.packageService.update(body.id,{
+        return this.packageService.update(body.id, {
           vehicleId: body.vehicleId,
-          postDate:body.postDate
+          postDate: body.postDate
         })
       } else {
         throw new MethodNotAllowedException(
