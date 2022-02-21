@@ -8,7 +8,11 @@ import { MainpageComponent } from './components/pages/mainpage/mainpage.componen
 import { MyPackagesPageComponent } from './components/pages/my-packages-page/my-packages-page.component';
 
 const routes: Routes = [
-  { path: '', component: MainpageComponent, pathMatch: 'full' },
+  {
+    path: '',
+    component: MainpageComponent,
+    pathMatch: 'full',
+  },
   {
     path: 'account',
     component: AccountPageComponent,

@@ -1,8 +1,8 @@
 <div [ngClass]="{'lightMode': lightMode == true}">
     <div class="outline gradientBg unselectable">
         <div class="accountBtn">
-            <mat-icon class="signInBtnIcon">person</mat-icon>
-            Account
+            <stabox-user-icon class="me-2"></stabox-user-icon>
+            <span>{{ name }}</span>
         </div>
     </div>
 </div>

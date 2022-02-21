@@ -1,32 +1,55 @@
 @import '../../../../styles/settings/variables';
 
-#getStartedBtn {
-    transition: 0.5s;
-    border-radius: 50px;
-    border: none;
-    padding: 15px 35px 15px 35px;
-    background-color: $colorLightYellow;
-    background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow);
-    font-size: 28px;
-    font-family: 'PT Sans Caption', sans-serif;
-    color: $colorWhite;
-    text-shadow: 2px 2px 2px rgba($colorBlack, 0.5);
+.lightMode .joinNow {
+  color: $colorDarkGray;
+  background-color: $bgColorWhite;
 }
 
-#getStartedBtn:hover {
-    transform: scale(1.1);
-    transition: 0.5s;
-    box-shadow: 0 0 3px rgba($colorLightYellow, 0.075), 0 0 10px rgba($colorDarkYellow, 0.6);
+.lightMode .outline:hover .joinNow {
+  background: linear-gradient(to right, $colorLightBlue 50%, $colorDarkBlue);
 }
 
-#arrowIcon {
-    transform: scale(1.75);
-    display: inline-block;
-    vertical-align: middle;
-    text-shadow: 1.5px 1.5px 1px rgba($colorBlack, 0.5);
-    margin-left: 10px;
+.lightMode .outline:hover .buttonText {
+  color: $bgColorWhite;
+  background: $bgColorWhite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-#btnDiv {
-    text-align: center;
+.joinNow {
+  background-color: $bgColorBlack;
+  border: none;
+  color: $colorWhite;
+  border-radius: 75px;
+  font-size: 32px;
+  padding: 5px 50px 5px 50px;
+}
+
+.outline {
+  width: fit-content;
+  position: relative;
+  background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow);
+  padding: 5px;
+  border-radius: 75px;
+}
+
+.outline:hover {
+  cursor: pointer;
+}
+
+.outline:hover .joinNow {
+  background: linear-gradient(
+    to right,
+    $colorLightYellow 50%,
+    $colorDarkYellow
+  );
+}
+
+.outline:hover .buttonText {
+  color: $bgColorBlack;
+  background: $bgColorBlack;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

@@ -1,12 +1,14 @@
-<div id="content">
-  <app-account-page-navbar></app-account-page-navbar>
-  <div class="mx-auto" id="mainPage">
-
-    <app-landing-card></app-landing-card>
-    <app-first-card></app-first-card>
-    <app-second-card></app-second-card>
-    <app-third-card></app-third-card>
-    <app-footer></app-footer>
-
+<div [ngClass]="{ lightMode: lightMode == true }">
+  <div class="content">
+    <app-account-page-navbar (lightModeEvent)="getLightModeToggle($event)"></app-account-page-navbar>
+    <div class="mainPage">
+  
+      <app-landing-card [lightMode]="lightMode"></app-landing-card>
+      <app-first-card></app-first-card>
+      <app-second-card></app-second-card>
+      <app-third-card></app-third-card>
+      <app-footer></app-footer>
+  
+    </div>
   </div>
 </div>

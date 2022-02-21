@@ -3,7 +3,7 @@
     <div class="left me-5">
       <a routerLink="/home">
         <!-- <app-home-icon [lightMode]="lightMode"></app-home-icon> -->
-        <img class="logo" [src]="lightMode ? '../../../../assets/images/LightMode/Logo.svg' : '../../../../assets/images/DarkMode/Logo.svg'"/>
+        <app-logo [lightMode]="lightMode"></app-logo>
       </a>
     </div>
 
@@ -28,16 +28,12 @@
           <a class="mt-1 navText" routerLink="/packages">Packages</a>
           <div class="navUnderline"></div>
         </li>
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <a class="mt-1 navText">
             <button type="button" id="getStartedBtn" (click)="this.userService.logout()">
               Logout
             </button>
           </a>
-          <div class="navUnderline"></div>
-        </li> -->
-        <li class="nav-item me-3" *ngIf="!userService.userLoggedIn()">
-          <a class="mt-1 navText">Services</a>
           <div class="navUnderline"></div>
         </li>
       </ul>

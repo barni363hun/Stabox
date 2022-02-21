@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UserService } from '../../services';
 
 @Component({
   selector: 'app-logo',
@@ -9,7 +10,7 @@ export class LogoComponent implements OnInit {
 
   @Input() lightMode = false;
 
-  constructor() { }
+  constructor(public userService: UserService) { }
 
   ngOnInit(): void {
   }

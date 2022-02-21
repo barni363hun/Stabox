@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UserService } from '../../../services';
 
 @Component({
   selector: 'app-account-button',
@@ -9,9 +10,11 @@ export class AccountButtonComponent implements OnInit {
 
   @Input() lightMode = false;
 
-  constructor() { }
-
+  name: string | undefined = this.userService.authUser.name;
+  constructor(public userService: UserService) {}
   ngOnInit(): void {
+    this.userService.authUserInit.subscribe((u) => {
+      this.name = u?.name;
+    });
   }
-
 }

@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainpageComponent implements OnInit {
 
-  constructor() { }
+  lightMode = false;
+  theme = 'dark';
+
+  constructor() {
+    if (localStorage.getItem('theme') == 'light') {
+      this.lightMode = true;
+    } else {
+      this.lightMode = false;
+    }
+  }
 
   ngOnInit(): void {
+  }
+
+  getLightModeToggle(data: any) {
+    if (data == 'light') {
+      this.lightMode = true;
+    } else {
+      this.lightMode = false;
+    }
   }
 
 }

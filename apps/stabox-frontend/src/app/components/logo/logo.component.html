@@ -1,3 +1,6 @@
-<div class="logoDiv">
-    <img class="me-3 logoImg" [src]="lightMode ? '../../../../assets/images/LightMode/Logo.svg' : '../../../../assets/images/DarkMode/Logo.svg'"/>
+<div [ngClass]="{ lightMode: lightMode == true }">
+    <div class="logoDiv">
+        <img class="me-3 logoImg" [src]="lightMode ? '../../../../assets/images/LightMode/Logo.svg' : '../../../../assets/images/DarkMode/Logo.svg'"/>
+        <p class="logoText gradient" *ngIf="!userService.userLoggedIn()">Stabox</p>
+    </div>
 </div>
