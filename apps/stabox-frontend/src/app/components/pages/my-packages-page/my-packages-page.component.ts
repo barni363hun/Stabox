@@ -7,64 +7,23 @@ import { PackageService } from '../../../services/package.service';
   styleUrls: ['./my-packages-page.component.scss'],
 })
 export class MyPackagesPageComponent implements OnInit {
-  packages: packageInterface[] =[]
-  // = [
-  //   {
-  //     fragile: false,
-  //     fromAddress: {
-  //       city: 'asdasd',
-  //       houseNumber: 0,
-  //       region: 'asd',
-  //       street: '423',
-  //       zipCode: 0,
-  //     },
-  //     size: 'kléklélk',
-  //     weight: 'kléklé',
-  //     price: 100,
-  //   },
-  //   {
-  //     fragile: false,
-  //     fromAddress: {
-  //       city: 'dgg',
-  //       houseNumber: 0,
-  //       region: 'asd',
-  //       street: 'jhg',
-  //       zipCode: 0,
-  //     },
-  //     size: 'zui',
-  //     weight: 'oiu',
-  //     price: 100,
-  //   },
-  //   {
-  //     fragile: false,
-  //     fromAddress: {
-  //       city: ',m.-.m,-',
-  //       houseNumber: 0,
-  //       region: 'asd',
-  //       street: 'm,.-m,.-',
-  //       zipCode: 0,
-  //     },
-  //     size: 'm,.-,.m',
-  //     weight: ',-.,m-',
-  //     price: 200,
-  //   },
-  // ];
+  // packages: packageInterface[] = []
 
   _filterMyPackages: boolean = false;
   _filterAllPackages: boolean = false;
   _filterToDeliver: boolean = false;
 
-  constructor( public packageService:PackageService) {}
+  constructor(public packageService: PackageService) { }
 
   ngOnInit(): void {
-    this.packageService.getMypackages().subscribe({
-      next:(res)=>{
-        this.packages = res;
-        console.log(res);
-      }
-    });
-    console.log(this.packages);
-    
+    //   this.packageService.getMypackages().subscribe({
+    //     next: (res) => {
+    //       this.packages = res;
+    //       console.log(res);
+    //     }
+    //   });
+    //   console.log(this.packages);
+
   }
 
   filterAllPackages() {
@@ -77,12 +36,14 @@ export class MyPackagesPageComponent implements OnInit {
     this._filterAllPackages = false;
     this._filterMyPackages = true;
     this._filterToDeliver = false;
+    this.packageService.update('/package/withaddress')
   }
 
   filterToDeliver() {
     this._filterAllPackages = false;
     this._filterMyPackages = false;
     this._filterToDeliver = true;
+    this.packageService.update('/package/acceptable')
   }
 }
 

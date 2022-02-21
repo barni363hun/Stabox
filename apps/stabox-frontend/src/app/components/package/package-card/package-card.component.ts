@@ -25,35 +25,33 @@ export class PackageCardComponent implements OnInit {
   isAvailable: boolean = false;
   state: 'notShipper' | 'finished' | 'shippable' | 'finishable' = 'finished';
   user: any;
-  constructor(private userService: UserService,private packageService:PackageService) { }
+  constructor(private userService: UserService, private packageService: PackageService) { }
 
   ngOnInit(): void {
-this.updateState()
-  }
-  selectPostDate(){
-    let date=  new Date(Date.now()).toISOString()
-    this.packageService.postPackage(this.package.id,1, date)
     this.updateState()
   }
-  finishShipping(){    
+  selectPostDate() {
+    let date = new Date(Date.now()).toISOString()
+    this.packageService.postPackage(this.package.id, 1, date)
+    this.updateState()
+  }
+  finishShipping() {
     this.packageService.finishPackage(this.package.id)
-    
     this.updateState()
   }
-  updateState(){
+  updateState() {
     if (!this.userService.user['https://www.stabox.hu/roles'].includes('shipper')) {
       this.state = 'notShipper';
     }
-    else if (!this.package.vehicleId){
+    else if (!this.package.vehicleId) {
       this.state = 'shippable';
     }
-    else if(!this.package.shippingDate){
+    else if (!this.package.shippingDate) {
       this.state = 'finishable';
     }
-    else{
+    else {
       this.state = 'finished';
     }
-    console.log(this.state)
   }
 }
 
