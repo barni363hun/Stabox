@@ -43,6 +43,7 @@ describe('accountPageUserInfo', () => {
         cy.get('.saveButton').click();
       });
     });
+    cy.wait(2000);
   });
   it('logout', () => {
     cy.visit('/logout');
