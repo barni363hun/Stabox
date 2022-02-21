@@ -1,1 +1,259 @@
-{"client":"Thunder Client","collectionName":"stabox-package","dateExported":"2022-02-06T16:28:02.283Z","version":"1.1","folders":[],"requests":[{"containerId":"","sortNum":10000,"headers":[{"name":"User-Agent","value":"Thunder Client (https://www.thunderclient.io)"},{"name":"Accept","value":"*/*"}],"colId":"8a765f61-5c40-4dac-9ac1-fd2c3eec791d","name":"addPackage","url":"localhost:7000/api/package","method":"PUT","modified":"2022-02-06T15:31:29.336Z","created":"2022-02-04T09:39:29.136Z","_id":"4e34eadd-6e70-461d-b63e-fd69553a7028","params":[],"body":{"type":"json","raw":"{\n    \"size\":\"50*15*20\",\n    \"weight\":\"5kg\",\n    \"fragile\":false,\n    \"fromAddressId\":1,\n    \"name\":\"karbi\",\n    \"recieverId\":1\n}","form":[]},"auth":{"type":"bearer","bearer":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFLdWV0NktiRVVHMHh1cFJaWEN3XyJ9.eyJodHRwczovL3d3dy5zdGFib3guaHUvcm9sZXMiOlsiYWRtaW4iLCJzaGlwcGVyIiwidXNlciJdLCJnaXZlbl9uYW1lIjoiUHJpbmN6ZXMiLCJmYW1pbHlfbmFtZSI6IkJhcm5hYsOhcyIsIm5pY2tuYW1lIjoiYmFybmkucGJzIiwibmFtZSI6IlByaW5jemVzIEJhcm5hYsOhcyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaUwwenZkVF8tS3g1XzFZMTRpX0VPZ2lkMGVfUGZwZDVjZWlGd209czk2LWMiLCJsb2NhbGUiOiJodSIsInVwZGF0ZWRfYXQiOiIyMDIyLTAyLTA2VDEwOjQ2OjMzLjM2MVoiLCJpc3MiOiJodHRwczovL2Jhcm5pMzYzaHVuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDEwOTY4MTA3NDkwNzMxNzcwNTk0OCIsImF1ZCI6IjcweDc1OXhmWW83cHZRUzM5cHRtQnBucEJSdjhNVWtBIiwiaWF0IjoxNjQ0MTQ0Mzk0LCJleHAiOjE2NDQyMzA3OTQsImF1dGhfdGltZSI6MTY0NDE0NDM5M30.Xmgh6jvi1Zq9eBjDzW7JTfS7m89CSGckA9DRngHAWHmgZSiH9GQqgk4yaqDUThAoP6mKRDhx2bMv8KSDzplcoDJTL6oCAMuncaMwShwthv9wAtr6LTEVSTxfueqzYt1ojsROh2Po55R9GD-PmV4f6adJcDYiaSEYGdISAhqHap1fEcKjMgyIynPLl86KIpZbydZGmpCb0VQn39Wobyl_V3-fBqK2kWjIEfA2FGAxSsghKoeugyOnGN8kvei_hAFDAX1gyDUqIWM7whBtMOsZ4_7uATiNgAMyVUkIsyegIKsUjBKpzot-QVOJ80RCP4S3sW_RT2CkYFA8NoXrFdkVnA"},"tests":[]},{"containerId":"","sortNum":20000,"headers":[{"name":"User-Agent","value":"Thunder Client (https://www.thunderclient.io)"},{"name":"Accept","value":"*/*"}],"colId":"8a765f61-5c40-4dac-9ac1-fd2c3eec791d","name":"getMyPackage","url":"localhost:7000/api/package","method":"GET","modified":"2022-02-06T16:03:08.960Z","created":"2022-02-04T09:39:29.136Z","_id":"b8b93902-73e0-4cd7-9f56-c5d31a59c321","params":[],"auth":{"type":"bearer","bearer":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFLdWV0NktiRVVHMHh1cFJaWEN3XyJ9.eyJodHRwczovL3d3dy5zdGFib3guaHUvcm9sZXMiOlsiYWRtaW4iLCJzaGlwcGVyIiwidXNlciJdLCJnaXZlbl9uYW1lIjoiUHJpbmN6ZXMiLCJmYW1pbHlfbmFtZSI6IkJhcm5hYsOhcyIsIm5pY2tuYW1lIjoiYmFybmkucGJzIiwibmFtZSI6IlByaW5jemVzIEJhcm5hYsOhcyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaUwwenZkVF8tS3g1XzFZMTRpX0VPZ2lkMGVfUGZwZDVjZWlGd209czk2LWMiLCJsb2NhbGUiOiJodSIsInVwZGF0ZWRfYXQiOiIyMDIyLTAyLTA2VDEwOjQ2OjMzLjM2MVoiLCJpc3MiOiJodHRwczovL2Jhcm5pMzYzaHVuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDEwOTY4MTA3NDkwNzMxNzcwNTk0OCIsImF1ZCI6IjcweDc1OXhmWW83cHZRUzM5cHRtQnBucEJSdjhNVWtBIiwiaWF0IjoxNjQ0MTQ0Mzk0LCJleHAiOjE2NDQyMzA3OTQsImF1dGhfdGltZSI6MTY0NDE0NDM5M30.Xmgh6jvi1Zq9eBjDzW7JTfS7m89CSGckA9DRngHAWHmgZSiH9GQqgk4yaqDUThAoP6mKRDhx2bMv8KSDzplcoDJTL6oCAMuncaMwShwthv9wAtr6LTEVSTxfueqzYt1ojsROh2Po55R9GD-PmV4f6adJcDYiaSEYGdISAhqHap1fEcKjMgyIynPLl86KIpZbydZGmpCb0VQn39Wobyl_V3-fBqK2kWjIEfA2FGAxSsghKoeugyOnGN8kvei_hAFDAX1gyDUqIWM7whBtMOsZ4_7uATiNgAMyVUkIsyegIKsUjBKpzot-QVOJ80RCP4S3sW_RT2CkYFA8NoXrFdkVnA"},"tests":[]},{"containerId":"","sortNum":25000,"headers":[{"name":"User-Agent","value":"Thunder Client (https://www.thunderclient.io)"},{"name":"Accept","value":"*/*"}],"colId":"8a765f61-5c40-4dac-9ac1-fd2c3eec791d","name":"getPackageDates","url":"localhost:7000/api/package/dates","method":"GET","modified":"2022-02-06T16:03:44.943Z","created":"2022-02-06T16:02:27.376Z","_id":"39b7f562-259a-4dc8-b5e5-175579b956ce","params":[],"body":{"type":"json","raw":"{\n    \"id\":5\n}","form":[]},"auth":{"type":"bearer","bearer":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFLdWV0NktiRVVHMHh1cFJaWEN3XyJ9.eyJodHRwczovL3d3dy5zdGFib3guaHUvcm9sZXMiOlsiYWRtaW4iLCJzaGlwcGVyIiwidXNlciJdLCJnaXZlbl9uYW1lIjoiUHJpbmN6ZXMiLCJmYW1pbHlfbmFtZSI6IkJhcm5hYsOhcyIsIm5pY2tuYW1lIjoiYmFybmkucGJzIiwibmFtZSI6IlByaW5jemVzIEJhcm5hYsOhcyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaUwwenZkVF8tS3g1XzFZMTRpX0VPZ2lkMGVfUGZwZDVjZWlGd209czk2LWMiLCJsb2NhbGUiOiJodSIsInVwZGF0ZWRfYXQiOiIyMDIyLTAyLTA2VDEwOjQ2OjMzLjM2MVoiLCJpc3MiOiJodHRwczovL2Jhcm5pMzYzaHVuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDEwOTY4MTA3NDkwNzMxNzcwNTk0OCIsImF1ZCI6IjcweDc1OXhmWW83cHZRUzM5cHRtQnBucEJSdjhNVWtBIiwiaWF0IjoxNjQ0MTQ0Mzk0LCJleHAiOjE2NDQyMzA3OTQsImF1dGhfdGltZSI6MTY0NDE0NDM5M30.Xmgh6jvi1Zq9eBjDzW7JTfS7m89CSGckA9DRngHAWHmgZSiH9GQqgk4yaqDUThAoP6mKRDhx2bMv8KSDzplcoDJTL6oCAMuncaMwShwthv9wAtr6LTEVSTxfueqzYt1ojsROh2Po55R9GD-PmV4f6adJcDYiaSEYGdISAhqHap1fEcKjMgyIynPLl86KIpZbydZGmpCb0VQn39Wobyl_V3-fBqK2kWjIEfA2FGAxSsghKoeugyOnGN8kvei_hAFDAX1gyDUqIWM7whBtMOsZ4_7uATiNgAMyVUkIsyegIKsUjBKpzot-QVOJ80RCP4S3sW_RT2CkYFA8NoXrFdkVnA"},"tests":[]},{"containerId":"","sortNum":27500,"headers":[{"name":"User-Agent","value":"Thunder Client (https://www.thunderclient.io)"},{"name":"Accept","value":"*/*"}],"colId":"8a765f61-5c40-4dac-9ac1-fd2c3eec791d","name":"getPackageByVehicleId","url":"localhost:7000/api/package/vehicle","method":"GET","modified":"2022-02-06T16:09:30.495Z","created":"2022-02-06T16:08:56.749Z","_id":"3c3bc81c-c249-434c-9202-dbde27a25e39","params":[],"body":{"type":"json","raw":"{\n    \"id\":1\n}","form":[]},"auth":{"type":"bearer","bearer":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFLdWV0NktiRVVHMHh1cFJaWEN3XyJ9.eyJodHRwczovL3d3dy5zdGFib3guaHUvcm9sZXMiOlsiYWRtaW4iLCJzaGlwcGVyIiwidXNlciJdLCJnaXZlbl9uYW1lIjoiUHJpbmN6ZXMiLCJmYW1pbHlfbmFtZSI6IkJhcm5hYsOhcyIsIm5pY2tuYW1lIjoiYmFybmkucGJzIiwibmFtZSI6IlByaW5jemVzIEJhcm5hYsOhcyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaUwwenZkVF8tS3g1XzFZMTRpX0VPZ2lkMGVfUGZwZDVjZWlGd209czk2LWMiLCJsb2NhbGUiOiJodSIsInVwZGF0ZWRfYXQiOiIyMDIyLTAyLTA2VDEwOjQ2OjMzLjM2MVoiLCJpc3MiOiJodHRwczovL2Jhcm5pMzYzaHVuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDEwOTY4MTA3NDkwNzMxNzcwNTk0OCIsImF1ZCI6IjcweDc1OXhmWW83cHZRUzM5cHRtQnBucEJSdjhNVWtBIiwiaWF0IjoxNjQ0MTQ0Mzk0LCJleHAiOjE2NDQyMzA3OTQsImF1dGhfdGltZSI6MTY0NDE0NDM5M30.Xmgh6jvi1Zq9eBjDzW7JTfS7m89CSGckA9DRngHAWHmgZSiH9GQqgk4yaqDUThAoP6mKRDhx2bMv8KSDzplcoDJTL6oCAMuncaMwShwthv9wAtr6LTEVSTxfueqzYt1ojsROh2Po55R9GD-PmV4f6adJcDYiaSEYGdISAhqHap1fEcKjMgyIynPLl86KIpZbydZGmpCb0VQn39Wobyl_V3-fBqK2kWjIEfA2FGAxSsghKoeugyOnGN8kvei_hAFDAX1gyDUqIWM7whBtMOsZ4_7uATiNgAMyVUkIsyegIKsUjBKpzot-QVOJ80RCP4S3sW_RT2CkYFA8NoXrFdkVnA"},"tests":[]},{"containerId":"","sortNum":30000,"headers":[{"name":"User-Agent","value":"Thunder Client (https://www.thunderclient.io)"},{"name":"Accept","value":"*/*"}],"colId":"8a765f61-5c40-4dac-9ac1-fd2c3eec791d","name":"getAllPackage","url":"localhost:7000/api/package/all","method":"POST","modified":"2022-02-04T09:43:05.360Z","created":"2022-02-04T09:39:29.136Z","_id":"acdf5252-ae4f-4592-aec3-621e41dc5063","params":[],"auth":{"type":"bearer","bearer":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFLdWV0NktiRVVHMHh1cFJaWEN3XyJ9.eyJodHRwczovL3d3dy5zdGFib3guaHUvcm9sZXMiOlsiYWRtaW4iXSwiZ2l2ZW5fbmFtZSI6IkJhcm5hYsOhcyIsImZhbWlseV9uYW1lIjoiMTRBX1ByaW5jemVzIiwibmlja25hbWUiOiJwcmluY3plcy5iYXJuYWJhcyIsIm5hbWUiOiJCYXJuYWLDoXMgMTRBX1ByaW5jemVzIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FBVFhBSno1LTczZVdEd1plUWc0U2VvbXB1VVFxeHhGaktxZGpVd3Zyb19fPXM5Ni1jIiwibG9jYWxlIjoiaHUiLCJ1cGRhdGVkX2F0IjoiMjAyMi0wMS0zMFQxNTo0OToxNy4xMjZaIiwiaXNzIjoiaHR0cHM6Ly9iYXJuaTM2M2h1bi5ldS5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDYyMjE1MjM4OTI2NDQxMDYyMzAiLCJhdWQiOiI3MHg3NTl4ZllvN3B2UVMzOXB0bUJwbnBCUnY4TVVrQSIsImlhdCI6MTY0MzU1Nzc1OCwiZXhwIjoxNjQ2MTg3NTAxLCJhdXRoX3RpbWUiOjE2NDM1NTc3NTd9.R82Ifr8CPNn13VIiROQqt-UjbjaSAP813p8sL9K210OdtoxcAOXD4Af3zTY58oItuBD4BHQf_FSpc2-vQKbDDHjqnqWh1uQl0eofUPo9-ffQIUXxme1pqyrq02_VuOwJw-M6nSpr9NZzibqsqhF9Ksw208jBcIfsUpg_bntD0zVXno-hbEN2giJMEDvVFzcX0ioIHwMQ6Y1Hhqn_zu0HQyck8QLAL3eKvrsARoNV_uAS8djIUj8tEKXSJ8Vmzw1v3I8m65phWkBAB2Dlydc4SeHy8mAjdw0reZeqnbhes6-67kmH4ft4_qOUTlXHOOi5flJfc0QBvI43EgxCqFZBhg"},"tests":[]},{"containerId":"","sortNum":40000,"headers":[{"name":"User-Agent","value":"Thunder Client (https://www.thunderclient.io)"},{"name":"Accept","value":"*/*"}],"colId":"8a765f61-5c40-4dac-9ac1-fd2c3eec791d","name":"deleteMyPackage","url":"localhost:7000/api/package","method":"DELETE","modified":"2022-02-06T15:16:00.554Z","created":"2022-02-04T09:39:29.136Z","_id":"700564fc-beb4-4eb4-9719-37bca2b0fbf0","params":[],"body":{"type":"json","raw":"{\n    \"id\":3\n}","form":[]},"auth":{"type":"bearer","bearer":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFLdWV0NktiRVVHMHh1cFJaWEN3XyJ9.eyJodHRwczovL3d3dy5zdGFib3guaHUvcm9sZXMiOlsiYWRtaW4iLCJzaGlwcGVyIiwidXNlciJdLCJnaXZlbl9uYW1lIjoiUHJpbmN6ZXMiLCJmYW1pbHlfbmFtZSI6IkJhcm5hYsOhcyIsIm5pY2tuYW1lIjoiYmFybmkucGJzIiwibmFtZSI6IlByaW5jemVzIEJhcm5hYsOhcyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaUwwenZkVF8tS3g1XzFZMTRpX0VPZ2lkMGVfUGZwZDVjZWlGd209czk2LWMiLCJsb2NhbGUiOiJodSIsInVwZGF0ZWRfYXQiOiIyMDIyLTAyLTA2VDEwOjQ2OjMzLjM2MVoiLCJpc3MiOiJodHRwczovL2Jhcm5pMzYzaHVuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDEwOTY4MTA3NDkwNzMxNzcwNTk0OCIsImF1ZCI6IjcweDc1OXhmWW83cHZRUzM5cHRtQnBucEJSdjhNVWtBIiwiaWF0IjoxNjQ0MTQ0Mzk0LCJleHAiOjE2NDQyMzA3OTQsImF1dGhfdGltZSI6MTY0NDE0NDM5M30.Xmgh6jvi1Zq9eBjDzW7JTfS7m89CSGckA9DRngHAWHmgZSiH9GQqgk4yaqDUThAoP6mKRDhx2bMv8KSDzplcoDJTL6oCAMuncaMwShwthv9wAtr6LTEVSTxfueqzYt1ojsROh2Po55R9GD-PmV4f6adJcDYiaSEYGdISAhqHap1fEcKjMgyIynPLl86KIpZbydZGmpCb0VQn39Wobyl_V3-fBqK2kWjIEfA2FGAxSsghKoeugyOnGN8kvei_hAFDAX1gyDUqIWM7whBtMOsZ4_7uATiNgAMyVUkIsyegIKsUjBKpzot-QVOJ80RCP4S3sW_RT2CkYFA8NoXrFdkVnA"},"tests":[]},{"containerId":"","sortNum":50000,"headers":[{"name":"User-Agent","value":"Thunder Client (https://www.thunderclient.io)"},{"name":"Accept","value":"*/*"}],"colId":"8a765f61-5c40-4dac-9ac1-fd2c3eec791d","name":"assignVehicleAndDate","url":"localhost:7000/api/package","method":"PATCH","modified":"2022-02-06T15:36:12.736Z","created":"2022-02-04T09:39:29.136Z","_id":"70a0691f-eca4-41f5-8b6b-96d298489854","params":[],"body":{"type":"json","raw":"{\n    \"id\":5,\n    \"vehicleId\":1,\n    \"postDate\":\"2021-01-01 15:12:12\"\n}","form":[]},"auth":{"type":"bearer","bearer":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFLdWV0NktiRVVHMHh1cFJaWEN3XyJ9.eyJodHRwczovL3d3dy5zdGFib3guaHUvcm9sZXMiOlsiYWRtaW4iLCJzaGlwcGVyIiwidXNlciJdLCJnaXZlbl9uYW1lIjoiUHJpbmN6ZXMiLCJmYW1pbHlfbmFtZSI6IkJhcm5hYsOhcyIsIm5pY2tuYW1lIjoiYmFybmkucGJzIiwibmFtZSI6IlByaW5jemVzIEJhcm5hYsOhcyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaUwwenZkVF8tS3g1XzFZMTRpX0VPZ2lkMGVfUGZwZDVjZWlGd209czk2LWMiLCJsb2NhbGUiOiJodSIsInVwZGF0ZWRfYXQiOiIyMDIyLTAyLTA2VDEwOjQ2OjMzLjM2MVoiLCJpc3MiOiJodHRwczovL2Jhcm5pMzYzaHVuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDEwOTY4MTA3NDkwNzMxNzcwNTk0OCIsImF1ZCI6IjcweDc1OXhmWW83cHZRUzM5cHRtQnBucEJSdjhNVWtBIiwiaWF0IjoxNjQ0MTQ0Mzk0LCJleHAiOjE2NDQyMzA3OTQsImF1dGhfdGltZSI6MTY0NDE0NDM5M30.Xmgh6jvi1Zq9eBjDzW7JTfS7m89CSGckA9DRngHAWHmgZSiH9GQqgk4yaqDUThAoP6mKRDhx2bMv8KSDzplcoDJTL6oCAMuncaMwShwthv9wAtr6LTEVSTxfueqzYt1ojsROh2Po55R9GD-PmV4f6adJcDYiaSEYGdISAhqHap1fEcKjMgyIynPLl86KIpZbydZGmpCb0VQn39Wobyl_V3-fBqK2kWjIEfA2FGAxSsghKoeugyOnGN8kvei_hAFDAX1gyDUqIWM7whBtMOsZ4_7uATiNgAMyVUkIsyegIKsUjBKpzot-QVOJ80RCP4S3sW_RT2CkYFA8NoXrFdkVnA"},"tests":[]},{"containerId":"","sortNum":60000,"headers":[{"name":"User-Agent","value":"Thunder Client (https://www.thunderclient.io)"},{"name":"Accept","value":"*/*"}],"colId":"8a765f61-5c40-4dac-9ac1-fd2c3eec791d","name":"sent","url":"localhost:7000/api/package","method":"POST","modified":"2022-02-06T15:44:57.428Z","created":"2022-02-06T15:44:25.564Z","_id":"896659b0-217d-4118-b1f9-76c1a898ebbb","params":[],"body":{"type":"json","raw":"{\n    \"id\":5\n}","form":[]},"auth":{"type":"bearer","bearer":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFLdWV0NktiRVVHMHh1cFJaWEN3XyJ9.eyJodHRwczovL3d3dy5zdGFib3guaHUvcm9sZXMiOlsiYWRtaW4iLCJzaGlwcGVyIiwidXNlciJdLCJnaXZlbl9uYW1lIjoiUHJpbmN6ZXMiLCJmYW1pbHlfbmFtZSI6IkJhcm5hYsOhcyIsIm5pY2tuYW1lIjoiYmFybmkucGJzIiwibmFtZSI6IlByaW5jemVzIEJhcm5hYsOhcyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaUwwenZkVF8tS3g1XzFZMTRpX0VPZ2lkMGVfUGZwZDVjZWlGd209czk2LWMiLCJsb2NhbGUiOiJodSIsInVwZGF0ZWRfYXQiOiIyMDIyLTAyLTA2VDEwOjQ2OjMzLjM2MVoiLCJpc3MiOiJodHRwczovL2Jhcm5pMzYzaHVuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDEwOTY4MTA3NDkwNzMxNzcwNTk0OCIsImF1ZCI6IjcweDc1OXhmWW83cHZRUzM5cHRtQnBucEJSdjhNVWtBIiwiaWF0IjoxNjQ0MTQ0Mzk0LCJleHAiOjE2NDQyMzA3OTQsImF1dGhfdGltZSI6MTY0NDE0NDM5M30.Xmgh6jvi1Zq9eBjDzW7JTfS7m89CSGckA9DRngHAWHmgZSiH9GQqgk4yaqDUThAoP6mKRDhx2bMv8KSDzplcoDJTL6oCAMuncaMwShwthv9wAtr6LTEVSTxfueqzYt1ojsROh2Po55R9GD-PmV4f6adJcDYiaSEYGdISAhqHap1fEcKjMgyIynPLl86KIpZbydZGmpCb0VQn39Wobyl_V3-fBqK2kWjIEfA2FGAxSsghKoeugyOnGN8kvei_hAFDAX1gyDUqIWM7whBtMOsZ4_7uATiNgAMyVUkIsyegIKsUjBKpzot-QVOJ80RCP4S3sW_RT2CkYFA8NoXrFdkVnA"},"tests":[]},{"containerId":"","sortNum":70000,"headers":[{"name":"User-Agent","value":"Thunder Client (https://www.thunderclient.io)"},{"name":"Accept","value":"*/*"}],"colId":"8a765f61-5c40-4dac-9ac1-fd2c3eec791d","name":"shipped","url":"localhost:7000/api/package/shipped","method":"POST","modified":"2022-02-06T16:23:44.405Z","created":"2022-02-06T16:16:20.133Z","_id":"8b661027-88f1-4eb9-945a-a40ae4ee5425","params":[],"body":{"type":"json","raw":"{\n    \"id\":5,\n    \"shipped\":\"2021-01-01 15:12:22\"\n}","form":[]},"auth":{"type":"bearer","bearer":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFLdWV0NktiRVVHMHh1cFJaWEN3XyJ9.eyJodHRwczovL3d3dy5zdGFib3guaHUvcm9sZXMiOlsiYWRtaW4iLCJzaGlwcGVyIiwidXNlciJdLCJnaXZlbl9uYW1lIjoiUHJpbmN6ZXMiLCJmYW1pbHlfbmFtZSI6IkJhcm5hYsOhcyIsIm5pY2tuYW1lIjoiYmFybmkucGJzIiwibmFtZSI6IlByaW5jemVzIEJhcm5hYsOhcyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaUwwenZkVF8tS3g1XzFZMTRpX0VPZ2lkMGVfUGZwZDVjZWlGd209czk2LWMiLCJsb2NhbGUiOiJodSIsInVwZGF0ZWRfYXQiOiIyMDIyLTAyLTA2VDEwOjQ2OjMzLjM2MVoiLCJpc3MiOiJodHRwczovL2Jhcm5pMzYzaHVuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDEwOTY4MTA3NDkwNzMxNzcwNTk0OCIsImF1ZCI6IjcweDc1OXhmWW83cHZRUzM5cHRtQnBucEJSdjhNVWtBIiwiaWF0IjoxNjQ0MTQ0Mzk0LCJleHAiOjE2NDQyMzA3OTQsImF1dGhfdGltZSI6MTY0NDE0NDM5M30.Xmgh6jvi1Zq9eBjDzW7JTfS7m89CSGckA9DRngHAWHmgZSiH9GQqgk4yaqDUThAoP6mKRDhx2bMv8KSDzplcoDJTL6oCAMuncaMwShwthv9wAtr6LTEVSTxfueqzYt1ojsROh2Po55R9GD-PmV4f6adJcDYiaSEYGdISAhqHap1fEcKjMgyIynPLl86KIpZbydZGmpCb0VQn39Wobyl_V3-fBqK2kWjIEfA2FGAxSsghKoeugyOnGN8kvei_hAFDAX1gyDUqIWM7whBtMOsZ4_7uATiNgAMyVUkIsyegIKsUjBKpzot-QVOJ80RCP4S3sW_RT2CkYFA8NoXrFdkVnA"},"tests":[]}]}
+{
+    "client": "Thunder Client",
+    "collectionName": "stabox-package",
+    "dateExported": "2022-02-15T11:28:15.671Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "containerId": "",
+            "sortNum": 10000,
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.io)"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*"
+                }
+            ],
+            "colId": "5e7cfa77-f1cd-40a8-ae96-ee2fd389de10",
+            "name": "addPackage",
+            "url": "localhost:7000/api/package",
+            "method": "PUT",
+            "modified": "2022-02-15T11:24:48.489Z",
+            "created": "2022-02-07T07:31:10.827Z",
+            "_id": "69f365c8-c1fd-4f0a-9ed0-9507cd46e8e5",
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"size\":\"50*15*20\",\n    \"weight\":\"5kg\",\n    \"fragile\":false,\n    \"fromAddressId\":1,\n    \"name\":\"karbi\",\n    \"recieverId\":1\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "containerId": "",
+            "sortNum": 20000,
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.io)"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*"
+                }
+            ],
+            "colId": "5e7cfa77-f1cd-40a8-ae96-ee2fd389de10",
+            "name": "getMyPackage",
+            "url": "localhost:7000/api/package",
+            "method": "GET",
+            "modified": "2022-02-15T11:24:50.070Z",
+            "created": "2022-02-07T07:31:10.827Z",
+            "_id": "c5b4258a-2cda-430c-aadf-51a8f8b2f077",
+            "params": [],
+            "tests": []
+        },
+        {
+            "containerId": "",
+            "sortNum": 25000,
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.io)"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*"
+                }
+            ],
+            "colId": "5e7cfa77-f1cd-40a8-ae96-ee2fd389de10",
+            "name": "getPackageDates",
+            "url": "localhost:7000/api/package/dates",
+            "method": "GET",
+            "modified": "2022-02-15T11:24:53.242Z",
+            "created": "2022-02-07T07:31:10.827Z",
+            "_id": "be2e3dc1-2703-43b6-8459-612a1378db91",
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"id\":5\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "containerId": "",
+            "sortNum": 27500,
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.io)"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*"
+                }
+            ],
+            "colId": "5e7cfa77-f1cd-40a8-ae96-ee2fd389de10",
+            "name": "getPackageByVehicleId",
+            "url": "localhost:7000/api/package/vehicle",
+            "method": "GET",
+            "modified": "2022-02-15T11:24:55.694Z",
+            "created": "2022-02-07T07:31:10.827Z",
+            "_id": "6f532e4b-4414-4386-8ee2-22f4d4e400c3",
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"id\":1\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "containerId": "",
+            "sortNum": 30000,
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.io)"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*"
+                }
+            ],
+            "colId": "5e7cfa77-f1cd-40a8-ae96-ee2fd389de10",
+            "name": "getAllPackage",
+            "url": "localhost:7000/api/package/all",
+            "method": "POST",
+            "modified": "2022-02-15T11:24:58.441Z",
+            "created": "2022-02-07T07:31:10.827Z",
+            "_id": "7c26c33d-8bd6-4b5b-b319-9380ce603e08",
+            "params": [],
+            "tests": []
+        },
+        {
+            "containerId": "",
+            "sortNum": 40000,
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.io)"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*"
+                }
+            ],
+            "colId": "5e7cfa77-f1cd-40a8-ae96-ee2fd389de10",
+            "name": "deleteMyPackage",
+            "url": "localhost:7000/api/package",
+            "method": "DELETE",
+            "modified": "2022-02-15T11:25:00.921Z",
+            "created": "2022-02-07T07:31:10.827Z",
+            "_id": "a753751f-d20e-4e2d-bce2-5bcf4088b006",
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"id\":3\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "containerId": "",
+            "sortNum": 50000,
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.io)"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*"
+                }
+            ],
+            "colId": "5e7cfa77-f1cd-40a8-ae96-ee2fd389de10",
+            "name": "assignVehicleAndDate",
+            "url": "localhost:7000/api/package",
+            "method": "PATCH",
+            "modified": "2022-02-15T11:25:03.321Z",
+            "created": "2022-02-07T07:31:10.827Z",
+            "_id": "b48b5d98-85b4-498c-894e-350e84fc15e0",
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"id\":5,\n    \"vehicleId\":1,\n    \"postDate\":\"2021-01-01 15:12:12\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "containerId": "",
+            "sortNum": 60000,
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.io)"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*"
+                }
+            ],
+            "colId": "5e7cfa77-f1cd-40a8-ae96-ee2fd389de10",
+            "name": "sent",
+            "url": "localhost:7000/api/package",
+            "method": "POST",
+            "modified": "2022-02-15T11:25:14.665Z",
+            "created": "2022-02-07T07:31:10.827Z",
+            "_id": "3584600c-b752-4ec9-b0dd-43eeae69eba9",
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"id\":5\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "containerId": "",
+            "sortNum": 70000,
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.io)"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*"
+                }
+            ],
+            "colId": "5e7cfa77-f1cd-40a8-ae96-ee2fd389de10",
+            "name": "shipped",
+            "url": "localhost:7000/api/package/shipped",
+            "method": "POST",
+            "modified": "2022-02-15T11:25:19.098Z",
+            "created": "2022-02-07T07:31:10.827Z",
+            "_id": "bae07223-8317-44c0-ad35-1be68886eaab",
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"id\":5,\n    \"shipped\":\"2021-01-01 15:12:22\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ],
+    "settings": {
+        "headers": [],
+        "auth": {
+            "type": "bearer",
+            "bearer": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFLdWV0NktiRVVHMHh1cFJaWEN3XyJ9.eyJodHRwczovL3d3dy5zdGFib3guaHUvcm9sZXMiOlsiYWRtaW4iLCJzaGlwcGVyIiwidXNlciJdLCJnaXZlbl9uYW1lIjoiUsOzYmVydCIsImZhbWlseV9uYW1lIjoiQ3NlcnDDoWsiLCJuaWNrbmFtZSI6InJvYmkuY3NlcnBhayIsIm5hbWUiOiJSw7NiZXJ0IENzZXJww6FrIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FBVFhBSndfcmNnaFRaM0pqMFN5WmNsVEJlVkVSaVJ0bVluTVJTUmpIQWJIPXM5Ni1jIiwibG9jYWxlIjoiZW4tR0IiLCJ1cGRhdGVkX2F0IjoiMjAyMi0wMi0xNVQxMDoyNDoyNy44NjVaIiwiZW1haWwiOiJyb2JpLmNzZXJwYWtAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImlzcyI6Imh0dHBzOi8vYmFybmkzNjNodW4uZXUuYXV0aDAuY29tLyIsInN1YiI6Imdvb2dsZS1vYXV0aDJ8MTAzMjc1MDg0NzM1NTgzMTM0NzI5IiwiYXVkIjoiNzB4NzU5eGZZbzdwdlFTMzlwdG1CcG5wQlJ2OE1Va0EiLCJpYXQiOjE2NDQ5MjA4MzksImV4cCI6MTY0NTAwNzIzOSwibm9uY2UiOiJhRzUyU0haM2EyaHhUbUoyU0c5bk5taDZVbTlOVFVoTlUwWnZURzVKVUZScmVHY3dURmRwVTNWcVRBPT0ifQ.Ocwn42AkttR80pky2yVZ9Du5bJGABE5dQGEu_UH2AWQKmW1CAxbT4ah32UymPn_6-0EncytxuqdIQ-l02QneWPY-DapaYVofMJN5zy4Ay3Za4JD7GDUj911s4LB5N2ts4c_OS8I9UG8DIf19mACqO1N8lIUymA2LO3YN8Ka-wpFfeIBGSZO7ryPoegLToo4qaGs7jf7M6BDwsTdauzSrxihVMNaqGfXcRr5k0eHYqCyPOfMQt9TRAr4UWx8OQtPsbFFZJdIZ5kURCFGpicj3XqcCoaFfAaHarybrRCC51r5B8Thqyzkmk-SiW8FKm2rxEzovqJII0-cPV3ehWpbgbQ"
+        },
+        "tests": []
+    }
+}

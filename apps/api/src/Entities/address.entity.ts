@@ -34,7 +34,7 @@ export class addressEntity {
   @Column()
   houseNumber: string;
 
-  @Column()
+  @Column({nullable:true})
   name: string;
 
   //Relations
