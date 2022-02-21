@@ -54,7 +54,7 @@ export class MyPackagesPageComponent implements OnInit {
   _filterAllPackages: boolean = false;
   _filterToDeliver: boolean = false;
 
-  constructor( private packageService:PackageService) {}
+  constructor( public packageService:PackageService) {}
 
   ngOnInit(): void {
     this.packageService.getMypackages().subscribe({

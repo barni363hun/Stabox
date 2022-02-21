@@ -72,6 +72,20 @@
                 <stabox-show-more-button></stabox-show-more-button>
             </div>
         </div>
+        <!-- conditional html -->
+        <!-- accept package -->
+        <div class="row mt-3" *ngIf="this.state =='shippable'">
+            <div class="col-12 text-center">
+                <button (click)="selectPostDate()">accept package</button>
+            </div>
+        </div>
+        <!-- accept package -->
+        <div class="row mt-3" *ngIf="this.state == 'finishable'">
+            <div class="col-12 text-center">
+                <button (click)="finishShipping()" >Finish shipping</button>
+            </div>
+        </div>
+
     </div>
 
 

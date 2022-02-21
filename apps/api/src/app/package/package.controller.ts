@@ -10,7 +10,7 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { IsBoolean, IsDateString, IsNumber, IsObject, isObject, IsString } from 'class-validator';
+import { IsBoolean, isDate, IsDate, IsDateString, IsNumber, IsObject, isObject, IsString } from 'class-validator';
 import { addressEntity, packageEntity } from '../../Entities';
 import { AddressService } from '../address/address.service';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
@@ -27,8 +27,8 @@ class idDto {
 class idDateDto {
   @IsNumber()
   id: number;
-  @IsDateString()
-  shipped: Date;
+  // @IsDateString()
+  // shipped: Date;
 }
 
 class packageDto {
@@ -142,7 +142,10 @@ export class PackageController {
   assignMe(@Req() req: authRequest, @Body() body: assignMeDto) {
     return this.packageService.getById(body.id).then((a) => {
       if (a.userId == req.user.sub) {
-        return this.packageService.delete(body.id);
+        return this.packageService.update(body.id,{
+          vehicleId: body.vehicleId,
+          postDate:body.postDate
+        })
       } else {
         throw new MethodNotAllowedException(
           'You can only delete your own package'
@@ -207,7 +210,7 @@ export class PackageController {
         return this.vehicleService.getById(packag[0].vehicleId).then((veh) => {
           if (veh.userId == req.user.sub) {
             return this.packageService.update(body.id, {
-              shippingDate: body.shipped,
+              shippingDate: new Date().toISOString(),
             });
           } else {
             throw new MethodNotAllowedException(
