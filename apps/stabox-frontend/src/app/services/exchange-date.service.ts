@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { cError, cSuccess, exchangeDateInterface } from '@stabox/stabox-lib';
 import { UserService } from '.';
 import { environment } from '../../environments/environment';
+import { SecondCardComponent } from '../components/pages/mainpage/second-card/second-card.component';
 
 @Injectable({
   providedIn: 'root',
@@ -17,8 +18,8 @@ export class ExchangeDateService {
     const newEX: exchangeDateInterface = {
       id: 0,
       userId: this.userService.user.id,
-      startDate: new Date(Date.now()).toISOString(),
-      endDate: new Date(Date.now()).toISOString(),
+      startDate: '',
+      endDate: '',
     };
     this.exchangeDates.push(newEX);
     console.log(this.exchangeDates);
@@ -31,7 +32,14 @@ export class ExchangeDateService {
       .subscribe({
         next: (res) => {
           cSuccess('exchangeDates refreshed');
-          this.exchangeDates = res;
+          this.exchangeDates = res.map((exDate) => {
+            return {
+              startDate: this.toDateTimeLocal(new Date(exDate.startDate)),
+              endDate: this.toDateTimeLocal(new Date(exDate.endDate)),
+              id: exDate.id,
+              userId: exDate.userId,
+            };
+          });
           console.log(this.exchangeDates);
         },
         error: (err) => {
@@ -39,25 +47,49 @@ export class ExchangeDateService {
         },
       });
   }
+
+  toDateTimeLocal(d: Date): string {
+    d.setHours(d.getHours() + 1);
+    const dformat = d.toISOString().slice(0, 16);
+    //   [d.getMonth() + 1, d.getDate(), d.getFullYear()].join('/') +
+    //   ' ' +
+    //   [d.getHours(), d.getMinutes()].join(':');
+    return dformat;
+  }
+
   save(exDate: exchangeDateInterface) {
-    if (exDate.id === 0) {
-      this.create(exDate);
+    if (
+      new Date(exDate.startDate).getTime() > Date.now() &&
+      new Date(exDate.startDate).getTime() > Date.now()
+    ) {
+      if (
+        new Date(exDate.startDate).getTime() <
+        new Date(exDate.endDate).getTime()
+      ) {
+        if (exDate.id === 0) {
+          this.create(exDate);
+        } else {
+          console.log('saving exchangeDate ' + exDate.id);
+          this.http
+            .patch<exchangeDateInterface>(environment.apiURL + '/EXdate', {
+              ...exDate,
+            })
+            .subscribe({
+              next: (res) => {
+                cSuccess('exchangeDates saved');
+                console.log(this.exchangeDates);
+                this.getExchangeDates();
+              },
+              error: (err) => {
+                cError(err.error.message);
+              },
+            });
+        }
+      } else {
+        cError('endDate must be later than startDate');
+      }
     } else {
-      console.log('saving exchangeDate ' + exDate.id);
-      this.http
-        .patch<exchangeDateInterface>(environment.apiURL + '/EXdate', {
-          ...exDate,
-        })
-        .subscribe({
-          next: (res) => {
-            cSuccess('exchangeDates saved');
-            console.log(this.exchangeDates);
-            this.getExchangeDates();
-          },
-          error: (err) => {
-            cError(err.error.message);
-          },
-        });
+      cError('both dates must be later than now');
     }
   }
 
@@ -97,6 +129,7 @@ export class ExchangeDateService {
           this.getExchangeDates();
         },
         error: (err) => {
+          this.getExchangeDates();
           cError(err.error.message);
         },
       });
