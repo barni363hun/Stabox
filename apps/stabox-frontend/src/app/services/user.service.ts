@@ -17,7 +17,7 @@ export class UserService {
     picture: '',
   };
   public authUser: User = {};
-  //TODO userInit triggers twice on login IDK why (rework with emit)
+  //TODO userInit triggers twice on login IDK why (rework with emit maybe)
   public authUserInit: Observable<User | undefined | null> =
     this.authService.user$;
   public userInitialized = false;

@@ -14,7 +14,7 @@ describe('accountPageUserInfo', () => {
   it('accountpage fill and save user info', () => {
     cy.readFile('./src/helpers/testUser.json').then((oldUser) => {
       cy.visit('/account').then(() => {
-        cy.wait(2000);
+        cy.wait(3000);
         const uuid = () => Cypress._.random(1e4, 1e5);
         const newUser = {
           userName: 'test' + uuid(),
