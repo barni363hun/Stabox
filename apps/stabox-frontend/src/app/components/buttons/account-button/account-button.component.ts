@@ -9,12 +9,18 @@ import { UserService } from '../../../services';
 export class AccountButtonComponent implements OnInit {
 
   @Input() lightMode = false;
+  showMenu = false;
 
-  name: string | undefined = this.userService.authUser.name;
   constructor(public userService: UserService) {}
-  ngOnInit(): void {
-    this.userService.authUserInit.subscribe((u) => {
-      this.name = u?.name;
-    });
+
+  ngOnInit(): void {}
+
+  toggleMenu(): any {
+    if (this.showMenu == true) {
+      this.showMenu = false;
+    }
+    else {
+      this.showMenu = true;
+    }
   }
 }

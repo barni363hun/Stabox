@@ -2,7 +2,6 @@
   <nav class="navbar fixed-top navbar-expand-xl navbar-dark nav">
     <div class="left me-5">
       <a routerLink="/home">
-        <!-- <app-home-icon [lightMode]="lightMode"></app-home-icon> -->
         <app-logo [lightMode]="lightMode"></app-logo>
       </a>
     </div>
@@ -26,15 +25,7 @@
       <ul class="navbar-nav me-auto">
         <li class="nav-item me-3" *ngIf="userService.userLoggedIn()">
           <a class="mt-1 navText" routerLink="/packages">Packages</a>
-          <div class="navUnderline"></div>
-        </li>
-        <li class="nav-item">
-          <a class="mt-1 navText">
-            <button type="button" id="getStartedBtn" (click)="this.userService.logout()">
-              Logout
-            </button>
-          </a>
-          <div class="navUnderline"></div>
+          <div class="navUnderline gradientBg"></div>
         </li>
       </ul>
 
@@ -42,7 +33,7 @@
         <p id="coinAmount">69 420</p>
         <img class="coinsIcon" src="../../../../assets/images/CoinsIcon.svg" />
       </div>
-      <div class="me-4" routerLink="/account" *ngIf="userService.userLoggedIn()">
+      <div class="me-4" *ngIf="userService.userLoggedIn()">
         <app-account-button [lightMode]="lightMode"></app-account-button>
       </div>
       <div class="me-3" *ngIf="!userService.userLoggedIn()">
@@ -84,9 +75,12 @@
       </div>
     </div>
 
-    <div class="sideBarItemDiv" routerLink="/account">
-      <div class="sideBarItem">
+    <div class="sideBarItemDiv" >
+      <div class="sideBarItem" routerLink="/account" *ngIf="userService.userLoggedIn()">
         <app-account-button [lightMode]="lightMode"></app-account-button>
+      </div>
+      <div class="sideBarItem" *ngIf="!userService.userLoggedIn()">
+        <app-sign-in-button [lightMode]="lightMode"></app-sign-in-button>
       </div>
     </div>
 

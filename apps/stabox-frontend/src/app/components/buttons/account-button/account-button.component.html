@@ -1,8 +1,22 @@
-<div [ngClass]="{'lightMode': lightMode == true}">
+<div class="accountButtonDiv" [ngClass]="{'lightMode': lightMode == true}" (click)="toggleMenu()">
     <div class="outline gradientBg unselectable">
-        <div class="accountBtn">
+        <div class="accountBtn centerElements">
             <stabox-user-icon class="me-2"></stabox-user-icon>
-            <span>{{ name }}</span>
+            <span>{{ userService.user.username }}</span>
+        </div>
+    </div>
+    <div class="menu" *ngIf="showMenu">
+        <div class="row p-0 m-0">
+            <div class="col-12 m-0 py-1 menuItem" routerLink="/account">
+                <mat-icon class="icon">person</mat-icon>
+                <p class="text">Account</p>
+                <div class="underline gradientBg"></div>
+            </div>
+            <div class="col-12 m-0 py-1 pb-2 menuItem menuItemLogOut" (click)="this.userService.logout()">
+                <mat-icon class="icon logOutIcon">open_in_browser</mat-icon>
+                <p class="text">Sign Out</p>
+                <div class="underline gradientBg"></div>
+            </div>
         </div>
     </div>
 </div>
