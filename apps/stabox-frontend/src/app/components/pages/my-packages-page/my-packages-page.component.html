@@ -3,16 +3,16 @@
   <div class="mx-auto" id="myPackagesPage">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-xl-4 col-4 text-center titleDiv" (click)="filterAllPackages()">
-          <p class="title">All Packages</p>
-          <div class="titleUnderline" [ngStyle]="{ width: _filterAllPackages ? '100%' : '0' }"></div>
-        </div>
         <div class="col-xl-4 col-4 text-center titleDiv" (click)="filterMyPackages()">
           <p class="title">My Packages</p>
           <div class="titleUnderline"></div>
         </div>
+        <div class="col-xl-4 col-4 text-center titleDiv" (click)="filterAcceptedPackages()">
+          <p class="title">Accepted Packages</p>
+          <div class="titleUnderline" [ngStyle]="{ width: _filterAllPackages ? '100%' : '0' }"></div>
+        </div>
         <div class="col-xl-4 col-4 text-center titleDiv" (click)="filterToDeliver()">
-          <p class="title">To Deliver</p>
+          <p class="title">Packages waiting for delivery</p>
           <div class="titleUnderline"></div>
         </div>
       </div>

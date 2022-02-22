@@ -12,6 +12,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { IsBoolean, isDate, IsDate, IsDateString, IsNumber, IsObject, isObject, IsString } from 'class-validator';
+import { Not } from 'typeorm';
 import { addressEntity, packageEntity } from '../../Entities';
 import { AddressService } from '../address/address.service';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
@@ -111,26 +112,43 @@ export class PackageController {
     });
   }
 
-  //returns user's active packages
+
+  //returns user's own packages
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
-  @Get('/withaddress')
+  @Get('/mypackages')
   getMyPackagesWithAddress(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
-      where: [{ userId: req.user.sub, shippingDate: false }, { vehicle: { userId: req.user.sub }, shippingDate: false }],
-      relations: ['fromAddress', 'vehicle']
+      where: { userId: req.user.sub },
+      relations: ['fromAddress']
     });
   }
   // gets acceptable packages
   @UseGuards(AuthGuard, RoleGuard)
-  @Roles('user')
+  @Roles('shipper')
   @Get('/acceptable')
   getAcceptable(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
-      where: { vehicleId: null, userId: !req.user.sub },
+      where: { vehicleId: null, userId: Not(req.user.sub) },
       relations: ['fromAddress']
     });
   }
+  // gets accepted packages
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles('shipper')
+  @Get('/accepted')
+  getAccepted(@Req() req: authRequest): Promise<packageEntity[]> {
+    return this.packageService.find({
+      where: {
+        shippingDate: false,
+        vehicle: {
+          userId: req.user.sub,
+        },
+      },
+      relations: ['fromAddress', 'vehicle']
+    });
+  }
+
 
   // delete own package
   @UseGuards(AuthGuard, RoleGuard)

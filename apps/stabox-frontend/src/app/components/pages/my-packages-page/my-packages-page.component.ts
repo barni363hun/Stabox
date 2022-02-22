@@ -8,40 +8,33 @@ import { PackageService } from '../../../services/package.service';
   styleUrls: ['./my-packages-page.component.scss'],
 })
 export class MyPackagesPageComponent implements OnInit {
-  // packages: packageInterface[] = []
 
-  _filterMyPackages: boolean = false;
+  _filterMyPackages: boolean = true;
   _filterAllPackages: boolean = false;
   _filterToDeliver: boolean = false;
 
   constructor(
     public packageService: PackageService,
-    private vehicleService:VehicleService,
-    private exchangeDateService:ExchangeDateService
-    ) { }
+    private vehicleService: VehicleService,
+    private exchangeDateService: ExchangeDateService
+  ) { }
 
   ngOnInit(): void {
-    //   this.packageService.getMypackages().subscribe({
-    //     next: (res) => {
-    //       this.packages = res;
-    //       console.log(res);
-    //     }
-    //   });
-    //   console.log(this.packages);
 
   }
 
-  filterAllPackages() {
+  filterAcceptedPackages() {
     this._filterAllPackages = true;
     this._filterMyPackages = false;
     this._filterToDeliver = false;
+    this.packageService.update('/package/accepted');
   }
 
   filterMyPackages() {
     this._filterAllPackages = false;
     this._filterMyPackages = true;
     this._filterToDeliver = false;
-    this.packageService.update('/package/withaddress');
+    this.packageService.update('/package/myPackages');
   }
 
   filterToDeliver() {

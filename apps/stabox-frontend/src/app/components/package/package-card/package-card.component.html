@@ -3,14 +3,14 @@
         <p class="packageTitle">{{package.name}}</p>
         <app-divider></app-divider>
 
-        <div class="row">
+        <!--         <div class="row">
             <div class="col-6">
                 <p class="packageText">Shipper:</p>
             </div>
             <div class="col-6">
                 <p class="packageData">{{"TODO Shipper"}}</p>
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <div class="col-6">
                 <p class="packageText">Zip code:</p>
@@ -67,14 +67,22 @@
                 <p class="packageData">{{package.fragile?'Fragile':'Not Fraile'}}</p>
             </div>
         </div>
-        <div class="row mt-3">
+        <div class="row">
+            <div class="col-6">
+                <p class="packageText">STATUS:</p>
+            </div>
+            <div class="col-6">
+                <p class="packageData">{{this.status}}</p>
+            </div>
+        </div>
+        <!-- <div class="row mt-3">
             <div class="col-12 text-center">
                 <stabox-show-more-button></stabox-show-more-button>
             </div>
-        </div>
+        </div> -->
         <!-- conditional html -->
         <!-- accept package -->
-        <div class="row mt-3" *ngIf="this.state =='shippable'">
+        <div class="row mt-3" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
             <div class="col-12 text-center">
                 <div class="col-6">
                     <select name="vehicle" id="vehicle" [(ngModel)]="selectedVehicle">
@@ -83,7 +91,10 @@
                 </div>
                 <div class="col-6">
                     <select name="exchangeDates" id="exchangeDates" [(ngModel)]="selectedExchangeDate">
-                        <option *ngFor="let exDate of exchangeDates" [value]="exDate.id">{{exDate.startDate.toLocaleString() | date:'yyyy/MM/dd hh:mm'}} - {{exDate.startDate.toString() | date:'yyyy/MM/dd hh:mm'}}</option>
+                        <option *ngFor="let exDate of exchangeDates" [value]="exDate.id">
+                            {{exDate.startDate.toLocaleString() | date:'yyyy/MM/dd hh:mm'}} -
+                            {{exDate.startDate.toString() | date:'yyyy/MM/dd hh:mm'}}
+                        </option>
                     </select>
                 </div>
                 <div class="col-6">
@@ -93,9 +104,9 @@
             </div>
         </div>
         <!-- accept package -->
-        <div class="row mt-3" *ngIf="this.state == 'finishable'">
+        <div class="row mt-3" *ngIf="this.state == 'finishable' && !this.isUserTheOwner">
             <div class="col-12 text-center">
-                <button (click)="finishShipping()" >Finish shipping</button>
+                <button (click)="finishShipping()">Finish shipping</button>
             </div>
         </div>
 

@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 export class PackageService {
 
   public packages = []
-  private route: '/package/withaddress' | '/package/acceptable' = '/package/withaddress';
+  private route: '/package/myPackages' | '/package/acceptable' | '/package/accepted' = '/package/myPackages';
 
   finishPackage(id: any) {
     return this.http.post(environment.apiURL + '/package/shipped', { id: id }).subscribe(
