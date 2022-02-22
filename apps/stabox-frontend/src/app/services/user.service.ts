@@ -17,7 +17,7 @@ export class UserService {
     picture: '',
   };
   public authUser: User = {};
-  //TODO userInit triggers twice on login IDK why (rework with emit)
+  //TODO userInit triggers twice on login IDK why (rework with emit maybe)
   public authUserInit: Observable<User | undefined | null> =
     this.authService.user$;
   public userInitialized = false;
@@ -37,7 +37,6 @@ export class UserService {
           authU.sub
         ) {
           cSuccess("authUser's been got");
-          this.userInitialized = true;
           this.authUser = authU;
           if (this.hasRole('user')) {
             this.isUser = true;
@@ -74,6 +73,7 @@ export class UserService {
               console.log(this.user);
             },
           });
+          this.userInitialized = true;
         }
       },
       error: (err) => {
