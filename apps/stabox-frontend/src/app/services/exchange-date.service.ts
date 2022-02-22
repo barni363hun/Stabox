@@ -20,9 +20,15 @@ export class ExchangeDateService {
       userId: this.userService.user.id,
       startDate: '',
       endDate: '',
+      addressId: 0,
     };
     this.exchangeDates.push(newEX);
     console.log(this.exchangeDates);
+  }
+  selectChange(e: Event, EXindex: number) {
+    console.log(EXindex + ': ');
+
+    console.log(e.target);
   }
 
   getExchangeDates() {
@@ -38,6 +44,7 @@ export class ExchangeDateService {
               endDate: this.toDateTimeLocal(new Date(exDate.endDate)),
               id: exDate.id,
               userId: exDate.userId,
+              addressId: exDate.addressId,
             };
           });
           console.log(this.exchangeDates);
