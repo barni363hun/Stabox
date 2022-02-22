@@ -1,0 +1,23 @@
+@import '../../../../styles/settings/variables';
+
+.snackBar {
+    position: absolute;
+    bottom: 1%;
+
+    width: fit-content;
+    height: fit-content;
+
+    background-color: $bgColorBlack;
+    color: $colorDarkRed;
+    border: 2px solid $colorDarkRed;
+    border-radius: 15px;
+    padding: 5px 25px 5px 25px;
+    font-size: 22px;
+
+    animation: disappear ease 5s;
+}
+
+@keyframes disappear {
+    from {opacity: 1;}
+    to {opacity: 0; display: none;}
+  }

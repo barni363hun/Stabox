@@ -36,6 +36,7 @@ import { PackageCardComponent } from './components/package/package-card/package-
 import { AddPackageComponent } from './components/package/add-package/add-package.component';
 import { FormsModule } from '@angular/forms';
 import { AddRecieverWithAddressComponent } from './components/package/add-reciever-with-address/add-reciever-with-address.component';
+import { ErrorComponent } from './components/snackbars/error/error.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { AddRecieverWithAddressComponent } from './components/package/add-reciev
     UserIconComponent,
     PackageCardComponent,
     AddPackageComponent,
-    AddRecieverWithAddressComponent
+    AddRecieverWithAddressComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

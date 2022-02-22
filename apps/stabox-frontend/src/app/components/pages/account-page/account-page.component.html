@@ -9,7 +9,7 @@
             <div class="row">
               <div class="col-xl-6 col-lg-6 col-12 centerElements">
                 <div class="accountImageOutline gradientBg">
-                  <img class="accountImage unselectable" [src]="userService.authUser.picture" alt="{{ userService.user.username }}" title="{{ userService.user.username }}" />
+                  <img class="accountImage unselectable" [src]="userService.authUser.picture" alt="{{ userService.user.username }}" title="{{ userService.user.username }}"/>
                 </div>
               </div>
 
@@ -106,10 +106,10 @@
                 ">
                 <div class="col-sm-1 col-12"></div>
                 <div class="col-sm-5 col-12 p-0 m-0">
-                  <input class="w-100" type="text" [(ngModel)]="EXDate.startDate" (change)="exchangeDateService.save(EXDate)" />
+                  <input class="w-100" type="text" [(ngModel)]="EXDate.startDate" (change)="exchangeDateService.save(EXDate)"/>
                 </div>
                 <div class="col-sm-5 col-12 p-0 m-0">
-                  <input class="w-100" type="text" [(ngModel)]="EXDate.endDate" (change)="exchangeDateService.save(EXDate)" />
+                  <input class="w-100" type="text" [(ngModel)]="EXDate.endDate" (change)="exchangeDateService.save(EXDate)"/>
                 </div>
                 <div class="col-sm-1 col-12 centerElements">
                   <mat-icon class="deleteIcon gradient" (click)="exchangeDateService.delete(i)" title="Remove date">delete</mat-icon>
@@ -124,7 +124,7 @@
             <app-divider [lightMode]="lightMode"></app-divider>
             <div class="accountDataInputs">
               <div *ngFor="let address of addressService.addresses; index as i">
-                <input type="text" [(ngModel)]="address.name" (change)="addressService.save(address)" />
+                <input type="text" [(ngModel)]="address.name" (change)="addressService.save(address)"/>
                 <!-- <input
                 class="accountDataInput"
                 type="text"
@@ -157,5 +157,8 @@
     </div>
 
     <app-footer [lightMode]="lightMode"></app-footer>
+
+    <stabox-error [message]="errorMessage"></stabox-error>
+
   </div>
 </div>

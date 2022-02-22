@@ -15,6 +15,7 @@ export class AccountPageComponent implements OnInit {
   viewDetails = false;
   lightMode = false;
   theme = 'dark';
+  errorMessage = '';
 
   constructor(
     public userService: UserService,
@@ -48,7 +49,7 @@ export class AccountPageComponent implements OnInit {
 
   checkUserName() {
     if (this.userService.user.username.length < 6) {
-      alert('Username must be between 6 and 20 characters');
+      this.errorMessage = 'Username must be between 6 and 20 characters';
     }
     else {
       this.userDataChanged = true;
