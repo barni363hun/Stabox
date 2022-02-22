@@ -160,14 +160,14 @@
                   index as EXindex
                 "
               >
-                <div class="col-sm-6 col-12 p-0 m-0">
+                <div class="col-sm-4 col-12 p-0 m-0">
                   <input
                     class="w-100"
                     type="datetime-local"
                     [(ngModel)]="EXDate.startDate"
                   />
                 </div>
-                <div class="col-sm-6 col-12 p-0 m-0">
+                <div class="col-sm-4 col-12 p-0 m-0">
                   <input
                     class="w-100"
                     type="datetime-local"
@@ -175,26 +175,27 @@
                   />
                 </div>
 
-                <div class="col-sm-6 col-12 p-0 m-0">
+                <div class="col-sm-2 col-12 p-0 m-0">
                   <select
                     class="w-100"
                     (change)="exchangeDateService.selectChange($event, EXindex)"
                   >
+                    <option value="0" selected disabled hidden>
+                      {{
+                        addressService.getAddressById(
+                          exchangeDateService.exchangeDates[EXindex].addressId
+                        ).name
+                      }}
+                    </option>
                     <option
-                      *ngFor="
-                        let address of addressService.addresses;
-                        index as ADRindex
-                      "
-                      id="{{ ADRindex }}"
-                      [value]="address"
+                      *ngFor="let address of addressService.addresses"
+                      [value]="address.id"
                     >
-                      {{ address.name }} | {{ address.cityName }},{{
-                        address.street
-                      }}-{{ address.houseNumber }}
+                      {{ address.name }}
                     </option>
                   </select>
                 </div>
-                <div class="col-sm-3 col-12 centerElements">
+                <div class="col-sm-1 col-12 centerElements">
                   <mat-icon
                     class="deleteIcon gradient"
                     title="Save date"
@@ -202,7 +203,7 @@
                     >save</mat-icon
                   >
                 </div>
-                <div class="col-sm-3 col-12 centerElements">
+                <div class="col-sm-1 col-12 centerElements">
                   <mat-icon
                     class="deleteIcon gradient"
                     (click)="exchangeDateService.delete(EXindex)"

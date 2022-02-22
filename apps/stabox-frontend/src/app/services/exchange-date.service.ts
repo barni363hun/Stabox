@@ -25,10 +25,12 @@ export class ExchangeDateService {
     this.exchangeDates.push(newEX);
     console.log(this.exchangeDates);
   }
-  selectChange(e: Event, EXindex: number) {
-    console.log(EXindex + ': ');
-
-    console.log(e.target);
+  selectChange(e: any, EXindex: number) {
+    const myEX: exchangeDateInterface = this.exchangeDates[EXindex];
+    if (myEX) {
+      myEX.addressId = Number(e.target.value);
+    }
+    console.log(myEX);
   }
 
   getExchangeDates() {
@@ -65,6 +67,7 @@ export class ExchangeDateService {
   }
 
   save(exDate: exchangeDateInterface) {
+    console.log(exDate);
     if (
       new Date(exDate.startDate).getTime() > Date.now() &&
       new Date(exDate.startDate).getTime() > Date.now()
@@ -102,6 +105,7 @@ export class ExchangeDateService {
 
   private create(exDate: exchangeDateInterface) {
     // TODO only for users with USER role
+    console.log(exDate);
 
     console.log('creating exchangeDate ' + exDate.id);
     this.http

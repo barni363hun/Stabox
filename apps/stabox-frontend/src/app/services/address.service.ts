@@ -13,6 +13,25 @@ export class AddressService {
     this.getAddresses();
   }
 
+  getAddressById(num: number): addressInterface {
+    const add = this.addresses.find((a) => a.id === num);
+    if (add) {
+      return add;
+    }
+    //TODO error
+    const newADR: addressInterface = {
+      id: 0,
+      userId: this.userService.user.id,
+      name: 'select',
+      region: 0,
+      zipCode: 0,
+      cityName: 'city name',
+      street: 'street name',
+      houseNumber: 'house number',
+    };
+    return newADR;
+  }
+
   localeAddAddress() {
     const newADR: addressInterface = {
       id: 0,
