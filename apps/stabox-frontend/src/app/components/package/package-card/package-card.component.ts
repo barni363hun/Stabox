@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UserService } from '../../../services';
+import { ExchangeDateService, UserService, VehicleService } from '../../../services';
 import { PackageService } from '../../../services/package.service';
 @Component({
   selector: 'stabox-package-card',
@@ -9,35 +9,51 @@ import { PackageService } from '../../../services/package.service';
 
 export class PackageCardComponent implements OnInit {
   @Input() package!: any;
-  // packageInterface
-  //   = {
-  //   address: {
-  //     city: "city",
-  //     region: "region",
-  //     street: "street",
-  //     zipCode: 1111,
-  //     houseNumber: 1
-  //   },
-  //   size: "size",
-  //   weight: "sok g",
-  //   fragile: true
-  // }
   isAvailable: boolean = false;
   state: 'notShipper' | 'finished' | 'shippable' | 'finishable' = 'finished';
   user: any;
-  constructor(private userService: UserService, private packageService: PackageService) { }
 
+  vehicles: any[] = []
+  selectedVehicle:number=0;
+
+  exchangeDates:any[]=[];
+  selectedExchangeDate:number=0;
+
+  constructor(
+    private userService: UserService,
+     private packageService: PackageService,
+     private vehicleService:VehicleService,
+     private exchangeDateSercice:ExchangeDateService
+     ) { }
+  
   ngOnInit(): void {
     this.updateState()
+    this.vehicles = this.vehicleService.vehicles
+    this.exchangeDateSercice.getExchangeDateByPackageId(this.package.userId).subscribe({
+      next:(res)=>{
+        console.log('exchangeDates')
+        console.log(res)
+        this.exchangeDates=res},
+      error:(err)=>console.log(err),
+    })
   }
   selectPostDate() {
-    let date = new Date(Date.now()).toISOString()
-    this.packageService.postPackage(this.package.id, 1, date)
-    this.updateState()
+    let date = new Date(Date.now()).toISOString();
+    if (!this.selectedVehicle){
+      console.log('NO vehicle selected')
+    }
+    else if(!this.selectedExchangeDate){
+      console.log('No exchangeDate selected')
+    }
+    else{
+      this.packageService.postPackage(this.package.id, Number(this.selectedVehicle), date);
+    }
+
+    this.updateState();
   }
   finishShipping() {
-    this.packageService.finishPackage(this.package.id)
-    this.updateState()
+    this.packageService.finishPackage(this.package.id);
+    this.updateState();
   }
   updateState() {
     if (!this.userService.user['https://www.stabox.hu/roles'].includes('shipper')) {
@@ -52,7 +68,9 @@ export class PackageCardComponent implements OnInit {
     else {
       this.state = 'finished';
     }
+    // console.log('state: '+this.state)
   }
+
 }
 
 // interface packageInterface {

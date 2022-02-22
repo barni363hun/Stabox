@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   MethodNotAllowedException,
+  Param,
   Patch,
   Post,
   Put,
@@ -100,7 +101,6 @@ export class PackageController {
   }
 
 
-
   // gets user packages
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
@@ -117,11 +117,7 @@ export class PackageController {
   @Get('/withaddress')
   getMyPackagesWithAddress(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
-      where: [{ userId: req.user.sub }, { shippingDate: false }],
-
-      //   userId: req.user.sub, shippingDate: false,
-      // },
-
+      where: [{ userId: req.user.sub, shippingDate: false }, { vehicle: { userId: req.user.sub }, shippingDate: false }],
       relations: ['fromAddress', 'vehicle']
     });
   }
@@ -129,9 +125,9 @@ export class PackageController {
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
   @Get('/acceptable')
-  getAcceptable(): Promise<packageEntity[]> {
+  getAcceptable(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
-      where: { vehicleId: null },
+      where: { vehicleId: null, userId: !req.user.sub },
       relations: ['fromAddress']
     });
   }
@@ -158,14 +154,14 @@ export class PackageController {
   @Patch()
   assignMe(@Req() req: authRequest, @Body() body: assignMeDto) {
     return this.packageService.getById(body.id).then((a) => {
-      if (a.userId == req.user.sub) {
+      if (a.userId !== req.user.sub) {
         return this.packageService.update(body.id, {
           vehicleId: body.vehicleId,
           postDate: body.postDate
         })
       } else {
         throw new MethodNotAllowedException(
-          'You can only delete your own package'
+          'You can not accept your own package'
         );
       }
     });

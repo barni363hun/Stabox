@@ -76,7 +76,20 @@
         <!-- accept package -->
         <div class="row mt-3" *ngIf="this.state =='shippable'">
             <div class="col-12 text-center">
-                <button (click)="selectPostDate()">accept package</button>
+                <div class="col-6">
+                    <select name="vehicle" id="vehicle" [(ngModel)]="selectedVehicle">
+                        <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.name}}</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <select name="exchangeDates" id="exchangeDates" [(ngModel)]="selectedExchangeDate">
+                        <option *ngFor="let exDate of exchangeDates" [value]="exDate.id">{{exDate.startDate.toLocaleString() | date:'yyyy/MM/dd hh:mm'}} - {{exDate.startDate.toString() | date:'yyyy/MM/dd hh:mm'}}</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <button (click)="selectPostDate()">accept package</button>
+                </div>
+
             </div>
         </div>
         <!-- accept package -->

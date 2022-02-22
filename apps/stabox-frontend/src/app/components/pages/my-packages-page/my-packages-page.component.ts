@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExchangeDateService, VehicleService } from '../../../services';
 import { PackageService } from '../../../services/package.service';
 
 @Component({
@@ -13,7 +14,11 @@ export class MyPackagesPageComponent implements OnInit {
   _filterAllPackages: boolean = false;
   _filterToDeliver: boolean = false;
 
-  constructor(public packageService: PackageService) { }
+  constructor(
+    public packageService: PackageService,
+    private vehicleService:VehicleService,
+    private exchangeDateService:ExchangeDateService
+    ) { }
 
   ngOnInit(): void {
     //   this.packageService.getMypackages().subscribe({
@@ -36,14 +41,16 @@ export class MyPackagesPageComponent implements OnInit {
     this._filterAllPackages = false;
     this._filterMyPackages = true;
     this._filterToDeliver = false;
-    this.packageService.update('/package/withaddress')
+    this.packageService.update('/package/withaddress');
   }
 
   filterToDeliver() {
     this._filterAllPackages = false;
     this._filterMyPackages = false;
     this._filterToDeliver = true;
-    this.packageService.update('/package/acceptable')
+    this.vehicleService.getVehicles();
+    this.exchangeDateService.getExchangeDates();
+    this.packageService.update('/package/acceptable');
   }
 }
 
