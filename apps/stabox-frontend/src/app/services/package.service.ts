@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 })
 export class PackageService {
 
-  public packages = []
+  public packages: any[] = []
   private route: '/package/myPackages' | '/package/acceptable' | '/package/accepted' = '/package/myPackages';
 
   finishPackage(id: any) {
@@ -16,7 +16,7 @@ export class PackageService {
       {
         next: (res) => {
           console.log(res);
-          this.update()
+          this.packages = this.packages.filter(f => f.id != id)
         },
         error: (err) => console.log(err),
       }
@@ -32,7 +32,7 @@ export class PackageService {
         {
           next: (res) => {
             console.log(res);
-            this.update()
+            this.packages = this.packages.filter(f => f.id != id)
           },
           error: (err) => console.log(err),
         }
