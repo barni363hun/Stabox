@@ -11,7 +11,7 @@ import {
   styleUrls: ['./account-page.component.scss'],
 })
 export class AccountPageComponent implements OnInit {
-  userDataChanged = true;
+  userDataChanged = false;
   viewDetails = false;
   lightMode = false;
   theme = 'dark';
@@ -43,6 +43,15 @@ export class AccountPageComponent implements OnInit {
       }
     } else {
       alert('Please fill all of your data!');
+    }
+  }
+
+  checkUserName() {
+    if (this.userService.user.username.length < 6) {
+      alert('Username must be between 6 and 20 characters');
+    }
+    else {
+      this.userDataChanged = true;
     }
   }
 

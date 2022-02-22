@@ -76,7 +76,7 @@
     </div>
 
     <div class="sideBarItemDiv" >
-      <div class="sideBarItem" routerLink="/account" *ngIf="userService.userLoggedIn()">
+      <div class="sideBarItem" *ngIf="userService.userLoggedIn()">
         <app-account-button [lightMode]="lightMode"></app-account-button>
       </div>
       <div class="sideBarItem" *ngIf="!userService.userLoggedIn()">
