@@ -15,6 +15,7 @@ import { addressEntity } from '../../Entities';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
 import { Roles } from '../auth/roles.decorator';
 import { AddressService } from './address.service';
+import { IsNull } from 'typeorm';
 
 class idDto {
   @IsNumber()
@@ -91,6 +92,17 @@ export class AddressController {
       where: { userId: req.user.sub },
     });
   }
+
+  // gets user's own addresses
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles('user')
+  @Get('/reciever')
+  getMyRecieverAddresses(@Req() req: authRequest): Promise<addressEntity[]> {
+    return this.addressService.find({
+      where: { userId: req.user.sub ,name:!IsNull()},
+    });
+  }
+
 
   // delete own address
   @UseGuards(AuthGuard, RoleGuard)

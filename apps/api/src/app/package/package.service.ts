@@ -11,5 +11,6 @@ export class PackageService extends GenericService<packageEntity> {
     private packageRepository: Repository<packageEntity>
   ) {
     super(packageRepository);
+
   }
 }
