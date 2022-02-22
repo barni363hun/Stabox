@@ -26,6 +26,8 @@ class exchangeDateDto {
   startDate: Date;
   @IsDateString()
   endDate: Date;
+  @IsNumber()
+  addressId: number;
 }
 
 class myExchangeDateDto {
@@ -35,6 +37,8 @@ class myExchangeDateDto {
   startDate: Date;
   @IsDateString()
   endDate: Date;
+  @IsNumber()
+  addressId: number;
 }
 
 @Controller('EXdate')
@@ -49,6 +53,7 @@ export class ExchangeDateController {
     return this.exchangeDateService.create({
       id: 0,
       userId: req.user.sub,
+      addressId: body.addressId,
       startDate: body.startDate,
       endDate: body.endDate,
     });
@@ -77,6 +82,7 @@ export class ExchangeDateController {
   @Roles('user')
   @Delete()
   delete(@Req() req: authRequest, @Body() body: idDto) {
+    // TODO errors, rework
     return this.exchangeDateService.getById(body.id).then((a) => {
       if (a.userId == req.user.sub) {
         return this.exchangeDateService.delete(body.id);
@@ -98,6 +104,7 @@ export class ExchangeDateController {
         const newDates: exchangeDateDto = {
           startDate: body.startDate,
           endDate: body.endDate,
+          addressId: body.addressId,
         };
         return this.exchangeDateService.update(body.id, newDates);
       } else {

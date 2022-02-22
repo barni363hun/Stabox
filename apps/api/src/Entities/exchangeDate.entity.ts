@@ -1,5 +1,5 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { userEntity } from '.';
+import { addressEntity, userEntity } from '.';
 
 @Entity()
 export class exchangeDateEntity {
@@ -11,6 +11,12 @@ export class exchangeDateEntity {
 
   @ManyToOne(() => userEntity, (user) => user)
   user: userEntity;
+
+  @Column()
+  addressId: number;
+
+  @ManyToOne(() => addressEntity, (address) => address.exchangeDates)
+  address: addressEntity;
 
   @Column()
   startDate: Date;

@@ -12,6 +12,7 @@
   "private": true,
   "dependencies": {
     "@angular-material-components/datetime-picker": "^7.0.1",
+    "@angular-material-extensions/google-maps-autocomplete": "^7.0.1",
     "@angular/animations": "~13.1.0",
     "@angular/cdk": "^13.2.2",
     "@angular/common": "~13.1.0",
@@ -36,6 +37,7 @@
     "express-jwt": "^6.1.0",
     "jwks-rsa": "^2.0.5",
     "mysql2": "^2.3.3",
+    "ngx-google-places-autocomplete": "^2.0.5",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.4.0",
     "tslib": "^2.0.0",

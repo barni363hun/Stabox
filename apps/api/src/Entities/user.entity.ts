@@ -1,6 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 import {
   addressEntity,
+  exchangeDateEntity,
   packageEntity,
   transactionEntity,
   vehicleEntity,
@@ -33,6 +34,9 @@ export class userEntity {
   //Relations
   @OneToMany(() => transactionEntity, (transaction) => transaction.user)
   transactions: transactionEntity[];
+
+  @OneToMany(() => exchangeDateEntity, (exchangeDate) => exchangeDate.user)
+  exchangeDates: exchangeDateEntity[];
 
   @OneToMany(() => transactionEntity, (vehicles) => vehicles.user)
   vehicles: vehicleEntity[];
