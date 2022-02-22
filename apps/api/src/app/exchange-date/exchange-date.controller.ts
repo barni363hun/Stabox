@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   MethodNotAllowedException,
+  Param,
   Patch,
   Post,
   Put,
@@ -71,6 +72,15 @@ export class ExchangeDateController {
       where: { userId: req.user.sub },
     });
   }
+    // gets user's all exchange date
+    @UseGuards(AuthGuard, RoleGuard)
+    @Roles('user')
+    @Get('/package/:id')
+    getByPackageId(@Req() req: authRequest,@Param()id:number): Promise<exchangeDateEntity[]> {
+      return this.exchangeDateService.find({
+        where: { userId:id },
+      });
+    }
 
   // delete own exchange date
   @UseGuards(AuthGuard, RoleGuard)
