@@ -22,9 +22,16 @@ declare namespace Cypress {
   interface Chainable<Subject> {
     logout(): void;
   }
+  interface Chainable<Subject> {
+    getStarted(): void;
+  }
 }
 //
 // -- This is a parent command --
+Cypress.Commands.add('getStarted', () => {
+  cy.visit('/');
+  cy.get('.joinNow').click();
+});
 Cypress.Commands.add('auth0Login', (email: string, password: string) => {
   cy.get('input[type=email]').type(email);
   cy.get('input[type=password]').type(password);

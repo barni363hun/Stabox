@@ -1,8 +1,7 @@
 describe('registration', () => {
   // beforeEach(() => cy.visit('/'));
   it('get started', () => {
-    cy.visit('/');
-    cy.get('#getStartedBtn').click();
+    cy.getStarted();
   });
   it('auth0 register with random data', () => {
     const uuid = () => Cypress._.random(0, 1e6);
