@@ -1,49 +1,50 @@
-import {
-  Component,
-  ViewChild,
-  EventEmitter,
-  Output,
-  OnInit,
-  AfterViewInit,
-  Input,
-} from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import {} from '@types/googlemaps';
+import { Component, OnInit } from '@angular/core';
+
 @Component({
   selector: 'stabox-add-package',
   templateUrl: './add-package.component.html',
   styleUrls: ['./add-package.component.scss'],
 })
-export class AddPackageComponent implements OnInit, AfterViewInit {
-  @Input() adressType: string;
-  @Output() setAddress: EventEmitter<any> = new EventEmitter();
-  @ViewChild('addresstext') addresstext: any;
-
-  autocompleteInput: string;
-  queryWait: boolean;
-
+export class AddPackageComponent implements OnInit {
+  street_number = '';
+  address = '';
+  city = '';
+  state = '';
+  country = '';
+  zip = '';
   constructor() {}
 
   ngOnInit(): void {}
-  ngAfterViewInit() {
-    this.getPlaceAutocomplete();
-  }
 
-  private getPlaceAutocomplete() {
-    const autocomplete = new google.maps.places.Autocomplete(
-      this.addresstext.nativeElement,
-      {
-        componentRestrictions: { country: 'US' },
-        types: [this.adressType], // 'establishment' / 'address' / 'geocode'
-      }
-    );
-    google.maps.event.addListener(autocomplete, 'place_changed', () => {
-      const place = autocomplete.getPlace();
-      this.invokeEvent(place);
+  placeChangedCallback(place: any) {
+    console.log('change');
+
+    this.street_number = '';
+    this.address = '';
+    this.city = '';
+    this.state = '';
+    this.country = '';
+    this.zip = '';
+    const addressFrom = {
+      street_number: 'short_name',
+      route: 'long_name',
+      locality: 'long_name',
+      sublocality_level_1: 'sublocality_level_1',
+      administrative_area_level_1: 'short_name',
+      country: 'long_name',
+      postal_code: 'short_name',
+    };
+    place.address_components.forEach((add: any) => {
+      add.types.forEach((addType: any) => {
+        if (addType == 'street_number') this.street_number = add.short_name;
+        if (addType == 'route') this.address = add.long_name;
+        if (addType == 'locality' || addType == 'sublocality_level_1')
+          this.city = add.long_name;
+        if (addType == 'administrative_area_level_1')
+          this.state = add.long_name;
+        if (addType == 'country') this.country = add.long_name;
+        if (addType == 'postal_code') this.zip = add.long_name;
+      });
     });
-  }
-
-  invokeEvent(place: Object) {
-    this.setAddress.emit(place);
   }
 }

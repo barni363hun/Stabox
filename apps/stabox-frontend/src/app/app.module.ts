@@ -36,6 +36,7 @@ import { PackageCardComponent } from './components/package/package-card/package-
 import { AddPackageComponent } from './components/package/add-package/add-package.component';
 import { FormsModule } from '@angular/forms';
 import { AddRecieverWithAddressComponent } from './components/package/add-reciever-with-address/add-reciever-with-address.component';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 @NgModule({
   declarations: [
@@ -67,9 +68,10 @@ import { AddRecieverWithAddressComponent } from './components/package/add-reciev
     UserIconComponent,
     PackageCardComponent,
     AddPackageComponent,
-    AddRecieverWithAddressComponent
+    AddRecieverWithAddressComponent,
   ],
   imports: [
+    GooglePlaceModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -88,7 +90,7 @@ import { AddRecieverWithAddressComponent } from './components/package/add-reciev
         ],
       },
     }),
-    MatIconModule
+    MatIconModule,
   ],
   bootstrap: [AppComponent],
   providers: [
