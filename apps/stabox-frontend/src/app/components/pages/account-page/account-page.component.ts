@@ -50,19 +50,18 @@ export class AccountPageComponent implements OnInit {
 
   checkData() {
     if (
-      this.userService.user.username == ''
-      || this.userService.user.firstName == ''
-      || this.userService.user.lastName == ''
-      || this.userService.user.lastName == ''
-      || this.userService.user.email == ''
-      || this.userService.user.phoneNumber == '')
-    {
+      this.userService.user.username == '' ||
+      this.userService.user.firstName == '' ||
+      this.userService.user.lastName == '' ||
+      this.userService.user.lastName == '' ||
+      this.userService.user.email == '' ||
+      this.userService.user.phoneNumber == ''
+    ) {
       this.errorMessage = 'Fill in all your data, please.';
       localStorage.setItem('errorMessage', this.errorMessage);
       this.showErrorSnackBar = true;
       this.userDataChanged = false;
-    }
-    else {
+    } else {
       this.userDataChanged = true;
       this.showErrorSnackBar = false;
     }
