@@ -9,22 +9,14 @@ export class AddPackageComponent implements OnInit {
   street_number = '';
   address = '';
   city = '';
-  state = '';
   country = '';
-  zip = '';
+  region = '';
   constructor() {}
 
   ngOnInit(): void {}
 
   placeChangedCallback(place: any) {
     console.log('change');
-
-    this.street_number = '';
-    this.address = '';
-    this.city = '';
-    this.state = '';
-    this.country = '';
-    this.zip = '';
     const addressFrom = {
       street_number: 'short_name',
       route: 'long_name',
@@ -36,14 +28,16 @@ export class AddPackageComponent implements OnInit {
     };
     place.address_components.forEach((add: any) => {
       add.types.forEach((addType: any) => {
+        console.log(addType);
+
+        console.log(add);
+
         if (addType == 'street_number') this.street_number = add.short_name;
         if (addType == 'route') this.address = add.long_name;
         if (addType == 'locality' || addType == 'sublocality_level_1')
           this.city = add.long_name;
-        if (addType == 'administrative_area_level_1')
-          this.state = add.long_name;
         if (addType == 'country') this.country = add.long_name;
-        if (addType == 'postal_code') this.zip = add.long_name;
+        if (addType == 'postal_code') this.region = add.long_name;
       });
     });
   }
