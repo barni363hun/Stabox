@@ -1,20 +1,17 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SnackbarService } from '../../../services';
 
 @Component({
   selector: 'stabox-error',
   templateUrl: './error.component.html',
-  styleUrls: ['./error.component.scss']
+  styleUrls: ['./error.component.scss'],
 })
 export class ErrorComponent implements OnInit {
+  snackbar: any;
 
-  @Input() show = false;
-  message: any = null;
-
-  constructor() {
-    this.message = localStorage.getItem('errorMessage');
+  constructor(public snackbarService: SnackbarService) {
+    this.snackbar = this.snackbarService.getSnackBar();
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -3,6 +3,7 @@ import {
   AddressService,
   ExchangeDateService,
   UserService,
+  SnackbarService,
 } from '../../../services';
 
 @Component({
@@ -21,7 +22,8 @@ export class AccountPageComponent implements OnInit {
   constructor(
     public userService: UserService,
     public exchangeDateService: ExchangeDateService,
-    public addressService: AddressService
+    public addressService: AddressService,
+    public snackbarService: SnackbarService
   ) {
     if (localStorage.getItem('theme') == 'light') {
       this.lightMode = true;
@@ -58,12 +60,13 @@ export class AccountPageComponent implements OnInit {
       this.userService.user.phoneNumber == ''
     ) {
       this.errorMessage = 'Fill in all your data, please.';
-      localStorage.setItem('errorMessage', this.errorMessage);
       this.showErrorSnackBar = true;
       this.userDataChanged = false;
+      this.snackbarService.setSnackbar('error', this.errorMessage, this.showErrorSnackBar);
     } else {
       this.userDataChanged = true;
       this.showErrorSnackBar = false;
+      this.snackbarService.setSnackbar('error', this.errorMessage, this.showErrorSnackBar);
     }
   }
 
