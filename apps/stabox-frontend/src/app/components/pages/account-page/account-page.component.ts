@@ -16,6 +16,7 @@ export class AccountPageComponent implements OnInit {
   lightMode = false;
   theme = 'dark';
   errorMessage = '';
+  showErrorSnackBar = false;
 
   constructor(
     public userService: UserService,
@@ -47,12 +48,23 @@ export class AccountPageComponent implements OnInit {
     }
   }
 
-  checkUserName() {
-    if (this.userService.user.username.length < 6) {
-      this.errorMessage = 'Username must be between 6 and 20 characters';
+  checkData() {
+    if (
+      this.userService.user.username == ''
+      || this.userService.user.firstName == ''
+      || this.userService.user.lastName == ''
+      || this.userService.user.lastName == ''
+      || this.userService.user.email == ''
+      || this.userService.user.phoneNumber == '')
+    {
+      this.errorMessage = 'Fill in all your data, please.';
+      localStorage.setItem('errorMessage', this.errorMessage);
+      this.showErrorSnackBar = true;
+      this.userDataChanged = false;
     }
     else {
       this.userDataChanged = true;
+      this.showErrorSnackBar = false;
     }
   }
 

@@ -7,9 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-  @Input() message = 'Error';
+  @Input() show = false;
+  message: any = null;
 
-  constructor() { }
+  constructor() {
+    this.message = localStorage.getItem('errorMessage');
+  }
 
   ngOnInit(): void {
   }

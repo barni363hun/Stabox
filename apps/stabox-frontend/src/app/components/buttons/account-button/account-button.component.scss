@@ -24,6 +24,8 @@
 
 .accountButtonDiv {
   position: relative;
+  width: fit-content;
+  min-width: 200px;
 }
 
 .accountButtonDiv:hover {
@@ -44,6 +46,7 @@
   width: fit-content;
   position: relative;
   padding: 5px;
+  margin: 0 auto;
   border-radius: 75px;
 }
 
@@ -61,11 +64,11 @@
   background-color: $bgColorBlack;
   color: $colorWhite;
   position: absolute;
-  top: 25%;
+  top: 0;
   text-align: center;
   border-radius: 25px;
   border: 2px solid rgba($colorLightGray, 0.15);
-  padding-top: 50px;
+  padding-top: 65px;
 }
 
 .menuItemLogOut {

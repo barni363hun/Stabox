@@ -1,5 +1,6 @@
-<div class="w-100 centerElements">
+<div class="w-100 centerElements" *ngIf="show == true">
     <div class="snackBar">
-        <p class="m-0">{{message}}</p>
+        <mat-icon class="errorIcon me-2">error_outline</mat-icon>
+        <p class="errorText">{{message}}</p>
     </div>
 </div>

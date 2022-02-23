@@ -18,7 +18,7 @@
                   <mat-icon class="accountDataIcon gradient">verified_user</mat-icon>
                   <p class="accountDataTitle gradient unselectable">Username</p>
                   <div class="accountDataUnderline gradientBg"></div>
-                  <input type="text" maxlength="20" id="username" [(ngModel)]="userService.user.username" (change)="checkUserName()"/>
+                  <input type="text" maxlength="20" id="username" [(ngModel)]="userService.user.username" (change)="checkData()"/>
                 </div>
 
                 <div class="accountDataDiv">
@@ -29,10 +29,10 @@
                   <div class="accountDataUnderline gradientBg"></div>
                   <div class="row">
                     <div class="col-xl-6 col-12 p-0">
-                      <input type="text" id="firstName" [(ngModel)]="userService.user.firstName" (change)="userDataChanged = true"/>
+                      <input type="text" id="firstName" [(ngModel)]="userService.user.firstName" (change)="checkData()"/>
                     </div>
                     <div class="col-xl-6 col-12 p-0">
-                      <input type="text" id="lastName" [(ngModel)]="userService.user.lastName" (change)="userDataChanged = true"/>
+                      <input type="text" id="lastName" [(ngModel)]="userService.user.lastName" (change)="checkData()"/>
                     </div>
                   </div>
                 </div>
@@ -41,14 +41,14 @@
                   <mat-icon class="accountDataIcon gradient">email</mat-icon>
                   <p class="accountDataTitle gradient unselectable">Email</p>
                   <div class="accountDataUnderline gradientBg"></div>
-                  <input type="email" id="email" [(ngModel)]="userService.user.email" (change)="userDataChanged = true"/>
+                  <input type="email" id="email" [(ngModel)]="userService.user.email" (change)="checkData()"/>
                 </div>
 
                 <div class="accountDataDiv">
                   <mat-icon class="accountDataIcon gradient">phone</mat-icon>
                   <p class="accountDataTitle gradient unselectable">Phone</p>
                   <div class="accountDataUnderline gradientBg"></div>
-                  <input type="tel" id="tel" [(ngModel)]="userService.user.phoneNumber" (change)="userDataChanged = true"/>
+                  <input type="tel" id="tel" [(ngModel)]="userService.user.phoneNumber" (change)="checkData()"/>
                 </div>
 
                 <div class="accountDataDiv">
@@ -158,7 +158,7 @@
 
     <app-footer [lightMode]="lightMode"></app-footer>
 
-    <stabox-error [message]="errorMessage"></stabox-error>
+    <stabox-error [show]="showErrorSnackBar"></stabox-error>
 
   </div>
 </div>
