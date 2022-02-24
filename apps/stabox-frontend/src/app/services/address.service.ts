@@ -101,6 +101,7 @@ export class AddressService {
         },
         error: (err) => {
           cError(err.error.message);
+          this.getAddresses();
         },
       });
   }
