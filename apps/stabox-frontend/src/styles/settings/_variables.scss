@@ -9,7 +9,7 @@ $colorDarkYellow: #e29704;
 $colorLightRed: #ff9c9d;
 $colorDarkRed: #ff0000;
 $colorRed: #ec2f4b;
-$colorGreen: #05FF00;
+$colorGreen: #05ff00;
 
 $bgColorWhite: #fefefc;
 $bgColorBlack: #161518;
@@ -158,6 +158,12 @@ input:focus {
   color: $colorWhite;
   width: 50%;
   display: inline-block;
+}
+.errorSnack {
+  color: $colorRed;
+}
+.successSnack {
+  color: $colorGreen;
 }
 
 @media only screen and (max-width: 1400px) {

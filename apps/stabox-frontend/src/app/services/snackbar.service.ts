@@ -11,19 +11,35 @@ export class SnackbarService {
     showSuccess: false,
   };
 
+  snackbarTimer: any;
+
   constructor() {}
 
-  showSnackbar(type: string, message: string) {
-    if ((type = 'error')) {
-      this.snackbar.errorMessage = message;
-      this.snackbar.showError = true;
-    } else if ((type = 'success')) {
-      this.snackbar.successMessage = message;
-      this.snackbar.showSuccess = true;
+  showErrorSnackbar(message: string) {
+    if (this.snackbarTimer != null) {
+      clearTimeout(this.snackbarTimer);
     }
+    this.snackbarTimer = setTimeout(
+      () => (this.snackbar.showError = false),
+      6000
+    );
+    this.snackbar.errorMessage = message;
+    this.snackbar.showError = true;
   }
 
-  clearSnackBar() {
+  showSuccessSnackbar(message: string) {
+    if (this.snackbarTimer != null) {
+      clearTimeout(this.snackbarTimer);
+    }
+    this.snackbarTimer = setTimeout(
+      () => (this.snackbar.showSuccess = false),
+      6000
+    );
+    this.snackbar.successMessage = message;
+    this.snackbar.showSuccess = true;
+  }
+
+  clearSnackBars() {
     this.snackbar.errorMessage = '';
     this.snackbar.showError = false;
     this.snackbar.successMessage = '';

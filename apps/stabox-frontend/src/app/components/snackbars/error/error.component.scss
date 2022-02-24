@@ -2,33 +2,44 @@
 
 .snackBar {
   position: absolute;
-  bottom: 1%;
+  bottom: -10%;
 
   width: fit-content;
   height: fit-content;
 
   background-color: $bgColorBlack;
-  color: $colorRed;
   border: 2px solid rgba($colorDarkGray, 0.15);
   border-radius: 10px;
   padding: 5px 25px 5px 25px;
   font-size: 18px;
 
-  animation: snackBarAnim ease-in 0.5s;
+  animation: snack 6s;
 }
 
 .snackbarText {
-    margin: 0;
-    display: inline-block;
-    vertical-align: middle;
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .snackbarIcon {
-    display: inline-block;
-    vertical-align: middle;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-@keyframes snackBarAnim {
-from {bottom: -10%;}
-to {bottom: 1%;}
+@keyframes snack {
+  0% {
+    bottom: -10%;
+    display: none;
+  }
+  10% {
+    bottom: 1%;
+  }
+  90% {
+    bottom: 1%;
+  }
+  100% {
+    bottom: -10%;
+    display: none;
+  }
 }

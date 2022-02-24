@@ -14,4 +14,8 @@ export class ErrorComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  dismiss() {
+    this.snackbarService.clearSnackBars();
+  }
 }

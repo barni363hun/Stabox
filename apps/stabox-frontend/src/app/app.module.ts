@@ -37,7 +37,6 @@ import { AddPackageComponent } from './components/package/add-package/add-packag
 import { FormsModule } from '@angular/forms';
 import { AddRecieverWithAddressComponent } from './components/package/add-reciever-with-address/add-reciever-with-address.component';
 import { ErrorComponent } from './components/snackbars/error/error.component';
-import { SuccessComponent } from './components/snackbars/success/success.component';
 
 @NgModule({
   declarations: [
@@ -70,8 +69,7 @@ import { SuccessComponent } from './components/snackbars/success/success.compone
     PackageCardComponent,
     AddPackageComponent,
     AddRecieverWithAddressComponent,
-    ErrorComponent,
-    SuccessComponent
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

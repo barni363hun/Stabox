@@ -12,13 +12,11 @@ import {
   styleUrls: ['./account-page.component.scss'],
 })
 export class AccountPageComponent implements OnInit {
-  userDataChanged = false;
   viewDetails = false;
   lightMode = false;
   theme = 'dark';
 
-  errorMessage = '';
-  successMessage = '';
+  message = '';
 
   constructor(
     public userService: UserService,
@@ -48,23 +46,6 @@ export class AccountPageComponent implements OnInit {
       }
     } else {
       alert('Please fill all of your data!');
-    }
-  }
-
-  checkData() {
-    if (
-      this.userService.user.username == '' ||
-      this.userService.user.firstName == '' ||
-      this.userService.user.lastName == '' ||
-      this.userService.user.email == '' ||
-      this.userService.user.phoneNumber == ''
-    ) {
-      this.errorMessage = 'Fill in all your data, please.';
-      this.userDataChanged = false;
-      this.snackbarService.showSnackbar('error', this.errorMessage);
-    } else {
-      this.snackbarService.clearSnackBar();
-      this.userDataChanged = true;
     }
   }
 
