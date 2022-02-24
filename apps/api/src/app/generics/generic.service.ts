@@ -8,7 +8,7 @@ import {
 
 @Injectable()
 export abstract class GenericService<T> {
-  constructor(protected readonly repository: Repository<T>) {}
+  constructor(protected readonly repository: Repository<T>) { }
 
   async getAll(): Promise<T[]> {
     return await this.repository.find();

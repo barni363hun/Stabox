@@ -36,7 +36,7 @@ export class ExchangeDateService {
           console.log(this.exchangeDates);
         },
         error: (err) => {
-          cError(err.error.message);
+          cError(err.error.message); console.log(err)
         },
       });
   }
@@ -56,7 +56,7 @@ export class ExchangeDateService {
             this.getExchangeDates();
           },
           error: (err) => {
-            cError(err.error.message);
+            cError(err.error.message); console.log(err)
           },
         });
     }
@@ -77,7 +77,7 @@ export class ExchangeDateService {
           this.getExchangeDates();
         },
         error: (err) => {
-          cError(err.error.message);
+          cError(err.error.message); console.log(err)
         },
       });
   }
@@ -98,11 +98,11 @@ export class ExchangeDateService {
           this.getExchangeDates();
         },
         error: (err) => {
-          cError(err.error.message);
+          cError(err.error.message); console.log(err)
         },
       });
   }
-  getExchangeDateByPackageId(id:number):Observable<any>{
-   return this.http.get(`${environment.apiURL}/EXdate/package/${id}`)
+  getExchangeDateByPackageId(id: number): Observable<any> {
+    return this.http.get(`${environment.apiURL}/EXdate/package/${id}`)
   }
 }

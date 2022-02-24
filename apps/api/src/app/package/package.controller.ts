@@ -211,7 +211,7 @@ export class PackageController {
   @Get('/dates')
   async getAvaibleDates(@Req() req: authRequest, @Body() body: idDto) {
     return this.packageService.getById(body.id).then((a) => {
-      return this.exchangeDateService.find({ where: { userId: a.userId } });
+      return this.exchangeDateService.find({ where: { address: { userId: a.userId } } });
     });
   }
 
