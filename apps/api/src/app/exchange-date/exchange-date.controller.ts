@@ -28,7 +28,7 @@ class exchangeDateDto {
   @IsDateString()
   endDate: Date;
   @IsNumber()
-  addressId:number;
+  addressId: number;
 }
 
 class myExchangeDateDto {
@@ -43,7 +43,7 @@ class myExchangeDateDto {
 @Controller('EXdate')
 export class ExchangeDateController {
   constructor(private readonly exchangeDateService: ExchangeDateService,
-    ) {}
+  ) { }
 
   //creates exchangeDate
   @UseGuards(AuthGuard, RoleGuard)
@@ -69,21 +69,22 @@ export class ExchangeDateController {
   @Get()
   getMyExchangeDates(@Req() req: authRequest): Promise<exchangeDateEntity[]> {
     return this.exchangeDateService.find({
-      where: { address:{userId:req.user.sub} },
-      relations:['address'],
-      loadRelationIds:false
+      where: { address: { userId: req.user.sub } },
+      relations: ['address'],
+      loadRelationIds: false
     });
   }
-    // gets exchange date by id
-    @UseGuards(AuthGuard, RoleGuard)
-    @Roles('user')
-    @Get('/package/:id')
-    getByPackageId(@Req() req: authRequest,@Param()id:number): Promise<exchangeDateEntity[]> {
-      return this.exchangeDateService.find({
-        where: { userId:id },
-        //TODO!!! : get package's exhange date
-      });
-    }
+  // gets exchange date by id
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles('user')
+  @Get('/package/:id')
+  getByPackageId(@Req() req: authRequest, @Param() id: number): Promise<exchangeDateEntity[]> {
+    return this.exchangeDateService.find({
+      where: { address: { userId: id } },
+      relations: ['address']
+      //TODO!!! : get package's exhange date
+    });
+  }
 
   // delete own exchange date
   @UseGuards(AuthGuard, RoleGuard)
@@ -109,8 +110,8 @@ export class ExchangeDateController {
     return this.exchangeDateService.getById(body.id).then((a) => {
       if (a.address.userId == req.user.sub) {
         return this.exchangeDateService.update(body.id, {
-         startDate:body.startDate,
-         endDate:body.endDate
+          startDate: body.startDate,
+          endDate: body.endDate
         });
       } else {
         throw new MethodNotAllowedException(
