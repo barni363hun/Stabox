@@ -5,7 +5,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { packageEntity, userEntity } from '.';
+import { exchangeDateEntity, packageEntity, userEntity } from '.';
 import { recieverEntity } from './reciever.entity';
 
 @Entity()
@@ -43,4 +43,7 @@ export class addressEntity {
 
   @OneToMany((type) => packageEntity, (package_) => package_.fromAddress) // "package" is a reserved word for js
   packages: packageEntity[];
+
+  @OneToMany((type) => exchangeDateEntity, (exchangeDate) => exchangeDate.address)
+  exchangeDates: exchangeDateEntity[];
 }

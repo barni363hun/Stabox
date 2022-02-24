@@ -15,7 +15,7 @@ export abstract class GenericService<T> {
   }
 
   async getById(id: number): Promise<T> {
-    const item = await this.repository.findOne(id);
+    const item = await this.repository.findOne(id,{relations:['address']});
     if (!item) {
       throw new NotFoundException('NOT_FOUND');
     }
