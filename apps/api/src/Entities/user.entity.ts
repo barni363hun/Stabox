@@ -35,15 +35,12 @@ export class userEntity {
   @OneToMany(() => transactionEntity, (transaction) => transaction.user)
   transactions: transactionEntity[];
 
-  @OneToMany(() => exchangeDateEntity, (exchangeDate) => exchangeDate.user)
-  exchangeDates: exchangeDateEntity[];
-
-  @OneToMany(() => transactionEntity, (vehicles) => vehicles.user)
+  @OneToMany(() => vehicleEntity, (vehicles) => vehicles.user)
   vehicles: vehicleEntity[];
 
   @OneToMany(() => packageEntity, (package_) => package_.user) // package name is reserved in 'strict mode'
   packages: packageEntity[];
 
   @OneToMany(() => addressEntity, (address) => address.user) // package name is reserved in 'strict mode'
-  addresses: packageEntity[];
+  addresses: addressEntity[];
 }

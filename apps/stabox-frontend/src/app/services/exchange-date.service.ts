@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { cError, cSuccess, exchangeDateInterface } from '@stabox/stabox-lib';
+import { Observable } from 'rxjs';
 import { UserService } from '.';
 import { environment } from '../../environments/environment';
 import { SecondCardComponent } from '../components/pages/mainpage/second-card/second-card.component';
@@ -53,6 +54,7 @@ export class ExchangeDateService {
         },
         error: (err) => {
           cError(err.error.message);
+          console.log(err);
         },
       });
   }
@@ -120,6 +122,7 @@ export class ExchangeDateService {
         },
         error: (err) => {
           cError(err.error.message);
+          console.log(err);
         },
       });
   }
@@ -144,5 +147,8 @@ export class ExchangeDateService {
           cError(err.error.message);
         },
       });
+  }
+  getExchangeDateByPackageId(id: number): Observable<any> {
+    return this.http.get(`${environment.apiURL}/EXdate/package/${id}`);
   }
 }

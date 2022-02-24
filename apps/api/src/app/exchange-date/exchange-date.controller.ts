@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   MethodNotAllowedException,
+  Param,
   Patch,
   Post,
   Put,
@@ -51,11 +52,7 @@ export class ExchangeDateController {
   @Put()
   create(@Req() req: authRequest, @Body() body: exchangeDateDto) {
     return this.exchangeDateService.create({
-      id: 0,
-      userId: req.user.sub,
-      addressId: body.addressId,
-      startDate: body.startDate,
-      endDate: body.endDate,
+      ...body,
     });
   }
 
@@ -73,7 +70,23 @@ export class ExchangeDateController {
   @Get()
   getMyExchangeDates(@Req() req: authRequest): Promise<exchangeDateEntity[]> {
     return this.exchangeDateService.find({
-      where: { userId: req.user.sub },
+      where: { address: { userId: req.user.sub } },
+      relations: ['address'],
+      loadRelationIds: false,
+    });
+  }
+  // gets exchange date by id
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles('user')
+  @Get('/package/:id')
+  getByPackageId(
+    @Req() req: authRequest,
+    @Param() id: number
+  ): Promise<exchangeDateEntity[]> {
+    return this.exchangeDateService.find({
+      where: { address: { userId: id } },
+      relations: ['address'],
+      //TODO!!! : get package's exhange date
     });
   }
 
@@ -84,7 +97,7 @@ export class ExchangeDateController {
   delete(@Req() req: authRequest, @Body() body: idDto) {
     // TODO errors, rework
     return this.exchangeDateService.getById(body.id).then((a) => {
-      if (a.userId == req.user.sub) {
+      if (a.address.userId == req.user.sub) {
         return this.exchangeDateService.delete(body.id);
       } else {
         throw new MethodNotAllowedException(
@@ -100,13 +113,11 @@ export class ExchangeDateController {
   @Patch()
   update(@Req() req: authRequest, @Body() body: myExchangeDateDto) {
     return this.exchangeDateService.getById(body.id).then((a) => {
-      if (a.userId == req.user.sub) {
-        const newDates: exchangeDateDto = {
+      if (a.address.userId == req.user.sub) {
+        return this.exchangeDateService.update(body.id, {
           startDate: body.startDate,
           endDate: body.endDate,
-          addressId: body.addressId,
-        };
-        return this.exchangeDateService.update(body.id, newDates);
+        });
       } else {
         throw new MethodNotAllowedException(
           'You can only modify your own exchange dates'

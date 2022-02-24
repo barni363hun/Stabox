@@ -10,15 +10,9 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import {
-  IsBoolean,
-  IsDateString,
-  IsNumber,
-  IsObject,
-  isObject,
-  IsString,
-} from 'class-validator';
-import { addressEntity, packageEntity } from '../../Entities';
+import { IsBoolean, IsDateString, IsNumber, IsString } from 'class-validator';
+import { Not } from 'typeorm';
+import { packageEntity } from '../../Entities';
 import { AddressService } from '../address/address.service';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
 import { Roles } from '../auth/roles.decorator';
@@ -34,8 +28,8 @@ class idDto {
 class idDateDto {
   @IsNumber()
   id: number;
-  @IsDateString()
-  shipped: Date;
+  // @IsDateString()
+  // shipped: Date;
 }
 
 class packageDto {
@@ -113,13 +107,39 @@ export class PackageController {
     });
   }
 
+  //returns user's own packages
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
-  @Get('/withaddress')
+  @Get('/mypackages')
   getMyPackagesWithAddress(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
       where: { userId: req.user.sub },
       relations: ['fromAddress'],
+    });
+  }
+  // gets acceptable packages
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles('shipper')
+  @Get('/acceptable')
+  getAcceptable(@Req() req: authRequest): Promise<packageEntity[]> {
+    return this.packageService.find({
+      where: { vehicleId: null, userId: Not(req.user.sub) },
+      relations: ['fromAddress'],
+    });
+  }
+  // gets accepted packages
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles('shipper')
+  @Get('/accepted')
+  getAccepted(@Req() req: authRequest): Promise<packageEntity[]> {
+    return this.packageService.find({
+      where: {
+        shippingDate: false,
+        vehicle: {
+          userId: req.user.sub,
+        },
+      },
+      relations: ['fromAddress', 'vehicle'],
     });
   }
 
@@ -145,11 +165,14 @@ export class PackageController {
   @Patch()
   assignMe(@Req() req: authRequest, @Body() body: assignMeDto) {
     return this.packageService.getById(body.id).then((a) => {
-      if (a.userId == req.user.sub) {
-        return this.packageService.delete(body.id);
+      if (a.userId !== req.user.sub) {
+        return this.packageService.update(body.id, {
+          vehicleId: body.vehicleId,
+          postDate: body.postDate,
+        });
       } else {
         throw new MethodNotAllowedException(
-          'You can only delete your own package'
+          'You can not accept your own package'
         );
       }
     });
@@ -181,7 +204,9 @@ export class PackageController {
   @Get('/dates')
   async getAvaibleDates(@Req() req: authRequest, @Body() body: idDto) {
     return this.packageService.getById(body.id).then((a) => {
-      return this.exchangeDateService.find({ where: { userId: a.userId } });
+      return this.exchangeDateService.find({
+        where: { address: { userId: a.userId } },
+      });
     });
   }
 
@@ -211,7 +236,7 @@ export class PackageController {
         return this.vehicleService.getById(packag[0].vehicleId).then((veh) => {
           if (veh.userId == req.user.sub) {
             return this.packageService.update(body.id, {
-              shippingDate: body.shipped,
+              shippingDate: new Date().toISOString(),
             });
           } else {
             throw new MethodNotAllowedException(
