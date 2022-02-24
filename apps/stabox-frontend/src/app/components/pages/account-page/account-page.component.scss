@@ -7,7 +7,8 @@
 
 .lightMode .bigBtn:hover {
   border-color: $colorLightBlue;
-  box-shadow: inset 0 1px 1px rgba($colorLightBlue, 0.075), 0 0 8px rgba($colorDarkBlue, 0.6);
+  box-shadow: inset 0 1px 1px rgba($colorLightBlue, 0.075),
+    0 0 8px rgba($colorDarkBlue, 0.6);
 }
 
 .lightMode .saveButton {
@@ -145,7 +146,7 @@
   input {
     font-size: 20px;
   }
-  .deleteIcon{
+  .deleteIcon {
     transform: scale(1.5);
   }
 }
@@ -157,7 +158,7 @@
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1199px) {
   .accountDataTitle {
     font-size: 32px;
   }
@@ -177,7 +178,7 @@
     font-size: 24px;
     width: 85%;
   }
-  .deleteIcon{
+  .deleteIcon {
     transform: scale(1.35);
   }
 }
@@ -189,7 +190,7 @@
   .bigBtnText {
     font-size: 24px;
   }
-  .deleteIcon{
+  .deleteIcon {
     transform: scale(1.1);
   }
 }

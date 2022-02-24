@@ -7,19 +7,22 @@
 
 .lightMode .footer {
     border-top: 1px solid rgba($colorLightGray, 0.5);
+    background-color: $bgColorWhite;
 }
 
 .footer {
-    width: 100%;
+    z-index: 1;
+    width: 100vw;
     text-align: center;
-    margin: 150px 0 0 0;
     padding-top: 15px;
+    margin: 0 auto;
     border-top: 1px solid rgba($colorDarkGray, 0.25);
+    background-color: $bgColorBlack;
 }
 
 .socialIcon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 
 .socialIconDiv {
@@ -65,7 +68,8 @@
         padding-top: 12.5px;
     }
     .socialIcon {
-        width: 45px;
+        width: 35px;
+        height: 35px;
     }
     .copyrightText {
         font-size: 11px;
@@ -84,7 +88,8 @@
         padding-top: 10px;
     }
     .socialIcon {
-        width: 40px;
+        width: 30px;
+        height: 30px;
     }
     .copyrightText {
         font-size: 10px;
@@ -101,9 +106,6 @@
     .footer {
         margin: 75px 0 0 0;
         padding-top: 7.5px;
-    }
-    .socialIcon {
-        width: 35px;
     }
     .copyrightText {
         font-size: 9px;
@@ -122,7 +124,8 @@
         padding-top: 5px;
     }
     .socialIcon {
-        width: 30px;
+        width: 25px;
+        height: 25px;
     }
     .copyrightText {
         font-size: 8px;

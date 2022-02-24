@@ -16,8 +16,9 @@ export class AccountPageComponent implements OnInit {
   viewDetails = false;
   lightMode = false;
   theme = 'dark';
+
   errorMessage = '';
-  showErrorSnackBar = false;
+  successMessage = '';
 
   constructor(
     public userService: UserService,
@@ -55,18 +56,15 @@ export class AccountPageComponent implements OnInit {
       this.userService.user.username == '' ||
       this.userService.user.firstName == '' ||
       this.userService.user.lastName == '' ||
-      this.userService.user.lastName == '' ||
       this.userService.user.email == '' ||
       this.userService.user.phoneNumber == ''
     ) {
       this.errorMessage = 'Fill in all your data, please.';
-      this.showErrorSnackBar = true;
       this.userDataChanged = false;
-      this.snackbarService.setSnackbar('error', this.errorMessage, this.showErrorSnackBar);
+      this.snackbarService.showSnackbar('error', this.errorMessage);
     } else {
+      this.snackbarService.clearSnackBar();
       this.userDataChanged = true;
-      this.showErrorSnackBar = false;
-      this.snackbarService.setSnackbar('error', this.errorMessage, this.showErrorSnackBar);
     }
   }
 

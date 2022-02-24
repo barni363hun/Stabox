@@ -13,18 +13,14 @@ export class SnackbarService {
 
   constructor() {}
 
-  setSnackbar(type: string, message: string, show: boolean) {
+  showSnackbar(type: string, message: string) {
     if ((type = 'error')) {
       this.snackbar.errorMessage = message;
-      this.snackbar.showError = show;
+      this.snackbar.showError = true;
     } else if ((type = 'success')) {
       this.snackbar.successMessage = message;
-      this.snackbar.showSuccess = show;
+      this.snackbar.showSuccess = true;
     }
-  }
-
-  getSnackBar() {
-    return this.snackbar;
   }
 
   clearSnackBar() {
@@ -32,5 +28,9 @@ export class SnackbarService {
     this.snackbar.showError = false;
     this.snackbar.successMessage = '';
     this.snackbar.showSuccess = false;
+  }
+
+  getSnackBar() {
+    return this.snackbar;
   }
 }

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { catchError, map, observable, Observable, window } from 'rxjs';
 import { cError, cSuccess, userInterface } from '@stabox/stabox-lib';
+import { SnackbarService } from '.';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +26,11 @@ export class UserService {
   isShipper = false;
   //user: EventEmitter<any> = new EventEmitter();
 
-  constructor(private authService: AuthService, private http: HttpClient) {
+  constructor(
+    private authService: AuthService,
+    private http: HttpClient,
+    private snackbarService: SnackbarService
+  ) {
     this.authUserInit.subscribe({
       next: (authU) => {
         if (
