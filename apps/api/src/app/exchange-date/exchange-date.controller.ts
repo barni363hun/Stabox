@@ -71,6 +71,7 @@ export class ExchangeDateController {
     return this.exchangeDateService.find({
       where: { address:{userId:req.user.sub} },
       relations:['address'],
+      loadRelationIds:false
     });
   }
     // gets exchange date by id
@@ -101,22 +102,21 @@ export class ExchangeDateController {
   }
 
   //modify own exchange date
-  // @UseGuards(AuthGuard, RoleGuard)
-  // @Roles('user')
-  // @Patch()
-  // update(@Req() req: authRequest, @Body() body: myExchangeDateDto) {
-  //   return this.exchangeDateService.getById(body.id).then((a) => {
-  //     if (a.address.userId == req.user.sub) {
-  //       const newDates: exchangeDateDto = {
-  //         startDate: body.startDate,
-  //         endDate: body.endDate,
-  //       };
-  //       return this.exchangeDateService.update(body.id, newDates);
-  //     } else {
-  //       throw new MethodNotAllowedException(
-  //         'You can only modify your own exchange dates'
-  //       );
-  //     }
-  //   });
-  // }
+  @UseGuards(AuthGuard, RoleGuard)
+  @Roles('user')
+  @Patch()
+  update(@Req() req: authRequest, @Body() body: myExchangeDateDto) {
+    return this.exchangeDateService.getById(body.id).then((a) => {
+      if (a.address.userId == req.user.sub) {
+        return this.exchangeDateService.update(body.id, {
+         startDate:body.startDate,
+         endDate:body.endDate
+        });
+      } else {
+        throw new MethodNotAllowedException(
+          'You can only modify your own exchange dates'
+        );
+      }
+    });
+  }
 }
