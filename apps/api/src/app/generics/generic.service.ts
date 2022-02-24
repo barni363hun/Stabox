@@ -8,14 +8,14 @@ import {
 
 @Injectable()
 export abstract class GenericService<T> {
-  constructor(protected readonly repository: Repository<T>) {}
+  constructor(protected readonly repository: Repository<T>) { }
 
   async getAll(): Promise<T[]> {
     return await this.repository.find();
   }
 
   async getById(id: number): Promise<T> {
-    const item = await this.repository.findOne(id,{relations:['address']});
+    const item = await this.repository.findOne(id);
     if (!item) {
       throw new NotFoundException('NOT_FOUND');
     }
