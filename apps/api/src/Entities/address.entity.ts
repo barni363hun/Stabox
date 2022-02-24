@@ -47,7 +47,4 @@ export class addressEntity implements addressInterface {
 
   @OneToMany(() => packageEntity, (package_) => package_.fromAddress) // "package" is a reserved word for js
   packages: packageEntity[];
-
-  @OneToMany((type) => exchangeDateEntity, (exchangeDate) => exchangeDate.address)
-  exchangeDates: exchangeDateEntity[];
 }
