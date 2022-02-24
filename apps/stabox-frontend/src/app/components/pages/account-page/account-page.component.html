@@ -224,34 +224,18 @@
             <app-divider [lightMode]="lightMode"></app-divider>
             <div class="accountDataInputs">
               <div *ngFor="let address of addressService.addresses; index as i">
-                <input
-                  type="text"
-                  [(ngModel)]="address.name"
-                  (change)="addressService.save(address)"
-                />
-                <!-- <input
-                class="accountDataInput"
-                type="text"
-                [(ngModel)]="address.cityName"
-                (change)="addressService.save(address)"
-              />
-              <input
-                class="accountDataInput"
-                type="text"
-                [(ngModel)]="address.street"
-                (change)="addressService.save(address)"
-              />
-              <input
-                class="accountDataInput"
-                type="text"
-                [(ngModel)]="address.houseNumber"
-                (change)="addressService.save(address)"
-              /> -->
-                <input
-                  type="button"
-                  value="delete"
-                  (click)="addressService.delete(i)"
-                />
+                <stabox-address-input
+                  [myAddress]="address"
+                  [isReciever]="true"
+                  (saveAddressEvent)="addressService.save(address)"
+                ></stabox-address-input>
+                <div>
+                  <input
+                    type="button"
+                    value="delete"
+                    (click)="addressService.delete(i)"
+                  />
+                </div>
               </div>
               <app-add-icon
                 [lightMode]="lightMode"

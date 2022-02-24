@@ -10,7 +10,14 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { IsBoolean, IsDateString, IsNumber, IsObject, isObject, IsString } from 'class-validator';
+import {
+  IsBoolean,
+  IsDateString,
+  IsNumber,
+  IsObject,
+  isObject,
+  IsString,
+} from 'class-validator';
 import { addressEntity, packageEntity } from '../../Entities';
 import { AddressService } from '../address/address.service';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
@@ -55,8 +62,6 @@ class assignMeDto {
   postDate: Date;
 }
 
-
-
 @Controller('package')
 export class PackageController {
   constructor(
@@ -64,7 +69,7 @@ export class PackageController {
     private readonly addressService: AddressService,
     private readonly exchangeDateService: ExchangeDateService,
     private readonly vehicleService: VehicleService
-  ) { }
+  ) {}
 
   //creates package
   @UseGuards(AuthGuard, RoleGuard)
@@ -74,7 +79,7 @@ export class PackageController {
     return this.packageService.create({
       userId: req.user.sub,
       price: 500,
-      ...body
+      ...body,
     });
   }
 
@@ -86,10 +91,9 @@ export class PackageController {
     return this.packageService.create({
       userId: req.user.sub,
       price: 500,
-      ...body
+      ...body,
     });
   }
-
 
   // gets all packages
   @UseGuards(AuthGuard, RoleGuard)
@@ -105,7 +109,7 @@ export class PackageController {
   @Get()
   getMyPackages(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
-      where: { userId: req.user.sub }
+      where: { userId: req.user.sub },
     });
   }
 
@@ -115,7 +119,7 @@ export class PackageController {
   getMyPackagesWithAddress(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
       where: { userId: req.user.sub },
-      relations: ['fromAddress']
+      relations: ['fromAddress'],
     });
   }
 
@@ -160,7 +164,7 @@ export class PackageController {
       if (a.vehicleId == 0) {
         return this.addressService.getById(a.fromAddressId).then((n) => {
           return this.packageService.update(body.id, {
-            currentRegion: n.region,
+            currentCity: n.cityName,
           });
         });
       } else {

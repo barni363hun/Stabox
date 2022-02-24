@@ -22,12 +22,12 @@ export class AddressService {
     const newADR: addressInterface = {
       id: 0,
       userId: this.userService.user.id,
-      name: 'select',
-      region: 0,
+      name: '',
+      country: '',
       zipCode: 0,
-      cityName: 'city name',
-      street: 'street name',
-      houseNumber: 'house number',
+      cityName: '',
+      street: '',
+      houseNumber: '',
     };
     return newADR;
   }
@@ -36,12 +36,12 @@ export class AddressService {
     const newADR: addressInterface = {
       id: 0,
       userId: this.userService.user.id,
-      name: 'address nickname',
-      region: 0,
+      name: '',
+      country: '',
       zipCode: 0,
-      cityName: 'city name',
-      street: 'street name',
-      houseNumber: 'house number',
+      cityName: '',
+      street: '',
+      houseNumber: '',
     };
     this.addresses.push(newADR);
     console.log(this.addresses);
@@ -63,6 +63,9 @@ export class AddressService {
       });
   }
   save(address: addressInterface) {
+    console.log(address);
+    address.zipCode = Number(address.zipCode);
+
     if (address.id === 0) {
       this.create(address);
     } else {
@@ -119,6 +122,7 @@ export class AddressService {
         },
         error: (err) => {
           cError(err.error.message);
+          this.getAddresses();
         },
       });
   }

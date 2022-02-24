@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { addressInterface } from '@stabox/stabox-lib';
 
 @Component({
   selector: 'stabox-add-package',
@@ -6,14 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-package.component.scss'],
 })
 export class AddPackageComponent implements OnInit {
-  street_number = '';
-  address = '';
-  city = '';
-  country = '';
-  region = '';
+  myAddress: addressInterface = {
+    id: 0,
+    userId: '',
+    name: '',
+    country: '',
+    zipCode: 0,
+    cityName: '',
+    street: '',
+    houseNumber: '',
+  };
+  @Input() isReciever = true;
+  @Output() saveAddressEvent = new EventEmitter<addressInterface>();
   constructor() {}
 
   ngOnInit(): void {}
+
+  save() {
+    this.saveAddressEvent.emit(this.myAddress);
+  }
 
   placeChangedCallback(place: any) {
     console.log('change');
@@ -32,12 +44,13 @@ export class AddPackageComponent implements OnInit {
 
         console.log(add);
 
-        if (addType == 'street_number') this.street_number = add.short_name;
-        if (addType == 'route') this.address = add.long_name;
+        if (addType == 'street_number')
+          this.myAddress.houseNumber = add.short_name;
+        if (addType == 'route') this.myAddress.street = add.long_name;
         if (addType == 'locality' || addType == 'sublocality_level_1')
-          this.city = add.long_name;
-        if (addType == 'country') this.country = add.long_name;
-        if (addType == 'postal_code') this.region = add.long_name;
+          this.myAddress.cityName = add.long_name;
+        if (addType == 'postal_code') this.myAddress.zipCode = add.long_name;
+        if (addType == 'country') this.myAddress.country = add.long_name;
       });
     });
   }

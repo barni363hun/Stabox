@@ -7,7 +7,7 @@ import { PackageService } from '../../../services/package.service';
   styleUrls: ['./my-packages-page.component.scss'],
 })
 export class MyPackagesPageComponent implements OnInit {
-  packages: packageInterface[] =[]
+  packages: packageInterface[] = [];
   // = [
   //   {
   //     fragile: false,
@@ -54,17 +54,16 @@ export class MyPackagesPageComponent implements OnInit {
   _filterAllPackages: boolean = false;
   _filterToDeliver: boolean = false;
 
-  constructor( private packageService:PackageService) {}
+  constructor(private packageService: PackageService) {}
 
   ngOnInit(): void {
     this.packageService.getMypackages().subscribe({
-      next:(res)=>{
+      next: (res) => {
         this.packages = res;
         console.log(res);
-      }
+      },
     });
     console.log(this.packages);
-    
   }
 
   filterAllPackages() {
@@ -94,7 +93,7 @@ interface packageInterface {
   price: number;
 }
 interface addressInterface {
-  region: string;
+  country: string;
   zipCode: number;
   city: string;
   street: string;

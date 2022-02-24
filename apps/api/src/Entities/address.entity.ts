@@ -7,9 +7,10 @@ import {
 } from 'typeorm';
 import { exchangeDateEntity, packageEntity, userEntity } from '.';
 import { recieverEntity } from './reciever.entity';
+import { addressInterface } from '@stabox/stabox-lib';
 
 @Entity()
-export class addressEntity {
+export class addressEntity implements addressInterface {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -20,7 +21,7 @@ export class addressEntity {
   user: userEntity;
 
   @Column()
-  region: number;
+  country: string;
 
   @Column()
   zipCode: number;
