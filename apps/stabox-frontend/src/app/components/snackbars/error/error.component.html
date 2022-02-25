@@ -1,15 +1,24 @@
-<div class="unselectable">
-    <div class="w-100 centerElements" *ngIf="snackbar.showError == true" (click)="dismiss()">
-        <div class="snackBar errorSnack">
-            <mat-icon class="snackbarIcon me-2">error_outline</mat-icon>
-            <p class="snackbarText">{{snackbar.errorMessage}}</p>
+<div [ngClass]="{ lightMode: themeService.light }">
+    <div class="unselectable">
+        <div class="centerElements" *ngIf="snackbarService.snackbar.showError == true" (click)="dismiss()">
+            <div class="snackBar errorSnack">
+                <mat-icon class="snackbarIcon">error_outline</mat-icon>
+                <p class="snackbarText">{{snackbarService.snackbar.errorMessage}}</p>
+            </div>
         </div>
-    </div>
 
-    <div class="w-100 centerElements" *ngIf="snackbar.showSuccess == true" (click)="dismiss()">
-        <div class="snackBar successSnack">
-            <mat-icon class="snackbarIcon me-2">check_circle_outline</mat-icon>
-            <p class="snackbarText">{{snackbar.successMessage}}</p>
+        <div class="w-100 centerElements" *ngIf="snackbarService.snackbar.showSuccess == true" (click)="dismiss()">
+            <div class="snackBar successSnack">
+                <mat-icon class="snackbarIcon">check_circle_outline</mat-icon>
+                <p class="snackbarText">{{snackbarService.snackbar.successMessage}}</p>
+            </div>
         </div>
+
+        <!-- <div class="w-100 centerElements" *ngIf="snackbar.showSuccess == true" (click)="dismiss()">
+            <div class="snackBar successSnack">
+                <mat-icon class="snackbarIcon">check_circle_outline</mat-icon>
+                <p class="snackbarText">{{snackbar.successMessage}}</p>
+            </div>
+        </div> -->
     </div>
 </div>

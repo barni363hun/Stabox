@@ -1,21 +1,21 @@
-<div class="container-fluid p-0 unselectable" [ngClass]="{ lightMode: lightMode == true }">
+<div class="container-fluid p-0 unselectable" [ngClass]="{ lightMode: themeService.light}">
   <nav class="navbar fixed-top navbar-expand-xl navbar-dark nav">
     <div class="left me-5">
       <a routerLink="/home">
-        <app-logo [lightMode]="lightMode"></app-logo>
+        <app-logo></app-logo>
       </a>
     </div>
 
     <button class="navbar-toggler" type="button" *ngIf="showSideBar == false" (click)="showSideBar = true">
       <span class="navbar-toggler-icon" [ngStyle]="{
-          'background-image': lightMode
+          'background-image': themeService.light
             ? 'url(../../../../assets/images/LightMode/MenuIcon.svg)'
             : 'url(../../../../assets/images/DarkMode/MenuIcon.svg)'
         }"></span>
     </button>
     <button class="navbar-toggler" type="button" *ngIf="showSideBar == true" (click)="showSideBar = false">
       <span class="navbar-toggler-icon" [ngStyle]="{
-          'background-image': lightMode
+          'background-image': themeService.light
             ? 'url(../../../../assets/images/LightMode/CloseIcon.svg)'
             : 'url(../../../../assets/images/DarkMode/CloseIcon.svg)'
         }"></span>
@@ -34,22 +34,22 @@
         <img class="coinsIcon" src="../../../../assets/images/CoinsIcon.svg" />
       </div>
       <div class="me-4" *ngIf="userService.userLoggedIn()">
-        <app-account-button [lightMode]="lightMode"></app-account-button>
+        <app-account-button></app-account-button>
       </div>
       <div class="me-3" *ngIf="!userService.userLoggedIn()">
-        <app-sign-in-button [lightMode]="lightMode"></app-sign-in-button>
+        <app-sign-in-button></app-sign-in-button>
       </div>
-      <div class="themeSwitchIconDiv" *ngIf="lightMode == true" (click)="emitLightModeOff()" title="Turn Light Theme Off">
+      <div class="themeSwitchIconDiv" *ngIf="themeService.light" (click)="themeService.setTheme('dark')" title="Turn Light Theme Off">
         <img class="themeSwitchIcon" src="../../../../assets/images/LightMode/LightModeIcon.svg" />
       </div>
-      <div class="themeSwitchIconDiv" *ngIf="lightMode == false" (click)="emitLightModeOn()" title="Turn Light Theme On">
+      <div class="themeSwitchIconDiv" *ngIf="!themeService.light" (click)="themeService.setTheme('light')" title="Turn Light Theme On">
         <img class="themeSwitchIcon" src="../../../../assets/images/DarkMode/DarkModeIcon.svg" />
       </div>
     </div>
   </nav>
 </div>
 
-<div class="sideBarDiv unselectable" *ngIf="showSideBar == true" [ngClass]="{ lightMode: lightMode == true }">
+<div class="sideBarDiv unselectable" *ngIf="showSideBar == true" [ngClass]="{ lightMode: themeService.light }">
   <div id="sideBarShade" (click)="showSideBar = false"></div>
   <div id="sideBar">
     <div class="sideBarItemDiv" routerLink="/mypackages">
@@ -77,18 +77,18 @@
 
     <div class="sideBarItemDiv" >
       <div class="sideBarItem" *ngIf="userService.userLoggedIn()">
-        <app-account-button [lightMode]="lightMode"></app-account-button>
+        <app-account-button></app-account-button>
       </div>
       <div class="sideBarItem" *ngIf="!userService.userLoggedIn()">
-        <app-sign-in-button [lightMode]="lightMode"></app-sign-in-button>
+        <app-sign-in-button></app-sign-in-button>
       </div>
     </div>
 
     <div class="sideBarItemDiv">
-      <div class="themeSwitchIconDiv" *ngIf="lightMode == true" (click)="emitLightModeOff()" title="Turn Light Theme Off">
+      <div class="themeSwitchIconDiv" *ngIf="themeService.light" (click)="themeService.setTheme('dark')" title="Turn Light Theme Off">
         <img class="themeSwitchIcon" src="../../../../assets/images/LightMode/LightModeIcon.svg" />
       </div>
-      <div class="themeSwitchIconDiv" *ngIf="lightMode == false" (click)="emitLightModeOn()" title="Turn Light Theme On">
+      <div class="themeSwitchIconDiv" *ngIf="!themeService.light" (click)="themeService.setTheme('light')" title="Turn Light Theme On">
         <img class="themeSwitchIcon" src="../../../../assets/images/DarkMode/DarkModeIcon.svg" />
       </div>
     </div>

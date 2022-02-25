@@ -1,6 +1,6 @@
-<div [ngClass]="{ lightMode: lightMode == true }">
+<div [ngClass]="{ lightMode: themeService.light }">
   <div class="content">
-    <app-account-page-navbar (lightModeEvent)="getLightModeToggle($event)"></app-account-page-navbar>
+    <app-account-page-navbar></app-account-page-navbar>
 
     <div class="page">
       <div class="container-fluid">
@@ -9,7 +9,7 @@
             <div class="row">
               <div class="col-xl-6 col-lg-6 col-12 centerElements">
                 <div class="accountImageOutline gradientBg">
-                  <img class="accountImage unselectable" [src]="userService.authUser.picture" alt="{{ userService.user.username }}" title="{{ userService.user.username }}"/>
+                  <img class="accountImage unselectable" [src]="userService.authUser.picture" alt="{{ userService.user.username }}" title="{{ userService.user.username }}" />
                 </div>
               </div>
 
@@ -18,7 +18,7 @@
                   <mat-icon class="accountDataIcon gradient">verified_user</mat-icon>
                   <p class="accountDataTitle gradient unselectable">Username</p>
                   <div class="accountDataUnderline gradientBg"></div>
-                  <input type="text" maxlength="20" id="username" [(ngModel)]="userService.user.username"/>
+                  <input type="text" maxlength="20" id="username" [(ngModel)]="userService.user.username" />
                 </div>
 
                 <div class="accountDataDiv">
@@ -29,10 +29,10 @@
                   <div class="accountDataUnderline gradientBg"></div>
                   <div class="row">
                     <div class="col-xl-6 col-12 p-0">
-                      <input type="text" id="firstName" [(ngModel)]="userService.user.firstName"/>
+                      <input type="text" id="firstName" [(ngModel)]="userService.user.firstName" />
                     </div>
                     <div class="col-xl-6 col-12 p-0">
-                      <input type="text" id="lastName" [(ngModel)]="userService.user.lastName"/>
+                      <input type="text" id="lastName" [(ngModel)]="userService.user.lastName" />
                     </div>
                   </div>
                 </div>
@@ -41,19 +41,19 @@
                   <mat-icon class="accountDataIcon gradient">email</mat-icon>
                   <p class="accountDataTitle gradient unselectable">Email</p>
                   <div class="accountDataUnderline gradientBg"></div>
-                  <input type="email" id="email" [(ngModel)]="userService.user.email"/>
+                  <input type="email" id="email" [(ngModel)]="userService.user.email" />
                 </div>
 
                 <div class="accountDataDiv">
                   <mat-icon class="accountDataIcon gradient">phone</mat-icon>
                   <p class="accountDataTitle gradient unselectable">Phone</p>
                   <div class="accountDataUnderline gradientBg"></div>
-                  <input type="tel" id="tel" [(ngModel)]="userService.user.phoneNumber"/>
+                  <input type="tel" id="tel" [(ngModel)]="userService.user.phoneNumber" />
                 </div>
 
                 <div class="accountDataDiv">
                   <div class="saveButtonOutline gradientBg unselectable" (click)="userService.update()">
-                    <button class="saveButton" type="submit">Save</button>
+                    <button class="saveButton">Save</button>
                   </div>
                 </div>
               </div>
@@ -65,7 +65,7 @@
               <div class="col-xl-12 col-sm-6 col-12 centerElements">
                 <div class="bigBtn unselectable" *ngIf="userService.isShipper" (click)="viewDetails = true">
                   <img class="bigBtnImg" [src]="
-                      lightMode
+                      themeService.light
                         ? '../../../../assets/images/LightMode/ShipperIcon.svg'
                         : '../../../../assets/images/DarkMode/ShipperIcon.svg'
                     " />
@@ -73,7 +73,7 @@
                 </div>
                 <div class="bigBtn unselectable" *ngIf="!userService.isShipper" (click)="wantToBeShipper()">
                   <img class="bigBtnImg" [src]="
-                      lightMode
+                  themeService.light
                         ? '../../../../assets/images/LightMode/ShipperIcon.svg'
                         : '../../../../assets/images/DarkMode/ShipperIcon.svg'
                     " />
@@ -84,7 +84,7 @@
               <div class="col-xl-12 col-sm-6 col-12 centerElements">
                 <div class="bigBtn unselectable" routerLink="/mypackages">
                   <img class="bigBtnImg" [src]="
-                      lightMode
+                  themeService.light
                         ? '../../../../assets/images/LightMode/BoxIcon.svg'
                         : '../../../../assets/images/DarkMode/BoxIcon.svg'
                     " />
@@ -98,7 +98,7 @@
         <div class="row mt-4 p-0">
           <div class="col-xl-6 col-12 my-4 text-center">
             <p class="title gradient unselectable">Exchange</p>
-            <app-divider [lightMode]="lightMode"></app-divider>
+            <app-divider></app-divider>
             <div class="accountDataInputs">
               <div class="row group" *ngFor="
                   let EXDate of exchangeDateService.exchangeDates;
@@ -106,25 +106,25 @@
                 ">
                 <div class="col-sm-1 col-12"></div>
                 <div class="col-sm-5 col-12 p-0 m-0">
-                  <input class="w-100" type="text" [(ngModel)]="EXDate.startDate" (change)="exchangeDateService.save(EXDate)"/>
+                  <input class="w-100" type="text" [(ngModel)]="EXDate.startDate" (change)="exchangeDateService.save(EXDate)" />
                 </div>
                 <div class="col-sm-5 col-12 p-0 m-0">
-                  <input class="w-100" type="text" [(ngModel)]="EXDate.endDate" (change)="exchangeDateService.save(EXDate)"/>
+                  <input class="w-100" type="text" [(ngModel)]="EXDate.endDate" (change)="exchangeDateService.save(EXDate)" />
                 </div>
                 <div class="col-sm-1 col-12 centerElements">
                   <mat-icon class="deleteIcon gradient" (click)="exchangeDateService.delete(i)" title="Remove date">delete</mat-icon>
                 </div>
               </div>
-              <app-add-icon [lightMode]="lightMode" (click)="exchangeDateService.localeAddExchangeDate()"></app-add-icon>
+              <app-add-icon (click)="exchangeDateService.localeAddExchangeDate()"></app-add-icon>
             </div>
           </div>
 
           <div class="col-xl-6 col-12 my-4 text-center">
             <p class="title gradient unselectable">Addresses</p>
-            <app-divider [lightMode]="lightMode"></app-divider>
+            <app-divider></app-divider>
             <div class="accountDataInputs">
               <div *ngFor="let address of addressService.addresses; index as i">
-                <input type="text" [(ngModel)]="address.name" (change)="addressService.save(address)"/>
+                <input type="text" [(ngModel)]="address.name" (change)="addressService.save(address)" />
                 <!-- <input
                 class="accountDataInput"
                 type="text"
@@ -145,7 +145,7 @@
               /> -->
                 <input type="button" value="delete" (click)="addressService.delete(i)" />
               </div>
-              <app-add-icon [lightMode]="lightMode" (click)="addressService.localeAddAddress()"></app-add-icon>
+              <app-add-icon (click)="addressService.localeAddAddress()"></app-add-icon>
             </div>
           </div>
         </div>
@@ -153,9 +153,9 @@
     </div>
 
     <div>
-      <app-shipper-details [lightMode]="lightMode" (viewDetailsEvent)="getViewShipperDetails($event)" *ngIf="viewDetails"></app-shipper-details>
+      <app-shipper-details (viewDetailsEvent)="getViewShipperDetails($event)" *ngIf="viewDetails"></app-shipper-details>
     </div>
 
-    <app-footer [lightMode]="lightMode"></app-footer>
+    <app-footer></app-footer>
   </div>
 </div>

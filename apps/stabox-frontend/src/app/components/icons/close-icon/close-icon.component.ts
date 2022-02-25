@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '../../../services';
 
 @Component({
   selector: 'app-close-icon',
@@ -7,9 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CloseIconComponent implements OnInit {
 
-  @Input() lightMode = false;
-
-  constructor() { }
+  constructor(public themeService: ThemeService) {
+    themeService.getTheme();
+  }
 
   ngOnInit(): void {
   }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SnackbarService } from '../../../services';
+import { SnackbarService, ThemeService } from '../../../services';
 
 @Component({
   selector: 'stabox-error',
@@ -7,10 +7,12 @@ import { SnackbarService } from '../../../services';
   styleUrls: ['./error.component.scss'],
 })
 export class ErrorComponent implements OnInit {
-  snackbar: any;
-
-  constructor(public snackbarService: SnackbarService) {
-    this.snackbar = this.snackbarService.getSnackBar();
+  constructor(
+    public snackbarService: SnackbarService,
+    public themeService: ThemeService
+  ) {
+    this.snackbarService.getSnackBar();
+    this.themeService.getTheme();
   }
 
   ngOnInit(): void {}

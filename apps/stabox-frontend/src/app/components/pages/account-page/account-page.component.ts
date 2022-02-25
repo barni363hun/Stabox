@@ -4,6 +4,7 @@ import {
   ExchangeDateService,
   UserService,
   SnackbarService,
+  ThemeService,
 } from '../../../services';
 
 @Component({
@@ -13,22 +14,15 @@ import {
 })
 export class AccountPageComponent implements OnInit {
   viewDetails = false;
-  lightMode = false;
-  theme = 'dark';
-
-  message = '';
 
   constructor(
     public userService: UserService,
     public exchangeDateService: ExchangeDateService,
     public addressService: AddressService,
-    public snackbarService: SnackbarService
+    public snackbarService: SnackbarService,
+    public themeService: ThemeService
   ) {
-    if (localStorage.getItem('theme') == 'light') {
-      this.lightMode = true;
-    } else {
-      this.lightMode = false;
-    }
+    this.themeService.getTheme();
   }
 
   ngOnInit(): void {
@@ -51,13 +45,5 @@ export class AccountPageComponent implements OnInit {
 
   getViewShipperDetails(data: any) {
     this.viewDetails = data;
-  }
-
-  getLightModeToggle(data: any) {
-    if (data == 'light') {
-      this.lightMode = true;
-    } else {
-      this.lightMode = false;
-    }
   }
 }

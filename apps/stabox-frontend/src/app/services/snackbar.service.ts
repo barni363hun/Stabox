@@ -9,6 +9,8 @@ export class SnackbarService {
     showError: false,
     successMessage: '',
     showSuccess: false,
+    confirmMessage: '',
+    showConfirm: false,
   };
 
   snackbarTimer: any;
@@ -18,6 +20,8 @@ export class SnackbarService {
   showErrorSnackbar(message: string) {
     if (this.snackbarTimer != null) {
       clearTimeout(this.snackbarTimer);
+      this.snackbarTimer = null;
+      this.snackbar.showError = false
     }
     this.snackbarTimer = setTimeout(
       () => (this.snackbar.showError = false),
@@ -30,6 +34,8 @@ export class SnackbarService {
   showSuccessSnackbar(message: string) {
     if (this.snackbarTimer != null) {
       clearTimeout(this.snackbarTimer);
+      this.snackbarTimer = null;
+      this.snackbar.showError = false
     }
     this.snackbarTimer = setTimeout(
       () => (this.snackbar.showSuccess = false),

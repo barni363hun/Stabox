@@ -1,4 +1,4 @@
-<div class="accountButtonDiv" [ngClass]="{'lightMode': lightMode == true}" (click)="toggleMenu()">
+<div class="accountButtonDiv" [ngClass]="{'lightMode': themeService.light}" (click)="toggleMenu()">
     <div class="outline gradientBg unselectable">
         <div class="accountBtn centerElements">
             <stabox-user-icon class="me-2"></stabox-user-icon>

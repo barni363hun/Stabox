@@ -1,5 +1,10 @@
 @import '../../../../styles/settings/variables';
 
+.lightMode .snackBar {
+  background-color: $bgColorWhite;
+  text-shadow: 2px 2px rgba($colorDarkGray, 0.15);
+}
+
 .snackBar {
   position: absolute;
   bottom: -10%;
@@ -25,6 +30,8 @@
 .snackbarIcon {
   display: inline-block;
   vertical-align: middle;
+  padding: 0;
+  margin: 0 5px 0 0;
 }
 
 @keyframes snack {
