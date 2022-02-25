@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { addressInterface } from '@stabox/stabox-lib';
+import { Component, OnInit } from '@angular/core';
+import { AddressService, PackageService, RecieverService } from '../../../services';
 
 @Component({
   selector: 'stabox-add-package',
@@ -7,51 +7,81 @@ import { addressInterface } from '@stabox/stabox-lib';
   styleUrls: ['./add-package.component.scss'],
 })
 export class AddPackageComponent implements OnInit {
-  myAddress: addressInterface = {
-    id: 0,
-    userId: '',
+  package: packageInterface = {
+    fragile: false,
+    size: '',
+    weight: '',
     name: '',
-    country: '',
-    zipCode: 0,
-    cityName: '',
-    street: '',
-    houseNumber: '',
   };
-  @Input() isReciever = true;
-  @Output() saveAddressEvent = new EventEmitter<addressInterface>();
-  constructor() {}
 
-  ngOnInit(): void {}
+  selectedReciever = 0;
+  selectedAddress = 0;
 
-  save() {
-    this.saveAddressEvent.emit(this.myAddress);
-  }
+  recievers: recieverInterface[] = [];
 
-  placeChangedCallback(place: any) {
-    console.log('change');
-    const addressFrom = {
-      street_number: 'short_name',
-      route: 'long_name',
-      locality: 'long_name',
-      sublocality_level_1: 'sublocality_level_1',
-      administrative_area_level_1: 'short_name',
-      country: 'long_name',
-      postal_code: 'short_name',
-    };
-    place.address_components.forEach((add: any) => {
-      add.types.forEach((addType: any) => {
-        console.log(addType);
+  constructor(
+    private packageService: PackageService,
+    public addressService: AddressService,
+    private recieverService: RecieverService
+  ) {}
 
-        console.log(add);
+  ngOnInit(): void {
+    this.addressService.getAddresses();
 
-        if (addType == 'street_number')
-          this.myAddress.houseNumber = add.short_name;
-        if (addType == 'route') this.myAddress.street = add.long_name;
-        if (addType == 'locality' || addType == 'sublocality_level_1')
-          this.myAddress.cityName = add.long_name;
-        if (addType == 'postal_code') this.myAddress.zipCode = add.long_name;
-        if (addType == 'country') this.myAddress.country = add.long_name;
-      });
+    //get user's recievers
+    this.recieverService.getRecievers().subscribe({
+      next: (res) => {
+        this.recievers = res;
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
     });
   }
+
+  addPackage() {
+    console.log('addpackage()');
+    if (this.checkInputs()) {
+      console.log('inputs checked');
+      this.packageService.addPackage({
+        ...this.package,
+        recieverId: Number(this.selectedReciever),
+        fromAddressId: Number(this.selectedAddress),
+      });
+    }
+  }
+
+  //TODO? normális hibaüzenetek az input mezőkre
+  checkInputs(): boolean {
+    if (!this.package.name.trim()) return false;
+    if (!this.package.size.trim()) return false;
+    if (!this.package.weight.trim()) return false;
+
+    return true;
+  }
+}
+interface packageInterface {
+  name: string;
+  size: string;
+  weight: string;
+  fragile: boolean;
+}
+interface recieverInterface {
+  addressId: number;
+  email: string;
+  firstName: string;
+  id: number;
+  lastName: string;
+  phoneNumber: string;
+}
+interface addressInterface {
+  region: string;
+  zipCode: number;
+  cityName: string;
+  street: string;
+  houseNumber: number;
+  id: number;
+  name: string;
+  userId: string;
 }
