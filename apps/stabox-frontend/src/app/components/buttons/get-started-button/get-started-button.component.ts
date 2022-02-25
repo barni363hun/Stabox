@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UserService } from '../../../services';
+import { ThemeService, UserService } from '../../../services';
 
 @Component({
   selector: 'app-get-started-button',
@@ -7,10 +7,12 @@ import { UserService } from '../../../services';
   styleUrls: ['./get-started-button.component.scss'],
 })
 export class GetStartedButtonComponent implements OnInit {
-
-  @Input() lightMode = false;
-
-  constructor(public userService: UserService) {}
+  constructor(
+    public userService: UserService,
+    public themeService: ThemeService
+  ) {
+    themeService.getTheme();
+  }
 
   ngOnInit(): void {}
 }

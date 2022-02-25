@@ -39,7 +39,7 @@ export class AccountPageComponent implements OnInit {
         alert('okaly');
       }
     } else {
-      alert('Please fill all of your data!');
+      this.snackbarService.showErrorSnackbar('Fill in all your data, please.')
     }
   }
 

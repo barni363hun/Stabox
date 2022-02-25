@@ -4,6 +4,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SnackbarService {
+  emptySnackbar = {
+    errorMessage: '',
+    showError: false,
+    successMessage: '',
+    showSuccess: false,
+    confirmMessage: '',
+    showConfirm: false,
+    result: false,
+  };
+
   snackbar = {
     errorMessage: '',
     showError: false,
@@ -11,6 +21,7 @@ export class SnackbarService {
     showSuccess: false,
     confirmMessage: '',
     showConfirm: false,
+    result: false,
   };
 
   snackbarTimer: any;
@@ -21,7 +32,7 @@ export class SnackbarService {
     if (this.snackbarTimer != null) {
       clearTimeout(this.snackbarTimer);
       this.snackbarTimer = null;
-      this.snackbar.showError = false
+      this.snackbar.showError = false;
     }
     this.snackbarTimer = setTimeout(
       () => (this.snackbar.showError = false),
@@ -35,7 +46,7 @@ export class SnackbarService {
     if (this.snackbarTimer != null) {
       clearTimeout(this.snackbarTimer);
       this.snackbarTimer = null;
-      this.snackbar.showError = false
+      this.snackbar.showError = false;
     }
     this.snackbarTimer = setTimeout(
       () => (this.snackbar.showSuccess = false),
@@ -45,11 +56,22 @@ export class SnackbarService {
     this.snackbar.showSuccess = true;
   }
 
+  showConfirmSnackbar(message: string) {
+    if (this.snackbarTimer != null) {
+      clearTimeout(this.snackbarTimer);
+      this.snackbarTimer = null;
+      this.snackbar.showConfirm = false;
+    }
+    this.snackbarTimer = setTimeout(
+      () => (this.snackbar.showConfirm = false),
+      6000
+    );
+    this.snackbar.confirmMessage = message;
+    this.snackbar.showConfirm = true;
+  }
+
   clearSnackBars() {
-    this.snackbar.errorMessage = '';
-    this.snackbar.showError = false;
-    this.snackbar.successMessage = '';
-    this.snackbar.showSuccess = false;
+    this.snackbar = this.emptySnackbar;
   }
 
   getSnackBar() {

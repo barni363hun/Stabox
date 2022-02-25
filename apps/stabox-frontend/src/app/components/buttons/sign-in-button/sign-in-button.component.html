@@ -1,4 +1,4 @@
-<div [ngClass]="{'lightMode': lightMode == true}">
+<div [ngClass]="{'lightMode': themeService.light}">
   <ng-container *ngIf="!userService.userLoggedIn()">
     <div class="outline gradientBg unselectable" routerLink="/account" (click)="userService.login()">
       <div class="signInBtn">

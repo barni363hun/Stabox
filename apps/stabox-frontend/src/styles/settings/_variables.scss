@@ -159,12 +159,6 @@ input:focus {
   width: 50%;
   display: inline-block;
 }
-.errorSnack {
-  color: $colorRed;
-}
-.successSnack {
-  color: $colorGreen;
-}
 
 @media only screen and (max-width: 1400px) {
   .page {

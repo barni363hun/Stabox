@@ -14,7 +14,11 @@ export class ThemeService {
       this.theme = theme;
       localStorage.clear();
       localStorage.setItem('theme', this.theme);
-      this.getTheme();
+      if (this.theme == 'light') {
+        this.light = true;
+      } else {
+        this.light = false;
+      }
     }
   }
 
