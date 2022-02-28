@@ -7,6 +7,7 @@ import { ThemeService, UserService } from '../../services';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  showSideBar = false;
   constructor(
     public userService: UserService,
     public themeService: ThemeService

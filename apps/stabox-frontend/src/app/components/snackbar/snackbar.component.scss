@@ -34,6 +34,7 @@
   border: 2px solid rgba($colorDarkGray, 0.15);
   border-radius: 10px;
   padding: 5px 25px 5px 25px;
+  margin: 0 5%;
   font-size: 18px;
 
   animation: snack 6s;
@@ -50,6 +51,7 @@
   border: 2px solid rgba($colorDarkGray, 0.15);
   border-radius: 10px;
   padding: 5px 25px 5px 25px;
+  margin: 0 5%;
   font-size: 18px;
 
   animation: confirmSnack 6s;
@@ -71,7 +73,6 @@
   width: fit-content;
   height: fit-content;
   padding: 5px;
-  margin: 0 5px;
   border-radius: 10px;
 }
 
@@ -123,5 +124,23 @@
   }
   100% {
     bottom: 1%;
+  }
+}
+
+@media only screen and (max-width: 1140px) {
+  .snackBar {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .snackBar {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .snackBar {
+    font-size: 12px;
   }
 }

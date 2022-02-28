@@ -108,7 +108,7 @@
   border: none;
   border-radius: 75px;
   font-size: 22px;
-  padding: 2px 35px 2px 35px;
+  padding: 1.5px 40px 1.5px 40px;
 }
 
 .disabled {
@@ -149,6 +149,9 @@
   .deleteIcon {
     transform: scale(1.5);
   }
+  .saveButton {
+    font-size: 20px;
+  }
 }
 
 @media only screen and (max-width: 1300px) {
@@ -180,6 +183,9 @@
   }
   .deleteIcon {
     transform: scale(1.35);
+  }
+  .saveButton {
+    font-size: 22px;
   }
 }
 
@@ -256,6 +262,9 @@
     margin-top: 5px;
     padding: 5px;
   }
+  .saveButton {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -281,6 +290,9 @@
   .bigBtnText {
     font-size: 16px;
   }
+  .saveButton {
+    font-size: 16px;
+  }
 }
 
 @media only screen and (max-width: 390px) {
@@ -289,6 +301,9 @@
   }
   input {
     font-size: 16px;
+  }
+  .saveButton {
+    font-size: 14px;
   }
 }
 
