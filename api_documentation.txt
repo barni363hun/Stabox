@@ -38,7 +38,7 @@
     - assignDateAndVehicle - shipper
     - getAllPackages
     - shipped
-    - sent (add current region)
+    - sent (add current city)
     - getAvaibleDates - shipper
     - getPackageByVehicleId - shipper
     - getMyPackages

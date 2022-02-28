@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { cError, cSuccess, addressInterface } from '@stabox/stabox-lib';
+import { Observable } from 'rxjs';
 import { UserService } from '.';
 import { environment } from '../../environments/environment';
 
@@ -13,16 +14,39 @@ export class AddressService {
     this.getAddresses();
   }
 
+  getAddressById(num: number): addressInterface {
+    const add = this.addresses.find((a) => a.id === num);
+    if (add) {
+      return add;
+    }
+    //TODO error
+    const newADR: addressInterface = {
+      id: 0,
+      userId: this.userService.user.id,
+      name: '',
+      country: '',
+      zipCode: 0,
+      cityName: '',
+      street: '',
+      houseNumber: '',
+    };
+    return newADR;
+  }
+
+  getMyAddresses(): Observable<any> {
+    return this.http.get(environment.apiURL + '/address/reciever');
+  }
+
   localeAddAddress() {
     const newADR: addressInterface = {
       id: 0,
       userId: this.userService.user.id,
-      name: 'address nickname',
-      region: 0,
+      name: '',
+      country: '',
       zipCode: 0,
-      cityName: 'city name',
-      street: 'street name',
-      houseNumber: 'house number',
+      cityName: '',
+      street: '',
+      houseNumber: '',
     };
     this.addresses.push(newADR);
     console.log(this.addresses);
@@ -44,6 +68,9 @@ export class AddressService {
       });
   }
   save(address: addressInterface) {
+    console.log(address);
+    address.zipCode = Number(address.zipCode);
+
     if (address.id === 0) {
       this.create(address);
     } else {
@@ -79,6 +106,7 @@ export class AddressService {
         },
         error: (err) => {
           cError(err.error.message);
+          this.getAddresses();
         },
       });
   }
@@ -100,6 +128,7 @@ export class AddressService {
         },
         error: (err) => {
           cError(err.error.message);
+          this.getAddresses();
         },
       });
   }

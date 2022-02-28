@@ -7,3 +7,4 @@ export * from './lib/transaction.intedrface';
 export * from './lib/user.interface';
 export * from './lib/vehicle.interface';
 export * from './lib/console.styles';
+export * from './lib/recieverWithAddress.interface';

@@ -4,16 +4,15 @@ import {
   Delete,
   Get,
   MethodNotAllowedException,
-  Param,
   Patch,
   Post,
   Put,
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { IsBoolean, isDate, IsDate, IsDateString, IsNumber, IsObject, isObject, IsString } from 'class-validator';
+import { IsBoolean, IsDateString, IsNumber, IsString } from 'class-validator';
 import { Not } from 'typeorm';
-import { addressEntity, packageEntity } from '../../Entities';
+import { packageEntity } from '../../Entities';
 import { AddressService } from '../address/address.service';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
 import { Roles } from '../auth/roles.decorator';
@@ -57,8 +56,6 @@ class assignMeDto {
   postDate: Date;
 }
 
-
-
 @Controller('package')
 export class PackageController {
   constructor(
@@ -66,7 +63,7 @@ export class PackageController {
     private readonly addressService: AddressService,
     private readonly exchangeDateService: ExchangeDateService,
     private readonly vehicleService: VehicleService
-  ) { }
+  ) {}
 
   //creates package
   @UseGuards(AuthGuard, RoleGuard)
@@ -76,7 +73,7 @@ export class PackageController {
     return this.packageService.create({
       userId: req.user.sub,
       price: 500,
-      ...body
+      ...body,
     });
   }
 
@@ -88,10 +85,9 @@ export class PackageController {
     return this.packageService.create({
       userId: req.user.sub,
       price: 500,
-      ...body
+      ...body,
     });
   }
-
 
   // gets all packages
   @UseGuards(AuthGuard, RoleGuard)
@@ -101,17 +97,15 @@ export class PackageController {
     return this.packageService.getAll();
   }
 
-
   // gets user packages
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
   @Get()
   getMyPackages(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
-      where: { userId: req.user.sub }
+      where: { userId: req.user.sub },
     });
   }
-
 
   //returns user's own packages
   @UseGuards(AuthGuard, RoleGuard)
@@ -120,7 +114,7 @@ export class PackageController {
   getMyPackagesWithAddress(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
       where: { userId: req.user.sub },
-      relations: ['fromAddress']
+      relations: ['fromAddress'],
     });
   }
   // gets acceptable packages
@@ -130,7 +124,7 @@ export class PackageController {
   getAcceptable(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
       where: { vehicleId: null, userId: Not(req.user.sub) },
-      relations: ['fromAddress']
+      relations: ['fromAddress'],
     });
   }
   // gets accepted packages
@@ -145,10 +139,9 @@ export class PackageController {
           userId: req.user.sub,
         },
       },
-      relations: ['fromAddress', 'vehicle']
+      relations: ['fromAddress', 'vehicle'],
     });
   }
-
 
   // delete own package
   @UseGuards(AuthGuard, RoleGuard)
@@ -175,8 +168,8 @@ export class PackageController {
       if (a.userId !== req.user.sub) {
         return this.packageService.update(body.id, {
           vehicleId: body.vehicleId,
-          postDate: body.postDate
-        })
+          postDate: body.postDate,
+        });
       } else {
         throw new MethodNotAllowedException(
           'You can not accept your own package'
@@ -194,7 +187,7 @@ export class PackageController {
       if (a.vehicleId == 0) {
         return this.addressService.getById(a.fromAddressId).then((n) => {
           return this.packageService.update(body.id, {
-            currentRegion: n.region,
+            currentCity: n.cityName,
           });
         });
       } else {
@@ -211,7 +204,9 @@ export class PackageController {
   @Get('/dates')
   async getAvaibleDates(@Req() req: authRequest, @Body() body: idDto) {
     return this.packageService.getById(body.id).then((a) => {
-      return this.exchangeDateService.find({ where: { address: { userId: a.userId } } });
+      return this.exchangeDateService.find({
+        where: { address: { userId: a.userId } },
+      });
     });
   }
 

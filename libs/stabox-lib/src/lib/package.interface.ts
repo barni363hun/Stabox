@@ -10,6 +10,6 @@ export interface packageInterface {
   weight: string;
   fragile: boolean;
   price: number;
-  currentRegion: number;
+  currentCity: number;
   code: string;
 }

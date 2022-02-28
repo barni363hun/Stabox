@@ -11,7 +11,7 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { IsDateString, isNumber, IsNumber } from 'class-validator';
+import { IsDateString, IsNumber } from 'class-validator';
 import { exchangeDateEntity } from '../../Entities';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
 import { Roles } from '../auth/roles.decorator';
@@ -38,12 +38,13 @@ class myExchangeDateDto {
   startDate: Date;
   @IsDateString()
   endDate: Date;
+  @IsNumber()
+  addressId: number;
 }
 
 @Controller('EXdate')
 export class ExchangeDateController {
-  constructor(private readonly exchangeDateService: ExchangeDateService,
-  ) { }
+  constructor(private readonly exchangeDateService: ExchangeDateService) {}
 
   //creates exchangeDate
   @UseGuards(AuthGuard, RoleGuard)
@@ -51,7 +52,7 @@ export class ExchangeDateController {
   @Put()
   create(@Req() req: authRequest, @Body() body: exchangeDateDto) {
     return this.exchangeDateService.create({
-      ...body
+      ...body,
     });
   }
 
@@ -71,17 +72,20 @@ export class ExchangeDateController {
     return this.exchangeDateService.find({
       where: { address: { userId: req.user.sub } },
       relations: ['address'],
-      loadRelationIds: false
+      loadRelationIds: false,
     });
   }
   // gets exchange date by id
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
   @Get('/package/:id')
-  getByPackageId(@Req() req: authRequest, @Param() id: number): Promise<exchangeDateEntity[]> {
+  getByPackageId(
+    @Req() req: authRequest,
+    @Param() id: number
+  ): Promise<exchangeDateEntity[]> {
     return this.exchangeDateService.find({
       where: { address: { userId: id } },
-      relations: ['address']
+      relations: ['address'],
       //TODO!!! : get package's exhange date
     });
   }
@@ -91,6 +95,7 @@ export class ExchangeDateController {
   @Roles('user')
   @Delete()
   delete(@Req() req: authRequest, @Body() body: idDto) {
+    // TODO errors, rework
     return this.exchangeDateService.getById(body.id).then((a) => {
       if (a.address.userId == req.user.sub) {
         return this.exchangeDateService.delete(body.id);
@@ -111,7 +116,7 @@ export class ExchangeDateController {
       if (a.address.userId == req.user.sub) {
         return this.exchangeDateService.update(body.id, {
           startDate: body.startDate,
-          endDate: body.endDate
+          endDate: body.endDate,
         });
       } else {
         throw new MethodNotAllowedException(

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@auth0/auth0-angular';
-import { AccountPageNavbarComponent } from './components/navbars/account-page-navbar/account-page-navbar.component';
 import { AddPackageComponent } from './components/package/add-package/add-package.component';
 import { AddRecieverWithAddressComponent } from './components/package/add-reciever-with-address/add-reciever-with-address.component';
 import { AccountPageComponent } from './components/pages/account-page/account-page.component';
@@ -22,7 +21,11 @@ class LogoutComponent implements OnInit {
 }
 
 const routes: Routes = [
-  { path: '', component: MainpageComponent, pathMatch: 'full' },
+  {
+    path: '',
+    component: MainpageComponent,
+    pathMatch: 'full',
+  },
   {
     path: 'account',
     component: AccountPageComponent,
@@ -33,6 +36,7 @@ const routes: Routes = [
     component: MyPackagesPageComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'test1', component: AddRecieverWithAddressComponent },
   { path: 'test', component: AddPackageComponent },
   { path: 'logout', component: LogoutComponent },
   { path: '**', component: MainpageComponent },

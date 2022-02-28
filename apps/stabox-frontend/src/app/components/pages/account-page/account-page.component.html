@@ -127,7 +127,7 @@
                         : '../../../../assets/images/DarkMode/ShipperIcon.svg'
                     "
                   />
-                  <p class="bigBtnText">Do you want to be a shipper?</p>
+                  <p class="bigBtnText">Be a shipper</p>
                 </div>
               </div>
 
@@ -154,21 +154,63 @@
             <app-divider [lightMode]="lightMode"></app-divider>
             <div class="accountDataInputs">
               <div
+                class="row group"
                 *ngFor="
                   let EXDate of exchangeDateService.exchangeDates;
-                  index as i
+                  index as EXindex
                 "
               >
-                <input
-                  type="text"
-                  [(ngModel)]="EXDate.startDate"
-                  (change)="exchangeDateService.save(EXDate)"
-                />
-                <input
-                  type="button"
-                  value="delete"
-                  (click)="exchangeDateService.delete(i)"
-                />
+                <div class="col-sm-4 col-12 p-0 m-0">
+                  <input
+                    class="w-100"
+                    type="datetime-local"
+                    [(ngModel)]="EXDate.startDate"
+                  />
+                </div>
+                <div class="col-sm-4 col-12 p-0 m-0">
+                  <input
+                    class="w-100"
+                    type="datetime-local"
+                    [(ngModel)]="EXDate.endDate"
+                  />
+                </div>
+
+                <div class="col-sm-2 col-12 p-0 m-0">
+                  <select
+                    class="w-100"
+                    (change)="exchangeDateService.selectChange($event, EXindex)"
+                  >
+                    <option value="0" selected disabled hidden>
+                      {{
+                        addressService.getAddressById(
+                          exchangeDateService.exchangeDates[EXindex].addressId
+                        ).name
+                      }}
+                    </option>
+                    <option
+                      *ngFor="let address of addressService.addresses"
+                      [value]="address.id"
+                    >
+                      {{ address.name }}
+                    </option>
+                  </select>
+                </div>
+                <div class="col-sm-1 col-12 centerElements">
+                  <mat-icon
+                    class="deleteIcon gradient"
+                    title="Save date"
+                    (click)="exchangeDateService.save(EXDate)"
+                    >save</mat-icon
+                  >
+                </div>
+                <div class="col-sm-1 col-12 centerElements">
+                  <mat-icon
+                    class="deleteIcon gradient"
+                    (click)="exchangeDateService.delete(EXindex)"
+                    title="Remove date"
+                    >delete</mat-icon
+                  >
+                </div>
               </div>
               <app-add-icon
                 [lightMode]="lightMode"
@@ -182,34 +224,18 @@
             <app-divider [lightMode]="lightMode"></app-divider>
             <div class="accountDataInputs">
               <div *ngFor="let address of addressService.addresses; index as i">
-                <input
-                  type="text"
-                  [(ngModel)]="address.name"
-                  (change)="addressService.save(address)"
-                />
-                <!-- <input
-                class="accountDataInput"
-                type="text"
-                [(ngModel)]="address.cityName"
-                (change)="addressService.save(address)"
-              />
-              <input
-                class="accountDataInput"
-                type="text"
-                [(ngModel)]="address.street"
-                (change)="addressService.save(address)"
-              />
-              <input
-                class="accountDataInput"
-                type="text"
-                [(ngModel)]="address.houseNumber"
-                (change)="addressService.save(address)"
-              /> -->
-                <input
-                  type="button"
-                  value="delete"
-                  (click)="addressService.delete(i)"
-                />
+                <stabox-address-input
+                  [myAddress]="address"
+                  [isReciever]="true"
+                  (saveAddressEvent)="addressService.save(address)"
+                ></stabox-address-input>
+                <div>
+                  <input
+                    type="button"
+                    value="delete"
+                    (click)="addressService.delete(i)"
+                  />
+                </div>
               </div>
               <app-add-icon
                 [lightMode]="lightMode"

@@ -8,20 +8,17 @@ import { PackageService } from '../../../services/package.service';
   styleUrls: ['./my-packages-page.component.scss'],
 })
 export class MyPackagesPageComponent implements OnInit {
-
-  _filterMyPackages: boolean = true;
-  _filterAllPackages: boolean = false;
-  _filterToDeliver: boolean = false;
+  _filterMyPackages = true;
+  _filterAllPackages = false;
+  _filterToDeliver = false;
 
   constructor(
     public packageService: PackageService,
     private vehicleService: VehicleService,
     private exchangeDateService: ExchangeDateService
-  ) { }
+  ) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   filterAcceptedPackages() {
     this._filterAllPackages = true;
@@ -45,19 +42,4 @@ export class MyPackagesPageComponent implements OnInit {
     this.exchangeDateService.getExchangeDates();
     this.packageService.update('/package/acceptable');
   }
-}
-
-interface packageInterface {
-  fromAddress: addressInterface;
-  size: string;
-  weight: string;
-  fragile: boolean;
-  price: number;
-}
-interface addressInterface {
-  region: string;
-  zipCode: number;
-  city: string;
-  street: string;
-  houseNumber: number;
 }

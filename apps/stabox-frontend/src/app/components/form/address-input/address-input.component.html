@@ -1,0 +1,45 @@
+<table id="address">
+  <tr>
+    <td class="label" colspan="2">Search location:</td>
+    <td colspan="2">
+      <input
+        type="text"
+        id="autocomplete"
+        ngx-google-places-autocomplete
+        (onAddressChange)="placeChangedCallback($event)"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td class="label" *ngIf="isReciever">nickname</td>
+    <td class="wideField">
+      <input class="field" [(ngModel)]="myAddress.name" />
+    </td>
+    <td class="label">country</td>
+    <td class="wideField">
+      <input class="field" [(ngModel)]="myAddress.country" />
+    </td>
+  </tr>
+  <tr>
+    <td class="label">City</td>
+    <td class="slimField">
+      <input class="field" [(ngModel)]="myAddress.cityName" />
+    </td>
+    <td class="label">zipCode</td>
+    <td class="wideField">
+      <input class="field" [(ngModel)]="myAddress.zipCode" />
+    </td>
+  </tr>
+  <tr>
+    <td class="label">Street Address</td>
+    <td class="slimField">
+      <input class="field" [(ngModel)]="myAddress.street" />
+    </td>
+    <td class="wideField">
+      <input class="field" [(ngModel)]="myAddress.houseNumber" />
+    </td>
+    <td>
+      <input class="save" type="submit" value="Save" (click)="save()" />
+    </td>
+  </tr>
+</table>

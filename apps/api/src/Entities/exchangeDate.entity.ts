@@ -13,6 +13,7 @@ export class exchangeDateEntity {
 
   @Column()
   addressId;
+
   @ManyToOne(() => addressEntity, (address) => address)
   address: addressEntity;
 

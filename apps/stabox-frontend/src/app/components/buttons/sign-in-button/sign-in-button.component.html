@@ -1,10 +1,10 @@
-<ng-container *ngIf="userService.userLoggedIn()">
-  <a routerLink="/packages">
-    <button type="button" id="signUpBtn">Stabox WebApp</button>
-  </a>
-</ng-container>
-<ng-container *ngIf="!userService.userLoggedIn()">
-  <button type="button" id="signUpBtn" (click)="userService.login()">
-    Sign in
-  </button>
-</ng-container>
+<div [ngClass]="{'lightMode': lightMode == true}">
+  <ng-container *ngIf="!userService.userLoggedIn()">
+    <div class="outline gradientBg unselectable" routerLink="/account" (click)="userService.login()">
+      <div class="signInBtn">
+        <mat-icon class="signInBtnIcon">open_in_browser</mat-icon>
+        Sign in
+      </div>
+    </div>
+  </ng-container>
+</div>

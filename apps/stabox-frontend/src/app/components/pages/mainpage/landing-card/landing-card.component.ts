@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-landing-card',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-card.component.scss']
 })
 export class LandingCardComponent implements OnInit {
+
+  @Input() lightMode = false;
 
   constructor() { }
 

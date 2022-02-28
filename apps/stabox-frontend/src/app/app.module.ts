@@ -33,9 +33,11 @@ import { UserIconComponent } from './components/icons/user-icon/user-icon.compon
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { PackageCardComponent } from './components/package/package-card/package-card.component';
-import { AddPackageComponent } from './components/package/add-package/add-package.component';
 import { FormsModule } from '@angular/forms';
 import { AddRecieverWithAddressComponent } from './components/package/add-reciever-with-address/add-reciever-with-address.component';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { AddressInputComponent } from './components/form/address-input/address-input.component';
+import { AddPackageComponent } from './components/package/add-package/add-package.component';
 
 @NgModule({
   declarations: [
@@ -68,8 +70,10 @@ import { AddRecieverWithAddressComponent } from './components/package/add-reciev
     PackageCardComponent,
     AddPackageComponent,
     AddRecieverWithAddressComponent,
+    AddressInputComponent,
   ],
   imports: [
+    GooglePlaceModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

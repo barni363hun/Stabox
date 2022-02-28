@@ -1,6 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 import {
   addressEntity,
+  exchangeDateEntity,
   packageEntity,
   transactionEntity,
   vehicleEntity,

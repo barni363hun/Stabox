@@ -2,7 +2,7 @@ export interface addressInterface {
   id: number;
   name: string;
   userId: string;
-  region: number;
+  country: string;
   zipCode: number;
   cityName: string;
   street: string;

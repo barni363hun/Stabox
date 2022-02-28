@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UserService } from '../../services';
 
 @Component({
   selector: 'app-logo',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoComponent implements OnInit {
 
-  constructor() { }
+  @Input() lightMode = false;
+
+  constructor(public userService: UserService) { }
 
   ngOnInit(): void {
   }
