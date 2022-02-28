@@ -18,10 +18,6 @@ export class SnackbarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  dismiss() {
-    this.snackbarService.clearSnackBars();
-  }
-
   getResult(result: boolean) {
     if (result) {
       this.userService.beShipper();

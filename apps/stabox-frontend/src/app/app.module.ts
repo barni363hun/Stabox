@@ -21,6 +21,7 @@ import {
   EmailInputComponent,
   MessageInputComponent,
   NameInputComponent,
+  AddressInputComponent,
   AddIconComponent,
   CloseIconComponent,
   HomeIconComponent,
@@ -40,8 +41,6 @@ import {
   MyPackagesPageComponent,
   SnackbarComponent,
 } from './components';
-
-import { AddressInputComponent } from './components/form/address-input/address-input.component';
 
 @NgModule({
   declarations: [
@@ -80,8 +79,8 @@ import { AddressInputComponent } from './components/form/address-input/address-i
     GooglePlaceModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     FormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AuthModule.forRoot({
       ...environment.auth,

@@ -17,7 +17,7 @@ export class VehicleService {
     const newVehicle: vehicleInterface = {
       id: 0,
       userId: this.userService.user.id,
-      name: 'vehicle name',
+      name: '',
     };
     this.vehicles.push(newVehicle);
     console.log(this.vehicles);
@@ -37,7 +37,6 @@ export class VehicleService {
           cError(err.error.message);
         },
       });
-      
   }
   save(vehicle: vehicleInterface) {
     if (vehicle.id === 0) {

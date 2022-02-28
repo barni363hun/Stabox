@@ -4,16 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SnackbarService {
-  emptySnackbar = {
-    errorMessage: '',
-    showError: false,
-    successMessage: '',
-    showSuccess: false,
-    confirmMessage: '',
-    showConfirm: false,
-    result: false,
-  };
-
   snackbar = {
     errorMessage: '',
     showError: false,
@@ -24,20 +14,19 @@ export class SnackbarService {
     result: false,
   };
 
-  snackbarTimer: any;
+  interval: any;
 
   constructor() {}
 
+  // https://stackoverflow.com/questions/51637302/angular-restarting-a-css-animation
+
   showErrorSnackbar(message: string) {
-    if (this.snackbarTimer != null) {
-      clearTimeout(this.snackbarTimer);
-      this.snackbarTimer = null;
-      this.snackbar.showError = false;
-    }
-    this.snackbarTimer = setTimeout(
-      () => (this.snackbar.showError = false),
-      6000
-    );
+    this.clearSnackBars();
+
+    this.interval = setInterval(() => {
+      this.clearSnackBars();
+    }, 6000);
+
     this.snackbar.errorMessage = message;
     this.snackbar.showError = true;
     this.snackbar.showSuccess = false;
@@ -45,15 +34,12 @@ export class SnackbarService {
   }
 
   showSuccessSnackbar(message: string) {
-    if (this.snackbarTimer != null) {
-      clearTimeout(this.snackbarTimer);
-      this.snackbarTimer = null;
-      this.snackbar.showError = false;
-    }
-    this.snackbarTimer = setTimeout(
-      () => (this.snackbar.showSuccess = false),
-      6000
-    );
+    this.clearSnackBars();
+
+    this.interval = setInterval(() => {
+      this.clearSnackBars();
+    }, 6000);
+
     this.snackbar.successMessage = message;
     this.snackbar.showSuccess = true;
     this.snackbar.showError = false;
@@ -68,7 +54,16 @@ export class SnackbarService {
   }
 
   clearSnackBars() {
-    this.snackbar = this.emptySnackbar;
+    this.snackbar.errorMessage = '';
+    this.snackbar.showError = false;
+    this.snackbar.successMessage = '';
+    this.snackbar.showSuccess = false;
+    this.snackbar.confirmMessage = '';
+    this.snackbar.showConfirm = false;
+
+    console.log('Snackbar cleared.');
+    clearInterval(this.interval);
+    this.interval = null;
   }
 
   getSnackBar() {

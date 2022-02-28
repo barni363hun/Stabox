@@ -10,6 +10,7 @@ export * from './footer/footer.component';
 export * from './form/email-input/email-input.component';
 export * from './form/message-input/message-input.component';
 export * from './form/name-input/name-input.component';
+export * from './form/address-input/address-input.component';
 
 export * from './icons/add-icon/add-icon.component';
 export * from './icons/close-icon/close-icon.component';

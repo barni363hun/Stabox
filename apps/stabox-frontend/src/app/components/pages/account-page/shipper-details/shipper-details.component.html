@@ -25,7 +25,7 @@
         <div class="row m-0 mt-1" *ngFor="let vehicle of vehicleService.vehicles; index as i">
           <div class="col-xl-1 col-1 p-0"></div>
           <div class="col-xl-10 col-10 p-0">
-            <input type="text" [(ngModel)]="vehicle.name" (change)="vehicleService.save(vehicle)" />
+            <input type="text" placeholder="Vehicle type" [(ngModel)]="vehicle.name" (change)="vehicleService.save(vehicle)" />
           </div>
           <div class="col-xl-1 col-1 p-0 my-auto">
             <mat-icon class="deleteIcon gradient" (click)="vehicleService.delete(i)" title="Remove Vehicle">delete</mat-icon>

@@ -32,6 +32,9 @@ $shadeColor: black;
   user-select: none;
 }
 
+.lightMode ::-webkit-calendar-picker-indicator {
+  filter: invert(0);
+}
 .lightMode .content {
   scrollbar-color: $colorLightBlue $bgColorWhite;
   color: $colorDarkGray;
@@ -72,21 +75,21 @@ $shadeColor: black;
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
-
 ::-webkit-scrollbar {
   width: 5px;
 }
-
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: linear-gradient($colorLightYellow, $colorDarkYellow);
   box-shadow: $colorDarkYellow 0 0 3px inset;
 }
 .content {
+  background-color: $bgColorBlack;
+  color: $colorWhite;
+
   width: 100%;
   height: 100vh;
 
