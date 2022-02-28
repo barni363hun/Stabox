@@ -98,17 +98,17 @@
             <p class="title gradient unselectable">Exchange</p>
             <app-divider></app-divider>
             <div class="accountDataInputs">
-              <div class="row group" *ngFor="let EXDate of exchangeDateService.exchangeDates;index as EXindex">
-                <div class="col-sm-4 col-12 p-0 m-0">
-                  <input class="w-100" type="datetime-local" [(ngModel)]="EXDate.startDate" />
+              <div class="row group centerElements" *ngFor="let EXDate of exchangeDateService.exchangeDates;index as EXindex">
+                <div class="col-12 p-0 m-0">
+                  <input class="w-75" type="datetime-local" [(ngModel)]="EXDate.startDate" />
                 </div>
 
-                <div class="col-sm-4 col-12 p-0 m-0">
-                  <input class="w-100" type="datetime-local" [(ngModel)]="EXDate.endDate" />
+                <div class="col-12 col-12 p-0 m-0">
+                  <input class="w-75" type="datetime-local" [(ngModel)]="EXDate.endDate" />
                 </div>
 
-                <div class="col-sm-2 col-12 p-0 m-0">
-                  <select class="w-100" (change)="exchangeDateService.selectChange($event, EXindex)">
+                <div class="col-12 p-0 m-0">
+                  <select class="w-50" (change)="exchangeDateService.selectChange($event, EXindex)">
                     <option value="0" selected disabled hidden>
                       {{ addressService.getAddressById(exchangeDateService.exchangeDates[EXindex].addressId).name }}
                     </option>
