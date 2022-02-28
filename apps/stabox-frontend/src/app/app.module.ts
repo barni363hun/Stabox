@@ -9,7 +9,6 @@ import { AuthModule, AuthHttpInterceptor } from '@auth0/auth0-angular';
 import { LogoComponent } from './components/logo/logo.component';
 import { SignInButtonComponent } from './components/buttons/sign-in-button/sign-in-button.component';
 import { GetStartedButtonComponent } from './components/buttons/get-started-button/get-started-button.component';
-import { MainpageNavbarComponent } from './components/navbars/mainpage-navbar/mainpage-navbar.component';
 import { EmailInputComponent } from './components/form/email-input/email-input.component';
 import { LandingCardComponent } from './components/pages/mainpage/landing-card/landing-card.component';
 import { FirstCardComponent } from './components/pages/mainpage/first-card/first-card.component';
@@ -20,7 +19,6 @@ import { NameInputComponent } from './components/form/name-input/name-input.comp
 import { MessageInputComponent } from './components/form/message-input/message-input.component';
 import { DividerComponent } from './components/divider/divider.component';
 import { ContactUsButtonComponent } from './components/buttons/contact-us-button/contact-us-button.component';
-import { AccountPageNavbarComponent } from './components/navbars/account-page-navbar/account-page-navbar.component';
 import { AccountPageComponent } from './components/pages/account-page/account-page.component';
 import { AccountButtonComponent } from './components/buttons/account-button/account-button.component';
 import { HomeIconComponent } from './components/icons/home-icon/home-icon.component';
@@ -36,7 +34,8 @@ import { PackageCardComponent } from './components/package/package-card/package-
 import { AddPackageComponent } from './components/package/add-package/add-package.component';
 import { FormsModule } from '@angular/forms';
 import { AddRecieverWithAddressComponent } from './components/package/add-reciever-with-address/add-reciever-with-address.component';
-import { ErrorComponent } from './components/snackbars/error/error.component';
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +44,6 @@ import { ErrorComponent } from './components/snackbars/error/error.component';
     LogoComponent,
     SignInButtonComponent,
     GetStartedButtonComponent,
-    MainpageNavbarComponent,
     EmailInputComponent,
     LandingCardComponent,
     FirstCardComponent,
@@ -56,7 +54,6 @@ import { ErrorComponent } from './components/snackbars/error/error.component';
     MessageInputComponent,
     DividerComponent,
     ContactUsButtonComponent,
-    AccountPageNavbarComponent,
     AccountPageComponent,
     AccountButtonComponent,
     HomeIconComponent,
@@ -69,7 +66,8 @@ import { ErrorComponent } from './components/snackbars/error/error.component';
     PackageCardComponent,
     AddPackageComponent,
     AddRecieverWithAddressComponent,
-    ErrorComponent
+    SnackbarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

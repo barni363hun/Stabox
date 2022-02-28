@@ -1,12 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { SnackbarService, ThemeService, UserService } from '../../../services';
+import { Component, OnInit } from '@angular/core';
+import { SnackbarService, ThemeService, UserService } from '../../services';
 
 @Component({
-  selector: 'stabox-error',
-  templateUrl: './error.component.html',
-  styleUrls: ['./error.component.scss'],
+  selector: 'stabox-snackbar',
+  templateUrl: './snackbar.component.html',
+  styleUrls: ['./snackbar.component.scss']
 })
-export class ErrorComponent implements OnInit {
+export class SnackbarComponent implements OnInit {
   constructor(
     public snackbarService: SnackbarService,
     public themeService: ThemeService,
