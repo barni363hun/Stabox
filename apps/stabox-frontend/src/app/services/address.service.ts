@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { cError, cSuccess, addressInterface } from '@stabox/stabox-lib';
+import { Observable } from 'rxjs';
 import { UserService } from '.';
 import { environment } from '../../environments/environment';
 
@@ -30,6 +31,10 @@ export class AddressService {
       houseNumber: '',
     };
     return newADR;
+  }
+
+  getMyAddresses(): Observable<any> {
+    return this.http.get(environment.apiURL + '/address/reciever');
   }
 
   localeAddAddress() {

@@ -31,7 +31,7 @@
             <td style="text-align: end; padding-right:15px;">FromAddress</td>
             <td>
                 <select name="address" id="" [(ngModel)]="selectedAddress">
-                    <option *ngFor="let address of addressService.addresses" [value]="address.id">{{address.name}}</option>
+                    <option *ngFor="let address of addresses" [value]="address.id">{{address.name}}</option>
                 </select>
             </td>
         </tr>

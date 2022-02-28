@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
+import { recieverWithAddress } from '@stabox/stabox-lib';
 @Injectable({
   providedIn: 'root',
 })
@@ -17,15 +18,4 @@ export class RecieverService {
       error: (err) => console.log(err),
     });
   }
-}
-interface recieverWithAddress {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
-  country: string;
-  zipCode: number;
-  cityName: string;
-  street: string;
-  houseNumber: number;
 }
