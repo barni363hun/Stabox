@@ -75,6 +75,7 @@ export class ExchangeDateController {
       loadRelationIds: false,
     });
   }
+
   // gets exchange date by id
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
@@ -84,7 +85,7 @@ export class ExchangeDateController {
     @Param() id: number
   ): Promise<exchangeDateEntity[]> {
     return this.exchangeDateService.find({
-      where: { address: { userId: id } },
+      where: { addressId:id },
       relations: ['address'],
       //TODO!!! : get package's exhange date
     });

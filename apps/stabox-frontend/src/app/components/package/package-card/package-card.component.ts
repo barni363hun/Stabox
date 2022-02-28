@@ -31,7 +31,7 @@ export class PackageCardComponent implements OnInit {
   ngOnInit(): void {
 
     this.vehicles = this.vehicleService.vehicles
-    this.exchangeDateSercice.getExchangeDateByPackageId(this.package.userId).subscribe({
+    this.exchangeDateSercice.getExchangeDateByPackageId(this.package.fromAddressId).subscribe({
       next: (res) => {
         this.exchangeDates = res
       },
