@@ -1,24 +1,24 @@
 <div [ngClass]="{ lightMode: themeService.light }">
     <div class="unselectable">
-        <div class="centerElements" *ngIf="snackbarService.snackbar.showError == true" (click)="snackbarService.clearSnackBars()">
+        <div class="centerElements" *ngIf="snackbarService.showError" (click)="snackbarService.clearSnackBars()">
             <div class="snackBar errorSnack centerElements">
                 <mat-icon class="snackbarIcon me-2">error_outline</mat-icon>
-                <p class="snackbarText">{{snackbarService.snackbar.errorMessage}}</p>
+                <p class="snackbarText">{{ snackbarService.message }}</p>
             </div>
         </div>
 
-        <div class="w-100 centerElements" *ngIf="snackbarService.snackbar.showSuccess == true" (click)="snackbarService.clearSnackBars()">
+        <div class="w-100 centerElements" *ngIf="snackbarService.showSuccess" (click)="snackbarService.clearSnackBars()">
             <div class="snackBar successSnack centerElements">
                 <mat-icon class="snackbarIcon me-2">check_circle_outline</mat-icon>
-                <p class="snackbarText">{{snackbarService.snackbar.successMessage}}</p>
+                <p class="snackbarText">{{ snackbarService.message }}</p>
             </div>
         </div>
 
-        <div class="w-100 centerElements" *ngIf="snackbarService.snackbar.showConfirm == true">
+        <div class="w-100 centerElements" *ngIf="snackbarService.showConfirm">
             <div class="confirmSnackBar confirmSnack centerElements">
                 <div class="centerElements">
                     <mat-icon class="snackbarIcon me-2">help_outline</mat-icon>
-                    <p class="snackbarText">{{snackbarService.snackbar.confirmMessage}}</p>
+                    <p class="snackbarText">{{ snackbarService.message }}</p>
                 </div>
                 <div class="centerElements ms-1">
                     <div class="snackbarIconDiv centerElements me-1" (click)="getResult(true)">

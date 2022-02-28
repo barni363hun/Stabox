@@ -12,7 +12,6 @@ export class SnackbarComponent implements OnInit {
     public themeService: ThemeService,
     public userService: UserService
   ) {
-    this.snackbarService.getSnackBar();
     this.themeService.getTheme();
   }
 
@@ -23,6 +22,6 @@ export class SnackbarComponent implements OnInit {
       this.userService.beShipper();
       location.reload();
     }
-    this.snackbarService.snackbar.showConfirm = false;
+    this.snackbarService.showConfirm = false;
   }
 }
