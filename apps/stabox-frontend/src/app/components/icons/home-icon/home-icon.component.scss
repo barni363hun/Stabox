@@ -1,40 +1,42 @@
-@import '../../../../styles/settings/variables';
+@import '../../../app.component.scss';
 
 .lightMode #homeIcon {
-    background-color: $colorLightBlue;
-    background: linear-gradient(to right, $colorLightBlue, $colorDarkBlue);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background-color: $colorLightBlue;
+  background: linear-gradient(to right, $colorLightBlue, $colorDarkBlue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .lightMode #homeIconDiv:hover {
-    box-shadow: inset 0 1px 1px rgba($colorLightBlue, 0.075), 0 0 8px rgba($colorDarkBlue, 0.6);
+  box-shadow: inset 0 1px 1px rgba($colorLightBlue, 0.075),
+    0 0 8px rgba($colorDarkBlue, 0.6);
 }
 
 #homeIcon {
-    transform: scale(2.45);
+  transform: scale(2.45);
 
-    margin: 8px;
+  margin: 8px;
 
-    background-color: $colorLightYellow;
-    background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background-color: $colorLightYellow;
+  background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #homeIconDiv {
-    width: fit-content;
-    height: fit-content;
-    background-color: transparent;
-    padding: 8.5px 9px 7.5px 9px;
-    border-radius: 10px;
-    text-align: center;
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+  padding: 8.5px 9px 7.5px 9px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 #homeIconDiv:hover {
-    cursor: pointer;
-    transition: 0.25s;
-    box-shadow: inset 0 1px 1px rgba($colorLightYellow, 0.075), 0 0 8px rgba($colorDarkYellow, 0.6);
+  cursor: pointer;
+  transition: 0.25s;
+  box-shadow: inset 0 1px 1px rgba($colorLightYellow, 0.075),
+    0 0 8px rgba($colorDarkYellow, 0.6);
 }

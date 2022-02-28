@@ -1,139 +1,139 @@
-@import '../../../styles/settings/variables';
+@import '../../app.component.scss';
 
 .lightMode .copyrightText,
 .lightMode .copyrightIcon {
-    color: $colorDarkGray;
+  color: $colorDarkGray;
 }
 
 .lightMode .footer {
-    border-top: 1px solid rgba($colorLightGray, 0.5);
-    background-color: $bgColorWhite;
+  border-top: 1px solid rgba($colorLightGray, 0.5);
+  background-color: $bgColorWhite;
 }
 
 .footer {
-    z-index: 1;
-    width: 100vw;
-    text-align: center;
-    padding-top: 15px;
-    margin: 0 auto;
-    border-top: 1px solid rgba($colorDarkGray, 0.25);
-    background-color: $bgColorBlack;
+  z-index: 1;
+  width: 100vw;
+  text-align: center;
+  padding-top: 15px;
+  margin: 0 auto;
+  border-top: 1px solid rgba($colorDarkGray, 0.25);
+  background-color: $bgColorBlack;
 }
 
 .socialIcon {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 .socialIconDiv {
-    transition: 0.25s;
-    width: fit-content;
-    height: fit-content;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+  transition: 0.25s;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .socialIconDiv:hover {
-    cursor: pointer;
-    transition: 0.25s;
-    transform: scale(1.15);
+  cursor: pointer;
+  transition: 0.25s;
+  transform: scale(1.15);
 }
 
 .socialsRow {
-    width: fit-content;
-    height: fit-content;
-    margin: 0 auto;
-    padding: 0;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .copyrightIcon {
-    display: inline-block;
-    color: rgba($colorLightGray, 0.75);
-    transform: scale(0.85);
-    margin-right: 2px;
+  display: inline-block;
+  color: rgba($colorLightGray, 0.75);
+  transform: scale(0.9);
+  margin-right: 2px;
 }
 
 .copyrightText {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 12px;
-    margin: 0;
-    color: rgba($colorLightGray, 0.75);
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+  margin: 0;
+  color: rgba($colorLightGray, 0.75);
 }
 
 @media only screen and (max-width: 1200px) {
-    .footer {
-        margin: 125px 0 0 0;
-        padding-top: 12.5px;
-    }
-    .socialIcon {
-        width: 35px;
-        height: 35px;
-    }
-    .copyrightText {
-        font-size: 11px;
-    }
-    .copyrightIcon {
-        transform: scale(0.8);
-    }
-    .socialIconDiv {
-        height: 50px;
-    }
+  .footer {
+    margin: 125px 0 0 0;
+    padding-top: 12.5px;
+  }
+  .socialIcon {
+    width: 35px;
+    height: 35px;
+  }
+  .copyrightText {
+    font-size: 11px;
+  }
+  .copyrightIcon {
+    transform: scale(0.8);
+  }
+  .socialIconDiv {
+    height: 50px;
+  }
 }
 
 @media only screen and (max-width: 992px) {
-    .footer {
-        margin: 100px 0 0 0;
-        padding-top: 10px;
-    }
-    .socialIcon {
-        width: 30px;
-        height: 30px;
-    }
-    .copyrightText {
-        font-size: 10px;
-    }
-    .copyrightIcon {
-        transform: scale(0.75);
-    }
-    .socialIconDiv {
-        height: 45px;
-    }
+  .footer {
+    margin: 100px 0 0 0;
+    padding-top: 10px;
+  }
+  .socialIcon {
+    width: 30px;
+    height: 30px;
+  }
+  .copyrightText {
+    font-size: 10px;
+  }
+  .copyrightIcon {
+    transform: scale(0.75);
+  }
+  .socialIconDiv {
+    height: 45px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    .footer {
-        margin: 75px 0 0 0;
-        padding-top: 7.5px;
-    }
-    .copyrightText {
-        font-size: 9px;
-    }
-    .copyrightIcon {
-        transform: scale(0.7);
-    }
-    .socialIconDiv {
-        height: 40px;
-    }
+  .footer {
+    margin: 75px 0 0 0;
+    padding-top: 7.5px;
+  }
+  .copyrightText {
+    font-size: 9px;
+  }
+  .copyrightIcon {
+    transform: scale(0.7);
+  }
+  .socialIconDiv {
+    height: 40px;
+  }
 }
 
 @media only screen and (max-width: 576px) {
-    .footer {
-        margin: 50px 0 0 0;
-        padding-top: 5px;
-    }
-    .socialIcon {
-        width: 25px;
-        height: 25px;
-    }
-    .copyrightText {
-        font-size: 8px;
-    }
-    .copyrightIcon {
-        transform: scale(0.65);
-    }
-    .socialIconDiv {
-        height: 35px;
-    }
+  .footer {
+    margin: 50px 0 0 0;
+    padding-top: 5px;
+  }
+  .socialIcon {
+    width: 25px;
+    height: 25px;
+  }
+  .copyrightText {
+    font-size: 8px;
+  }
+  .copyrightIcon {
+    transform: scale(0.65);
+  }
+  .socialIconDiv {
+    height: 35px;
+  }
 }
