@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'apps/stabox-frontend/src/environments/environment';
+import { recieverWithAddress } from '@stabox/stabox-lib';
 import { RecieverService } from '../../../services/reciever.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class AddRecieverWithAddressComponent implements OnInit {
     lastName: '',
     email: '',
     phoneNumber: '',
-    region: 0,
+    country: '',
     zipCode: 0,
     cityName: '',
     street: '',
@@ -49,19 +49,4 @@ export class AddRecieverWithAddressComponent implements OnInit {
 
     return true
   }
-}
-
-
-
-interface recieverWithAddress {
-
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
-  region: number,
-  zipCode: number,
-  cityName: string,
-  street: string,
-  houseNumber: number
 }

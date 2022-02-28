@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AddressService } from '../../../services/address-service';
-import { PackageService } from '../../../services/package.service';
-import { RecieverService } from '../../../services/reciever.service';
+import { addressInterface } from '@stabox/stabox-lib';
+import { AddressService, PackageService, RecieverService } from '../../../services';
 
 @Component({
   selector: 'stabox-add-package',
@@ -16,8 +15,8 @@ export class AddPackageComponent implements OnInit {
     name: '',
   };
 
-  selectedReciever: number = 0;
-  selectedAddress: number = 0;
+  selectedReciever = 0;
+  selectedAddress = 0;
 
   addresses: addressInterface[] = [];
   recievers: recieverInterface[] = [];
@@ -31,11 +30,11 @@ export class AddPackageComponent implements OnInit {
   ngOnInit(): void {
     //get user's addresses
     this.addressService.getMyAddresses().subscribe({
-      next: (res) => {
+      next: (res:any) => {
         this.addresses = res;
         console.log(res);
       },
-      error: (err) => {
+      error: (err:any) => {
         console.log(err);
       },
     });
@@ -86,14 +85,4 @@ interface recieverInterface {
   id: number;
   lastName: string;
   phoneNumber: string;
-}
-interface addressInterface {
-  region: string;
-  zipCode: number;
-  cityName: string;
-  street: string;
-  houseNumber: number;
-  id: number;
-  name: string;
-  userId: string;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { addressInterface } from '@stabox/stabox-lib';
 import {
   AddressService,
   ExchangeDateService,
@@ -23,6 +24,10 @@ export class AccountPageComponent implements OnInit {
     public themeService: ThemeService
   ) {
     this.themeService.getTheme();
+  }
+
+  saveAddress(address: addressInterface) {
+    console.log(address);
   }
 
   ngOnInit(): void {

@@ -1,3 +1,4 @@
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -40,6 +41,8 @@ import {
   SnackbarComponent,
 } from './components';
 
+import { AddressInputComponent } from './components/form/address-input/address-input.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,8 +74,10 @@ import {
     AddRecieverWithAddressComponent,
     SnackbarComponent,
     NavbarComponent,
+    AddressInputComponent,
   ],
   imports: [
+    GooglePlaceModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

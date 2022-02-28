@@ -2,16 +2,16 @@
   <div class="mx-auto" id="myPackagesPage">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-xl-4 col-4 text-center titleDiv" (click)="filterAllPackages()">
-          <p class="title">All Packages</p>
-          <div class="titleUnderline" [ngStyle]="{ width: _filterAllPackages ? '100%' : '0' }"></div>
-        </div>
         <div class="col-xl-4 col-4 text-center titleDiv" (click)="filterMyPackages()">
           <p class="title">My Packages</p>
           <div class="titleUnderline"></div>
         </div>
+        <div class="col-xl-4 col-4 text-center titleDiv" (click)="filterAcceptedPackages()">
+          <p class="title">Accepted Packages</p>
+          <div class="titleUnderline" [ngStyle]="{ width: _filterAllPackages ? '100%' : '0' }"></div>
+        </div>
         <div class="col-xl-4 col-4 text-center titleDiv" (click)="filterToDeliver()">
-          <p class="title">To Deliver</p>
+          <p class="title">Packages waiting for delivery</p>
           <div class="titleUnderline"></div>
         </div>
       </div>
@@ -19,7 +19,7 @@
 
     <div *ngIf="_filterAllPackages == true" class="container-fluid mt-4">
       <div class="row">
-        <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2" *ngFor="let package of packages">
+        <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2" *ngFor="let package of this.packageService.packages">
           <!-- *ngFor="" goes on this line  -->
           <stabox-package-card [package]="package"></stabox-package-card>
           <!-- <div class="packageCard">
@@ -56,9 +56,10 @@
 
   <div *ngIf="_filterMyPackages == true" class="container-fluid mt-4">
     <div class="row">
-      <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2">
+      <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2" *ngFor="let package of this.packageService.packages">
         <!-- *ngFor="" goes on this line  -->
-        <div class="packageCard">
+        <stabox-package-card [package]="package"></stabox-package-card>
+        <!-- <div class="packageCard">
           <p class="packageTitle">Package Title (My Packages)</p>
           <app-divider></app-divider>
           <div class="row">
@@ -90,16 +91,18 @@
               <stabox-show-more-button></stabox-show-more-button>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
 
   <div *ngIf="_filterToDeliver == true" class="container-fluid mt-4">
     <div class="row">
-      <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2">
+      <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2" *ngFor="let package of this.packageService.packages">
         <!-- *ngFor="" goes on this line  -->
-        <div class="packageCard">
+        <stabox-package-card [package]="package"></stabox-package-card>
+
+        <!-- <div class="packageCard">
           <p class="packageTitle">Package Title (To Deliver)</p>
           <app-divider></app-divider>
           <div class="row">
@@ -131,7 +134,7 @@
               <stabox-show-more-button></stabox-show-more-button>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

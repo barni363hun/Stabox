@@ -51,7 +51,7 @@ export class packageEntity {
   price: number;
 
   @Column()
-  currentRegion: number;
+  currentCity: number;
 
   @Column()
   name: string;

@@ -98,62 +98,41 @@
             <p class="title gradient unselectable">Exchange</p>
             <app-divider></app-divider>
             <div class="accountDataInputs">
-              <div class="row group" *ngFor="
-                  let EXDate of exchangeDateService.exchangeDates;
-                  index as i
-                ">
-                <div class="col-sm-1 col-12"></div>
-                <div class="col-sm-5 col-12 p-0 m-0">
-                  <input class="w-100" type="text" [(ngModel)]="EXDate.startDate" (change)="exchangeDateService.save(EXDate)" />
-                </div>
-                <div class="col-sm-5 col-12 p-0 m-0">
-                  <input class="w-100" type="text" [(ngModel)]="EXDate.endDate" (change)="exchangeDateService.save(EXDate)" />
-                </div>
-                <div class="col-sm-1 col-12 centerElements">
-                  <mat-icon class="deleteIcon gradient" (click)="exchangeDateService.delete(i)" title="Remove date">delete</mat-icon>
-                </div>
+              class="row group"
+              *ngFor="
+              let EXDate of exchangeDateService.exchangeDates;
+              index as EXindex
+              "
+              >
+              <div class="col-sm-4 col-12 p-0 m-0">
+                <input class="w-100" type="datetime-local" title="Remove date">delete</mat-icon>
               </div>
-              <app-add-icon (click)="exchangeDateService.localeAddExchangeDate()"></app-add-icon>
             </div>
+            <app-add-icon (click)="exchangeDateService.localeAddExchangeDate()"></app-add-icon>
           </div>
+        </div>
 
-          <div class="col-xl-6 col-12 my-4 text-center">
-            <p class="title gradient unselectable">Addresses</p>
-            <app-divider></app-divider>
-            <div class="accountDataInputs">
-              <div *ngFor="let address of addressService.addresses; index as i">
-                <input type="text" [(ngModel)]="address.name" (change)="addressService.save(address)" />
-                <!-- <input
-                class="accountDataInput"
-                type="text"
-                [(ngModel)]="address.cityName"
-                (change)="addressService.save(address)"
-              />
-              <input
-                class="accountDataInput"
-                type="text"
-                [(ngModel)]="address.street"
-                (change)="addressService.save(address)"
-              />
-              <input
-                class="accountDataInput"
-                type="text"
-                [(ngModel)]="address.houseNumber"
-                (change)="addressService.save(address)"
-              /> -->
+        <div class="col-xl-6 col-12 my-4 text-center">
+          <p class="title gradient unselectable">Addresses</p>
+          <app-divider></app-divider>
+          <div class="accountDataInputs">
+            <div *ngFor="let address of addressService.addresses; index as i">
+              <stabox-address-input [myAddress]="address" [isReciever]="true" (saveAddressEvent)="addressService.save(address)"></stabox-address-input>
+              <div>
                 <input type="button" value="delete" (click)="addressService.delete(i)" />
               </div>
-              <app-add-icon (click)="addressService.localeAddAddress()"></app-add-icon>
             </div>
+            <app-add-icon (click)="addressService.localeAddAddress()"></app-add-icon>
           </div>
         </div>
       </div>
     </div>
-
-    <div>
-      <app-shipper-details (viewDetailsEvent)="getViewShipperDetails($event)" *ngIf="viewDetails"></app-shipper-details>
-    </div>
-
-    <app-footer></app-footer>
   </div>
+
+  <div>
+    <app-shipper-details (viewDetailsEvent)="getViewShipperDetails($event)" *ngIf="viewDetails"></app-shipper-details>
+  </div>
+
+  <app-footer></app-footer>
+</div>
 </div>

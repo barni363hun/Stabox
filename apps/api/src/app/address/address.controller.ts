@@ -23,8 +23,8 @@ class idDto {
 }
 
 class addressDto {
-  @IsNumber()
-  region: number;
+  @IsString()
+  country: string;
   @IsNumber()
   zipCode: number;
   @IsString()
@@ -40,8 +40,8 @@ class addressDto {
 class myAddressDto {
   @IsNumber()
   id: number;
-  @IsNumber()
-  region: number;
+  @IsString()
+  country: string;
   @IsNumber()
   zipCode: number;
   @IsString()
@@ -66,7 +66,7 @@ export class AddressController {
     return this.addressService.create({
       id: 0,
       userId: req.user.sub,
-      region: body.region,
+      country: body.country,
       zipCode: body.zipCode,
       cityName: body.cityName,
       street: body.street,
@@ -99,10 +99,9 @@ export class AddressController {
   @Get('/reciever')
   getMyRecieverAddresses(@Req() req: authRequest): Promise<addressEntity[]> {
     return this.addressService.find({
-      where: { userId: req.user.sub ,name:!IsNull()},
+      where: { userId: req.user.sub, name: !IsNull() },
     });
   }
-
 
   // delete own address
   @UseGuards(AuthGuard, RoleGuard)
@@ -128,7 +127,7 @@ export class AddressController {
     return this.addressService.getById(body.id).then((a) => {
       if (a.userId == req.user.sub) {
         const newDates: addressDto = {
-          region: body.region,
+          country: body.country,
           zipCode: body.zipCode,
           cityName: body.cityName,
           street: body.street,

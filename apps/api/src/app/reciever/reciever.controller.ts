@@ -22,8 +22,8 @@ class recieverWithAddressDto {
   email: string;
   @IsPhoneNumber()
   phoneNumber: string;
-  @IsNumber()
-  region: number;
+  @IsString()
+  country: string;
   @IsNumber()
   zipCode: number;
   @IsString()
@@ -53,7 +53,7 @@ export class RecieverController {
       .create({
         id: 0,
         userId: req.user.sub,
-        region: body.region,
+        country: body.country,
         zipCode: body.zipCode,
         cityName: body.cityName,
         street: body.street,
@@ -86,7 +86,7 @@ export class RecieverController {
   async getMyRecieveres(@Req() req: authRequest) {
     const addressIds: number[] = await this.addressService
       .find({
-        where: { userId: req.user.sub},
+        where: { userId: req.user.sub },
       })
       .then((addresses) => {
         return addresses.map((a) => a.id);

@@ -5,11 +5,12 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { packageEntity, userEntity } from '.';
+import { exchangeDateEntity, packageEntity, userEntity } from '.';
 import { recieverEntity } from './reciever.entity';
+import { addressInterface } from '@stabox/stabox-lib';
 
 @Entity()
-export class addressEntity {
+export class addressEntity implements addressInterface {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -20,7 +21,7 @@ export class addressEntity {
   user: userEntity;
 
   @Column()
-  region: number;
+  country: string;
 
   @Column()
   zipCode: number;
@@ -34,13 +35,16 @@ export class addressEntity {
   @Column()
   houseNumber: string;
 
-  @Column({nullable:true})
+  @Column({ nullable: true })
   name: string;
 
   //Relations
-  @OneToMany((type) => recieverEntity, (reciever) => reciever.address)
+  @OneToMany(() => recieverEntity, (reciever) => reciever.address)
   recievers: recieverEntity[];
 
-  @OneToMany((type) => packageEntity, (package_) => package_.fromAddress) // "package" is a reserved word for js
+  @OneToMany(() => exchangeDateEntity, (exchangeDate) => exchangeDate.address)
+  exchangeDates: exchangeDateEntity[];
+
+  @OneToMany(() => packageEntity, (package_) => package_.fromAddress) // "package" is a reserved word for js
   packages: packageEntity[];
 }

@@ -1,9 +1,8 @@
 import { testAuthUser } from '../../fixtures/testAuthUser';
 
-describe('login with test user', () => {
+describe('login', () => {
   it('get started', () => {
-    cy.visit('/');
-    cy.get('#getStartedBtn').click();
+    cy.getStarted();
   });
   it('auth0 login with testUser', () => {
     cy.auth0Login(testAuthUser.email, testAuthUser.password);
