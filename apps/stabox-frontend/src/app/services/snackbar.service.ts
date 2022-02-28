@@ -40,6 +40,8 @@ export class SnackbarService {
     );
     this.snackbar.errorMessage = message;
     this.snackbar.showError = true;
+    this.snackbar.showSuccess = false;
+    this.snackbar.showConfirm = false;
   }
 
   showSuccessSnackbar(message: string) {
@@ -54,20 +56,15 @@ export class SnackbarService {
     );
     this.snackbar.successMessage = message;
     this.snackbar.showSuccess = true;
+    this.snackbar.showError = false;
+    this.snackbar.showConfirm = false;
   }
 
   showConfirmSnackbar(message: string) {
-    if (this.snackbarTimer != null) {
-      clearTimeout(this.snackbarTimer);
-      this.snackbarTimer = null;
-      this.snackbar.showConfirm = false;
-    }
-    this.snackbarTimer = setTimeout(
-      () => (this.snackbar.showConfirm = false),
-      6000
-    );
     this.snackbar.confirmMessage = message;
     this.snackbar.showConfirm = true;
+    this.snackbar.showSuccess = false;
+    this.snackbar.showError = false;
   }
 
   clearSnackBars() {

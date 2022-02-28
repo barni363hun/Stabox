@@ -108,6 +108,7 @@ export class UserService {
           console.log(this.user);
           if (!this.isUser) {
             this.login();
+            location.reload();
           }
         },
         error: (err) => {

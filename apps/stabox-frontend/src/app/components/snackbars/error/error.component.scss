@@ -2,7 +2,25 @@
 
 .lightMode .snackBar {
   background-color: $bgColorWhite;
-  text-shadow: 2px 2px rgba($colorDarkGray, 0.15);
+}
+
+.lightMode .confirmSnackBar {
+  color: $colorLightBlue;
+  background-color: $bgColorWhite;
+}
+
+.lightMode .snackbarIconDiv:hover {
+  background-color: rgba($colorLightGray, 0.25);
+}
+
+.errorSnack {
+  color: $colorRed;
+}
+.successSnack {
+  color: $colorGreen;
+}
+.confirmSnack {
+  color: $colorBlue;
 }
 
 .snackBar {
@@ -21,6 +39,22 @@
   animation: snack 6s;
 }
 
+.confirmSnackBar {
+  position: absolute;
+  bottom: 1%;
+
+  width: fit-content;
+  height: fit-content;
+
+  background-color: $bgColorBlack;
+  border: 2px solid rgba($colorDarkGray, 0.15);
+  border-radius: 10px;
+  padding: 5px 25px 5px 25px;
+  font-size: 18px;
+
+  animation: confirmSnack 6s;
+}
+
 .snackbarText {
   margin: 0;
   display: inline-block;
@@ -31,17 +65,35 @@
   display: inline-block;
   vertical-align: middle;
   padding: 0;
-  margin: 0 5px 0 0;
 }
 
-.errorSnack {
-  color: $colorRed;
+.snackbarIconDiv {
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+  margin: 0 5px;
+  border-radius: 10px;
 }
-.successSnack {
+
+.snackbarIconDiv:hover {
+  background-color: rgba($colorDarkGray, 0.25);
+  cursor: pointer;
+}
+
+.confirmRow {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.confirmIcon {
+  transform: scale(1.15);
   color: $colorGreen;
 }
-.confirmSnack {
-  color: $colorLightBlue;
+
+.refuseIcon {
+  transform: scale(1.15);
+  color: $colorRed;
 }
 
 @keyframes snack {
@@ -58,5 +110,18 @@
   100% {
     bottom: -10%;
     display: none;
+  }
+}
+
+@keyframes confirmSnack {
+  0% {
+    bottom: -10%;
+    display: none;
+  }
+  10% {
+    bottom: 1%;
+  }
+  100% {
+    bottom: 1%;
   }
 }

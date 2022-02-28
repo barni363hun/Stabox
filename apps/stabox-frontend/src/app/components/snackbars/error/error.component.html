@@ -2,22 +2,32 @@
     <div class="unselectable">
         <div class="centerElements" *ngIf="snackbarService.snackbar.showError == true" (click)="dismiss()">
             <div class="snackBar errorSnack">
-                <mat-icon class="snackbarIcon">error_outline</mat-icon>
+                <mat-icon class="snackbarIcon me-2">error_outline</mat-icon>
                 <p class="snackbarText">{{snackbarService.snackbar.errorMessage}}</p>
             </div>
         </div>
 
         <div class="w-100 centerElements" *ngIf="snackbarService.snackbar.showSuccess == true" (click)="dismiss()">
             <div class="snackBar successSnack">
-                <mat-icon class="snackbarIcon">check_circle_outline</mat-icon>
+                <mat-icon class="snackbarIcon me-2">check_circle_outline</mat-icon>
                 <p class="snackbarText">{{snackbarService.snackbar.successMessage}}</p>
             </div>
         </div>
 
-        <div class="w-100 centerElements" *ngIf="snackbarService.snackbar.showConfirm == true" (click)="dismiss()">
-            <div class="snackBar confirmSnack">
-                <mat-icon class="snackbarIcon">help_outline</mat-icon>
-                <p class="snackbarText">{{snackbarService.snackbar.confirmMessage}}</p>
+        <div class="w-100 centerElements" *ngIf="snackbarService.snackbar.showConfirm == true">
+            <div class="confirmSnackBar confirmSnack">
+                <div class="centerElements">
+                    <mat-icon class="snackbarIcon me-2">help_outline</mat-icon>
+                    <p class="snackbarText">{{snackbarService.snackbar.confirmMessage}}</p>
+                </div>
+                <div class="centerElements">
+                    <div class="snackbarIconDiv centerElements" (click)="getResult(true)">
+                        <mat-icon class="snackbarIcon confirmIcon">done</mat-icon>
+                    </div>
+                    <div class="snackbarIconDiv centerElements" (click)="getResult(false)">
+                        <mat-icon class="snackbarIcon refuseIcon">close</mat-icon>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

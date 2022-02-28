@@ -33,13 +33,9 @@ export class AccountPageComponent implements OnInit {
 
   wantToBeShipper() {
     if (this.userService.isUser) {
-      if (confirm('Do you want to be a shipper?')) {
-        this.userService.beShipper();
-      } else {
-        alert('okaly');
-      }
+      this.snackbarService.showConfirmSnackbar('Do you want to be a shipper?');
     } else {
-      this.snackbarService.showErrorSnackbar('Fill in all your data, please.')
+      this.snackbarService.showErrorSnackbar('Fill in all your data, please.');
     }
   }
 

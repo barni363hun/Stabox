@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SnackbarService, ThemeService } from '../../../services';
+import { SnackbarService, ThemeService, UserService } from '../../../services';
 
 @Component({
   selector: 'stabox-error',
@@ -9,7 +9,8 @@ import { SnackbarService, ThemeService } from '../../../services';
 export class ErrorComponent implements OnInit {
   constructor(
     public snackbarService: SnackbarService,
-    public themeService: ThemeService
+    public themeService: ThemeService,
+    public userService: UserService
   ) {
     this.snackbarService.getSnackBar();
     this.themeService.getTheme();
@@ -19,5 +20,13 @@ export class ErrorComponent implements OnInit {
 
   dismiss() {
     this.snackbarService.clearSnackBars();
+  }
+
+  getResult(result: boolean) {
+    if (result) {
+      this.userService.beShipper();
+      location.reload();
+    }
+    this.snackbarService.snackbar.showConfirm = false;
   }
 }
