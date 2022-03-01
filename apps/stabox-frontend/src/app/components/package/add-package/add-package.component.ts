@@ -13,7 +13,7 @@ import {
 })
 export class AddPackageComponent implements OnInit {
   package: packageInterface = {
-    fragile: false,
+    fragile: true,
     size: '',
     weight: '',
     name: '',
@@ -29,7 +29,6 @@ export class AddPackageComponent implements OnInit {
   selectedAddress = 0;
 
   addresses: addressInterface[] = [];
-  recievers: recieverInterface[] = [];
 
   @Output() doneEvent = new EventEmitter();
   @Output() newRecieverEvent = new EventEmitter<string>();
@@ -37,31 +36,21 @@ export class AddPackageComponent implements OnInit {
   constructor(
     private packageService: PackageService,
     private addressService: AddressService,
-    private recieverService: RecieverService
-  ) {}
+    public recieverService: RecieverService
+  ) { }
 
   ngOnInit(): void {
     //get user's addresses
     this.addressService.getMyAddresses().subscribe({
       next: (res: any) => {
         this.addresses = res;
-        console.log(res);
       },
       error: (err: any) => {
         console.log(err);
       },
     });
 
-    //get user's recievers
-    this.recieverService.getRecievers().subscribe({
-      next: (res) => {
-        this.recievers = res;
-        console.log(res);
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
+    this.recieverService.refreshUserRecievers()
   }
 
   addReciever() {
@@ -74,9 +63,10 @@ export class AddPackageComponent implements OnInit {
 
   addPackage() {
     console.log('addpackage()');
-    if (!this.package.name.trim()) {
+    if (this.package.name.trim()) {
       this.package.size = this.sizeX + 'x' + this.sizeY + 'x' + this.sizeZ;
       this.package.weight = this.myWeight + this.selectedWeight;
+      console.log(this.package)
       this.packageService.addPackage({
         ...this.package,
         recieverId: Number(this.selectedReciever),

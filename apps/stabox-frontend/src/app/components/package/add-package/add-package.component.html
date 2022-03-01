@@ -1,4 +1,4 @@
-<div>
+<div style="display: block;">
   <table>
     <tr>
       <td style="text-align: end; padding-right: 15px">Name:</td>
@@ -9,54 +9,35 @@
     <tr>
       <td style="text-align: end; padding-right: 15px">Size:</td>
       <td>
-        <input
-          type="number"
-          style="width: 5em"
-          name="sizeX"
-          [(ngModel)]="sizeX"
-        />x
-        <input
-          type="number"
-          style="width: 5em"
-          name="sizeY"
-          [(ngModel)]="sizeY"
-        />x
-        <input
-          type="number"
-          style="width: 5em"
-          name="sizeZ"
-          [(ngModel)]="sizeZ"
-        />
+        <input type="number" min="0" style="width: 5em" name="sizeX" [(ngModel)]="sizeX" />x
+        <input type="number" min="0" style="width: 5em" name="sizeY" [(ngModel)]="sizeY" />x
+        <input type="number" min="0" style="width: 5em" name="sizeZ" [(ngModel)]="sizeZ" />
       </td>
     </tr>
     <tr>
       <td>Weight</td>
       <td>
-        <input
-          style="width: 6em"
-          type="number"
-          name="weight"
-          [(ngModel)]="myWeight"
-        />
-        <select>
-          <option (select)="selectedWeight = 'gramm'">gramm</option>
-          <option (select)="selectedWeight = 'gramm'">kilogramm</option>
+        <input style="width: 6em" type="number" min="0" name="weight" [(ngModel)]="myWeight" />
+        <select name="weightSelect" [(ngModel)]="selectedWeight">
+          <option value="gramm">gramm</option>
+          <option value="kilogramm">kilogramm</option>
         </select>
       </td>
     </tr>
     <tr>
       <td style="text-align: end; padding-right: 15px">Fragility</td>
       <td>
-        <select>
-          <option value="0">not fragile</option>
-          <option value="1">fragile</option>
+        <select name="fragility" [(ngModel)]="this.package.fragile">
+          <option [ngValue]="false">not fragile</option>
+          <option [ngValue]="true">fragile</option>
         </select>
       </td>
     </tr>
     <tr>
       <td style="text-align: end; padding-right: 15px">FromAddress</td>
       <td>
-        <select name="address" id="" [(ngModel)]="selectedAddress">
+        <select name="address" id="" [(ngModel)]="selectedAddress" [value]="0">
+          <option [ngValue]="0" selected>Choose an address</option>
           <option *ngFor="let address of addresses" [value]="address.id">
             {{ address.cityName }} {{ address.street }}
             {{ address.houseNumber }}
@@ -68,9 +49,9 @@
     <tr>
       <td style="text-align: end; padding-right: 15px">Reciever</td>
       <td>
-        <select name="reciever" id="" [(ngModel)]="selectedReciever">
-          <option value=""></option>
-          <option *ngFor="let reciever of recievers" [value]="reciever.id">
+        <select name="reciever" id="" [(ngModel)]="selectedReciever" [value]="0">
+          <option [ngValue]="0" selected>Choose a reciever</option>
+          <option *ngFor="let reciever of this.recieverService.userSRecievers" [value]="reciever.id">
             {{ reciever.firstName + ' ' + reciever.lastName }}
           </option>
         </select>

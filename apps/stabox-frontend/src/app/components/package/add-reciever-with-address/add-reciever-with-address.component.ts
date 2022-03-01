@@ -26,19 +26,20 @@ export class AddRecieverWithAddressComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private recieverService: RecieverService
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   done() {
     this.doneEvent.emit();
   }
 
-  addToDB() {
+  async addToDB() {
     console.log(this.reciever);
     this.done();
     if (this.checkInputs()) {
-      this.recieverService.addReciever(this.reciever);
+      await this.recieverService.addReciever(this.reciever);
+      this.recieverService.refreshUserRecievers();
     }
   }
 

@@ -13,6 +13,7 @@ export class RecieverService extends GenericService<recieverEntity> {
     super(recieverRepository);
   }
 
+
   async RecieveresByAddressIds(addressIds: number[]) {
     const recievers = await Promise.all(
       addressIds.map((id) => {
