@@ -21,7 +21,11 @@
 }
 
 .lightMode .group {
-  border-color: rgba($colorLightBlue, 0.15);
+  border-color: rgba($colorLightGray, 0.15);
+}
+
+.lightMode .deleteIconDiv:hover {
+  background-color: rgba($colorLightGray, 0.15);
 }
 
 .accountImageOutline {
@@ -62,7 +66,7 @@
   width: fit-content;
   background-color: transparent;
   border: 2px solid rgba($colorDarkGray, 0.15);
-  border-radius: 40px;
+  border-radius: 25px;
   padding: 15px;
   margin: 10px 0;
 }
@@ -93,11 +97,12 @@
   width: fit-content;
   position: relative;
   padding: 3px;
-  border-radius: 75px;
+  border-radius: 50px;
   margin: 0 auto;
 }
 
 .saveButtonOutline:hover .saveButton {
+  cursor: pointer;
   background: transparent;
   text-shadow: 1px 1px 4px rgba($colorBlack, 0.75);
 }
@@ -106,21 +111,39 @@
   background: $bgColorBlack;
   color: $colorWhite;
   border: none;
-  border-radius: 75px;
+  border-radius: 50px;
   font-size: 22px;
   padding: 1.5px 40px 1.5px 40px;
 }
 
-.disabled {
-  visibility: hidden;
+.dataInputDiv {
+  margin-top: -10px;
 }
 
 .deleteIcon {
   transform: scale(1.75);
 }
 
-.deleteIcon:hover {
+.deleteIconDiv {
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0 5px;
+}
+
+.deleteIconDiv:hover {
   cursor: pointer;
+  background-color: rgba($colorDarkGray, 0.25);
+}
+
+.group {
+  border: 2px solid rgba($colorDarkGray, 0.25);
+  border-radius: 15px;
+  padding: 5px 10% 5px 10%;
+  width: fit-content;
+  margin: 0 auto;
+  box-shadow: 0 2px 5px 0 rgba($colorDarkGray, 0.05);
 }
 
 @media only screen and (max-width: 1400px) {
@@ -148,6 +171,9 @@
   }
   .deleteIcon {
     transform: scale(1.5);
+  }
+  .deleteIconDiv {
+    padding: 8px;
   }
   .saveButton {
     font-size: 20px;
@@ -184,6 +210,9 @@
   .deleteIcon {
     transform: scale(1.35);
   }
+  .deleteIconDiv {
+    padding: 7px;
+  }
   .saveButton {
     font-size: 22px;
   }
@@ -198,6 +227,9 @@
   }
   .deleteIcon {
     transform: scale(1.1);
+  }
+  .deleteIconDiv {
+    padding: 6px;
   }
 }
 
@@ -256,12 +288,6 @@
   .bigBtnText {
     font-size: 18px;
   }
-  .group {
-    border: 2px solid rgba($colorLightYellow, 0.25);
-    border-radius: 15px;
-    margin-top: 5px;
-    padding: 5px;
-  }
   .saveButton {
     font-size: 18px;
   }
@@ -280,9 +306,6 @@
   }
   .title {
     font-size: 26px;
-  }
-  .accountDataInput {
-    font-size: 18px;
   }
   .bigBtnImg {
     height: 75px;
@@ -315,7 +338,10 @@
   .title {
     font-size: 22px;
   }
-  .accountDataInput {
-    font-size: 16px;
+  .group {
+    padding: 5px 5% 0 5%;
+  }
+  input {
+    font-size: 14px;
   }
 }

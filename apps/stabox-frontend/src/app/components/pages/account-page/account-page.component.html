@@ -51,7 +51,7 @@
 
                 <div class="accountDataDiv">
                   <div class="saveButtonOutline gradientBg unselectable" (click)="userService.update()">
-                    <button class="saveButton">Save</button>
+                    <div class="saveButton">Save</div>
                   </div>
                 </div>
               </div>
@@ -97,18 +97,18 @@
           <div class="col-xl-6 col-12 my-4 text-center">
             <p class="title gradient unselectable">Exchange</p>
             <app-divider></app-divider>
-            <div class="accountDataInputs">
-              <div class="row group centerElements" *ngFor="let EXDate of exchangeDateService.exchangeDates;index as EXindex">
+            <div class="dataInputDiv">
+              <div class="row mt-2 group centerElements" *ngFor="let EXDate of exchangeDateService.exchangeDates;index as EXindex">
                 <div class="col-12 p-0 m-0">
-                  <input class="w-75" type="datetime-local" [(ngModel)]="EXDate.startDate" />
+                  <input type="datetime-local" [(ngModel)]="EXDate.startDate" />
                 </div>
 
                 <div class="col-12 col-12 p-0 m-0">
-                  <input class="w-75" type="datetime-local" [(ngModel)]="EXDate.endDate" />
+                  <input type="datetime-local" [(ngModel)]="EXDate.endDate" />
                 </div>
 
                 <div class="col-12 p-0 m-0">
-                  <select class="w-50" (change)="exchangeDateService.selectChange($event, EXindex)">
+                  <select class="mb-2" (change)="exchangeDateService.selectChange($event, EXindex)">
                     <option value="0" selected disabled hidden>
                       {{ addressService.getAddressById(exchangeDateService.exchangeDates[EXindex].addressId).name }}
                     </option>
@@ -117,11 +117,11 @@
                     </option>
                   </select>
                 </div>
-                <div class="col-sm-1 col-12 centerElements">
+                <div class="col-sm-1 col-12 deleteIconDiv centerElements">
                   <mat-icon class="deleteIcon gradient" title="Save date" (click)="exchangeDateService.save(EXDate)">save</mat-icon>
                 </div>
-                <div class="col-sm-1 col-12 centerElements">
-                  <mat-icon class="deleteIcon gradient" (click)="exchangeDateService.delete(EXindex)" title="Remove date">delete</mat-icon>
+                <div class="col-sm-1 col-12 deleteIconDiv centerElements">
+                  <mat-icon class="deleteIcon gradient" title="Remove date" (click)="exchangeDateService.delete(EXindex)">delete</mat-icon>
                 </div>
               </div>
               <app-add-icon (click)="exchangeDateService.localeAddExchangeDate()"></app-add-icon>
@@ -131,7 +131,7 @@
           <div class="col-xl-6 col-12 my-4 text-center">
             <p class="title gradient unselectable">Addresses</p>
             <app-divider></app-divider>
-            <div class="accountDataInputs">
+            <div class="dataInputDiv">
               <div *ngFor="let address of addressService.addresses; index as i">
                 <stabox-address-input [myAddress]="address" [isReciever]="true" (saveAddressEvent)="addressService.save(address)"></stabox-address-input>
                 <div>
