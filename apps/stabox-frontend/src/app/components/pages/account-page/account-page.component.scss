@@ -20,10 +20,6 @@
   color: $colorWhite;
 }
 
-.lightMode .group {
-  border-color: rgba($colorLightGray, 0.15);
-}
-
 .lightMode .deleteIconDiv:hover {
   background-color: rgba($colorLightGray, 0.15);
 }
@@ -120,32 +116,6 @@
   margin-top: -10px;
 }
 
-.deleteIcon {
-  transform: scale(1.75);
-}
-
-.deleteIconDiv {
-  width: fit-content;
-  height: fit-content;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 0 5px;
-}
-
-.deleteIconDiv:hover {
-  cursor: pointer;
-  background-color: rgba($colorDarkGray, 0.25);
-}
-
-.group {
-  border: 2px solid rgba($colorDarkGray, 0.25);
-  border-radius: 15px;
-  padding: 5px 10% 5px 10%;
-  width: fit-content;
-  margin: 0 auto;
-  box-shadow: 0 2px 5px 0 rgba($colorDarkGray, 0.05);
-}
-
 @media only screen and (max-width: 1400px) {
   .accountImage {
     width: 350px;
@@ -165,15 +135,6 @@
   }
   .title {
     font-size: 36px;
-  }
-  input {
-    font-size: 20px;
-  }
-  .deleteIcon {
-    transform: scale(1.5);
-  }
-  .deleteIconDiv {
-    padding: 8px;
   }
   .saveButton {
     font-size: 20px;
@@ -203,10 +164,6 @@
   .title {
     font-size: 40px;
   }
-  input {
-    font-size: 24px;
-    width: 85%;
-  }
   .deleteIcon {
     transform: scale(1.35);
   }
@@ -224,12 +181,6 @@
   }
   .bigBtnText {
     font-size: 24px;
-  }
-  .deleteIcon {
-    transform: scale(1.1);
-  }
-  .deleteIconDiv {
-    padding: 6px;
   }
 }
 
@@ -279,9 +230,6 @@
   .title {
     font-size: 28px;
   }
-  input {
-    font-size: 18px;
-  }
   .bigBtnImg {
     height: 85px;
   }
@@ -322,9 +270,6 @@
   .title {
     font-size: 24px;
   }
-  input {
-    font-size: 16px;
-  }
   .saveButton {
     font-size: 14px;
   }
@@ -337,9 +282,6 @@
   }
   .title {
     font-size: 22px;
-  }
-  .group {
-    padding: 5px 5% 0 5%;
   }
   input {
     font-size: 14px;

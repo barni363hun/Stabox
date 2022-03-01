@@ -117,11 +117,13 @@
                     </option>
                   </select>
                 </div>
-                <div class="col-sm-1 col-12 deleteIconDiv centerElements">
-                  <mat-icon class="deleteIcon gradient" title="Save date" (click)="exchangeDateService.save(EXDate)">save</mat-icon>
+                <div class="dataIconDiv saveIconDiv centerElements">
+                  <mat-icon class="dataIcon gradient" title="Save" (click)="exchangeDateService.save(EXDate)">save</mat-icon>
+                  <p class="dataIconText saveIconText">Save</p>
                 </div>
-                <div class="col-sm-1 col-12 deleteIconDiv centerElements">
-                  <mat-icon class="deleteIcon gradient" title="Remove date" (click)="exchangeDateService.delete(EXindex)">delete</mat-icon>
+                <div class="dataIconDiv removeIconDiv centerElements">
+                  <mat-icon class="dataIcon gradient" title="Remove" (click)="exchangeDateService.delete(EXindex)">delete</mat-icon>
+                  <p class="dataIconText removeIconText">Delete</p>
                 </div>
               </div>
               <app-add-icon (click)="exchangeDateService.localeAddExchangeDate()"></app-add-icon>
@@ -132,10 +134,15 @@
             <p class="title gradient unselectable">Addresses</p>
             <app-divider></app-divider>
             <div class="dataInputDiv">
-              <div *ngFor="let address of addressService.addresses; index as i">
+              <div class="row mt-2 group centerElements" *ngFor="let address of addressService.addresses; index as i">
                 <stabox-address-input [myAddress]="address" [isReciever]="true" (saveAddressEvent)="addressService.save(address)"></stabox-address-input>
-                <div>
-                  <input type="button" value="delete" (click)="addressService.delete(i)" />
+                <div class="dataIconDiv saveIconDiv centerElements">
+                  <mat-icon class="dataIcon gradient" title="Save" (click)="addressService.save(address)">save</mat-icon>
+                  <p class="dataIconText saveIconText">Save</p>
+                </div>
+                <div class="dataIconDiv removeIconDiv centerElements">
+                  <mat-icon class="dataIcon gradient" title="Remove" (click)="addressService.delete(i)">delete</mat-icon>
+                  <p class="dataIconText removeIconText">Delete</p>
                 </div>
               </div>
               <app-add-icon (click)="addressService.localeAddAddress()"></app-add-icon>

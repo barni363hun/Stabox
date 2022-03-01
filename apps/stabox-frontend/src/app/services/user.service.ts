@@ -103,7 +103,7 @@ export class UserService {
         next: (res) => {
           cSuccess('user info updated');
           this.snackbarService.showSuccessSnackbar(
-            'User information updated successfully.'
+            'User information saved successfully.'
           );
           console.log(this.user);
           if (!this.isUser) {
@@ -118,21 +118,6 @@ export class UserService {
           cError(err.error.message);
         },
       });
-  }
-
-  private formatMessage(message: string) {
-    let messages: string[] = message.toString().split(',');
-    let errorMessage: string = '';
-    for (let index = 0; index < messages.length; index++) {
-      let message = messages[index];
-      const i = message.search(/[A-Z]/);
-      if (i != -1) {
-        message = message.replace(/[A-Z]/, ` ${message[i].toLowerCase()}`);
-      }
-      message = message.replace(message[0], message[0].toUpperCase());
-      errorMessage += message + '. ';
-    }
-    return errorMessage;
   }
 
   private getMyData(): Observable<userInterface> {
@@ -230,5 +215,20 @@ export class UserService {
           this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
+  }
+
+  private formatMessage(message: string) {
+    let messages: string[] = message.toString().split(',');
+    let errorMessage: string = '';
+    for (let index = 0; index < messages.length; index++) {
+      let message = messages[index];
+      const i = message.search(/[A-Z]/);
+      if (i != -1) {
+        message = message.replace(/[A-Z]/, ` ${message[i].toLowerCase()}`);
+      }
+      message = message.replace(message[0], message[0].toUpperCase());
+      errorMessage += message + '. ';
+    }
+    return errorMessage;
   }
 }
