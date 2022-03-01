@@ -12,6 +12,9 @@ export class MyPackagesPageComponent implements OnInit {
   _filterAllPackages = false;
   _filterToDeliver = false;
 
+  addPackageMode = false;
+  addRecieverMode = false;
+
   constructor(
     public packageService: PackageService,
     private vehicleService: VehicleService,

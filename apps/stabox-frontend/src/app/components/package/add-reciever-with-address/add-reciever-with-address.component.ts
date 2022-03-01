@@ -1,15 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { recieverWithAddress } from '@stabox/stabox-lib';
 import { RecieverService } from '../../../services/reciever.service';
 
 @Component({
   selector: 'stabox-add-reciever-with-address',
   templateUrl: './add-reciever-with-address.component.html',
-  styleUrls: ['./add-reciever-with-address.component.scss']
+  styleUrls: ['./add-reciever-with-address.component.scss'],
 })
 export class AddRecieverWithAddressComponent implements OnInit {
-
   reciever: recieverWithAddress = {
     firstName: '',
     lastName: '',
@@ -19,20 +18,27 @@ export class AddRecieverWithAddressComponent implements OnInit {
     zipCode: 0,
     cityName: '',
     street: '',
-    houseNumber: 0
-  }
+    houseNumber: 0,
+  };
 
+  @Output() doneEvent = new EventEmitter();
 
-  constructor(private http: HttpClient, private recieverService:RecieverService) { }
+  constructor(
+    private http: HttpClient,
+    private recieverService: RecieverService
+  ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  done() {
+    this.doneEvent.emit();
   }
 
   addToDB() {
     console.log(this.reciever);
-    
+    this.done();
     if (this.checkInputs()) {
-      this.recieverService.addReciever(this.reciever)
+      this.recieverService.addReciever(this.reciever);
     }
   }
 
@@ -47,6 +53,6 @@ export class AddRecieverWithAddressComponent implements OnInit {
     // if (!this.reciever.phoneNumber.trim()) return false;
     // if (!this.reciever.email.trim()) return false;
 
-    return true
+    return true;
   }
 }

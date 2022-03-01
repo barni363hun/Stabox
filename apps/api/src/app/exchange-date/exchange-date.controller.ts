@@ -117,6 +117,7 @@ export class ExchangeDateController {
         return this.exchangeDateService.update(body.id, {
           startDate: body.startDate,
           endDate: body.endDate,
+          addressId: body.addressId,
         });
       } else {
         throw new MethodNotAllowedException(

@@ -38,6 +38,9 @@ export class addressEntity implements addressInterface {
   @Column({ nullable: true })
   name: string;
 
+  @Column({ default: false })
+  isDeleted: boolean;
+
   //Relations
   @OneToMany(() => recieverEntity, (reciever) => reciever.address)
   recievers: recieverEntity[];

@@ -10,12 +10,12 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { IsNumber, IsString } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString, NotEquals } from 'class-validator';
 import { addressEntity } from '../../Entities';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
 import { Roles } from '../auth/roles.decorator';
 import { AddressService } from './address.service';
-import { IsNull } from 'typeorm';
+import { Not } from 'typeorm';
 
 class idDto {
   @IsNumber()
@@ -41,16 +41,22 @@ class myAddressDto {
   @IsNumber()
   id: number;
   @IsString()
+  @IsNotEmpty()
   country: string;
   @IsNumber()
+  @NotEquals(0)	
   zipCode: number;
   @IsString()
+  @IsNotEmpty()
   cityName: string;
   @IsString()
+  @IsNotEmpty()
   street: string;
   @IsString()
+  @IsNotEmpty()
   houseNumber: string;
   @IsString()
+  @IsNotEmpty()
   name: string;
 }
 
@@ -89,7 +95,7 @@ export class AddressController {
   @Get()
   getMyAddresses(@Req() req: authRequest): Promise<addressEntity[]> {
     return this.addressService.find({
-      where: { userId: req.user.sub },
+      where: { userId: req.user.sub, name: Not(''), isDeleted: false },
     });
   }
 
@@ -99,7 +105,7 @@ export class AddressController {
   @Get('/reciever')
   getMyRecieverAddresses(@Req() req: authRequest): Promise<addressEntity[]> {
     return this.addressService.find({
-      where: { userId: req.user.sub, name: !IsNull() },
+      where: { userId: req.user.sub, name: '', isDeleted: false },
     });
   }
 
@@ -108,9 +114,16 @@ export class AddressController {
   @Roles('user')
   @Delete()
   delete(@Req() req: authRequest, @Body() body: idDto) {
-    return this.addressService.getById(body.id).then((a) => {
+    return this.addressService.getById(body.id).then((a: addressEntity) => {
       if (a.userId == req.user.sub) {
-        return this.addressService.delete(body.id);
+        a.isDeleted = true;
+        return this.addressService.update(body.id, a).then(() => {
+          return this.addressService.delete(body.id);
+        });
+        // this.update(req, a)
+        // throw new MethodNotAllowedException(
+        //   'done'
+        // ); 
       } else {
         throw new MethodNotAllowedException(
           'You can only delete your own address'

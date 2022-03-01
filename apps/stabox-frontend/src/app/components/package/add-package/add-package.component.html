@@ -1,55 +1,85 @@
 <div>
-    <table>
-        <tr>
-            <td style="text-align: end; padding-right:15px;">Name:</td>
-            <td>
-                <input type="text" name="region" id="" [(ngModel)]="package.name">
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: end; padding-right:15px;">Size:</td>
-            <td>
-                <input type="text" name="size" id="" [(ngModel)]="package.size">
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: end; padding-right:15px;">Weight</td>
-            <td>
-                <input type="text" name="weight" id="" [(ngModel)]="package.weight">
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: end; padding-right:15px;">Fragility</td>
-            <td>
-                <select name="" id="">
-                    <option value="0">not fragile</option>
-                    <option value="1">fragile</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: end; padding-right:15px;">FromAddress</td>
-            <td>
-                <select name="address" id="" [(ngModel)]="selectedAddress">
-                    <option *ngFor="let address of addresses" [value]="address.id">{{address.name}}</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: end; padding-right:15px;">Reciever</td>
-            <td>
-                <select name="reciever" id="" [(ngModel)]="selectedReciever">
-                    <option *ngFor="let reciever of recievers" [value]="reciever.id">{{reciever.firstName+' '+reciever.lastName}}</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <button (click)="addPackage()" style="width: 100px;height: 100px;"> Add Package</button>
-        </tr>
-    </table>
-
-
-
-
-
+  <table>
+    <tr>
+      <td style="text-align: end; padding-right: 15px">Name:</td>
+      <td>
+        <input type="text" name="region" id="" [(ngModel)]="package.name" />
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: end; padding-right: 15px">Size:</td>
+      <td>
+        <input
+          type="number"
+          style="width: 5em"
+          name="sizeX"
+          [(ngModel)]="sizeX"
+        />x
+        <input
+          type="number"
+          style="width: 5em"
+          name="sizeY"
+          [(ngModel)]="sizeY"
+        />x
+        <input
+          type="number"
+          style="width: 5em"
+          name="sizeZ"
+          [(ngModel)]="sizeZ"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Weight</td>
+      <td>
+        <input
+          style="width: 6em"
+          type="number"
+          name="weight"
+          [(ngModel)]="myWeight"
+        />
+        <select>
+          <option (select)="selectedWeight = 'gramm'">gramm</option>
+          <option (select)="selectedWeight = 'gramm'">kilogramm</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: end; padding-right: 15px">Fragility</td>
+      <td>
+        <select>
+          <option value="0">not fragile</option>
+          <option value="1">fragile</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: end; padding-right: 15px">FromAddress</td>
+      <td>
+        <select name="address" id="" [(ngModel)]="selectedAddress">
+          <option *ngFor="let address of addresses" [value]="address.id">
+            {{ address.cityName }} {{ address.street }}
+            {{ address.houseNumber }}
+          </option>
+        </select>
+      </td>
+      <td><button routerLink="/account">Add new address</button></td>
+    </tr>
+    <tr>
+      <td style="text-align: end; padding-right: 15px">Reciever</td>
+      <td>
+        <select name="reciever" id="" [(ngModel)]="selectedReciever">
+          <option value=""></option>
+          <option *ngFor="let reciever of recievers" [value]="reciever.id">
+            {{ reciever.firstName + ' ' + reciever.lastName }}
+          </option>
+        </select>
+      </td>
+      <td><button (click)="addReciever()">Add new reciever</button></td>
+    </tr>
+    <tr>
+      <td><button (click)="addPackage()">Add Package</button></td>
+      <td><button (click)="done()">Cancel</button></td>
+    </tr>
+  </table>
 </div>
