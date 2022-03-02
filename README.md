@@ -58,6 +58,7 @@ Test:
 ### Build
 
 - `npx nx run api:build`
+- `npx nx run api:build --prod` (creates package.json too)
 - `npx nx run-many --target=build --projects=stabox-frontend,api`
 
 ### Other useful commands

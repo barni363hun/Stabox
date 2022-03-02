@@ -40,11 +40,11 @@ const config: MysqlConnectionOptions = {
   ],
 
   // We are using migrations, synchronize should be set to false.
-  synchronize: false,
+  synchronize: true,
 
   // Run migrations automatically,
   // you can disable this if you prefer running migration manually.
-  migrationsRun: true,
+  migrationsRun: false,
   logging: true,
   logger: 'file',
 
