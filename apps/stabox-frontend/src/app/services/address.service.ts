@@ -34,7 +34,7 @@ export class AddressService {
   }
 
   getMyAddresses(): Observable<any> {
-    return this.http.get(environment.apiURL + '/address/reciever');
+    return this.http.get(environment.apiURL + '/address');
   }
 
   localeAddAddress() {
