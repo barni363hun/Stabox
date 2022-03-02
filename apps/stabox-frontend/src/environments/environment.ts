@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   apiURL: 'http://localhost:7000/api',
   auth: {
     domain: 'barni363hun.eu.auth0.com',
