@@ -1,0 +1,34 @@
+{
+  "root": "apps/stabox-frontend-e2e",
+  "sourceRoot": "apps/stabox-frontend-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/stabox-frontend-e2e/cypress.json",
+        "devServerTarget": "stabox-frontend:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "stabox-frontend:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/stabox-frontend-e2e/**/*.{js,ts}"
+        ]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": [
+    "stabox-frontend"
+  ]
+}

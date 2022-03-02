@@ -1,0 +1,81 @@
+{
+  "root": "apps/stabox-frontend",
+  "sourceRoot": "apps/stabox-frontend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/stabox-frontend",
+        "index": "apps/stabox-frontend/src/index.html",
+        "baseHref": "/",
+        "main": "apps/stabox-frontend/src/main.tsx",
+        "polyfills": "apps/stabox-frontend/src/polyfills.ts",
+        "tsConfig": "apps/stabox-frontend/tsconfig.app.json",
+        "assets": [
+          "apps/stabox-frontend/src/_redirects",
+          "apps/stabox-frontend/src/favicon.ico",
+          "apps/stabox-frontend/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "apps/stabox-frontend/webpack.config.js"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/stabox-frontend/src/environments/environment.ts",
+              "with": "apps/stabox-frontend/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "stabox-frontend:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "stabox-frontend:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/stabox-frontend/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/stabox-frontend"
+      ],
+      "options": {
+        "jestConfig": "apps/stabox-frontend/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
