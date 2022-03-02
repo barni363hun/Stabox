@@ -1,0 +1,70 @@
+[2022-03-02T13:44:37.458Z][QUERY]: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'stabox' AND `TABLE_NAME` = 'migrations'
+[2022-03-02T13:44:37.495Z][QUERY]: SELECT * FROM `stabox`.`migrations` `migrations` ORDER BY `id` DESC
+[2022-03-02T13:46:00.373Z][QUERY]: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'stabox' AND `TABLE_NAME` = 'migrations'
+[2022-03-02T13:46:00.402Z][QUERY]: CREATE TABLE `migrations` (`id` int NOT NULL AUTO_INCREMENT, `timestamp` bigint NOT NULL, `name` varchar(255) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB
+[2022-03-02T13:46:00.439Z][QUERY]: SELECT * FROM `stabox`.`migrations` `migrations` ORDER BY `id` DESC
+[2022-03-02T14:01:05.292Z][QUERY]: START TRANSACTION
+[2022-03-02T14:01:05.299Z][QUERY]: SELECT DATABASE() AS `db_name`
+[2022-03-02T14:01:05.312Z][QUERY]: 
+                        SELECT `TABLE_SCHEMA`,
+                               `TABLE_NAME`
+                        FROM `INFORMATION_SCHEMA`.`TABLES`
+                        WHERE `TABLE_SCHEMA` = 'stabox'
+                          AND `TABLE_NAME` = 'reciever_entity'
+                     UNION 
+                        SELECT `TABLE_SCHEMA`,
+                               `TABLE_NAME`
+                        FROM `INFORMATION_SCHEMA`.`TABLES`
+                        WHERE `TABLE_SCHEMA` = 'stabox'
+                          AND `TABLE_NAME` = 'package_entity'
+                     UNION 
+                        SELECT `TABLE_SCHEMA`,
+                               `TABLE_NAME`
+                        FROM `INFORMATION_SCHEMA`.`TABLES`
+                        WHERE `TABLE_SCHEMA` = 'stabox'
+                          AND `TABLE_NAME` = 'vehicle_entity'
+                     UNION 
+                        SELECT `TABLE_SCHEMA`,
+                               `TABLE_NAME`
+                        FROM `INFORMATION_SCHEMA`.`TABLES`
+                        WHERE `TABLE_SCHEMA` = 'stabox'
+                          AND `TABLE_NAME` = 'transaction_entity'
+                     UNION 
+                        SELECT `TABLE_SCHEMA`,
+                               `TABLE_NAME`
+                        FROM `INFORMATION_SCHEMA`.`TABLES`
+                        WHERE `TABLE_SCHEMA` = 'stabox'
+                          AND `TABLE_NAME` = 'user_entity'
+                     UNION 
+                        SELECT `TABLE_SCHEMA`,
+                               `TABLE_NAME`
+                        FROM `INFORMATION_SCHEMA`.`TABLES`
+                        WHERE `TABLE_SCHEMA` = 'stabox'
+                          AND `TABLE_NAME` = 'address_entity'
+                     UNION 
+                        SELECT `TABLE_SCHEMA`,
+                               `TABLE_NAME`
+                        FROM `INFORMATION_SCHEMA`.`TABLES`
+                        WHERE `TABLE_SCHEMA` = 'stabox'
+                          AND `TABLE_NAME` = 'exchange_date_entity'
+                    
+[2022-03-02T14:01:05.387Z][QUERY]: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'stabox' AND `TABLE_NAME` = 'typeorm_metadata'
+[2022-03-02T14:01:05.412Z][QUERY]: CREATE TABLE `reciever_entity` (`id` int NOT NULL AUTO_INCREMENT, `addressId` int NOT NULL, `firstName` varchar(255) NOT NULL, `lastName` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `phoneNumber` varchar(255) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB
+[2022-03-02T14:01:05.562Z][QUERY]: CREATE TABLE `package_entity` (`id` int NOT NULL AUTO_INCREMENT, `userId` varchar(255) NOT NULL, `vehicleId` int NULL, `recieverId` int NOT NULL, `fromAddressId` int NOT NULL, `postDate` datetime NOT NULL, `shippingDate` datetime NOT NULL, `size` varchar(255) NOT NULL, `weight` varchar(255) NOT NULL, `fragile` tinyint NOT NULL, `price` int NOT NULL, `currentCity` int NOT NULL, `name` varchar(255) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB
+[2022-03-02T14:01:05.614Z][QUERY]: CREATE TABLE `vehicle_entity` (`id` int NOT NULL AUTO_INCREMENT, `userId` varchar(255) NOT NULL, `name` varchar(255) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB
+[2022-03-02T14:01:05.664Z][QUERY]: CREATE TABLE `transaction_entity` (`id` int NOT NULL AUTO_INCREMENT, `userId` varchar(255) NOT NULL, `amount` int NOT NULL, `direction` tinyint NOT NULL, `timeStamp` timestamp NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB
+[2022-03-02T14:01:05.701Z][QUERY]: CREATE TABLE `user_entity` (`id` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `username` varchar(255) NOT NULL, `firstName` varchar(255) NOT NULL, `lastName` varchar(255) NOT NULL, `phoneNumber` varchar(255) NOT NULL, `stabucks` int NOT NULL DEFAULT '0', UNIQUE INDEX `IDX_415c35b9b3b6fe45a3b065030f` (`email`), PRIMARY KEY (`id`)) ENGINE=InnoDB
+[2022-03-02T14:01:05.770Z][QUERY]: CREATE TABLE `address_entity` (`id` int NOT NULL AUTO_INCREMENT, `userId` varchar(255) NOT NULL, `country` varchar(255) NOT NULL, `zipCode` int NOT NULL, `cityName` varchar(255) NOT NULL, `street` varchar(255) NOT NULL, `houseNumber` varchar(255) NOT NULL, `name` varchar(255) NULL, `isDeleted` tinyint NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB
+[2022-03-02T14:01:05.852Z][QUERY]: CREATE TABLE `exchange_date_entity` (`id` int NOT NULL AUTO_INCREMENT, `addressId` int NOT NULL, `startDate` datetime NOT NULL, `endDate` datetime NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB
+[2022-03-02T14:01:05.901Z][QUERY]: ALTER TABLE `reciever_entity` ADD CONSTRAINT `FK_e8dfd16170c81efe4e4d99a4d9a` FOREIGN KEY (`addressId`) REFERENCES `address_entity`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+[2022-03-02T14:01:06.653Z][QUERY]: ALTER TABLE `package_entity` ADD CONSTRAINT `FK_878e69fc3477c36cac8a326e556` FOREIGN KEY (`vehicleId`) REFERENCES `vehicle_entity`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+[2022-03-02T14:01:06.653Z][QUERY]: ALTER TABLE `package_entity` ADD CONSTRAINT `FK_1b4d9df8976f8e6f3c43b7a5fe6` FOREIGN KEY (`userId`) REFERENCES `user_entity`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+[2022-03-02T14:01:06.654Z][QUERY]: ALTER TABLE `package_entity` ADD CONSTRAINT `FK_c75761408b7e6d8a1af22ef0f59` FOREIGN KEY (`recieverId`) REFERENCES `reciever_entity`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+[2022-03-02T14:01:06.654Z][QUERY]: ALTER TABLE `package_entity` ADD CONSTRAINT `FK_64ad65ae66d747d5a0985a3eb27` FOREIGN KEY (`fromAddressId`) REFERENCES `address_entity`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+[2022-03-02T14:01:07.626Z][QUERY]: ALTER TABLE `vehicle_entity` ADD CONSTRAINT `FK_46d788f355893d4c7f2068c4f14` FOREIGN KEY (`userId`) REFERENCES `user_entity`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+[2022-03-02T14:01:07.695Z][QUERY]: ALTER TABLE `transaction_entity` ADD CONSTRAINT `FK_d6703c8f1c01fde6ed20abb26eb` FOREIGN KEY (`userId`) REFERENCES `user_entity`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+[2022-03-02T14:01:07.759Z][QUERY]: ALTER TABLE `address_entity` ADD CONSTRAINT `FK_9ab5f1a587a098fe9084ee4766e` FOREIGN KEY (`userId`) REFERENCES `user_entity`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+[2022-03-02T14:01:07.823Z][QUERY]: ALTER TABLE `exchange_date_entity` ADD CONSTRAINT `FK_aaa4d5daa5f85a24d47129ff9b9` FOREIGN KEY (`addressId`) REFERENCES `address_entity`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+[2022-03-02T14:01:07.870Z][QUERY]: COMMIT
+[2022-03-02T14:01:07.872Z][QUERY]: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'stabox' AND `TABLE_NAME` = 'migrations'
+[2022-03-02T14:01:07.890Z][QUERY]: SELECT * FROM `stabox`.`migrations` `migrations` ORDER BY `id` DESC
