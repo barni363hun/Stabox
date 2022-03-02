@@ -117,12 +117,12 @@
                     </option>
                   </select>
                 </div>
-                <div class="dataIconDiv saveIconDiv centerElements">
-                  <mat-icon class="dataIcon gradient" title="Save" (click)="exchangeDateService.save(EXDate)">save</mat-icon>
+                <div class="dataIconDiv saveIconDiv centerElements" (click)="exchangeDateService.save(EXDate)">
+                  <mat-icon class="dataIcon gradient" title="Save">save</mat-icon>
                   <p class="dataIconText saveIconText">Save</p>
                 </div>
-                <div class="dataIconDiv removeIconDiv centerElements">
-                  <mat-icon class="dataIcon gradient" title="Remove" (click)="exchangeDateService.delete(EXindex)">delete</mat-icon>
+                <div class="dataIconDiv removeIconDiv centerElements" (click)="exchangeDateService.delete(EXindex)">
+                  <mat-icon class="dataIcon gradient" title="Remove">delete</mat-icon>
                   <p class="dataIconText removeIconText">Delete</p>
                 </div>
               </div>
@@ -136,12 +136,12 @@
             <div class="dataInputDiv">
               <div class="row mt-2 group centerElements" *ngFor="let address of addressService.addresses; index as i">
                 <stabox-address-input [myAddress]="address" [isReciever]="true" (saveAddressEvent)="addressService.save(address)"></stabox-address-input>
-                <div class="dataIconDiv saveIconDiv centerElements">
-                  <mat-icon class="dataIcon gradient" title="Save" (click)="addressService.save(address)">save</mat-icon>
+                <div class="dataIconDiv saveIconDiv centerElements" (click)="addressService.save(address)">
+                  <mat-icon class="dataIcon gradient" title="Save">save</mat-icon>
                   <p class="dataIconText saveIconText">Save</p>
                 </div>
-                <div class="dataIconDiv removeIconDiv centerElements">
-                  <mat-icon class="dataIcon gradient" title="Remove" (click)="addressService.delete(i)">delete</mat-icon>
+                <div class="dataIconDiv removeIconDiv centerElements" (click)="addressService.delete(i)">
+                  <mat-icon class="dataIcon gradient" title="Remove">delete</mat-icon>
                   <p class="dataIconText removeIconText">Delete</p>
                 </div>
               </div>
