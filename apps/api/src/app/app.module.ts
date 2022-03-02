@@ -13,14 +13,10 @@ import { RecieverModule } from './reciever/reciever.module';
 import { PackageModule } from './package/package.module';
 import ormconfig = require('./ormconfig');
 
-const APP_ENV = process.env.APP_ENV || 'local';
-
 @Module({
   imports: [
     AuthModule,
-    ConfigModule.forRoot({
-      envFilePath: `.env.${APP_ENV}`,
-    }),
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot(ormconfig),
     UserModule,
     ExchangeDateModule,

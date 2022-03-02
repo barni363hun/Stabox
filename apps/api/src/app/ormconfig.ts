@@ -18,13 +18,13 @@ import {
 // ...
 
 // Check typeORM documentation for more information.
-const ormconfig: MysqlConnectionOptions = {
+const config: MysqlConnectionOptions = {
   type: 'mysql',
-  host: process.env.TYPEORM_HOST,
-  port: Number(process.env.TYPEORM_PORT),
-  username: process.env.TYPEORM_USERNAME,
-  password: process.env.TYPEORM_PASSWORD,
-  database: process.env.TYPEORM_DATABASE,
+  host: 'localhost',
+  port: 3306,
+  username: 'root',
+  password: 'Abc123456',
+  database: 'stabox',
   entities: [
     userEntity,
     addressEntity,
@@ -36,21 +36,21 @@ const ormconfig: MysqlConnectionOptions = {
   ],
 
   // We are using migrations, synchronize should be set to false.
-  synchronize: process.env.TYPEORM_SYNCHRONIZE == 'true',
+  synchronize: false,
 
   // Run migrations automatically,
   // you can disable this if you prefer running migration manually.
   migrationsRun: true,
-  logging: process.env.TYPEORM_LOGGING == 'true',
+  logging: true,
   logger: 'file',
 
   // allow both start:prod and start:dev to use migrations
   // __dirname is either dist or src folder, meaning either
   // the compiled js in prod or the ts in dev
-  // migrations: ['dist/src/migrations/**/*{.ts,.js}'],
-  // cli: {
-  //   migrationsDir: 'src/migrations',
-  // },
+  migrations: ['dist/src/migrations/**/*{.ts,.js}'],
+  cli: {
+    migrationsDir: 'src/migrations',
+  },
 };
 
-export = ormconfig;
+export = config;

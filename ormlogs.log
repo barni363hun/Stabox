@@ -68,3 +68,452 @@
 [2022-03-02T14:01:07.870Z][QUERY]: COMMIT
 [2022-03-02T14:01:07.872Z][QUERY]: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'stabox' AND `TABLE_NAME` = 'migrations'
 [2022-03-02T14:01:07.890Z][QUERY]: SELECT * FROM `stabox`.`migrations` `migrations` ORDER BY `id` DESC
+[2022-03-02T14:31:37.119Z][QUERY]: START TRANSACTION
+[2022-03-02T14:31:37.138Z][QUERY]: SELECT DATABASE() AS `db_name`
+[2022-03-02T14:31:37.146Z][QUERY]: 
+                        SELECT `TABLE_SCHEMA`,
+                               `TABLE_NAME`
+                        FROM `INFORMATION_SCHEMA`.`TABLES`
+                        WHERE `TABLE_SCHEMA` = 'stabox'
+                          AND `TABLE_NAME` = 'reciever_entity'
+                     UNION 
+                        SELECT `TABLE_SCHEMA`,
+                               `TABLE_NAME`
+                        FROM `INFORMATION_SCHEMA`.`TABLES`
+                        WHERE `TABLE_SCHEMA` = 'stabox'
+                          AND `TABLE_NAME` = 'package_entity'
+                     UNION 
+                        SELECT `TABLE_SCHEMA`,
+                               `TABLE_NAME`
+                        FROM `INFORMATION_SCHEMA`.`TABLES`
+                        WHERE `TABLE_SCHEMA` = 'stabox'
+                          AND `TABLE_NAME` = 'vehicle_entity'
+                     UNION 
+                        SELECT `TABLE_SCHEMA`,
+                               `TABLE_NAME`
+                        FROM `INFORMATION_SCHEMA`.`TABLES`
+                        WHERE `TABLE_SCHEMA` = 'stabox'
+                          AND `TABLE_NAME` = 'transaction_entity'
+                     UNION 
+                        SELECT `TABLE_SCHEMA`,
+                               `TABLE_NAME`
+                        FROM `INFORMATION_SCHEMA`.`TABLES`
+                        WHERE `TABLE_SCHEMA` = 'stabox'
+                          AND `TABLE_NAME` = 'user_entity'
+                     UNION 
+                        SELECT `TABLE_SCHEMA`,
+                               `TABLE_NAME`
+                        FROM `INFORMATION_SCHEMA`.`TABLES`
+                        WHERE `TABLE_SCHEMA` = 'stabox'
+                          AND `TABLE_NAME` = 'address_entity'
+                     UNION 
+                        SELECT `TABLE_SCHEMA`,
+                               `TABLE_NAME`
+                        FROM `INFORMATION_SCHEMA`.`TABLES`
+                        WHERE `TABLE_SCHEMA` = 'stabox'
+                          AND `TABLE_NAME` = 'exchange_date_entity'
+                    
+[2022-03-02T14:31:37.153Z][QUERY]: 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'reciever_entity'
+                 UNION 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'package_entity'
+                 UNION 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'vehicle_entity'
+                 UNION 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'transaction_entity'
+                 UNION 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'user_entity'
+                 UNION 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'address_entity'
+                 UNION 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'exchange_date_entity'
+                
+[2022-03-02T14:31:37.154Z][QUERY]: SELECT * FROM (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'reciever_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'package_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'vehicle_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'transaction_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'user_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'address_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'exchange_date_entity'
+            ) `kcu` WHERE `CONSTRAINT_NAME` = 'PRIMARY'
+[2022-03-02T14:31:37.155Z][QUERY]: 
+            SELECT
+                `SCHEMA_NAME`,
+                `DEFAULT_CHARACTER_SET_NAME` as `CHARSET`,
+                `DEFAULT_COLLATION_NAME` AS `COLLATION`
+            FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+            
+[2022-03-02T14:31:37.155Z][QUERY]: 
+            SELECT
+                `s`.*
+            FROM (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'reciever_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'package_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'vehicle_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'transaction_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'user_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'address_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'exchange_date_entity'
+            ) `s`
+            LEFT JOIN (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'reciever_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'package_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'vehicle_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'transaction_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'user_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'address_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'exchange_date_entity'
+            ) `rc`
+                ON
+                    `s`.`INDEX_NAME` = `rc`.`CONSTRAINT_NAME`
+                    AND
+                    `s`.`TABLE_SCHEMA` = `rc`.`CONSTRAINT_SCHEMA`
+            WHERE
+                `s`.`INDEX_NAME` != 'PRIMARY'
+                AND
+                `rc`.`CONSTRAINT_NAME` IS NULL
+            
+[2022-03-02T14:31:37.156Z][QUERY]: 
+            SELECT
+                `kcu`.`TABLE_SCHEMA`,
+                `kcu`.`TABLE_NAME`,
+                `kcu`.`CONSTRAINT_NAME`,
+                `kcu`.`COLUMN_NAME`,
+                `kcu`.`REFERENCED_TABLE_SCHEMA`,
+                `kcu`.`REFERENCED_TABLE_NAME`,
+                `kcu`.`REFERENCED_COLUMN_NAME`,
+                `rc`.`DELETE_RULE` `ON_DELETE`,
+                `rc`.`UPDATE_RULE` `ON_UPDATE`
+            FROM (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'reciever_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'package_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'vehicle_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'transaction_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'user_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'address_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'stabox'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'exchange_date_entity'
+            ) `kcu`
+            INNER JOIN (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'reciever_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'package_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'vehicle_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'transaction_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'user_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'address_entity'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'stabox'
+                    AND
+                    `TABLE_NAME` = 'exchange_date_entity'
+            ) `rc`
+                ON
+                    `rc`.`CONSTRAINT_SCHEMA` = `kcu`.`CONSTRAINT_SCHEMA`
+                    AND
+                    `rc`.`TABLE_NAME` = `kcu`.`TABLE_NAME`
+                    AND
+                    `rc`.`CONSTRAINT_NAME` = `kcu`.`CONSTRAINT_NAME`
+            
+[2022-03-02T14:31:37.264Z][QUERY]: SELECT VERSION() AS `version`
+[2022-03-02T14:31:37.275Z][QUERY]: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'stabox' AND `TABLE_NAME` = 'typeorm_metadata'
+[2022-03-02T14:31:37.299Z][QUERY]: ALTER TABLE `package_entity` DROP FOREIGN KEY `FK_878e69fc3477c36cac8a326e556`
+[2022-03-02T14:31:37.338Z][QUERY]: ALTER TABLE `package_entity` CHANGE `vehicleId` `vehicleId` int NULL
+[2022-03-02T14:31:37.362Z][QUERY]: ALTER TABLE `transaction_entity` CHANGE `timeStamp` `timeStamp` timestamp NOT NULL
+[2022-03-02T14:31:37.405Z][QUERY]: ALTER TABLE `address_entity` CHANGE `name` `name` varchar(255) NULL
+[2022-03-02T14:31:37.447Z][QUERY]: ALTER TABLE `package_entity` ADD CONSTRAINT `FK_878e69fc3477c36cac8a326e556` FOREIGN KEY (`vehicleId`) REFERENCES `vehicle_entity`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+[2022-03-02T14:31:37.539Z][QUERY]: COMMIT
+[2022-03-02T14:31:37.542Z][QUERY]: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'stabox' AND `TABLE_NAME` = 'migrations'
+[2022-03-02T14:31:37.556Z][QUERY]: SELECT * FROM `stabox`.`migrations` `migrations` ORDER BY `id` DESC
+[2022-03-02T14:35:43.923Z][QUERY]: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'stabox' AND `TABLE_NAME` = 'migrations'
+[2022-03-02T14:35:43.959Z][QUERY]: SELECT * FROM `stabox`.`migrations` `migrations` ORDER BY `id` DESC
+[2022-03-02T14:36:01.258Z][QUERY]: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'stabox' AND `TABLE_NAME` = 'migrations'
+[2022-03-02T14:36:01.283Z][QUERY]: SELECT * FROM `stabox`.`migrations` `migrations` ORDER BY `id` DESC
+[2022-03-02T14:37:09.318Z][QUERY]: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'stabox' AND `TABLE_NAME` = 'migrations'
+[2022-03-02T14:37:09.350Z][QUERY]: SELECT * FROM `stabox`.`migrations` `migrations` ORDER BY `id` DESC
+[2022-03-02T14:39:50.489Z][QUERY]: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'stabox' AND `TABLE_NAME` = 'migrations'
+[2022-03-02T14:39:50.513Z][QUERY]: SELECT * FROM `stabox`.`migrations` `migrations` ORDER BY `id` DESC
