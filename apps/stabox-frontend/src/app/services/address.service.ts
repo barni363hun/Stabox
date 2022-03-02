@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { cError, cSuccess, addressInterface } from '@stabox/stabox-lib';
 import { Observable } from 'rxjs';
-import { UserService } from '.';
+import { ExchangeDateService, UserService } from '.';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -10,7 +10,9 @@ import { environment } from '../../environments/environment';
 })
 export class AddressService {
   addresses: addressInterface[] = [];
-  constructor(private userService: UserService, private http: HttpClient) {
+  constructor(private userService: UserService,
+    private exchangeDateService:ExchangeDateService,
+     private http: HttpClient) {
     this.getAddresses();
   }
 
@@ -124,10 +126,12 @@ export class AddressService {
         next: (res) => {
           cSuccess('address ' + id + ' deleted');
           console.log(this.addresses);
+          this.exchangeDateService.getExchangeDates();
           this.getAddresses();
         },
         error: (err) => {
           cError(err.error.message);
+          this.exchangeDateService.getExchangeDates();
           this.getAddresses();
         },
       });
