@@ -45,7 +45,7 @@ const config: MysqlConnectionOptions = {
   // Run migrations automatically,
   // you can disable this if you prefer running migration manually.
   migrationsRun: false,
-  logging: true,
+  logging: false,
   logger: 'file',
 
   // allow both start:prod and start:dev to use migrations

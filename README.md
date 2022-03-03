@@ -46,7 +46,7 @@ Frontend _(you can reach it on http://localhost:4200/)_:
 
 - `npx nx serve stabox-frontend`
 
-Backend _(you can reach it on http://localhost:3333/)_:
+Backend _(you can reach it on http://localhost:7000/)_:
 
 - `npx nx serve api`
 
