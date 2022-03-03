@@ -1,0 +1,98 @@
+@import './../../../app.component.scss';
+
+.package {
+  width: 25%;
+  height: fit-content;
+
+  background-color: rgba($colorDarkGray, 0.25);
+  border-radius: 25px;
+
+  padding: 10px 25px 10px 25px;
+}
+
+.underline {
+  height: 3px;
+  width: 95%;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+select,
+input {
+  font-size: 20px;
+}
+
+.packageTextDiv {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin: 0;
+  padding: 0;
+}
+
+.packageText {
+  margin: 0 20px 0 0;
+  display: inline;
+  font-size: 20px;
+}
+
+.packageInputDiv {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin: 0;
+  padding: 0;
+}
+
+.dataInput {
+  font-size: 20px;
+  padding-left: 10px;
+  text-align: center;
+}
+
+.sizeInput {
+  width: 30%;
+  padding-left: 0;
+}
+
+.weightInput {
+  width: 75%;
+  text-align: left;
+}
+
+.weightSelect {
+  width: 25%;
+}
+
+.fragilitySelect {
+  width: 50%;
+}
+
+.addressSelect {
+  width: 100%;
+}
+
+.addIcon {
+  transform: scale(1.25);
+}
+
+.iconBg {
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+  margin: 0 10px;
+  border-radius: 50%;
+}
+
+.iconBg:hover {
+  cursor: pointer;
+  background-color: rgba($colorDarkGray, 0.35);
+}
+
+.btn {
+  background-color: $colorDarkGray;
+  color: $colorWhite;
+  border-radius: 25px;
+  margin: 0 10px;
+  text-shadow: 1px 1px 1px rgba($colorBlack, 0.5);
+}

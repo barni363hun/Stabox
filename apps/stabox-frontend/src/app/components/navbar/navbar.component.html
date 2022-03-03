@@ -22,9 +22,10 @@
         </button>
 
         <div class="collapse navbar-collapse navBarList" id="navbarNav">
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav ms-5 me-auto">
                 <li class="nav-item me-3" *ngIf="userService.userLoggedIn()">
-                    <a class="mt-1 navText" routerLink="/packages">Packages</a>
+                    <img class="navIcon" src="../../../assets/images/DarkMode/BoxIcon.svg">
+                    <a class="mt-1 navText" routerLink="/packages" routerLinkActive="activeLink">Packages</a>
                     <div class="navUnderline gradientBg"></div>
                 </li>
             </ul>

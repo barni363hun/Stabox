@@ -1,0 +1,44 @@
+@import './../../../app.component.scss';
+
+.filter {
+  text-align: center;
+  font-size: 28px;
+}
+
+.filter p:hover {
+  cursor: pointer;
+}
+
+.filter p:hover + .navUnderline {
+  transition: 0.35s;
+  width: 100%;
+}
+
+.filterItem {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.editPackages {
+  margin-top: 25px;
+}
+
+.addIcon {
+  transform: scale(1.65);
+}
+
+.editIcon {
+  transform: scale(1.35);
+}
+
+.iconBg {
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.iconBg:hover {
+  cursor: pointer;
+  background-color: rgba($colorDarkGray, 0.35);
+}

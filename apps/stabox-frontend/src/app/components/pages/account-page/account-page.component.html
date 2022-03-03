@@ -119,11 +119,11 @@
                 </div>
                 <div class="dataIconDiv saveIconDiv centerElements" (click)="exchangeDateService.save(EXDate)">
                   <mat-icon class="dataIcon gradient" title="Save">save</mat-icon>
-                  <p class="dataIconText saveIconText">Save</p>
+                  <p class="dataIconText saveIconText unselectable">Save</p>
                 </div>
                 <div class="dataIconDiv removeIconDiv centerElements" (click)="exchangeDateService.delete(EXindex)">
                   <mat-icon class="dataIcon gradient" title="Remove">delete</mat-icon>
-                  <p class="dataIconText removeIconText">Delete</p>
+                  <p class="dataIconText removeIconText unselectable">Delete</p>
                 </div>
               </div>
               <app-add-icon (click)="exchangeDateService.localeAddExchangeDate()"></app-add-icon>
@@ -138,11 +138,11 @@
                 <stabox-address-input [myAddress]="address" [isReciever]="true" (saveAddressEvent)="addressService.save(address)"></stabox-address-input>
                 <div class="dataIconDiv saveIconDiv centerElements" (click)="addressService.save(address)">
                   <mat-icon class="dataIcon gradient" title="Save">save</mat-icon>
-                  <p class="dataIconText saveIconText">Save</p>
+                  <p class="dataIconText saveIconText unselectable">Save</p>
                 </div>
                 <div class="dataIconDiv removeIconDiv centerElements" (click)="addressService.delete(i)">
                   <mat-icon class="dataIcon gradient" title="Remove">delete</mat-icon>
-                  <p class="dataIconText removeIconText">Delete</p>
+                  <p class="dataIconText removeIconText unselectable">Delete</p>
                 </div>
               </div>
               <app-add-icon (click)="addressService.localeAddAddress()"></app-add-icon>

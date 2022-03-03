@@ -153,6 +153,16 @@ $shadeColor: black;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.gradientBgRed {
+  background: linear-gradient(to right, $colorRed 40%, $colorDarkRed);
+}
+.navUnderline {
+  transition: 0.35s;
+  width: 0;
+  height: 3px;
+  margin: 0 auto -10px auto;
+  border-radius: 10px;
+}
 a {
   text-decoration: none;
   color: $colorWhite;
@@ -167,6 +177,11 @@ input {
   background: transparent;
   color: $colorWhite;
   width: 100%;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 input:focus {
   opacity: 1;

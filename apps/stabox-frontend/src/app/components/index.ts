@@ -36,5 +36,6 @@ export * from './pages/mainpage/second-card/second-card.component';
 export * from './pages/mainpage/third-card/third-card.component';
 
 export * from './pages/my-packages-page/my-packages-page.component';
+export * from './pages/packages-page/packages-page.component';
 
 export * from './snackbar/snackbar.component';

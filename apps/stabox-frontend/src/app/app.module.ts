@@ -41,6 +41,7 @@ import {
   MyPackagesPageComponent,
   SnackbarComponent,
 } from './components';
+import { PackagesPageComponent } from './components/pages/packages-page/packages-page.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import {
     SnackbarComponent,
     NavbarComponent,
     AddressInputComponent,
+    PackagesPageComponent,
   ],
   imports: [
     GooglePlaceModule,

@@ -52,6 +52,13 @@
   padding-top: 3px;
 }
 
+.navIcon {
+  width: 35px;
+  height: 35px;
+  display: inline;
+  margin-bottom: 12px;
+}
+
 .navText {
   font-size: 28px;
   color: $colorWhite;
@@ -59,17 +66,17 @@
   margin: 0 10px 0 10px;
 }
 
-.navText:hover ~ .navUnderline {
-  transition: 0.35s;
+.activeLink + .navUnderline {
   width: 100%;
 }
 
-.navUnderline {
+li:hover {
+  cursor: pointer;
+}
+
+li:hover .navUnderline {
   transition: 0.35s;
-  width: 0;
-  height: 3px;
-  margin: 0 auto;
-  border-radius: 10px;
+  width: 100%;
 }
 
 .logo {
