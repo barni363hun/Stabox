@@ -24,11 +24,11 @@ import {
 // Check typeORM documentation for more information.
 const config: MysqlConnectionOptions = {
   type: 'mysql',
-  host: 'localhost',
+  host: 'eu-cdbr-west-02.cleardb.net',
   port: 3306,
-  username: 'root',
-  password: 'Abc123456',
-  database: 'stabox',
+  username: 'ba26dd00a399fa',
+  password: 'c2095f8f',
+  database: 'heroku_eb31e99ed1af12a',
   entities: [
     userEntity,
     addressEntity,
