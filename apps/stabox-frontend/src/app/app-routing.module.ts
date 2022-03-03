@@ -36,10 +36,7 @@ const routes: Routes = [
     component: MyPackagesPageComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'test1', component: AddRecieverWithAddressComponent },
-  { path: 'test', component: AddPackageComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: '**', component: MainpageComponent },
 ];
 
 @NgModule({
