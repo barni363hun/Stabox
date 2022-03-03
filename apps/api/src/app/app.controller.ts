@@ -14,6 +14,12 @@ export class AppController {
     return req.user;
   }
 
+  //simple test
+  @Get('test')
+  test() {
+    return "workss";
+  }
+
   //needs admin role
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('admin')

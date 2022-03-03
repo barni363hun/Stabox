@@ -713,6 +713,10 @@ let AppController = class AppController {
     getData(req) {
         return req.user;
     }
+    //simple test
+    test() {
+        return "workss";
+    }
     //needs admin role
     getCat() {
         return this.appService.getCat();
@@ -729,6 +733,12 @@ let AppController = class AppController {
     (0, tslib_1.__metadata)("design:paramtypes", [typeof (_a = typeof auth_1.authRequest !== "undefined" && auth_1.authRequest) === "function" ? _a : Object]),
     (0, tslib_1.__metadata)("design:returntype", void 0)
 ], AppController.prototype, "getData", null);
+(0, tslib_1.__decorate)([
+    (0, common_1.Get)('test'),
+    (0, tslib_1.__metadata)("design:type", Function),
+    (0, tslib_1.__metadata)("design:paramtypes", []),
+    (0, tslib_1.__metadata)("design:returntype", void 0)
+], AppController.prototype, "test", null);
 (0, tslib_1.__decorate)([
     (0, common_1.UseGuards)(auth_1.AuthGuard, auth_1.RoleGuard),
     (0, roles_decorator_1.Roles)('admin'),
