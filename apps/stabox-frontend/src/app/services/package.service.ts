@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class PackageService {
   private route: '/package/myPackages' | '/package/acceptable' | '/package/accepted' = '/package/myPackages';
 
   finishPackage(id: any) {
-    return this.http.post(environment.apiURL + '/package/shipped', { id: id }).subscribe(
+    this.http.post(environment.apiURL + '/package/shipped', { id: id }).subscribe(
       {
         next: (res) => {
           console.log(res);
@@ -24,11 +24,7 @@ export class PackageService {
   }
   postPackage(id: any, vehicleId: number, postDate: any) {
     this.http.patch(environment.apiURL + '/package',
-      {
-        id,
-        vehicleId,
-        postDate
-      }).subscribe(
+      { id, vehicleId, postDate }).subscribe(
         {
           next: (res) => {
             console.log(res);
@@ -43,24 +39,15 @@ export class PackageService {
     this.update()
   }
 
-
   getMypackages(): Observable<any> {
     return this.http.get(environment.apiURL + this.route)
   }
 
-
-  addPackage(_package: packageInterface) {
-    this.http.put(environment.apiURL + '/package/add', _package).subscribe({
-      next: (res) => {
-        console.log(res);
-
-      },
-      error: (err) => console.log(err)
-    })
+  async addPackage(_package: packageInterface) {
+    await firstValueFrom(this.http.put(environment.apiURL + '/package/add', _package)).catch(err => console.log(err))
+    this.update()
   }
-  acceptPackage(id: number | string) {
-    //todo accept package
-  }
+
   update(route: typeof this.route = this.route) {
     this.route = route
     this.getMypackages().subscribe((res) => {

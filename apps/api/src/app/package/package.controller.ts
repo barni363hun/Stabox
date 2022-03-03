@@ -10,7 +10,7 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { IsBoolean, IsDateString, IsNumber, IsString } from 'class-validator';
+import { IsBoolean, IsDateString, IsNumber, IsString, Matches } from 'class-validator';
 import { Not } from 'typeorm';
 import { packageEntity } from '../../Entities';
 import { AddressService } from '../address/address.service';
@@ -34,8 +34,10 @@ class idDateDto {
 
 class packageDto {
   @IsString()
+  @Matches('[0-9]+x[0-9]+x[0-9]+')
   size: string;
   @IsString()
+  @Matches('([0-9]+gramm|[0-9]+kilogramm)')
   weight: string;
   @IsBoolean()
   fragile: boolean;

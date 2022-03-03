@@ -92,8 +92,8 @@
                 <div class="col-6">
                     <select name="exchangeDates" id="exchangeDates" [(ngModel)]="selectedExchangeDate">
                         <option *ngFor="let exDate of exchangeDates" [value]="exDate.id">
-                            {{exDate.startDate.toLocaleString() | date:'yyyy/MM/dd hh:mm'}} -
-                            {{exDate.startDate.toString() | date:'yyyy/MM/dd hh:mm'}}
+                            {{exDate.startDate.toLocaleString() | date:'yyyy/MM/dd H:mm'}} -
+                            {{exDate.endDate.toString() | date:'yyyy/MM/dd H:mm'}}
                         </option>
                     </select>
                 </div>
