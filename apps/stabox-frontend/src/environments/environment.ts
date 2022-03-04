@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://localhost/api',
+  apiURL: 'https://stabox.herokuapp.com/api',
   auth: {
     domain: 'barni363hun.eu.auth0.com',
     clientId: '70x759xfYo7pvQS39ptmBpnpBRv8MUkA',

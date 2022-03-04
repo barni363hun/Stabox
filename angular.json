@@ -22,7 +22,7 @@
               "apps/api/src/assets",
               {
                 "glob": ".env",
-                "input": "apps/api",
+                "input": ".",
                 "output": "."
               }
             ]
