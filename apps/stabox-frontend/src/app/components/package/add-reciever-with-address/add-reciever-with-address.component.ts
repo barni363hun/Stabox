@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { recieverWithAddress } from '@stabox/stabox-lib';
+import { ThemeService } from '../../../services';
 import { RecieverService } from '../../../services/reciever.service';
 
 @Component({
@@ -25,10 +26,11 @@ export class AddRecieverWithAddressComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private recieverService: RecieverService
-  ) { }
+    private recieverService: RecieverService,
+    public themeService: ThemeService
+  ) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   done() {
     this.doneEvent.emit();

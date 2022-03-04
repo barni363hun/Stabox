@@ -1,4 +1,4 @@
-@import '../../../../styles/settings/variables';
+@import '../../../app.component.scss';
 
 .lightMode .signInBtnIcon {
   color: $colorDarkGray;
@@ -24,8 +24,7 @@
 .outline {
   width: fit-content;
   position: relative;
-  background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow);
-  padding: 5px;
+  padding: 4px;
   border-radius: 75px;
 }
 
