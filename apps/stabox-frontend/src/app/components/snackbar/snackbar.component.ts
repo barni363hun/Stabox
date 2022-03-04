@@ -4,16 +4,14 @@ import { SnackbarService, ThemeService, UserService } from '../../services';
 @Component({
   selector: 'stabox-snackbar',
   templateUrl: './snackbar.component.html',
-  styleUrls: ['./snackbar.component.scss']
+  styleUrls: ['./snackbar.component.scss'],
 })
 export class SnackbarComponent implements OnInit {
   constructor(
     public snackbarService: SnackbarService,
     public themeService: ThemeService,
     public userService: UserService
-  ) {
-    this.themeService.getTheme();
-  }
+  ) {}
 
   ngOnInit(): void {}
 

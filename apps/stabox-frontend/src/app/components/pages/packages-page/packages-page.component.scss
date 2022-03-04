@@ -1,5 +1,14 @@
 @import './../../../app.component.scss';
 
+.lightMode .iconBg:hover {
+  background-color: rgba($colorLightGray, 0.25);
+}
+
+.packagesPage {
+  margin: 125px auto 50px auto;
+  height: 100%;
+}
+
 .filter {
   text-align: center;
   font-size: 28px;

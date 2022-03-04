@@ -46,7 +46,7 @@ $shadeColor: black;
 }
 .lightMode .page {
   background-color: $bgColorWhite;
-  box-shadow: 0 1px 10px 0 rgba($colorBlack, 0.05);
+  box-shadow: 0 2px 5px 1px rgba($colorDarkGray, 0.25);
 }
 .lightMode .gradient {
   background-color: $colorLightBlue;
@@ -126,7 +126,7 @@ $shadeColor: black;
   border-radius: 50px;
 
   background-color: $bgColorBlack;
-  box-shadow: 0 1px 10px 0 rgba($colorDarkGray, 0.5);
+  box-shadow: 0 2px 5px 1px rgba($colorBlack, 0.15);
 }
 .gradient {
   background-color: $colorLightYellow;

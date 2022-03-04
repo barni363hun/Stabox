@@ -12,9 +12,7 @@ export class AccountButtonComponent implements OnInit {
   constructor(
     public userService: UserService,
     public themeService: ThemeService
-  ) {
-    themeService.getTheme();
-  }
+  ) {}
 
   ngOnInit(): void {}
 

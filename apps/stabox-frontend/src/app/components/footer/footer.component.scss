@@ -6,17 +6,18 @@
 }
 
 .lightMode .footer {
-  border-top: 1px solid rgba($colorLightGray, 0.5);
+  border-top: 2px solid rgba($colorLightGray, 0.25);
   background-color: $bgColorWhite;
 }
 
 .footer {
   z-index: 1;
   width: 100vw;
+  height: fit-content;
   text-align: center;
-  padding-top: 15px;
+  padding-top: 10px;
   margin: 0 auto;
-  border-top: 1px solid rgba($colorDarkGray, 0.25);
+  border-top: 2px solid rgba($colorDarkGray, 0.15);
   background-color: $bgColorBlack;
 }
 

@@ -1,10 +1,20 @@
 @import './../../../app.component.scss';
 
-.package {
-  width: 25%;
+.lightMode .card {
+  background: transparent;
+  box-shadow: 0 2px 5px 1px rgba($colorDarkGray, 0.25);
+}
+
+.lightMode .iconBg:hover {
+  background-color: rgba($colorLightGray, 0.25);
+}
+
+.card {
+  width: 450px;
   height: fit-content;
 
-  background-color: rgba($colorDarkGray, 0.25);
+  background: transparent;
+  box-shadow: 0 2px 5px 1px rgba($colorBlack, 0.25);
   border-radius: 25px;
 
   padding: 10px 25px 10px 25px;
@@ -22,7 +32,7 @@ input {
   font-size: 20px;
 }
 
-.packageTextDiv {
+.cardTextDiv {
   display: flex;
   align-items: center;
   justify-content: end;
@@ -30,13 +40,13 @@ input {
   padding: 0;
 }
 
-.packageText {
+.cardText {
   margin: 0 20px 0 0;
   display: inline;
   font-size: 20px;
 }
 
-.packageInputDiv {
+.cardInputDiv {
   display: flex;
   align-items: center;
   justify-content: left;
@@ -90,9 +100,27 @@ input {
 }
 
 .btn {
-  background-color: $colorDarkGray;
+  transition: 0.25s;
   color: $colorWhite;
   border-radius: 25px;
   margin: 0 10px;
+  padding: 2px 7.5px 2.5px 2.5px;
   text-shadow: 1px 1px 1px rgba($colorBlack, 0.5);
+}
+
+.btn:hover {
+  transition: 0.25s;
+  transform: scale(1.05);
+}
+
+.addBtn {
+  background-color: $colorGreen;
+}
+
+.cancelBtn {
+  background-color: $colorRed;
+}
+
+.btnIcon {
+  padding-right: 2.5px;
 }

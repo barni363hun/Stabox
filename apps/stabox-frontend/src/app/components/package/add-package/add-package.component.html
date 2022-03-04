@@ -1,165 +1,106 @@
-<!-- <div style="display: block;">
-  <table>
-    <tr>
-      <td style="text-align: end; padding-right: 15px">Name:</td>
-      <td>
-        <input type="text" name="region" id="" [(ngModel)]="package.name" />
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align: end; padding-right: 15px">Size:</td>
-      <td>
-        <input type="number" min="0" style="width: 5em" name="sizeX" [(ngModel)]="sizeX" />x
-        <input type="number" min="0" style="width: 5em" name="sizeY" [(ngModel)]="sizeY" />x
-        <input type="number" min="0" style="width: 5em" name="sizeZ" [(ngModel)]="sizeZ" />
-      </td>
-    </tr>
-    <tr>
-      <td>Weight</td>
-      <td>
-        <input style="width: 6em" type="number" min="0" name="weight" [(ngModel)]="myWeight" />
-        <select name="weightSelect" [(ngModel)]="selectedWeight">
-          <option value="gramm">gramm</option>
-          <option value="kilogramm">kilogramm</option>
-        </select>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align: end; padding-right: 15px">Fragility</td>
-      <td>
-        <select name="fragility" [(ngModel)]="this.package.fragile">
-          <option [ngValue]="false">not fragile</option>
-          <option [ngValue]="true">fragile</option>
-        </select>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align: end; padding-right: 15px">FromAddress</td>
-      <td>
-        <select name="address" id="" [(ngModel)]="selectedAddress" [value]="0">
-          <option [ngValue]="0" selected>Choose an address</option>
-          <option *ngFor="let address of addresses" [value]="address.id">
-            {{ address.cityName }} {{ address.street }}
-            {{ address.houseNumber }}
-          </option>
-        </select>
-      </td>
-      <td><button routerLink="/account">Add new address</button></td>
-    </tr>
-    <tr>
-      <td style="text-align: end; padding-right: 15px">Reciever</td>
-      <td>
-        <select name="reciever" id="" [(ngModel)]="selectedReciever" [value]="0">
-          <option [ngValue]="0" selected>Choose a reciever</option>
-          <option *ngFor="let reciever of this.recieverService.userSRecievers" [value]="reciever.id">
-            {{ reciever.firstName + ' ' + reciever.lastName }}
-          </option>
-        </select>
-      </td>
-      <td><button (click)="addReciever()">Add new reciever</button></td>
-    </tr>
-    <tr>
-      <td><button (click)="addPackage()">Add Package</button></td>
-      <td><button (click)="done()">Cancel</button></td>
-    </tr>
-  </table>
-</div> -->
+<div [ngClass]="{ lightMode: themeService.light }">
+  <div class="card">
+    <div class="row">
 
-<div class="package">
-  <div class="row">
-
-    <div class="col-12">
-      <input type="text" placeholder="name" name="region" [(ngModel)]="package.name">
-    </div>
-    <div class="underline gradientBg"></div>
-
-    <div class="col-12 mt-1">
-      <div class="row">
-        <div class="col-6 packageTextDiv">
-          <p class="packageText unselectable">Size (cm)</p>
-        </div>
-        <div class="col-6 packageInputDiv">
-          <input class="dataInput sizeInput" type="number" min="0" name="sizeX" [(ngModel)]="sizeX" />
-          <span class="unselectable">x</span>
-          <input class="dataInput sizeInput" type="number" min="0" name="sizeY" [(ngModel)]="sizeY" />
-          <span class="unselectable">x</span>
-          <input class="dataInput sizeInput" type="number" min="0" name="sizeZ" [(ngModel)]="sizeZ" />
-        </div>
+      <div class="col-12">
+        <input type="text" placeholder="name" name="region" [(ngModel)]="package.name">
       </div>
-    </div>
+      <div class="underline gradientBg"></div>
 
-    <div class="col-12">
-      <div class="row">
-        <div class="col-6 packageTextDiv">
-          <p class="packageText unselectable">Weight</p>
-        </div>
-        <div class="col-6 packageInputDiv">
-          <input class="dataInput weightInput" type="number" min="0" name="weight" [(ngModel)]="myWeight" />
-          <select class="weightSelect" name="weightSelect" [(ngModel)]="selectedWeight">
-            <option value="gramm">g</option>
-            <option value="kilogramm">kg</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12">
-      <div class="row">
-        <div class="col-6 packageTextDiv">
-          <p class="packageText unselectable">Fragile</p>
-        </div>
-        <div class="col-6 packageInputDiv">
-          <select class="fragilitySelect" name="fragility" [(ngModel)]="this.package.fragile">
-            <option [ngValue]="true">Yes</option>
-            <option [ngValue]="false">No</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12">
-      <div class="row">
-        <div class="col-6 packageTextDiv">
-          <div class="iconBg" title="New address">
-            <mat-icon class="gradient centerElements addIcon" routerLink="/account">add</mat-icon>
+      <div class="col-12 mt-1">
+        <div class="row">
+          <div class="col-6 cardTextDiv">
+            <p class="cardText unselectable">Size (cm)</p>
           </div>
-          <p class="packageText unselectable">FromAddress</p>
-        </div>
-        <div class="col-6 packageInputDiv">
-          <select class="addressSelect" name="address" [(ngModel)]="selectedAddress" [value]="0">
-            <option [ngValue]="0" selected>Choose an address</option>
-            <option *ngFor="let address of addresses" [value]="address.id">
-              {{ address.cityName }} {{ address.street }}
-              {{ address.houseNumber }}
-            </option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12">
-      <div class="row">
-        <div class="col-6 packageTextDiv">
-          <div class="iconBg" title="New receiver">
-            <mat-icon class="gradient centerElements addIcon" (click)="addReciever()">add</mat-icon>
+          <div class="col-6 cardInputDiv">
+            <input class="dataInput sizeInput" type="number" min="0" name="sizeX" [(ngModel)]="sizeX" />
+            <span class="unselectable">x</span>
+            <input class="dataInput sizeInput" type="number" min="0" name="sizeY" [(ngModel)]="sizeY" />
+            <span class="unselectable">x</span>
+            <input class="dataInput sizeInput" type="number" min="0" name="sizeZ" [(ngModel)]="sizeZ" />
           </div>
-          <p class="packageText unselectable">Receiver</p>
-        </div>
-        <div class="col-6 packageInputDiv">
-          <select class="addressSelect" name="reciever" [(ngModel)]="selectedReciever" [value]="0">
-            <option [ngValue]="0" selected>Choose a reciever</option>
-            <option *ngFor="let reciever of this.recieverService.userSRecievers" [value]="reciever.id">
-              {{ reciever.firstName + ' ' + reciever.lastName }}
-            </option>
-          </select>
         </div>
       </div>
-    </div>
 
-    <div class="col-12 mt-3 centerElements">
-      <div class="btn gradientBg" (click)="addPackage()">Add Package</div>
-      <div class="btn gradientBgRed" (click)="done()">Cancel</div>
-    </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-6 cardTextDiv">
+            <p class="cardText unselectable">Weight</p>
+          </div>
+          <div class="col-6 cardInputDiv">
+            <input class="dataInput weightInput" type="number" min="0" name="weight" [(ngModel)]="myWeight" />
+            <select class="weightSelect" name="weightSelect" [(ngModel)]="selectedWeight">
+              <option value="gramm">g</option>
+              <option value="kilogramm">kg</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
+      <div class="col-12">
+        <div class="row">
+          <div class="col-6 cardTextDiv">
+            <p class="cardText unselectable">Fragile</p>
+          </div>
+          <div class="col-6 cardInputDiv">
+            <select class="fragilitySelect" name="fragility" [(ngModel)]="this.package.fragile">
+              <option [ngValue]="true">Yes</option>
+              <option [ngValue]="false">No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="row">
+          <div class="col-6 cardTextDiv">
+            <div class="iconBg" title="New address">
+              <mat-icon class="gradient centerElements addIcon" routerLink="/account">add</mat-icon>
+            </div>
+            <p class="cardText unselectable">FromAddress</p>
+          </div>
+          <div class="col-6 cardInputDiv">
+            <select class="addressSelect" name="address" [(ngModel)]="selectedAddress" [value]="0">
+              <option [ngValue]="0" selected>Choose an address</option>
+              <option *ngFor="let address of addresses" [value]="address.id">
+                {{ address.cityName }} {{ address.street }}
+                {{ address.houseNumber }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="row">
+          <div class="col-6 cardTextDiv">
+            <div class="iconBg" title="New receiver">
+              <mat-icon class="gradient centerElements addIcon" (click)="addReciever()">add</mat-icon>
+            </div>
+            <p class="cardText unselectable">Receiver</p>
+          </div>
+          <div class="col-6 cardInputDiv">
+            <select class="addressSelect" name="reciever" [(ngModel)]="selectedReciever" [value]="0">
+              <option [ngValue]="0" selected>Choose a reciever</option>
+              <option *ngFor="let reciever of this.recieverService.userSRecievers" [value]="reciever.id">
+                {{ reciever.firstName + ' ' + reciever.lastName }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 mt-3 centerElements">
+        <div class="btn addBtn centerElements" (click)="addPackage()">
+          <mat-icon class="btnIcon">done</mat-icon>
+          <span>Add Package</span>
+        </div>
+        <div class="btn cancelBtn centerElements" (click)="done()">
+          <mat-icon class="btnIcon">close</mat-icon>
+          <span>Cancel</span>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>

@@ -7,9 +7,7 @@ import { ThemeService } from '../../services';
   styleUrls: ['./divider.component.scss'],
 })
 export class DividerComponent implements OnInit {
-  constructor(public themeService: ThemeService) {
-    themeService.getTheme();
-  }
+  constructor(public themeService: ThemeService) {}
 
   ngOnInit(): void {}
 }

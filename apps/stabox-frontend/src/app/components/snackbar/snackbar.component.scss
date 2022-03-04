@@ -2,6 +2,7 @@
 
 .lightMode .snackBar {
   background-color: $bgColorWhite;
+  box-shadow: 0 2px 5px 1px rgba($colorDarkGray, 0.15);
 }
 
 .lightMode .confirmSnackBar {
@@ -31,8 +32,10 @@
   height: fit-content;
 
   background-color: $bgColorBlack;
-  border: 2px solid rgba($colorDarkGray, 0.15);
+  border: 2px solid rgba($colorDarkGray, 0.05);
   border-radius: 10px;
+  box-shadow: 0 2px 5px 1px rgba($colorBlack, 0.15);
+
   padding: 5px 25px 5px 25px;
   margin: 0 5%;
   font-size: 18px;

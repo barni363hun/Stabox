@@ -7,9 +7,7 @@ import { ThemeService } from '../../../services';
   styleUrls: ['./mainpage.component.scss'],
 })
 export class MainpageComponent implements OnInit {
-  constructor(public themeService: ThemeService) {
-    themeService.getTheme();
-  }
+  constructor(public themeService: ThemeService) {}
 
   ngOnInit(): void {}
 }

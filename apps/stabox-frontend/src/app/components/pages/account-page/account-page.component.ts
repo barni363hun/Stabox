@@ -23,7 +23,6 @@ export class AccountPageComponent implements OnInit {
     public snackbarService: SnackbarService,
     public themeService: ThemeService
   ) {
-    this.themeService.getTheme();
   }
 
   saveAddress(address: addressInterface) {

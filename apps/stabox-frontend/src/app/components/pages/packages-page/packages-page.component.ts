@@ -18,6 +18,7 @@ export class PackagesPageComponent implements OnInit {
   showToDeliver = false;
 
   addPackageMode = false;
+  addRecieverMode = false;
 
   constructor(
     public themeService: ThemeService,
@@ -25,9 +26,7 @@ export class PackagesPageComponent implements OnInit {
     public packageService: PackageService,
     public vehicleService: VehicleService,
     public exchangeDateService: ExchangeDateService
-  ) {
-    themeService.getTheme();
-  }
+  ) {}
 
   ngOnInit(): void {}
 
