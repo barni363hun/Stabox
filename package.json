@@ -8,9 +8,9 @@
   "scripts": {
     "ng": "nx",
     "postinstalll": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
-    "postinstall": "npm i --prefix .\\dist\\apps\\api\\",
+    "postinstalld": "npm i --prefix .\\dist\\apps\\api\\",
     "start": "node dist/apps/api/main",
-    "build": "npm i --prefix .\\dist\\apps\\api\\",
+    "buildd": "npm i --prefix .\\dist\\apps\\api\\",
     "test": "nx test"
   },
   "private": true,
