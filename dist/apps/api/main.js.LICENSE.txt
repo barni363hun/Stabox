@@ -1,0 +1,3 @@
+//!!!
+
+//!!! We can't get the db informations from .env
