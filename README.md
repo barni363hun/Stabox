@@ -46,7 +46,7 @@ Frontend _(you can reach it on http://localhost:4200/)_:
 
 - `npx nx serve stabox-frontend`
 
-Backend _(you can reach it on http://localhost:3333/)_:
+Backend _(you can reach it on http://localhost:7000/)_:
 
 - `npx nx serve api`
 
@@ -58,6 +58,7 @@ Test:
 ### Build
 
 - `npx nx run api:build`
+- `npx nx run api:build --prod` (creates package.json too)
 - `npx nx run-many --target=build --projects=stabox-frontend,api`
 
 ### Other useful commands
