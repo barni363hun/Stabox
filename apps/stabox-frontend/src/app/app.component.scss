@@ -1,1 +1,442 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@700&display=swap');
+
+$colorWhite: white;
+$colorBlack: black;
+$colorLightGray: #cac8d9;
+$colorDarkGray: #565656;
+$colorLightBlue: #00b3ec;
+$colorDarkBlue: #007fc7;
+$colorBlue: #3ed2ff;
+$colorLightYellow: #f2da00;
+$colorDarkYellow: #e29704;
+$colorLightRed: #ff9c9d;
+$colorDarkRed: #ff0000;
+$colorRed: #ec2f4b;
+$colorGreen: #00ff00;
+
+$bgColorWhite: #fefefc;
+$bgColorBlack: #161518;
+
+$shadeColor: black;
+
+.centerElements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.lightMode ::-webkit-calendar-picker-indicator {
+  filter: invert(0);
+}
+.lightMode .content {
+  scrollbar-color: $colorLightBlue $bgColorWhite;
+  color: $colorDarkGray;
+  background-color: $bgColorWhite;
+}
+.lightMode .content::-webkit-scrollbar-thumb {
+  background: linear-gradient($colorLightBlue, $colorDarkBlue);
+  box-shadow: $colorDarkBlue 0 0 3px inset;
+}
+.lightMode .page {
+  background-color: $bgColorWhite;
+  box-shadow: 0 2px 5px 1px rgba($colorDarkGray, 0.25);
+}
+.lightMode .gradient {
+  background-color: $colorLightBlue;
+  background: linear-gradient(to right, $colorLightBlue 40%, $colorDarkBlue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.lightMode .gradientBg {
+  background-color: $colorLightBlue;
+  background: linear-gradient(to right, $colorLightBlue 40%, $colorDarkBlue);
+}
+.lightMode a {
+  color: $colorDarkGray;
+}
+.lightMode input {
+  color: $colorDarkGray;
+  border: 2px solid rgba($colorLightGray, 0.25);
+}
+.lightMode input:focus {
+  border-color: $colorLightBlue;
+  box-shadow: inset 0 1px 1px rgba($colorLightBlue, 0.075),
+    0 0 8px rgba($colorDarkBlue, 0.6);
+}
+.lightMode select {
+  color: $colorDarkGray;
+  background-color: $bgColorWhite;
+  border-color: rgba($colorLightGray, 0.25);
+}
+.lightMode select:focus {
+  border-color: $colorLightBlue;
+  box-shadow: inset 0 1px 1px rgba($colorLightBlue, 0.075),
+    0 0 8px rgba($colorDarkBlue, 0.6);
+}
+.lightMode select option {
+  background-color: $bgColorWhite;
+  color: $colorDarkGray;
+}
+.lightMode .group {
+  border-color: rgba($colorLightGray, 0.15);
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  transform: scale(0.75);
+  margin-left: -25%;
+  padding-right: 25%;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient($colorLightYellow, $colorDarkYellow);
+  box-shadow: $colorDarkYellow 0 0 3px inset;
+}
+.content {
+  background-color: $bgColorBlack;
+  color: $colorWhite;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  scrollbar-color: $colorDarkYellow $bgColorBlack;
+  scrollbar-width: thin;
+}
+.page {
+  width: 92.5%;
+  margin: 125px auto 50px auto;
+  padding: 40px;
+  border-radius: 50px;
+
+  background-color: $bgColorBlack;
+  box-shadow: 0 2px 5px 1px rgba($colorBlack, 0.15);
+}
+.gradient {
+  background-color: $colorLightYellow;
+  background: linear-gradient(
+    to right,
+    $colorLightYellow 40%,
+    $colorDarkYellow
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gradientBg {
+  background: linear-gradient(
+    to right,
+    $colorLightYellow 40%,
+    $colorDarkYellow
+  );
+}
+.gradientRed {
+  background-color: $colorDarkRed;
+  background: linear-gradient(to right, $colorLightRed 40%, $colorDarkRed);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gradientBgRed {
+  background: linear-gradient(to right, $colorRed 40%, $colorDarkRed);
+}
+.navUnderline {
+  transition: 0.35s;
+  width: 0;
+  height: 3px;
+  margin: 0 auto -10px auto;
+  border-radius: 10px;
+}
+a {
+  text-decoration: none;
+  color: $colorWhite;
+}
+input {
+  transition: 0.15s;
+  font-size: 28px;
+  margin: 7.5px 0 7.5px 0;
+  border-radius: 15px;
+  border: 2px solid rgba($colorDarkGray, 0.15);
+  text-align: center;
+  background: transparent;
+  color: $colorWhite;
+  width: 100%;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:focus {
+  opacity: 1;
+  outline: none;
+  transition: 0.25s;
+  border-color: $colorDarkYellow;
+  box-shadow: inset 0 1px 1px rgba($colorLightYellow, 0.075),
+    0 0 8px rgba($colorDarkYellow, 0.6);
+}
+input:focus + .hint,
+input:hover + .hint {
+  display: inline;
+}
+.inlineInput {
+  font-size: 28px;
+  margin: 7.5px 0 7.5px 0;
+  border-radius: 25px;
+  border: 2px solid rgba($colorDarkGray, 0.15);
+  text-align: center;
+  background: transparent;
+  color: $colorWhite;
+  width: 50%;
+  display: inline-block;
+}
+select {
+  background: transparent;
+  color: $colorWhite;
+
+  border: none;
+  border-bottom: 2px solid rgba($colorDarkGray, 0.25);
+  border-radius: 10px 10px 0 0;
+  font-size: 28px;
+  width: 50%;
+  text-align: center;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+select:focus {
+  outline: none;
+  transition: 0.25s;
+  border-color: $colorDarkYellow;
+  box-shadow: inset 0 1px 1px rgba($colorLightYellow, 0.075),
+    0 0 8px rgba($colorDarkYellow, 0.6);
+}
+select option {
+  background-color: $bgColorBlack;
+  color: $colorWhite;
+}
+.group {
+  border: 2px solid rgba($colorDarkGray, 0.25);
+  border-radius: 15px;
+  padding: 5px 10% 5px 10%;
+  width: fit-content;
+  margin: 0 auto;
+  box-shadow: 0 2px 5px 0 rgba($colorDarkGray, 0.05);
+}
+.dataIcon {
+  transform: scale(1.5);
+}
+.dataIconText {
+  font-size: 22px;
+}
+.saveIconText {
+  margin: 0 0 0 10px;
+}
+.removeIconText {
+  margin: 0 0 0 7.5px;
+}
+.saveIconDiv {
+  padding: 7.5px 7.5px 7.5px 15px;
+}
+.removeIconDiv {
+  padding: 7.5px;
+}
+.dataIconDiv {
+  width: fit-content;
+  height: fit-content;
+  border-radius: 10px;
+  margin: 0 5px;
+}
+.dataIconDiv:hover {
+  cursor: pointer;
+  background-color: rgba($colorDarkGray, 0.25);
+}
+
+@media only screen and (max-width: 1500px) {
+  .page {
+    padding: 40px 35px 35px 35px;
+  }
+  ::-webkit-calendar-picker-indicator {
+    margin-left: -20%;
+    padding-right: 20%;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .page {
+    padding: 40px 35px 35px 35px;
+  }
+  input {
+    font-size: 20px;
+  }
+  select {
+    font-size: 20px;
+  }
+  .dataIcon {
+    transform: scale(1.5);
+  }
+  .dataIconDiv {
+    padding: 8px;
+  }
+  .dataIconText {
+    font-size: 20px;
+  }
+  ::-webkit-calendar-picker-indicator {
+    margin-left: -28%;
+    padding-right: 28%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .page {
+    padding: 40px 30px 30px 30px;
+  }
+  ::-webkit-calendar-picker-indicator {
+    margin-left: -25%;
+    padding-right: 25%;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  input {
+    font-size: 24px;
+    width: 85%;
+  }
+  select {
+    font-size: 24px;
+  }
+  .dataIcon {
+    transform: scale(1.35);
+  }
+  .dataIconDiv {
+    padding: 7px;
+  }
+  .dataIconText {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .page {
+    padding: 35px 25px 25px 25px;
+  }
+  ::-webkit-calendar-picker-indicator {
+    margin-left: -25%;
+    padding-right: 25%;
+  }
+  .dataIcon {
+    transform: scale(1.1);
+  }
+  .dataIconDiv {
+    padding: 6px;
+  }
+  .dataIconText {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  ::-webkit-calendar-picker-indicator {
+    margin-left: -20%;
+    padding-right: 20%;
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  ::-webkit-calendar-picker-indicator {
+    margin-left: -15%;
+    padding-right: 15%;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .page {
+    padding: 30px 20px 20px 20px;
+  }
+  input {
+    font-size: 18px;
+  }
+  select {
+    font-size: 18px;
+  }
+  ::-webkit-calendar-picker-indicator {
+    margin-left: -20%;
+    padding-right: 20%;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  ::-webkit-calendar-picker-indicator {
+    margin-left: -15%;
+    padding-right: 15%;
+  }
+}
+
+@media only screen and (max-width: 465px) {
+  ::-webkit-calendar-picker-indicator {
+    margin-left: -15%;
+    padding-right: 15%;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  ::-webkit-calendar-picker-indicator {
+    margin-left: -8%;
+    padding-right: 8%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .page {
+    padding: 25px 15px 15px 15px;
+  }
+  ::-webkit-calendar-picker-indicator {
+    margin-left: -6%;
+    padding-right: 6%;
+  }
+  .dataIconText {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  input {
+    font-size: 16px;
+  }
+  select {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  ::-webkit-calendar-picker-indicator {
+    margin-left: -5%;
+    padding-right: 5%;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .page {
+    padding: 20px 10px 10px 10px;
+  }
+  .group {
+    padding: 5px 5% 0 5%;
+  }
+}

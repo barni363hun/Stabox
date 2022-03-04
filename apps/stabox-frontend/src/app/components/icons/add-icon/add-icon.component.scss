@@ -1,34 +1,49 @@
-@import '../../../../styles/settings/variables';
+@import '../../../app.component.scss';
 
 .lightMode .gradient {
-    background-color: $colorLightBlue;
-    background: linear-gradient(to right, $colorLightBlue 40%, $colorDarkBlue);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background-color: $colorLightBlue;
+  background: linear-gradient(to right, $colorLightBlue 40%, $colorDarkBlue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.lightMode #addIconDiv:hover {
-    box-shadow: inset 0 1px 1px rgba($colorLightBlue, 0.075), 0 0 8px rgba($colorDarkBlue, 0.6);
+.lightMode .addIconDiv:hover {
+  box-shadow: inset 0 1px 1px rgba($colorLightBlue, 0.075),
+    0 0 8px rgba($colorDarkBlue, 0.6);
 }
 
 .addIcon {
-    transform: scale(1.5);
-    margin: 8px;
+  transform: scale(1.5);
+  margin: 8px;
 }
 
 .addIconDiv {
-    transition: 0.25s;
-    background-color: transparent;
-    border: none;
-    border-radius: 50%; 
-    padding: 5px;
-    margin: 0 auto;
-    width: fit-content;
+  transition: 0.25s;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  padding: 0.15%;
+  margin: 10px auto 0 auto;
+  width: fit-content;
+  height: fit-content;
 }
 
 .addIconDiv:hover {
-    cursor: pointer;
-    transition: 0.25s;
-    box-shadow: inset 0 1px 1px rgba($colorLightYellow, 0.075), 0 0 8px rgba($colorDarkYellow, 0.6);
+  cursor: pointer;
+  transition: 0.25s;
+  box-shadow: inset 0 1px 1px rgba($colorLightYellow, 0.075),
+    0 0 8px rgba($colorDarkYellow, 0.6);
 }
+
+@media only screen and (max-width: 1199px) {
+  .addIcon {
+    transform: scale(1.35);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+    .addIcon {
+      transform: scale(1.1);
+    }
+  }

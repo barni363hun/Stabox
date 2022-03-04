@@ -1,32 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '../../../services';
 
 @Component({
   selector: 'app-mainpage',
   templateUrl: './mainpage.component.html',
-  styleUrls: ['./mainpage.component.scss']
+  styleUrls: ['./mainpage.component.scss'],
 })
 export class MainpageComponent implements OnInit {
+  constructor(public themeService: ThemeService) {}
 
-  lightMode = false;
-  theme = 'dark';
-
-  constructor() {
-    if (localStorage.getItem('theme') == 'light') {
-      this.lightMode = true;
-    } else {
-      this.lightMode = false;
-    }
-  }
-
-  ngOnInit(): void {
-  }
-
-  getLightModeToggle(data: any) {
-    if (data == 'light') {
-      this.lightMode = true;
-    } else {
-      this.lightMode = false;
-    }
-  }
-
+  ngOnInit(): void {}
 }

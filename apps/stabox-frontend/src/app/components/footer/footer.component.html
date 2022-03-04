@@ -1,23 +1,23 @@
-<div class="container-fluid p-0" [ngClass]="{'lightMode': lightMode == true}">
+<div class="container-fluid m-0 p-0" [ngClass]="{'lightMode': themeService.light}">
     <div class="row footer unselectable">
 
-        <div class="col-xl-12 p-0">
+        <div class="col-12 m-0 p-0">
             <div class="row socialsRow">
                 <div class="socialIconDiv col-3">
-                    <img class="socialIcon" [src]="lightMode ? '../../../../assets/images/LightMode/Instagram.svg' : '../../../../assets/images/DarkMode/Instagram.svg'">
+                    <img class="socialIcon" [src]="themeService.light ? '../../../../assets/images/LightMode/Instagram.svg' : '../../../../assets/images/DarkMode/Instagram.svg'">
                 </div>
 
                 <div class="socialIconDiv col-3">
-                    <img class="socialIcon" [src]="lightMode ? '../../../../assets/images/LightMode/Facebook.svg' : '../../../../assets/images/DarkMode/Facebook.svg'">
+                    <img class="socialIcon" [src]="themeService.light ? '../../../../assets/images/LightMode/Facebook.svg' : '../../../../assets/images/DarkMode/Facebook.svg'">
                 </div>
 
                 <div class="socialIconDiv col-3">
-                    <img class="socialIcon" [src]="lightMode ? '../../../../assets/images/LightMode/Twitter.svg' : '../../../../assets/images/DarkMode/Twitter.svg'">
+                    <img class="socialIcon" [src]="themeService.light ? '../../../../assets/images/LightMode/Twitter.svg' : '../../../../assets/images/DarkMode/Twitter.svg'">
                 </div>
             </div>
         </div>
 
-        <div class="col-xl-12 centerElements">
+        <div class="col-12 centerElements">
             <mat-icon class="copyrightIcon">copyright</mat-icon>
             <p class="copyrightText">2022 All rights reserved</p>
         </div>

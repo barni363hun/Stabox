@@ -1,0 +1,34 @@
+<div [ngClass]="{ lightMode: themeService.light }">
+    <div class="unselectable">
+        <div class="centerElements" *ngIf="snackbarService.showError" (click)="snackbarService.clearSnackBars()">
+            <div class="snackBar errorSnack centerElements">
+                <mat-icon class="snackbarIcon me-2">error_outline</mat-icon>
+                <p class="snackbarText">{{ snackbarService.message }}</p>
+            </div>
+        </div>
+
+        <div class="w-100 centerElements" *ngIf="snackbarService.showSuccess" (click)="snackbarService.clearSnackBars()">
+            <div class="snackBar successSnack centerElements">
+                <mat-icon class="snackbarIcon me-2">check_circle_outline</mat-icon>
+                <p class="snackbarText">{{ snackbarService.message }}</p>
+            </div>
+        </div>
+
+        <div class="w-100 centerElements" *ngIf="snackbarService.showConfirm">
+            <div class="confirmSnackBar confirmSnack centerElements">
+                <div class="centerElements">
+                    <mat-icon class="snackbarIcon me-2">help_outline</mat-icon>
+                    <p class="snackbarText">{{ snackbarService.message }}</p>
+                </div>
+                <div class="centerElements ms-1">
+                    <div class="snackbarIconDiv centerElements me-1" (click)="getResult(true)">
+                        <mat-icon class="snackbarIcon confirmIcon">done</mat-icon>
+                    </div>
+                    <div class="snackbarIconDiv centerElements" (click)="getResult(false)">
+                        <mat-icon class="snackbarIcon refuseIcon">close</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

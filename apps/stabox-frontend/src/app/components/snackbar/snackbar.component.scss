@@ -1,0 +1,149 @@
+@import '../../app.component.scss';
+
+.lightMode .snackBar {
+  background-color: $bgColorWhite;
+  box-shadow: 0 2px 5px 1px rgba($colorDarkGray, 0.15);
+}
+
+.lightMode .confirmSnackBar {
+  color: $colorLightBlue;
+  background-color: $bgColorWhite;
+}
+
+.lightMode .snackbarIconDiv:hover {
+  background-color: rgba($colorLightGray, 0.25);
+}
+
+.errorSnack {
+  color: $colorRed;
+}
+.successSnack {
+  color: $colorGreen;
+}
+.confirmSnack {
+  color: $colorBlue;
+}
+
+.snackBar {
+  position: absolute;
+  bottom: -10%;
+
+  width: fit-content;
+  height: fit-content;
+
+  background-color: $bgColorBlack;
+  border: 2px solid rgba($colorDarkGray, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 1px rgba($colorBlack, 0.15);
+
+  padding: 5px 25px 5px 25px;
+  margin: 0 5%;
+  font-size: 18px;
+
+  animation: snack 6s;
+}
+
+.confirmSnackBar {
+  position: absolute;
+  bottom: 1%;
+
+  width: fit-content;
+  height: fit-content;
+
+  background-color: $bgColorBlack;
+  border: 2px solid rgba($colorDarkGray, 0.15);
+  border-radius: 10px;
+  padding: 5px 25px 5px 25px;
+  margin: 0 5%;
+  font-size: 18px;
+
+  animation: confirmSnack 6s;
+}
+
+.snackbarText {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.snackbarIcon {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0;
+}
+
+.snackbarIconDiv {
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.snackbarIconDiv:hover {
+  background-color: rgba($colorDarkGray, 0.25);
+  cursor: pointer;
+}
+
+.confirmRow {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.confirmIcon {
+  transform: scale(1.15);
+  color: $colorGreen;
+}
+
+.refuseIcon {
+  transform: scale(1.15);
+  color: $colorRed;
+}
+
+@keyframes snack {
+  0% {
+    bottom: -10%;
+    display: none;
+  }
+  10% {
+    bottom: 1%;
+  }
+  90% {
+    bottom: 1%;
+  }
+  100% {
+    bottom: -10%;
+    display: none;
+  }
+}
+
+@keyframes confirmSnack {
+  0% {
+    bottom: -10%;
+    display: none;
+  }
+  10% {
+    bottom: 1%;
+  }
+  100% {
+    bottom: 1%;
+  }
+}
+
+@media only screen and (max-width: 1140px) {
+  .snackBar {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .snackBar {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .snackBar {
+    font-size: 12px;
+  }
+}
