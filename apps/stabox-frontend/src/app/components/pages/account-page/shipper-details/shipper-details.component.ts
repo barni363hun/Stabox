@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { VehicleService } from '../../../../services';
+import { ThemeService, VehicleService } from '../../../../services';
 
 @Component({
   selector: 'app-shipper-details',
@@ -10,9 +10,12 @@ export class ShipperDetailsComponent implements OnInit {
   @Output() viewDetailsEvent = new EventEmitter<Boolean>();
   viewDetails: boolean = false;
 
-  @Input() lightMode = false;
-
-  constructor(public vehicleService: VehicleService) {}
+  constructor(
+    public vehicleService: VehicleService,
+    public themeService: ThemeService
+  ) {
+    themeService.getTheme();
+  }
 
   ngOnInit(): void {
     this.vehicleService.getVehicles();

@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { AuthService, User } from '@auth0/auth0-angular';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { catchError, map, observable, Observable, window } from 'rxjs';
+import { catchError, map, observable, Observable, window, zip } from 'rxjs';
 import { cError, cSuccess, userInterface } from '@stabox/stabox-lib';
+import { SnackbarService } from '.';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +26,11 @@ export class UserService {
   isShipper = false;
   //user: EventEmitter<any> = new EventEmitter();
 
-  constructor(private authService: AuthService, private http: HttpClient) {
+  constructor(
+    private authService: AuthService,
+    private http: HttpClient,
+    private snackbarService: SnackbarService
+  ) {
     this.authUserInit.subscribe({
       next: (authU) => {
         if (
@@ -66,6 +71,7 @@ export class UserService {
             },
             error: (err) => {
               cError(err.error.message);
+              this.snackbarService.showErrorSnackbar(err.error.message);
               this.user = newUser;
               this.createUser(newUser);
             },
@@ -78,6 +84,7 @@ export class UserService {
       },
       error: (err) => {
         cError(err.error.message);
+        this.snackbarService.showErrorSnackbar(err.error.message);
       },
     });
   }
@@ -94,15 +101,20 @@ export class UserService {
       })
       .subscribe({
         next: (res) => {
-          alert('user info saved successfully');
           cSuccess('user info updated');
+          this.snackbarService.showSuccessSnackbar(
+            'User information saved successfully.'
+          );
           console.log(this.user);
           if (!this.isUser) {
             this.login();
+            location.reload();
           }
         },
         error: (err) => {
-          alert('error ' + err.error.message);
+          this.snackbarService.showErrorSnackbar(
+            this.formatMessage(err.error.message)
+          );
           cError(err.error.message);
         },
       });
@@ -123,6 +135,7 @@ export class UserService {
       },
       error: (err) => {
         cError(err.error.message);
+        this.snackbarService.showErrorSnackbar(err.error.message);
       },
     });
   }
@@ -146,10 +159,14 @@ export class UserService {
       .subscribe({
         next: (res) => {
           cSuccess('user created');
+          this.snackbarService.showSuccessSnackbar(
+            'User created successfully.'
+          );
           console.log(res);
         },
         error: (err) => {
           cError(err.error.message);
+          this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
   }
@@ -187,12 +204,31 @@ export class UserService {
       .subscribe({
         next: (res) => {
           cSuccess('shipper role assigned');
+          this.snackbarService.showSuccessSnackbar(
+            'Shipper role assigned successfully.'
+          );
           console.log(res);
           this.login();
         },
         error: (err) => {
           cError(err.error.message);
+          this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
+  }
+
+  private formatMessage(message: string) {
+    let messages: string[] = message.toString().split(',');
+    let errorMessage: string = '';
+    for (let index = 0; index < messages.length; index++) {
+      let message = messages[index];
+      const i = message.search(/[A-Z]/);
+      if (i != -1) {
+        message = message.replace(/[A-Z]/, ` ${message[i].toLowerCase()}`);
+      }
+      message = message.replace(message[0], message[0].toUpperCase());
+      errorMessage += message + '. ';
+    }
+    return errorMessage;
   }
 }

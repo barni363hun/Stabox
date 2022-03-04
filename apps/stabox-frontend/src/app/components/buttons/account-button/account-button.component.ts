@@ -1,20 +1,26 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { UserService } from '../../../services';
+import { Component, OnInit } from '@angular/core';
+import { ThemeService, UserService } from '../../../services';
 
 @Component({
   selector: 'app-account-button',
   templateUrl: './account-button.component.html',
-  styleUrls: ['./account-button.component.scss']
+  styleUrls: ['./account-button.component.scss'],
 })
 export class AccountButtonComponent implements OnInit {
+  showMenu = false;
 
-  @Input() lightMode = false;
+  constructor(
+    public userService: UserService,
+    public themeService: ThemeService
+  ) {}
 
-  name: string | undefined = this.userService.authUser.name;
-  constructor(public userService: UserService) {}
-  ngOnInit(): void {
-    this.userService.authUserInit.subscribe((u) => {
-      this.name = u?.name;
-    });
+  ngOnInit(): void {}
+
+  toggleMenu(): any {
+    if (this.showMenu == true) {
+      this.showMenu = false;
+    } else {
+      this.showMenu = true;
+    }
   }
 }

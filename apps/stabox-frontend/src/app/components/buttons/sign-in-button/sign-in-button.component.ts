@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UserService } from '../../../services';
+import { ThemeService, UserService } from '../../../services';
 
 @Component({
   selector: 'app-sign-in-button',
@@ -7,10 +7,10 @@ import { UserService } from '../../../services';
   styleUrls: ['./sign-in-button.component.scss'],
 })
 export class SignInButtonComponent implements OnInit {
-
-  @Input() lightMode = false;
-
-  constructor(public userService: UserService) {}
+  constructor(
+    public userService: UserService,
+    public themeService: ThemeService
+  ) {}
 
   ngOnInit(): void {}
 }
