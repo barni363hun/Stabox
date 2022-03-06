@@ -28,9 +28,13 @@ export class PackagesPageComponent implements OnInit {
     public exchangeDateService: ExchangeDateService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.filterMyPackages()
+  }
 
   filterMyPackages() {
+    console.log("filter");
+    
     this.showMyPackages = false;
     this.showAcceptedPackages = true;
     this.showToDeliver = false;

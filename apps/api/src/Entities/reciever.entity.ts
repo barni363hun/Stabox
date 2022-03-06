@@ -1,3 +1,4 @@
+import { recieverInterface } from '@stabox/stabox-lib';
 import {
   Column,
   Entity,
@@ -8,7 +9,7 @@ import {
 import { addressEntity, packageEntity } from '.';
 
 @Entity()
-export class recieverEntity {
+export class recieverEntity implements recieverInterface {
   @PrimaryGeneratedColumn()
   id: number;
 

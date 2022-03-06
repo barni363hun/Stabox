@@ -38,7 +38,6 @@ import {
   FirstCardComponent,
   SecondCardComponent,
   ThirdCardComponent,
-  MyPackagesPageComponent,
   SnackbarComponent,
 } from './components';
 import { PackagesPageComponent } from './components/pages/packages-page/packages-page.component';
@@ -66,7 +65,6 @@ import { PackagesPageComponent } from './components/pages/packages-page/packages
     ShipperDetailsComponent,
     CloseIconComponent,
     AddIconComponent,
-    MyPackagesPageComponent,
     ShowMoreButtonComponent,
     UserIconComponent,
     PackageCardComponent,

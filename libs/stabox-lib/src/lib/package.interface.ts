@@ -1,9 +1,8 @@
 export interface packageInterface {
   id: number;
-  user: string;
-  shipper: number;
-  reciever: number;
-  fromAdress: number;
+  userId: string;
+  recieverId: number;
+  fromAddressId: number;
   postDate: Date;
   shippingDate: Date;
   size: string;
@@ -11,5 +10,4 @@ export interface packageInterface {
   fragile: boolean;
   price: number;
   currentCity: number;
-  code: string;
 }
