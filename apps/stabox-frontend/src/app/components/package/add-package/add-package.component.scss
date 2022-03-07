@@ -102,15 +102,10 @@ input {
 .btn {
   transition: 0.25s;
   color: $colorWhite;
-  border-radius: 25px;
+  border-radius: 10px;
   margin: 0 10px;
   padding: 2px 7.5px 2.5px 2.5px;
   text-shadow: 1px 1px 1px rgba($colorBlack, 0.5);
-}
-
-.btn:hover {
-  transition: 0.25s;
-  transform: scale(1.05);
 }
 
 .addBtn {

@@ -14,14 +14,14 @@
               <div class="col-xl-6 col-lg-6 col-12" *ngIf="userService.userInitialized">
                 <div class="accountDataDiv">
                   <mat-icon class="accountDataIcon gradient">verified_user</mat-icon>
-                  <p class="accountDataTitle gradient unselectable">Username</p>
+                  <p class="accountDataTitle unselectable">Username</p>
                   <div class="accountDataUnderline gradientBg"></div>
                   <input type="text" maxlength="20" id="username" [(ngModel)]="userService.user.username" />
                 </div>
 
                 <div class="accountDataDiv">
                   <mat-icon class="accountDataIcon gradient">person</mat-icon>
-                  <p class="accountDataTitle gradient unselectable">
+                  <p class="accountDataTitle unselectable">
                     Full Name
                   </p>
                   <div class="accountDataUnderline gradientBg"></div>
@@ -37,14 +37,14 @@
 
                 <div class="accountDataDiv">
                   <mat-icon class="accountDataIcon gradient">email</mat-icon>
-                  <p class="accountDataTitle gradient unselectable">Email</p>
+                  <p class="accountDataTitle unselectable">Email</p>
                   <div class="accountDataUnderline gradientBg"></div>
                   <input type="email" id="email" [(ngModel)]="userService.user.email" />
                 </div>
 
                 <div class="accountDataDiv">
                   <mat-icon class="accountDataIcon gradient">phone</mat-icon>
-                  <p class="accountDataTitle gradient unselectable">Phone</p>
+                  <p class="accountDataTitle unselectable">Phone</p>
                   <div class="accountDataUnderline gradientBg"></div>
                   <input type="tel" id="tel" [(ngModel)]="userService.user.phoneNumber" />
                 </div>
@@ -95,7 +95,7 @@
 
         <div class="row mt-4 p-0">
           <div class="col-xl-6 col-12 my-4 text-center">
-            <p class="title gradient unselectable">Exchange</p>
+            <p class="title unselectable">Exchange</p>
             <app-divider></app-divider>
             <div class="dataInputDiv">
               <div class="row mt-2 group centerElements" *ngFor="let EXDate of exchangeDateService.exchangeDates;index as EXindex">
@@ -131,7 +131,7 @@
           </div>
 
           <div class="col-xl-6 col-12 my-4 text-center">
-            <p class="title gradient unselectable">Addresses</p>
+            <p class="title unselectable">Addresses</p>
             <app-divider></app-divider>
             <div class="dataInputDiv">
               <div class="row mt-2 group centerElements" *ngFor="let address of addressService.addresses; index as i">

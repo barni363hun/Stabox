@@ -25,6 +25,10 @@ $shadeColor: black;
   align-items: center;
   padding: 0;
 }
+.center {
+  display: flex;
+  justify-content: center;
+}
 .unselectable {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -120,8 +124,7 @@ $shadeColor: black;
 }
 .page {
   width: 95%;
-  height: 100%;
-  margin: 75px auto 50px auto;
+  margin: 75px auto 135px auto;
   padding: 40px;
   border-radius: 50px;
   background-color: $bgColorBlack;

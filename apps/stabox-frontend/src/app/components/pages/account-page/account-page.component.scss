@@ -1,5 +1,9 @@
 @import '../../../app.component.scss';
 
+.lightMode .accountDataTitle {
+  color: $colorLightBlue;
+}
+
 .lightMode .bigBtn {
   color: $colorDarkGray;
   border: 2px solid rgba($colorLightGray, 0.25);
@@ -44,6 +48,8 @@
 
 .accountDataTitle {
   display: inline;
+  color: $colorLightYellow;
+  margin: 0;
   font-size: 32px;
 }
 
