@@ -33,10 +33,8 @@ export class PackagesPageComponent implements OnInit {
   }
 
   filterMyPackages() {
-    console.log("filter");
-    
-    this.showMyPackages = false;
-    this.showAcceptedPackages = true;
+    this.showMyPackages = true;
+    this.showAcceptedPackages = false;
     this.showToDeliver = false;
 
     this.packageService.update('/package/myPackages');

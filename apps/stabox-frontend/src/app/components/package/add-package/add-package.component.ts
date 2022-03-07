@@ -95,11 +95,3 @@ interface packageInterface {
   weight: string;
   fragile: boolean;
 }
-interface recieverInterface {
-  addressId: number;
-  email: string;
-  firstName: string;
-  id: number;
-  lastName: string;
-  phoneNumber: string;
-}

@@ -52,8 +52,8 @@ export class PackageService {
     this.route = route
     this.getMypackages().subscribe((res) => {
       console.log(this.route)
-      console.log(res)
       this.packages = res
+      console.log(this.packages)
     })
   }
 

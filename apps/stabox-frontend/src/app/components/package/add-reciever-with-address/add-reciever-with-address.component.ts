@@ -38,13 +38,14 @@ export class AddRecieverWithAddressComponent implements OnInit {
   }
 
   async addToDB() {
+    // console.log("rec:");
+    // console.log(this.reciever);
+    const { phoneNumber, ...checkReceiver } = this.reciever;
     if (
-      this.snackbarService.checkAllValueOfAnObject(this.reciever)
+      this.snackbarService.checkAllValueOfAnObject(checkReceiver)
       ) {
-      console.log(this.reciever);
       await this.recieverService.addReciever(this.reciever);
       this.recieverService.refreshUserRecievers();
-      this.done();
     }
   }
 }
