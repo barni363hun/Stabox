@@ -114,6 +114,7 @@ export class AddressService {
         },
         error: (err) => {
           cError(err.error.message);
+          this.snackbarService.showErrorSnackbar(this.formatMessage(err.error.message));
           this.getAddresses();
         },
       });
@@ -136,6 +137,7 @@ export class AddressService {
         },
         error: (err) => {
           cError(err.error.message);
+          this.snackbarService.showErrorSnackbar(this.formatMessage(err.error.message));
           this.getAddresses();
         },
       });

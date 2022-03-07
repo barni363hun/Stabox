@@ -1,22 +1,22 @@
 <div [ngClass]="{ lightMode: themeService.light }">
     <div class="content">
         <div class="container-fluid packagesPage">
-            <div class="row filter">
+            <div class="row w-50 mx-auto filter">
                 <div class="col-4 mx-auto">
-                    <div class="filterItem">
+                    <div class="filterItem" (click)="filterMyPackages()" [ngClass]="{ active: showMyPackages }">
                         <p class="m-0 unselectable">My Packages</p>
                         <div class="navUnderline gradientBg"></div>
                     </div>
                 </div>
                 <div class="col-4 mx-auto" *ngIf="userService.isShipper">
-                    <div class="filterItem">
+                    <div class="filterItem" (click)="filterAcceptedPackages()" [ngClass]="{ active: showAcceptedPackages }">
                         <p class="m-0">Accepted Packages</p>
                         <div class="navUnderline gradientBg"></div>
                     </div>
                 </div>
                 <div class="col-4 mx-auto" *ngIf="userService.isShipper">
-                    <div class="filterItem">
-                        <p class="m-0">Packages waiting for delivery</p>
+                    <div class="filterItem" (click)="filterToDeliver()" [ngClass]="{ active: showToDeliver }">
+                        <p class="m-0">Available Packages</p>
                         <div class="navUnderline gradientBg"></div>
                     </div>
                 </div>
@@ -34,20 +34,17 @@
                 </div>
             </div>
 
-            <div class="row mt-3" *ngIf="addPackageMode || addRecieverMode">
-                <div class="col-2"></div>
-                <div class="col-4 center">
+            <div class="row mt-3">
+                <div class="col-xl-4 col-lg-6 col-12 center">
                     <stabox-add-package (newRecieverEvent)="addRecieverMode = true" (doneEvent)="addPackageMode = false" *ngIf="addPackageMode"></stabox-add-package>
                 </div>
-                <div class="col-4 center">
+                <div class="col-xl-4 col-lg-6 col-12center">
                     <stabox-add-reciever-with-address (doneEvent)="addRecieverMode = false" *ngIf="addRecieverMode"></stabox-add-reciever-with-address>
-                </div>
-                <div class="col-2"></div>
-            </div>
-
-            <div class="row" *ngIf="showMyPackages">
-                <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2" *ngFor="let package of this.packageService.packages">
-                    <stabox-package-card [package]="package"></stabox-package-card>
+                </div>   
+                <div *ngIf="showMyPackages">
+                    <div class="col-xl-4 col-lg-6 col-12" *ngFor="let package of this.packageService.packages">
+                        <stabox-package-card [package]="package"></stabox-package-card>
+                    </div>
                 </div>
             </div>
 
