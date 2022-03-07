@@ -17,7 +17,7 @@ import { Roles } from '../auth/roles.decorator';
 import { AddressService } from './address.service';
 import { Not } from 'typeorm';
 
-class idDto {
+class idDto  {
   @IsNumber()
   id: number;
 }

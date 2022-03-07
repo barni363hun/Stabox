@@ -40,14 +40,13 @@
                 </div>
                 <div class="col-xl-4 col-lg-6 col-12center">
                     <stabox-add-reciever-with-address (doneEvent)="addRecieverMode = false" *ngIf="addRecieverMode"></stabox-add-reciever-with-address>
-                </div>   
+                </div>
                 <div *ngIf="showMyPackages">
-                    <div class="col-xl-4 col-lg-6 col-12" *ngFor="let package of this.packageService.packages">
-                        <stabox-package-card [package]="package"></stabox-package-card>
+                    <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2" *ngFor="let pkg of packageService.packages">
+                        <stabox-package-card [package]="pkg"></stabox-package-card>
                     </div>
                 </div>
             </div>
-
         </div>
         <app-footer></app-footer>
     </div>

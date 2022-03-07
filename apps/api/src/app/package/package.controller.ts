@@ -10,7 +10,7 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { IsBoolean, IsDateString, IsNumber, IsString, Matches } from 'class-validator';
+import { IsBoolean, IsDateString, IsNotEmpty, IsNumber, IsString, Matches } from 'class-validator';
 import { Not } from 'typeorm';
 import { packageEntity } from '../../Entities';
 import { AddressService } from '../address/address.service';
@@ -44,6 +44,7 @@ class packageDto {
   @IsNumber()
   fromAddressId: number;
   @IsString()
+  @IsNotEmpty()
   name: string;
   @IsNumber()
   recieverId: number;
