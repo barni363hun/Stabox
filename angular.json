@@ -23,7 +23,7 @@
               {
                 "glob": ".env",
                 "input": "apps/api",
-                "output": "."
+                "output": "./../../"
               }
             ]
           },
@@ -140,6 +140,7 @@
           },
           "defaultConfiguration": "development",
           "options": {
+            "browserTarget": "stabox-frontend:build",
             "proxyConfig": "apps/stabox-frontend/proxy.conf.json"
           }
         },
