@@ -23,7 +23,7 @@
               {
                 "glob": ".env",
                 "input": "apps/api",
-                "output": "./../../"
+                "output": "."
               }
             ]
           },

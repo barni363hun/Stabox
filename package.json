@@ -12,9 +12,7 @@
     "start:fe": "nx serve stabox-frontend",
     "start:be": "nx serve api",
     "dev": "concurrently -p=\"{name}\" -n=\"Angular,NestJS\" -c=\"green,blue\" \"npm run start:fe\" \"npm run start:be\"",
-    "build:all": "concurrently -p=\"{name}\" -n=\"Angular,NestJS\" -c=\"green,blue\" \"nx build\" \"nx build api --prod\"",
-    "serve:prod": "node dist/apps/api/main.js",
-    "start:prod": "npm run build:all && npm run serve:prod"
+    "build:all": "concurrently -p=\"{name}\" -n=\"Angular,NestJS\" -c=\"green,blue\" \"nx build\" \"nx build api --prod\""
   },
   "private": true,
   "dependencies": {
