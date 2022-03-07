@@ -46,7 +46,6 @@ $shadeColor: black;
 }
 .lightMode .page {
   background-color: $bgColorWhite;
-  box-shadow: 0 2px 5px 1px rgba($colorDarkGray, 0.25);
 }
 .lightMode .gradient {
   background-color: $colorLightBlue;
@@ -120,13 +119,12 @@ $shadeColor: black;
   scrollbar-width: thin;
 }
 .page {
-  width: 92.5%;
-  margin: 125px auto 50px auto;
+  width: 95%;
+  height: 100%;
+  margin: 75px auto 50px auto;
   padding: 40px;
   border-radius: 50px;
-
   background-color: $bgColorBlack;
-  box-shadow: 0 2px 5px 1px rgba($colorBlack, 0.15);
 }
 .gradient {
   background-color: $colorLightYellow;

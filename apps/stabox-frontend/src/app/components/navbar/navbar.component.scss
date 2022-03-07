@@ -66,7 +66,7 @@
   margin: 0 10px 0 10px;
 }
 
-.activeLink + .navUnderline {
+.activeLink .navUnderline {
   width: 100%;
 }
 
@@ -80,11 +80,11 @@ li:hover .navUnderline {
 }
 
 .logo {
-  width: 60px;
+  width: 50px;
 }
 
 .coinsIcon {
-  width: 60px;
+  width: 50px;
   margin-right: 35px;
   display: inline;
   vertical-align: middle;
@@ -92,7 +92,7 @@ li:hover .navUnderline {
 
 #coinAmount {
   color: $colorWhite;
-  margin-right: 20px;
+  margin-right: 15px;
   font-size: 26px;
   display: inline;
   vertical-align: middle;

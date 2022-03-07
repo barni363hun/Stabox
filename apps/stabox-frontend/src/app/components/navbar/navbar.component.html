@@ -23,15 +23,15 @@
 
         <div class="collapse navbar-collapse navBarList" id="navbarNav">
             <ul class="navbar-nav ms-5 me-auto">
-                <li class="nav-item me-3" *ngIf="userService.userLoggedIn()">
+                <li class="nav-item me-3" *ngIf="userService.userLoggedIn()" routerLink="/packages" routerLinkActive="activeLink">
                     <img class="navIcon" [src]="themeService.light ? '../../../../assets/images/LightMode/BoxIcon.svg' : '../../../../assets/images/DarkMode/BoxIcon.svg'">
-                    <a class="mt-1 navText" routerLink="/packages" routerLinkActive="activeLink">Packages</a>
+                    <a class="mt-1 navText">Packages</a>
                     <div class="navUnderline gradientBg"></div>
                 </li>
             </ul>
 
             <div id="coinsDiv" title="View transactions" *ngIf="userService.userLoggedIn()">
-                <p id="coinAmount">69 420</p>
+                <p id="coinAmount">420</p>
                 <img class="coinsIcon" src="../../../../assets/images/CoinsIcon.svg" />
             </div>
             <div class="me-4" *ngIf="userService.userLoggedIn()">
