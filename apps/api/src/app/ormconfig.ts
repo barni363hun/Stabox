@@ -27,7 +27,7 @@ const config: MysqlConnectionOptions = {
   host: 'localhost',
   port: 3306,
   username: 'root',
-  password: 'Abc123456',
+  password: '',
   database: 'stabox',
   entities: [
     userEntity,

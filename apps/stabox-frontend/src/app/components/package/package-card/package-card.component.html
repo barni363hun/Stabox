@@ -2,15 +2,6 @@
     <div class="packageCard">
         <p class="packageTitle">{{package.name}}</p>
         <app-divider></app-divider>
-
-        <!--         <div class="row">
-            <div class="col-6">
-                <p class="packageText">Shipper:</p>
-            </div>
-            <div class="col-6">
-                <p class="packageData">{{"TODO Shipper"}}</p>
-            </div>
-        </div> -->
         <div class="row">
             <div class="col-6">
                 <p class="packageText">Zip code:</p>
@@ -75,13 +66,6 @@
                 <p class="packageData">{{this.status}}</p>
             </div>
         </div>
-        <!-- <div class="row mt-3">
-            <div class="col-12 text-center">
-                <stabox-show-more-button></stabox-show-more-button>
-            </div>
-        </div> -->
-        <!-- conditional html -->
-        <!-- accept package -->
         <div class="row mt-3" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
             <div class="col-12 text-center">
                 <div class="col-6">
@@ -89,14 +73,15 @@
                         <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.name}}</option>
                     </select>
                 </div>
+
                 <div class="col-6">
-                    <select name="exchangeDates" id="exchangeDates" [(ngModel)]="selectedExchangeDate">
-                        <option *ngFor="let exDate of exchangeDates" [value]="exDate.id">
-                            {{exDate.startDate.toLocaleString() | date:'yyyy/MM/dd H:mm'}} -
-                            {{exDate.endDate.toString() | date:'yyyy/MM/dd H:mm'}}
-                        </option>
-                    </select>
+                    <input type="datetime-local" *ngFor="let exDate of exchangeDates"
+                     [min]="exDate.startDate.toString().replace('.000Z','')"
+                      [max]="exDate.endDate.toString().replace('.000Z','')"
+                       [value]="(exDate.startDate)"
+                       [(ngModel)]="selectedExchangeDate" />
                 </div>
+
                 <div class="col-6">
                     <button (click)="selectPostDate()">accept package</button>
                 </div>
