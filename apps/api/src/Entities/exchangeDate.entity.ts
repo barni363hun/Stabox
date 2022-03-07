@@ -1,15 +1,12 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { addressEntity, userEntity } from '.';
+import { addressEntity } from '.';
 
 @Entity()
+
+// on frontend we save start and end Dates as string TODO?
 export class exchangeDateEntity {
   @PrimaryGeneratedColumn()
   id: number;
-
-  // @Column()
-  // userId: string;
-  // @ManyToOne(() => userEntity, (user) => user)
-  // user: userEntity;
 
   @Column()
   addressId;

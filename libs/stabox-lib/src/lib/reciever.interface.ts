@@ -1,6 +1,6 @@
 export interface recieverInterface {
   id: number;
-  address: number;
+  addressId: number;
   firstName: string;
   lastName: string;
   email: string;

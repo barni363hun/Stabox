@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { cError, cSuccess, exchangeDateInterface } from '@stabox/stabox-lib';
+import { cError, cLog, cSuccess, exchangeDateInterface } from '@stabox/stabox-lib';
 import { Observable } from 'rxjs';
-import { SnackbarService, UserService } from '.';
+import { SnackbarService } from '.';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -11,7 +11,6 @@ import { environment } from '../../environments/environment';
 export class ExchangeDateService {
   exchangeDates: exchangeDateInterface[] = [];
   constructor(
-    private userService: UserService,
     private http: HttpClient,
     private snackbarService: SnackbarService
   ) {
@@ -21,24 +20,23 @@ export class ExchangeDateService {
   localeAddExchangeDate() {
     const newEX: exchangeDateInterface = {
       id: 0,
-      userId: this.userService.user.id,
       startDate: '',
       endDate: '',
       addressId: 0,
     };
     this.exchangeDates.push(newEX);
-    console.log(this.exchangeDates);
+    //console.log(this.exchangeDates);
   }
   selectChange(e: any, EXindex: number) {
     const myEX: exchangeDateInterface = this.exchangeDates[EXindex];
     if (myEX) {
       myEX.addressId = Number(e.target.value);
     }
-    console.log(myEX);
+    //console.log(myEX);
   }
 
   getExchangeDates() {
-    console.log('getting exchangeDates');
+    cLog('getting exchangeDates');
     this.http
       .get<exchangeDateInterface[]>(environment.apiURL + '/EXdate')
       .subscribe({
@@ -49,7 +47,6 @@ export class ExchangeDateService {
               startDate: this.toDateTimeLocal(new Date(exDate.startDate)),
               endDate: this.toDateTimeLocal(new Date(exDate.endDate)),
               id: exDate.id,
-              userId: exDate.userId,
               addressId: exDate.addressId,
             };
           });
@@ -57,7 +54,6 @@ export class ExchangeDateService {
         },
         error: (err) => {
           cError(err.error.message);
-          console.log(err);
         },
       });
   }
@@ -65,14 +61,10 @@ export class ExchangeDateService {
   toDateTimeLocal(d: Date): string {
     d.setHours(d.getHours() + 1);
     const dformat = d.toISOString().slice(0, 16);
-    //   [d.getMonth() + 1, d.getDate(), d.getFullYear()].join('/') +
-    //   ' ' +
-    //   [d.getHours(), d.getMinutes()].join(':');
     return dformat;
   }
 
   save(exDate: exchangeDateInterface) {
-    console.log(exDate);
     if (
       new Date(exDate.startDate).getTime() > Date.now() &&
       new Date(exDate.startDate).getTime() > Date.now()
@@ -81,30 +73,38 @@ export class ExchangeDateService {
         new Date(exDate.startDate).getTime() <
         new Date(exDate.endDate).getTime()
       ) {
-        if (exDate.id === 0) {
-          this.create(exDate);
-        } else {
-          console.log('saving exchangeDate ' + exDate.id);
-          this.http
-            .patch<exchangeDateInterface>(environment.apiURL + '/EXdate', {
-              ...exDate,
-            })
-            .subscribe({
-              next: (res) => {
-                cSuccess('exchangeDates saved');
-                this.snackbarService.showSuccessSnackbar(
-                  'Exchange dates saved succesfully.'
-                );
-                console.log(this.exchangeDates);
-                this.getExchangeDates();
-              },
-              error: (err) => {
-                cError(err.error.message);
-                this.snackbarService.showErrorSnackbar(
-                  this.formatMessage(err.error.message)
-                );
-              },
-            });
+        if (exDate.addressId !== 0) {
+          
+        
+          if (exDate.id === 0) {
+            this.create(exDate);
+          } else {
+            cLog('saving exchangeDate ' + exDate.id);
+            this.http
+              .patch<exchangeDateInterface>(environment.apiURL + '/EXdate', {
+                ...exDate,
+              })
+              .subscribe({
+                next: (res) => {
+                  cSuccess('exchangeDates saved');
+                  this.snackbarService.showSuccessSnackbar(
+                    'Exchange dates saved succesfully.'
+                  );
+                  this.getExchangeDates();
+                },
+                error: (err) => {
+                  cError(err.error.message);
+                  this.snackbarService.showErrorSnackbar(err.error.message
+                  );
+                },
+              });
+          }
+        }
+        else {
+          cError('You need to select an address.');
+        this.snackbarService.showErrorSnackbar(
+          'You need to select an address.'
+        );
         }
       } else {
         cError('endDate must be later than startDate');
@@ -120,31 +120,34 @@ export class ExchangeDateService {
     }
   }
 
+  // TODO show these options only for users with USER role
   private create(exDate: exchangeDateInterface) {
-    // TODO only for users with USER role
-    console.log(exDate);
-
-    console.log('creating exchangeDate ' + exDate.id);
+    // console.log(exDate);
+    cLog('creating exchangeDate');
     this.http
       .put<exchangeDateInterface>(environment.apiURL + '/EXdate', {
         ...exDate,
       })
       .subscribe({
         next: (res) => {
-          cSuccess('exchangeDate' + exDate.id + ' created');
-          console.log(this.exchangeDates);
+          cSuccess('exchangeDate created');
+          this.snackbarService.showSuccessSnackbar(
+            'exchangeDate created'
+          );
           this.getExchangeDates();
         },
         error: (err) => {
           cError(err.error.message);
-          console.log(err);
+          this.snackbarService.showErrorSnackbar(
+            err.error.message
+          );
         },
       });
   }
 
   delete(id: number) {
     const deleteEX: exchangeDateInterface = this.exchangeDates[id];
-    console.log('deleting exchangeDate ' + deleteEX.id);
+    cLog('deleting exchangeDate');
     const headers = {};
     this.http
       .request('delete', environment.apiURL + '/EXdate', {
@@ -153,8 +156,10 @@ export class ExchangeDateService {
       })
       .subscribe({
         next: (res) => {
-          cSuccess('exchangeDate ' + id + ' deleted');
-          console.log(this.exchangeDates);
+          cSuccess('exchangeDate deleted');
+          this.snackbarService.showSuccessSnackbar(
+            'exchangeDate deleted'
+          );
           this.getExchangeDates();
         },
         error: (err) => {
@@ -167,18 +172,4 @@ export class ExchangeDateService {
     return this.http.get(`${environment.apiURL}/EXdate/package/${id}`);
   }
 
-  private formatMessage(message: string) {
-    let messages: string[] = message.toString().split(',');
-    let errorMessage: string = '';
-    for (let index = 0; index < messages.length; index++) {
-      let message = messages[index];
-      const i = message.search(/[A-Z]/);
-      if (i != -1) {
-        message = message.replace(/[A-Z]/, ` ${message[i].toLowerCase()}`);
-      }
-      message = message.replace(message[0], message[0].toUpperCase());
-      errorMessage += message + '. ';
-    }
-    return errorMessage;
-  }
 }

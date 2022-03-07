@@ -4,6 +4,7 @@ import {
   AddressService,
   PackageService,
   RecieverService,
+  SnackbarService,
   ThemeService,
 } from '../../../services';
 
@@ -37,6 +38,7 @@ export class AddPackageComponent implements OnInit {
   constructor(
     private packageService: PackageService,
     private addressService: AddressService,
+    private snackbarService: SnackbarService,
     public recieverService: RecieverService,
     public themeService: ThemeService
   ) {}
@@ -64,31 +66,32 @@ export class AddPackageComponent implements OnInit {
   }
 
   addPackage() {
-    console.log('addpackage()');
-    if (this.package.name.trim()) {
+    if (
+      this.snackbarService.checkInput(this.package.name.trim(), "Please add a nickname to this package!") &&
+      this.snackbarService.checkInput(this.sizeX, "Please fill all the data about the size of the package!") &&
+      this.snackbarService.checkInput(this.sizeY, "Please fill all the data about the size of the package!") &&
+      this.snackbarService.checkInput(this.sizeZ, "Please fill all the data about the size of the package!") &&
+      this.snackbarService.checkInput(this.myWeight, "Please fill the data about the weight of the package!") &&
+      this.snackbarService.checkInput(this.selectedAddress, "Please select where do you want to send the package from!") &&
+      this.snackbarService.checkInput(this.selectedReciever, "Please select where do you want to send your package!")
+    ) {
       this.package.size = this.sizeX + 'x' + this.sizeY + 'x' + this.sizeZ;
       this.package.weight = this.myWeight + this.selectedWeight;
+      this.snackbarService.showSuccessSnackbar(this.package.name+" added, waiting for a shipper!")
       console.log(this.package);
       this.packageService.addPackage({
         ...this.package,
         recieverId: Number(this.selectedReciever),
         fromAddressId: Number(this.selectedAddress),
       });
+      this.done();
     }
-    this.done();
   }
+
 }
 interface packageInterface {
   name: string;
   size: string;
   weight: string;
   fragile: boolean;
-}
-interface recieverInterface {
-  addressId: number;
-  email: string;
-  firstName: string;
-  id: number;
-  lastName: string;
-  phoneNumber: string;
 }

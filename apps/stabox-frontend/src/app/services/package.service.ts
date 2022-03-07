@@ -43,7 +43,7 @@ export class PackageService {
     return this.http.get(environment.apiURL + this.route)
   }
 
-  async addPackage(_package: packageInterface) {
+  async addPackage(_package: any) {
     await firstValueFrom(this.http.put(environment.apiURL + '/package/add', _package)).catch(err => console.log(err))
     this.update()
   }
@@ -52,17 +52,9 @@ export class PackageService {
     this.route = route
     this.getMypackages().subscribe((res) => {
       console.log(this.route)
-      console.log(res)
       this.packages = res
+      console.log(this.packages)
     })
   }
 
-}
-interface packageInterface {
-  name: string
-  size: string,
-  weight: string,
-  fragile: boolean,
-  recieverId: number,
-  fromAddressId: number
 }

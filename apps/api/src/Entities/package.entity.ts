@@ -1,21 +1,21 @@
+import { packageInterface } from '@stabox/stabox-lib';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { addressEntity, userEntity, vehicleEntity } from '.';
 import { recieverEntity } from './reciever.entity';
 
 @Entity()
-export class packageEntity {
-  //Columns
+export class packageEntity implements packageInterface {
   @PrimaryGeneratedColumn()
   id: number;
-
-  @Column()
-  userId: string;
 
   @Column({ nullable: true })
   vehicleId: number;
 
   @ManyToOne(() => vehicleEntity, (vehicle) => vehicle.id)
   vehicle: vehicleEntity;
+
+  @Column()
+  userId: string;
 
   @ManyToOne(() => userEntity, (user) => user.packages)
   user: userEntity;

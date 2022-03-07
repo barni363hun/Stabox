@@ -30,10 +30,10 @@
                 </li>
             </ul>
 
-            <div id="coinsDiv" title="View transactions" *ngIf="userService.userLoggedIn()">
+            <!-- <div id="coinsDiv" title="View transactions" *ngIf="userService.userLoggedIn()">
                 <p id="coinAmount">69 420</p>
                 <img class="coinsIcon" src="../../../../assets/images/CoinsIcon.svg" />
-            </div>
+            </div> -->
             <div class="me-4" *ngIf="userService.userLoggedIn()">
                 <app-account-button></app-account-button>
             </div>
@@ -53,28 +53,22 @@
 <div class="sideBarDiv unselectable" *ngIf="showSideBar == true" [ngClass]="{ lightMode: themeService.light }">
     <div id="sideBarShade" (click)="showSideBar = false"></div>
     <div id="sideBar">
-        <div class="sideBarItemDiv" routerLink="/mypackages">
+        <div class="sideBarItemDiv" routerLink="/packages">
             <div class="sideBarItem">
-                <a class="mt-1 navText">My Packages</a>
+                <img class="navIcon" [src]="themeService.light ? '../../../../assets/images/LightMode/BoxIcon.svg' : '../../../../assets/images/DarkMode/BoxIcon.svg'">
+                <a class="mt-1 navText">Packages</a>
                 <div class="navUnderline gradientBg"></div>
             </div>
         </div>
 
-        <div class="sideBarItemDiv" routerLink="/mypackages">
-            <div class="sideBarItem">
-                <a class="mt-1 navText">Available Packages</a>
-                <div class="navUnderline gradientBg"></div>
-            </div>
-        </div>
-
-        <div class="sideBarItemDiv">
+        <!-- <div class="sideBarItemDiv">
             <div class="sideBarItem">
                 <div id="sideBarItemCoinsDiv" title="View transactions">
                     <p id="sideBarItemCoinAmount">69 420</p>
                     <img class="sideBarItemCoinsIcon" src="../../../../assets/images/CoinsIcon.svg" />
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="sideBarItemDiv">
             <div class="sideBarItem" *ngIf="userService.userLoggedIn()">

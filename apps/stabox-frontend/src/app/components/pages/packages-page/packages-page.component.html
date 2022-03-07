@@ -2,20 +2,20 @@
     <div class="content">
         <div class="container-fluid packagesPage">
             <div class="row filter">
-                <div class="col-4 mx-auto">
-                    <div class="filterItem">
+                <div class="col-4 mx-auto" >
+                    <div class="filterItem" (click)="filterMyPackages()">
                         <p class="m-0 unselectable">My Packages</p>
                         <div class="navUnderline gradientBg"></div>
                     </div>
                 </div>
                 <div class="col-4 mx-auto" *ngIf="userService.isShipper">
-                    <div class="filterItem">
+                    <div class="filterItem" (click)="filterAcceptedPackages()">
                         <p class="m-0">Accepted Packages</p>
                         <div class="navUnderline gradientBg"></div>
                     </div>
                 </div>
                 <div class="col-4 mx-auto" *ngIf="userService.isShipper">
-                    <div class="filterItem">
+                    <div class="filterItem" (click)="filterToDeliver()">
                         <p class="m-0">Packages waiting for delivery</p>
                         <div class="navUnderline gradientBg"></div>
                     </div>
@@ -43,9 +43,9 @@
                 </div>
             </div>
 
-            <div class="row" *ngIf="showMyPackages">
-                <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2" *ngFor="let package of this.packageService.packages">
-                    <stabox-package-card [package]="package"></stabox-package-card>
+            <div class="row">
+                <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2" *ngFor="let pkg of packageService.packages">
+                    <stabox-package-card [package]="pkg"></stabox-package-card>
                 </div>
             </div>
 

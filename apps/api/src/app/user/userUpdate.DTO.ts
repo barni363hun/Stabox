@@ -10,7 +10,6 @@ export class userUpdateDto {
   @IsNotEmpty()
   @IsString()
   lastName: string;
-  @IsNotEmpty()
-  @IsPhoneNumber()
+  @IsPhoneNumber('HU')
   phoneNumber: string;
 }

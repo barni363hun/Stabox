@@ -7,7 +7,7 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { IsEmail, IsNumber, IsPhoneNumber, IsString } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsNumber, IsPhoneNumber, IsString } from 'class-validator';
 import { AddressService } from '../address/address.service';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
 import { Roles } from '../auth/roles.decorator';
@@ -15,23 +15,29 @@ import { RecieverService } from './reciever.service';
 
 class recieverWithAddressDto {
   @IsString()
+  @IsNotEmpty()
   firstName: string;
   @IsString()
+  @IsNotEmpty()
   lastName: string;
   @IsEmail()
   email: string;
-  @IsPhoneNumber()
+  @IsPhoneNumber('HU')
   phoneNumber: string;
   @IsString()
+  @IsNotEmpty()
   country: string;
   @IsNumber()
   zipCode: number;
   @IsString()
+  @IsNotEmpty()
   cityName: string;
   @IsString()
+  @IsNotEmpty()
   street: string;
-  @IsNumber()
-  houseNumber: number;
+  @IsString()
+  @IsNotEmpty()
+  houseNumber: string;
 }
 
 @Controller('reciever')
