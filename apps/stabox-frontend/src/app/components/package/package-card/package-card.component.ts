@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ExchangeDateService, UserService, VehicleService } from '../../../services';
+import { ExchangeDateService, ThemeService, UserService, VehicleService } from '../../../services';
 import { PackageService } from '../../../services/package.service';
 @Component({
   selector: 'stabox-package-card',
@@ -25,7 +25,8 @@ export class PackageCardComponent implements OnInit {
     private userService: UserService,
     private packageService: PackageService,
     private vehicleService: VehicleService,
-    private exchangeDateSercice: ExchangeDateService
+    private exchangeDateSercice: ExchangeDateService,
+    public themeService: ThemeService
   ) { }
 
   ngOnInit(): void {

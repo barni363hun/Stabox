@@ -1,117 +1,103 @@
-<div class="col-6">
-    <div class="packageCard">
-        <p class="packageTitle">{{package.name}}</p>
-        <app-divider></app-divider>
+<div [ngClass]="{ lightMode: themeService.light }">
+    <div class="card">
+        <div class="row centerElements">
+            <div class="col-12 centerElements">
+                <span class="packageTitle">{{package.name}}</span>
+            </div>
+            <div class="underline gradientBg mb-2"></div>
 
-        <!--         <div class="row">
-            <div class="col-6">
-                <p class="packageText">Shipper:</p>
-            </div>
-            <div class="col-6">
-                <p class="packageData">{{"TODO Shipper"}}</p>
-            </div>
-        </div> -->
-        <div class="row">
-            <div class="col-6">
-                <p class="packageText">Zip code:</p>
-            </div>
-            <div class="col-6">
-                <p class="packageData">{{package.fromAddress.zipCode}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <p class="packageText">City:</p>
-            </div>
-            <div class="col-6">
-                <p class="packageData">{{package.fromAddress.cityName}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <p class="packageText">Street:</p>
-            </div>
-            <div class="col-6">
-                <p class="packageData">{{package.fromAddress.street}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <p class="packageText">House Number:</p>
-            </div>
-            <div class="col-6">
-                <p class="packageData">{{package.fromAddress.houseNumber}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <p class="packageText">Size:</p>
-            </div>
-            <div class="col-6">
-                <p class="packageData">{{package.size}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <p class="packageText">Weight:</p>
-            </div>
-            <div class="col-6">
-                <p class="packageData">{{package.weight}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <p class="packageText">Fragility:</p>
-            </div>
-            <div class="col-6">
-                <p class="packageData">{{package.fragile?'Fragile':'Not Fraile'}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <p class="packageText">STATUS:</p>
-            </div>
-            <div class="col-6">
-                <p class="packageData">{{this.status}}</p>
-            </div>
-        </div>
-        <!-- <div class="row mt-3">
-            <div class="col-12 text-center">
-                <stabox-show-more-button></stabox-show-more-button>
-            </div>
-        </div> -->
-        <!-- conditional html -->
-        <!-- accept package -->
-        <div class="row mt-3" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
-            <div class="col-12 text-center">
-                <div class="col-6">
-                    <select name="vehicle" id="vehicle" [(ngModel)]="selectedVehicle">
-                        <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.name}}</option>
-                    </select>
+            <div class="row">
+                <div class="col-6 textRight">
+                    <span class="packageText">Zip code:</span>
                 </div>
                 <div class="col-6">
-                    <select name="exchangeDates" id="exchangeDates" [(ngModel)]="selectedExchangeDate">
-                        <option *ngFor="let exDate of exchangeDates" [value]="exDate.id">
-                            {{exDate.startDate.toLocaleString() | date:'yyyy/MM/dd H:mm'}} -
-                            {{exDate.endDate.toString() | date:'yyyy/MM/dd H:mm'}}
-                        </option>
-                    </select>
+                    <span class="packageData">{{package.fromAddress.zipCode}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 textRight">
+                    <span class="packageText">City:</span>
                 </div>
                 <div class="col-6">
-                    <button (click)="selectPostDate()">accept package</button>
+                    <span class="packageData">{{package.fromAddress.cityName}}</span>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-6 textRight">
+                    <span class="packageText">Street:</span>
+                </div>
+                <div class="col-6">
+                    <span class="packageData">{{package.fromAddress.street}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 textRight">
+                    <span class="packageText">House Number:</span>
+                </div>
+                <div class="col-6">
+                    <span class="packageData">{{package.fromAddress.houseNumber}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 textRight">
+                    <span class="packageText">Size:</span>
+                </div>
+                <div class="col-6">
+                    <span class="packageData">{{package.size}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 textRight">
+                    <span class="packageText">Weight:</span>
+                </div>
+                <div class="col-6">
+                    <span class="packageData">{{package.weight}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 textRight">
+                    <span class="packageText">Fragility:</span>
+                </div>
+                <div class="col-6">
+                    <span class="packageData">{{ package.fragile ? 'Fragile' : 'Not Fragile' }}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 textRight">
+                    <span class="packageText">Status:</span>
+                </div>
+                <div class="col-6">
+                    <span class="packageData">{{this.status}}</span>
+                </div>
+            </div>
 
+            <div class="row mt-3" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
+                <div class="col-12 text-center">
+                    <div class="col-6">
+                        <select name="vehicle" id="vehicle" [(ngModel)]="selectedVehicle">
+                            <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <select name="exchangeDates" id="exchangeDates" [(ngModel)]="selectedExchangeDate">
+                            <option *ngFor="let exDate of exchangeDates" [value]="exDate.id">
+                                {{exDate.startDate.toLocaleString() | date:'yyyy/MM/dd H:mm'}} -
+                                {{exDate.endDate.toString() | date:'yyyy/MM/dd H:mm'}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <button (click)="selectPostDate()">accept package</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row mt-3" *ngIf="this.state == 'finishable' && !this.isUserTheOwner">
+                <div class="col-12 text-center">
+                    <button (click)="finishShipping()">Finish shipping</button>
+                </div>
             </div>
         </div>
-        <!-- accept package -->
-        <div class="row mt-3" *ngIf="this.state == 'finishable' && !this.isUserTheOwner">
-            <div class="col-12 text-center">
-                <button (click)="finishShipping()">Finish shipping</button>
-            </div>
-        </div>
-
     </div>
-
-
-
 </div>
