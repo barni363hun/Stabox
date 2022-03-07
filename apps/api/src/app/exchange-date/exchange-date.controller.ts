@@ -70,7 +70,7 @@ export class ExchangeDateController {
   @Get()
   getMyExchangeDates(@Req() req: authRequest): Promise<exchangeDateEntity[]> {
     return this.exchangeDateService.find({
-      where: { address: { userId: req.user.sub } },
+      where: { address: { userId: req.user.sub, isDeleted:false } },
       relations: ['address'],
       loadRelationIds: false,
     });
