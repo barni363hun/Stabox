@@ -1,0 +1,126 @@
+@import './../../../app.component.scss';
+
+.lightMode .card {
+  background: transparent;
+  box-shadow: 0 2px 5px 1px rgba($colorDarkGray, 0.25);
+}
+
+.lightMode .iconBg:hover {
+  background-color: rgba($colorLightGray, 0.25);
+}
+
+.card {
+  width: 450px;
+  height: fit-content;
+
+  background: transparent;
+  box-shadow: 0 2px 5px 1px rgba($colorBlack, 0.25);
+  border-radius: 25px;
+
+  padding: 10px 25px 10px 25px;
+}
+
+.underline {
+  height: 3px;
+  width: 95%;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+select,
+input {
+  font-size: 20px;
+}
+
+.cardTextDiv {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin: 0;
+  padding: 0;
+}
+
+.cardText {
+  margin: 0 20px 0 0;
+  display: inline;
+  font-size: 20px;
+}
+
+.cardInputDiv {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin: 0;
+  padding: 0;
+}
+
+.dataInput {
+  font-size: 20px;
+  padding-left: 10px;
+  text-align: center;
+}
+
+.sizeInput {
+  width: 30%;
+  padding-left: 0;
+}
+
+.weightInput {
+  width: 75%;
+  text-align: left;
+}
+
+.weightSelect {
+  width: 25%;
+}
+
+.fragilitySelect {
+  width: 50%;
+}
+
+.addressSelect {
+  width: 100%;
+}
+
+.addIcon {
+  transform: scale(1.25);
+}
+
+.iconBg {
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+  margin: 0 10px;
+  border-radius: 50%;
+}
+
+.iconBg:hover {
+  cursor: pointer;
+  background-color: rgba($colorDarkGray, 0.35);
+}
+
+.btn {
+  transition: 0.25s;
+  color: $colorWhite;
+  border-radius: 25px;
+  margin: 0 10px;
+  padding: 2px 7.5px 2.5px 2.5px;
+  text-shadow: 1px 1px 1px rgba($colorBlack, 0.5);
+}
+
+.btn:hover {
+  transition: 0.25s;
+  transform: scale(1.05);
+}
+
+.addBtn {
+  background-color: $colorGreen;
+}
+
+.cancelBtn {
+  background-color: $colorRed;
+}
+
+.btnIcon {
+  padding-right: 2.5px;
+}

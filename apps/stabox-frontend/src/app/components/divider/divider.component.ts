@@ -1,17 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '../../services';
 
 @Component({
   selector: 'app-divider',
   templateUrl: './divider.component.html',
-  styleUrls: ['./divider.component.scss']
+  styleUrls: ['./divider.component.scss'],
 })
 export class DividerComponent implements OnInit {
+  constructor(public themeService: ThemeService) {}
 
-  @Input() lightMode = false;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

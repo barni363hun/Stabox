@@ -4,6 +4,7 @@ import {
   AddressService,
   PackageService,
   RecieverService,
+  ThemeService,
 } from '../../../services';
 
 @Component({
@@ -36,8 +37,9 @@ export class AddPackageComponent implements OnInit {
   constructor(
     private packageService: PackageService,
     private addressService: AddressService,
-    public recieverService: RecieverService
-  ) { }
+    public recieverService: RecieverService,
+    public themeService: ThemeService
+  ) {}
 
   ngOnInit(): void {
     //get user's addresses
@@ -50,7 +52,7 @@ export class AddPackageComponent implements OnInit {
       },
     });
 
-    this.recieverService.refreshUserRecievers()
+    this.recieverService.refreshUserRecievers();
   }
 
   addReciever() {
@@ -66,7 +68,7 @@ export class AddPackageComponent implements OnInit {
     if (this.package.name.trim()) {
       this.package.size = this.sizeX + 'x' + this.sizeY + 'x' + this.sizeZ;
       this.package.weight = this.myWeight + this.selectedWeight;
-      console.log(this.package)
+      console.log(this.package);
       this.packageService.addPackage({
         ...this.package,
         recieverId: Number(this.selectedReciever),

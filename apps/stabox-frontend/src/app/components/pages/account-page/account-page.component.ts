@@ -4,6 +4,8 @@ import {
   AddressService,
   ExchangeDateService,
   UserService,
+  SnackbarService,
+  ThemeService,
 } from '../../../services';
 
 @Component({
@@ -12,21 +14,15 @@ import {
   styleUrls: ['./account-page.component.scss'],
 })
 export class AccountPageComponent implements OnInit {
-  userDataChanged = true;
   viewDetails = false;
-  lightMode = false;
-  theme = 'dark';
 
   constructor(
     public userService: UserService,
     public exchangeDateService: ExchangeDateService,
-    public addressService: AddressService
+    public addressService: AddressService,
+    public snackbarService: SnackbarService,
+    public themeService: ThemeService
   ) {
-    if (localStorage.getItem('theme') == 'light') {
-      this.lightMode = true;
-    } else {
-      this.lightMode = false;
-    }
   }
 
   saveAddress(address: addressInterface) {
@@ -41,25 +37,13 @@ export class AccountPageComponent implements OnInit {
 
   wantToBeShipper() {
     if (this.userService.isUser) {
-      if (confirm('Do you want to be a shipper?')) {
-        this.userService.beShipper();
-      } else {
-        alert('okaly');
-      }
+      this.snackbarService.showConfirmSnackbar('Do you want to be a shipper?');
     } else {
-      alert('Please fill all of your data!');
+      this.snackbarService.showErrorSnackbar('Fill in all your data, please.');
     }
   }
 
   getViewShipperDetails(data: any) {
     this.viewDetails = data;
-  }
-
-  getLightModeToggle(data: any) {
-    if (data == 'light') {
-      this.lightMode = true;
-    } else {
-      this.lightMode = false;
-    }
   }
 }

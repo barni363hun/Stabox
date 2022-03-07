@@ -1,57 +1,106 @@
-<div style="display: block;">
-    <table>
-        <tr>
-            <td style="text-align: end; padding-right:15px;">First name:</td>
-            <td>
-                <input type="text" name="region" id="" [(ngModel)]="reciever.firstName">
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: end; padding-right:15px;">Last name:</td>
-            <td>
-                <input type="text" name="region" id="" [(ngModel)]="reciever.lastName">
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: end; padding-right:15px;">Phone number:</td>
-            <td>
-                <input type="text" name="region" id="" [(ngModel)]="reciever.phoneNumber">
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: end; padding-right:15px;">Email:</td>
-            <td>
-                <input type="text" name="region" id="" [(ngModel)]="reciever.email">
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: end; padding-right:15px;">Zip code:</td>
-            <td>
-                <input type="number" name="region" id="" [(ngModel)]="reciever.zipCode">
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: end; padding-right:15px;">City name:</td>
-            <td>
-                <input type="text" name="region" id="" [(ngModel)]="reciever.cityName">
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: end; padding-right:15px;">Street:</td>
-            <td>
-                <input type="text" name="region" id="" [(ngModel)]="reciever.street">
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: end; padding-right:15px;">House number:</td>
-            <td>
-                <input type="number" name="region" id="" [(ngModel)]="reciever.houseNumber">
-            </td>
-        </tr>
-        TODO:html
-        <tr>
-            <td><button (click)="addToDB()"> Add reciever</button></td>
-            <td><button (click)="done()"> Cancel</button></td>
-        </tr>
-    </table>
+<div [ngClass]="{ lightMode: themeService.light }">
+    <div class="card">
+        <div class="row">
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6 cardTextDiv">
+                        <p class="cardText unselectable">FirstName</p>
+                    </div>
+                    <div class="col-6 cardInputDiv">
+                        <input type="text" name="region" [(ngModel)]="reciever.firstName">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6 cardTextDiv">
+                        <p class="cardText unselectable">LastName</p>
+                    </div>
+                    <div class="col-6 cardInputDiv">
+                        <input type="text" name="region" [(ngModel)]="reciever.lastName">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6 cardTextDiv">
+                        <p class="cardText unselectable">Email</p>
+                    </div>
+                    <div class="col-6 cardInputDiv">
+                        <input type="text" name="region" [(ngModel)]="reciever.email">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6 cardTextDiv">
+                        <p class="cardText unselectable">PhoneNumber</p>
+                    </div>
+                    <div class="col-6 cardInputDiv">
+                        <input type="text" name="region" [(ngModel)]="reciever.phoneNumber">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6 cardTextDiv">
+                        <p class="cardText unselectable">ZipCode</p>
+                    </div>
+                    <div class="col-6 cardInputDiv">
+                        <input type="number" name="region" [(ngModel)]="reciever.zipCode">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6 cardTextDiv">
+                        <p class="cardText unselectable">City</p>
+                    </div>
+                    <div class="col-6 cardInputDiv">
+                        <input type="text" name="region" [(ngModel)]="reciever.cityName">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6 cardTextDiv">
+                        <p class="cardText unselectable">Street</p>
+                    </div>
+                    <div class="col-6 cardInputDiv">
+                        <input type="text" name="region" [(ngModel)]="reciever.street">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6 cardTextDiv">
+                        <p class="cardText unselectable">HouseNumber</p>
+                    </div>
+                    <div class="col-6 cardInputDiv">
+                        <input type="text" name="region" [(ngModel)]="reciever.houseNumber">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-3 centerElements">
+                <div class="btn addBtn centerElements" (click)="addToDB()">
+                    <mat-icon class="btnIcon">done</mat-icon>
+                    <span>Add Receiver</span>
+                </div>
+                <div class="btn cancelBtn centerElements" (click)="done()">
+                    <mat-icon class="btnIcon">close</mat-icon>
+                    <span>Cancel</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>

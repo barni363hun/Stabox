@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "stabox-frontend": "apps/stabox-frontend",
+    "stabox-frontend-e2e": "apps/stabox-frontend-e2e",
+    "api": "apps/api",
+    "stabox-lib": "libs/stabox-lib"
+  }
+}

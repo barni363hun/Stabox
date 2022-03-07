@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainpageNavbarComponent } from './mainpage-navbar.component';
+import { PackagesPageComponent } from './packages-page.component';
 
-describe('MainpageNavbarComponent', () => {
-  let component: MainpageNavbarComponent;
-  let fixture: ComponentFixture<MainpageNavbarComponent>;
+describe('PackagesPageComponent', () => {
+  let component: PackagesPageComponent;
+  let fixture: ComponentFixture<PackagesPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainpageNavbarComponent ]
+      declarations: [ PackagesPageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainpageNavbarComponent);
+    fixture = TestBed.createComponent(PackagesPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -2,16 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { cError, cSuccess, exchangeDateInterface } from '@stabox/stabox-lib';
 import { Observable } from 'rxjs';
-import { UserService } from '.';
+import { SnackbarService, UserService } from '.';
 import { environment } from '../../environments/environment';
-import { SecondCardComponent } from '../components/pages/mainpage/second-card/second-card.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ExchangeDateService {
   exchangeDates: exchangeDateInterface[] = [];
-  constructor(private userService: UserService, private http: HttpClient) {
+  constructor(
+    private userService: UserService,
+    private http: HttpClient,
+    private snackbarService: SnackbarService
+  ) {
     this.getExchangeDates();
   }
 
@@ -89,19 +92,31 @@ export class ExchangeDateService {
             .subscribe({
               next: (res) => {
                 cSuccess('exchangeDates saved');
+                this.snackbarService.showSuccessSnackbar(
+                  'Exchange dates saved succesfully.'
+                );
                 console.log(this.exchangeDates);
                 this.getExchangeDates();
               },
               error: (err) => {
                 cError(err.error.message);
+                this.snackbarService.showErrorSnackbar(
+                  this.formatMessage(err.error.message)
+                );
               },
             });
         }
       } else {
         cError('endDate must be later than startDate');
+        this.snackbarService.showErrorSnackbar(
+          'End date must be later then start date.'
+        );
       }
     } else {
       cError('both dates must be later than now');
+      this.snackbarService.showErrorSnackbar(
+        'Both dates must be later than now.'
+      );
     }
   }
 
@@ -150,5 +165,20 @@ export class ExchangeDateService {
   }
   getExchangeDateByPackageId(id: number): Observable<any> {
     return this.http.get(`${environment.apiURL}/EXdate/package/${id}`);
+  }
+
+  private formatMessage(message: string) {
+    let messages: string[] = message.toString().split(',');
+    let errorMessage: string = '';
+    for (let index = 0; index < messages.length; index++) {
+      let message = messages[index];
+      const i = message.search(/[A-Z]/);
+      if (i != -1) {
+        message = message.replace(/[A-Z]/, ` ${message[i].toLowerCase()}`);
+      }
+      message = message.replace(message[0], message[0].toUpperCase());
+      errorMessage += message + '. ';
+    }
+    return errorMessage;
   }
 }

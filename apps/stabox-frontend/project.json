@@ -1,0 +1,104 @@
+{
+  "projectType": "application",
+  "root": "apps/stabox-frontend",
+  "sourceRoot": "apps/stabox-frontend/src",
+  "targets": {
+    "build": {
+      "builder": "@angular-devkit/build-angular:browser",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/stabox-frontend",
+        "index": "apps/stabox-frontend/src/index.html",
+        "main": "apps/stabox-frontend/src/main.ts",
+        "polyfills": "apps/stabox-frontend/src/polyfills.ts",
+        "tsConfig": "apps/stabox-frontend/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/stabox-frontend/src/favicon.ico",
+          "apps/stabox-frontend/src/assets"
+        ],
+        "styles": [
+          "node_modules/bootstrap/dist/css/bootstrap.min.css"
+        ],
+        "scripts": [
+          "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "1mb",
+              "maximumError": "2mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "8kb",
+              "maximumError": "10kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/stabox-frontend/src/environments/environment.ts",
+              "with": "apps/stabox-frontend/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "builder": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "stabox-frontend:build:production"
+        },
+        "development": {
+          "browserTarget": "stabox-frontend:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/stabox-frontend/proxy.conf.json"
+      }
+    },
+    "extract-i18n": {
+      "builder": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "stabox-frontend:build"
+      }
+    },
+    "lint": {
+      "builder": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/stabox-frontend/src/**/*.ts",
+          "apps/stabox-frontend/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "builder": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/stabox-frontend"
+      ],
+      "options": {
+        "jestConfig": "apps/stabox-frontend/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

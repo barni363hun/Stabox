@@ -1,17 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '../../../services';
 
 @Component({
   selector: 'app-add-icon',
   templateUrl: './add-icon.component.html',
-  styleUrls: ['./add-icon.component.scss']
+  styleUrls: ['./add-icon.component.scss'],
 })
 export class AddIconComponent implements OnInit {
+  constructor(public themeService: ThemeService) {}
 
-  @Input() lightMode = false;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

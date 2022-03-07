@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { cError, cSuccess, addressInterface } from '@stabox/stabox-lib';
 import { Observable } from 'rxjs';
-import { ExchangeDateService, UserService } from '.';
+import { ExchangeDateService, SnackbarService, UserService } from '.';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -10,9 +10,12 @@ import { environment } from '../../environments/environment';
 })
 export class AddressService {
   addresses: addressInterface[] = [];
-  constructor(private userService: UserService,
+  constructor(
+    private userService: UserService,
+    private http: HttpClient,
     private exchangeDateService:ExchangeDateService,
-     private http: HttpClient) {
+    private snackbarService: SnackbarService
+  ) {
     this.getAddresses();
   }
 
@@ -66,9 +69,11 @@ export class AddressService {
         },
         error: (err) => {
           cError(err.error.message);
+          this.snackbarService.showErrorSnackbar(this.formatMessage(err.error.message));
         },
       });
   }
+
   save(address: addressInterface) {
     console.log(address);
     address.zipCode = Number(address.zipCode);
@@ -84,11 +89,13 @@ export class AddressService {
         .subscribe({
           next: (res) => {
             cSuccess('address saved');
+            this.snackbarService.showSuccessSnackbar('Address saved successfully.')
             console.log(this.addresses);
             this.getAddresses();
           },
           error: (err) => {
             cError(err.error.message);
+            this.snackbarService.showErrorSnackbar(this.formatMessage(err.error.message));
           },
         });
     }
@@ -135,5 +142,20 @@ export class AddressService {
           this.getAddresses();
         },
       });
+  }
+
+  private formatMessage(message: string) {
+    let messages: string[] = message.toString().split(',');
+    let errorMessage: string = '';
+    for (let index = 0; index < messages.length; index++) {
+      let message = messages[index];
+      const i = message.search(/[A-Z]/);
+      if (i != -1) {
+        message = message.replace(/[A-Z]/, ` ${message[i].toLowerCase()}`);
+      }
+      message = message.replace(message[0], message[0].toUpperCase());
+      errorMessage += message + '. ';
+    }
+    return errorMessage;
   }
 }

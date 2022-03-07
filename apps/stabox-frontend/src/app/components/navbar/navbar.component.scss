@@ -1,20 +1,15 @@
-@import '../../../../styles/settings/variables';
+@import '../../app.component.scss';
 
 .lightMode .nav {
   color: $colorDarkGray;
   background-color: $bgColorWhite;
-  border-bottom: 2px solid rgba($colorDarkGray, 0.1);
+  box-shadow: 0 2px 5px 1px rgba($colorLightGray, 0.25);
 }
 
 .lightMode .navText,
 .lightMode #coinAmount,
 .lightMode #sideBarItemCoinAmount {
   color: $colorDarkGray;
-}
-
-.lightMode .navUnderline {
-  background-color: $colorLightBlue;
-  background: linear-gradient(to right, $colorLightBlue, $colorDarkBlue);
 }
 
 .lightMode #sideBar {
@@ -44,13 +39,24 @@
 
 .nav {
   background-color: $bgColorBlack;
-  padding: 10px 40px 10px 40px;
-  border-bottom: 2px solid rgba($colorLightGray, 0.1);
+  padding: 0 40px 0 40px;
+  box-shadow: 0 2px 5px 1px rgba($colorBlack, 0.15);
+}
+
+.logoImg {
+  width: 75px;
 }
 
 .nav-item {
   width: fit-content;
   padding-top: 3px;
+}
+
+.navIcon {
+  width: 35px;
+  height: 35px;
+  display: inline;
+  margin-bottom: 12px;
 }
 
 .navText {
@@ -60,18 +66,17 @@
   margin: 0 10px 0 10px;
 }
 
-.navText:hover ~ .navUnderline {
-  transition: 0.35s;
+.activeLink + .navUnderline {
   width: 100%;
 }
 
-.navUnderline {
+li:hover {
+  cursor: pointer;
+}
+
+li:hover .navUnderline {
   transition: 0.35s;
-  width: 0;
-  height: 3px;
-  margin: 0 auto;
-  border-radius: 10px;
-  background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow);
+  width: 100%;
 }
 
 .logo {
@@ -159,7 +164,7 @@
   top: 0;
   right: 0;
   background-color: $bgColorBlack;
-  padding-top: 75px;
+  padding-top: 95px;
 
   animation: sideBarAppear ease 0.15s;
 }
