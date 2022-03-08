@@ -15,11 +15,14 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 
 import ormconfig = require('./ormconfig');
+const ENV = process.env.NODE_ENV;
 
 @Module({
   imports: [
     AuthModule,
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      envFilePath: ENV === 'development' ? '.env' : `.env.production`,
+    }),
     TypeOrmModule.forRoot(ormconfig),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'stabox-frontend'),

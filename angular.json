@@ -21,7 +21,7 @@
             "assets": [
               "apps/api/src/assets",
               {
-                "glob": ".env",
+                "glob": ".env.production",
                 "input": "apps/api",
                 "output": "."
               }
