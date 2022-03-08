@@ -88,7 +88,7 @@ export class ExchangeDateService {
                 next: (res) => {
                   cSuccess('exchangeDates saved');
                   this.snackbarService.showSuccessSnackbar(
-                    'Exchange dates saved succesfully.'
+                    'Exchange date saved succesfully.'
                   );
                   this.getExchangeDates();
                 },
@@ -132,7 +132,7 @@ export class ExchangeDateService {
         next: (res) => {
           cSuccess('exchangeDate created');
           this.snackbarService.showSuccessSnackbar(
-            'exchangeDate created'
+            'Exchange date created successfully.'
           );
           this.getExchangeDates();
         },
