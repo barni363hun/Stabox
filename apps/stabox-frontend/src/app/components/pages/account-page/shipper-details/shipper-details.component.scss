@@ -21,6 +21,17 @@
   position: absolute;
   top: 0;
   z-index: 0;
+
+  animation: shadeAppear ease 0.15s;
+}
+
+@keyframes shadeAppear {
+  from {
+    background-color: rgba($shadeColor, 0);
+  }
+  to {
+    background-color: rgba($shadeColor, 0.75);
+  }
 }
 
 #shipperDetailsDiv {
@@ -37,7 +48,7 @@
   height: 75%;
   position: relative;
   padding: 60px;
-  border-radius: 100px;
+  border-radius: 50px;
   margin: auto;
   top: 50%;
   transform: translateY(-50%);

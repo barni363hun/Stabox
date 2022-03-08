@@ -12,6 +12,7 @@
 .filter {
   text-align: center;
   font-size: 28px;
+  width: 50%;
 }
 
 .filter p:hover {
@@ -25,6 +26,7 @@
 
 .filterItem {
   width: fit-content;
+  height: 100%;
   margin: 0 auto;
 }
 
@@ -54,4 +56,82 @@
 .iconBg:hover {
   cursor: pointer;
   background-color: rgba($colorDarkGray, 0.35);
+}
+
+@media only screen and (max-width: 1800px) {
+  .filter {
+    width: 55%;
+  }
+}
+
+@media only screen and (max-width: 1700px) {
+  .filter {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 1600px) {
+  .filter {
+    width: 65%;
+  }
+}
+@media only screen and (max-width: 1500px) {
+  .filter {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .filter {
+    width: 75%;
+  }
+}
+@media only screen and (max-width: 1300px) {
+  .filter {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .filter {
+    width: 85%;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .filter {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .filter {
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .filter {
+    width: 100%;
+    font-size: 26px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .filter {
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .filter {
+    font-size: 22px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .filter {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .filter {
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .filter {
+    font-size: 16px;
+  }
 }

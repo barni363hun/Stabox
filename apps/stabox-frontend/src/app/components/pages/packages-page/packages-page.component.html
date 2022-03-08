@@ -1,22 +1,28 @@
 <div [ngClass]="{ lightMode: themeService.light }">
     <div class="content">
         <div class="container-fluid packagesPage">
-            <div class="row w-50 mx-auto filter">
+            <div class="row mx-auto filter">
                 <div class="col-4 mx-auto">
                     <div class="filterItem" (click)="filterMyPackages()" [ngClass]="{ active: showMyPackages }">
-                        <p class="m-0 unselectable">My Packages</p>
+                        <div class="h-100 w-100 centerElements">
+                            <span class="unselectable">My Packages</span>
+                        </div>
                         <div class="navUnderline gradientBg"></div>
                     </div>
                 </div>
                 <div class="col-4 mx-auto" *ngIf="userService.isShipper">
                     <div class="filterItem" (click)="filterAcceptedPackages()" [ngClass]="{ active: showAcceptedPackages }">
-                        <p class="m-0">Accepted Packages</p>
+                        <div class="h-100 w-100 centerElements">
+                            <span class="unselectable">Accepted Packages</span>
+                        </div>
                         <div class="navUnderline gradientBg"></div>
                     </div>
                 </div>
                 <div class="col-4 mx-auto" *ngIf="userService.isShipper">
                     <div class="filterItem" (click)="filterToDeliver()" [ngClass]="{ active: showToDeliver }">
-                        <p class="m-0">Available Packages</p>
+                        <div class="h-100 w-100 centerElements">
+                            <span class="unselectable">Available Packages</span>
+                        </div>
                         <div class="navUnderline gradientBg"></div>
                     </div>
                 </div>
@@ -35,21 +41,21 @@
             </div>
 
             <div class="row mt-3">
-                <div class="col-xl-4 col-lg-6 col-12 center">
-                    <stabox-add-package (newRecieverEvent)="addRecieverMode = true" (doneEvent)="addPackageMode = false" *ngIf="addPackageMode"></stabox-add-package>
-                </div>
+
+
                 <div class="col-xl-4 col-lg-6 col-12center">
                     <stabox-add-reciever-with-address (doneEvent)="addRecieverMode = false" *ngIf="addRecieverMode"></stabox-add-reciever-with-address>
                 </div>
-                <div *ngIf="showMyPackages">
-                    <div *ngFor="let pkg of packageService.packages">
-                        <div class="col-xl-4 col-lg-6 col-12">
-                            <stabox-package-card [package]="pkg"></stabox-package-card>
-                        </div>
+
+                <div *ngIf="showToDeliver">
+                    <div class="col-xl-4 col-lg-6 col-12" *ngFor="let pkg of packageService.packages">
+                        <stabox-package-card [package]="pkg"></stabox-package-card>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <stabox-add-package (newRecieverEvent)="addRecieverMode = true" (doneEvent)="addPackageMode = false" *ngIf="addPackageMode"></stabox-add-package>
         <app-footer></app-footer>
     </div>
 </div>

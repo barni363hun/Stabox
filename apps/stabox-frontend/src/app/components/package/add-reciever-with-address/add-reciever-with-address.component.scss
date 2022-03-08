@@ -1,2 +1,54 @@
 @import './../../../app.component.scss';
 @import './../add-package/add-package.component.scss';
+
+.receiverCard {
+  z-index: 2;
+  left: 0;
+}
+
+.title {
+  font-size: 42px;
+}
+
+input {
+  width: 85%;
+}
+
+.card {
+  animation: appear 0.25s;
+}
+
+@keyframes appear {
+  from {
+    transform: translateY(-50%) scale(0.25);
+  }
+  to {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .title {
+    font-size: 38px;
+  }
+}
+@media only screen and (max-width: 810px) {
+  .title {
+    font-size: 34px;
+  }
+}
+@media only screen and (max-width: 690px) {
+  .title {
+    font-size: 30px;
+  }
+}
+@media only screen and (max-width: 610px) {
+  .title {
+    font-size: 26px;
+  }
+}
+@media only screen and (max-width: 484px) {
+  .title {
+    font-size: 22px;
+  }
+}

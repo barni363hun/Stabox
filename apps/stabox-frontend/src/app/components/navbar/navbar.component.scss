@@ -38,6 +38,8 @@
 }
 
 .nav {
+  z-index: 9999;
+
   background-color: $bgColorBlack;
   padding: 0 40px 0 40px;
   box-shadow: 0 2px 5px 1px rgba($colorBlack, 0.15);
