@@ -108,7 +108,8 @@ export class AddressService {
       })
       .subscribe({
         next: (res) => {
-          cSuccess('address' + exDate.id + ' created');
+          cSuccess('address ' + exDate.id + ' created');
+          this.snackbarService.showSuccessSnackbar('Address created successfully.')
           console.log(this.addresses);
           this.getAddresses();
         },

@@ -109,7 +109,8 @@
 
                 <div class="col-12 p-0 m-0">
                   <select class="mb-2" (change)="exchangeDateService.selectChange($event, EXindex)">
-                    <option value="0" selected disabled hidden>
+                    <option value="0" disabled selected>Select an address</option>
+                    <option value="0" hidden>
                       {{ addressService.getAddressById(exchangeDateService.exchangeDates[EXindex].addressId).name }}
                     </option>
                     <option *ngFor="let address of addressService.addresses" [value]="address.id">
