@@ -17,10 +17,6 @@ import {
 // You can also make a singleton service that load and expose the .env file content.
 // ...
 
-//!!!
-//!!! We can't get the db informations from .env
-//!!!
-
 // Check typeORM documentation for more information.
 const config: MysqlConnectionOptions = {
   type: 'mysql',
