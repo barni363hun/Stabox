@@ -65,7 +65,6 @@ Test:
 
 - `npm run build:all`
 - `cd dist/apps/api`
-- _rewrite PORT to 80 in .env_
 - `npm i`
 - `node main.js`
 
