@@ -164,6 +164,12 @@ $shadeColor: black;
   margin: 0 auto -10px auto;
   border-radius: 10px;
 }
+.underline {
+  height: 3px;
+  width: 95%;
+  border-radius: 5px;
+  margin: 0 auto;
+}
 a {
   text-decoration: none;
   color: $colorWhite;
@@ -219,9 +225,8 @@ select {
   background: transparent;
   color: $colorWhite;
 
-  border: none;
-  border-bottom: 2px solid rgba($colorDarkGray, 0.25);
-  border-radius: 10px 10px 0 0;
+  border:2px solid rgba($colorDarkGray, 0.25);;
+  border-radius: 10px;
   font-size: 28px;
   width: 50%;
   text-align: center;

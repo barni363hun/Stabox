@@ -11,7 +11,7 @@ export class PackageCardComponent implements OnInit {
   @Input() package!: any;
   isAvailable: boolean = false;
   state: 'notShipper' | 'finished' | 'shippable' | 'finishable' = 'finished';
-  status: 'waiting for shipper' | 'being shipped' | 'finished' = 'waiting for shipper';
+  status: 'Inactive' | 'Active' | 'Finished' = 'Inactive';
 
   isUserTheOwner: boolean = false;
 
@@ -41,7 +41,7 @@ export class PackageCardComponent implements OnInit {
 
     this.updateState()
     this.isUserTheOwner = this.userService.user.id == this.package.userId;
-    this.status = this.package.vehicleId == null ? 'waiting for shipper' : this.package.shippingDate ? 'finished' : 'being shipped'
+    this.status = this.package.vehicleId == null ? 'Inactive' : this.package.shippingDate ? 'Finished' : 'Active'
   }
 
   selectPostDate() {

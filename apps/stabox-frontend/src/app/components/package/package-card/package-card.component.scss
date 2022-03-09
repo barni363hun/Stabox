@@ -1,5 +1,12 @@
 @import '../../../app.component.scss';
-@import './../add-package/add-package.component.scss';
+
+.lightMode .card {
+  background-color: $bgColorWhite;
+}
+
+.packageTitle {
+  font-size: 32px;
+}
 
 .textRight {
   text-align: right;
@@ -7,4 +14,44 @@
 
 .packageData {
   text-align: left;
+}
+
+.card {
+  position: relative;
+  margin: auto;
+  padding: 20px;
+
+  width: 75%;
+  height: 75%;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  background: $bgColorBlack;
+  box-shadow: 0 2px 5px 1px rgba($colorBlack, 0.25);
+  border-radius: 25px;
+
+  font-size: 24px;
+
+  animation: packageCardAppear 0.15s;
+}
+.card::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.packageCardSelect {
+  font-size: 24px;
+  width: 100%;
+}
+
+@keyframes packageCardAppear {
+  from {
+    transform: scale(0.75);
+  }
+  to {
+    transform: scale(1);
+  }
 }

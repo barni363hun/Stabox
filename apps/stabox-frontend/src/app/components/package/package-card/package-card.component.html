@@ -2,7 +2,7 @@
     <div class="card">
         <div class="row centerElements">
             <div class="col-12 centerElements">
-                <span class="packageTitle">{{package.name}}</span>
+                <span class="packageTitle gradient">{{package.name}}</span>
             </div>
             <div class="underline gradientBg mb-2"></div>
 
@@ -35,7 +35,7 @@
                     <span class="packageText">House Number:</span>
                 </div>
                 <div class="col-6">
-                    <span class="packageData">{{package.fromAddress.houseNumber}}</span>
+                    <span class="packageData">{{package.fromAddress.houseNumber}} (cm)</span>
                 </div>
             </div>
             <div class="row">
@@ -56,10 +56,10 @@
             </div>
             <div class="row">
                 <div class="col-6 textRight">
-                    <span class="packageText">Fragility:</span>
+                    <span class="packageText">Fragile:</span>
                 </div>
                 <div class="col-6">
-                    <span class="packageData">{{ package.fragile ? 'Fragile' : 'Not Fragile' }}</span>
+                    <span class="packageData">{{ package.fragile ? 'Yes' : 'No' }}</span>
                 </div>
             </div>
             <div class="row">
@@ -72,24 +72,23 @@
             </div>
 
             <div class="row mt-3" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
-                <div class="col-12 text-center">
-                    <div class="col-6">
-                        <select name="vehicle" id="vehicle" [(ngModel)]="selectedVehicle">
-                            <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.name}}</option>
-                        </select>
-                    </div>
-                    <div class="col-6">
-                        <select name="exchangeDates" id="exchangeDates" [(ngModel)]="selectedExchangeDate">
-                            <option *ngFor="let exDate of exchangeDates" [value]="exDate.id">
-                                {{exDate.startDate.toLocaleString() | date:'yyyy/MM/dd H:mm'}} -
-                                {{exDate.endDate.toString() | date:'yyyy/MM/dd H:mm'}}
-                            </option>
-                        </select>
-                    </div>
-                    <div class="col-6">
-                        <button (click)="selectPostDate()">accept package</button>
-                    </div>
-
+                <div class="col-12">
+                    <select class="packageCardSelect" name="vehicle" id="vehicle" [(ngModel)]="selectedVehicle">
+                        <option disabled selected>Vehicle</option>
+                        <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.name}}</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <select class="packageCardSelect" name="exchangeDates" id="exchangeDates" [(ngModel)]="selectedExchangeDate">
+                        <option disabled selected>Date</option>
+                        <option *ngFor="let exDate of exchangeDates" [value]="exDate.id">
+                            {{exDate.startDate.toLocaleString() | date:'yyyy/MM/dd H:mm'}} -
+                            {{exDate.endDate.toString() | date:'yyyy/MM/dd H:mm'}}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <button (click)="selectPostDate()">accept package</button>
                 </div>
             </div>
 

@@ -90,6 +90,10 @@ input,
   font-size: 32px;
 }
 
+.leftOffset {
+  padding-left: 55px;
+}
+
 .centerMedium {
   text-align: left;
 }
@@ -179,6 +183,12 @@ input,
   .cardTextDivContent {
     margin: 0 auto;
     width: fit-content;
+  }
+  .leftOffset {
+    padding: 0;
+  }
+  .rightOffset {
+    padding-right: 55px;
   }
 }
 @media only screen and (max-width: 1100px) {

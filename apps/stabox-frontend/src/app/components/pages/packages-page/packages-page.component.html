@@ -1,5 +1,7 @@
 <div [ngClass]="{ lightMode: themeService.light }">
     <div class="content">
+        <stabox-add-package (newRecieverEvent)="addRecieverMode = true" (doneEvent)="addPackageMode = false" *ngIf="addPackageMode"></stabox-add-package>
+        <stabox-add-reciever-with-address (doneEvent)="addRecieverMode = false" *ngIf="addRecieverMode"></stabox-add-reciever-with-address>
         <div class="container-fluid packagesPage">
             <div class="row mx-auto filter">
                 <div class="col-4 mx-auto">
@@ -40,22 +42,12 @@
                 </div>
             </div>
 
-            <div class="row mt-3">
-
-
-                <div class="col-xl-4 col-lg-6 col-12center">
-                    <stabox-add-reciever-with-address (doneEvent)="addRecieverMode = false" *ngIf="addRecieverMode"></stabox-add-reciever-with-address>
-                </div>
-
-                <div *ngIf="showToDeliver">
-                    <div class="col-xl-4 col-lg-6 col-12" *ngFor="let pkg of packageService.packages">
-                        <stabox-package-card [package]="pkg"></stabox-package-card>
-                    </div>
+            <div class="row mt-3" *ngIf="showToDeliver">
+                <div class="col-xl-4 col-lg-6 col-12" *ngFor="let pkg of packageService.packages">
+                    <stabox-package-card [package]="pkg"></stabox-package-card>
                 </div>
             </div>
         </div>
-        
-        <stabox-add-package (newRecieverEvent)="addRecieverMode = true" (doneEvent)="addPackageMode = false" *ngIf="addPackageMode"></stabox-add-package>
         <app-footer></app-footer>
     </div>
 </div>
