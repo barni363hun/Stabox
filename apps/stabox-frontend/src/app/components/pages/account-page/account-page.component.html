@@ -14,14 +14,14 @@
               <div class="col-xl-6 col-lg-6 col-12 my-3" *ngIf="userService.userInitialized">
                 <div class="accountDataDiv">
                   <mat-icon class="accountDataIcon gradient">verified_user</mat-icon>
-                  <p class="accountDataTitle unselectable">Username</p>
+                  <p class="accountDataTitle gradient unselectable">Username</p>
                   <div class="accountDataUnderline gradientBg"></div>
                   <input type="text" maxlength="20" id="username" [(ngModel)]="userService.user.username" />
                 </div>
 
                 <div class="accountDataDiv">
                   <mat-icon class="accountDataIcon gradient">person</mat-icon>
-                  <p class="accountDataTitle unselectable">
+                  <p class="accountDataTitle gradient unselectable">
                     Full Name
                   </p>
                   <div class="accountDataUnderline gradientBg"></div>
@@ -37,14 +37,14 @@
 
                 <div class="accountDataDiv">
                   <mat-icon class="accountDataIcon gradient">email</mat-icon>
-                  <p class="accountDataTitle unselectable">Email</p>
+                  <p class="accountDataTitle gradient unselectable">Email</p>
                   <div class="accountDataUnderline gradientBg"></div>
                   <input type="email" id="email" [(ngModel)]="userService.user.email" />
                 </div>
 
                 <div class="accountDataDiv">
                   <mat-icon class="accountDataIcon gradient">phone</mat-icon>
-                  <p class="accountDataTitle unselectable">Phone</p>
+                  <p class="accountDataTitle gradient unselectable">Phone</p>
                   <div class="accountDataUnderline gradientBg"></div>
                   <input type="tel" id="tel" [(ngModel)]="userService.user.phoneNumber" />
                 </div>

@@ -211,6 +211,10 @@ input:hover + .hint {
   display: inline-block;
   vertical-align: middle;
 }
+.noPaddingMargin {
+  padding: 0;
+  margin: 0;
+}
 select {
   background: transparent;
   color: $colorWhite;

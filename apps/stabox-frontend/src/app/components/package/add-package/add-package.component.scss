@@ -45,13 +45,22 @@
   transform: translateY(-50%);
 
   width: 75%;
-  height: fit-content;
+  height: 75%;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 
   background: $bgColorBlack;
   box-shadow: 0 2px 5px 1px rgba($colorBlack, 0.25);
   border-radius: 25px;
 
   animation: appear 0.15s;
+}
+.card::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 @keyframes appear {
@@ -81,9 +90,8 @@ input,
   font-size: 32px;
 }
 
-.cardTextDivContent {
-  margin: 0 auto;
-  width: fit-content;
+.centerMedium {
+  text-align: left;
 }
 
 .dataInput {
@@ -134,7 +142,7 @@ input,
   color: $colorWhite;
   border-radius: 10px;
   margin: 0 10px;
-  padding: 5px 15px 5px 15px;
+  padding: 5px 15px;
   text-shadow: 1px 1px 1px rgba($colorBlack, 0.5);
   font-size: 26px;
   text-align: center;
@@ -168,13 +176,17 @@ input,
   .card {
     width: 90%;
   }
+  .cardTextDivContent {
+    margin: 0 auto;
+    width: fit-content;
+  }
 }
 @media only screen and (max-width: 1100px) {
   .card {
     width: 95%;
   }
 }
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 975px) {
   .card {
     padding: 40px 80px;
   }
@@ -183,7 +195,10 @@ input,
   input,
   .btn,
   .dimensionsIcon {
-    font-size: 28px;
+    font-size: 26px;
+  }
+  .btn {
+    padding: 4.5px 13.5px;
   }
   .addIcon {
     transform: scale(1.45);
@@ -207,6 +222,9 @@ input,
   .dimensionsIcon {
     font-size: 24px;
   }
+  .btn {
+    padding: 4px 12px;
+  }
   .addIcon {
     transform: scale(1.35);
   }
@@ -227,7 +245,10 @@ input,
   input,
   .btn,
   .dimensionsIcon {
-    font-size: 20px;
+    font-size: 22px;
+  }
+  .btn {
+    padding: 3.5px 10.5px;
   }
   .addIcon {
     transform: scale(1.25);
@@ -249,7 +270,10 @@ input,
   input,
   .btn,
   .dimensionsIcon {
-    font-size: 16px;
+    font-size: 20px;
+  }
+  .btn {
+    padding: 3px 9px;
   }
   .addIcon {
     transform: scale(1.15);
@@ -263,9 +287,6 @@ input,
   }
 }
 @media only screen and (max-width: 484px) {
-  .btn {
-    font-size: 14px;
-  }
   .addIcon {
     transform: scale(1.05);
   }

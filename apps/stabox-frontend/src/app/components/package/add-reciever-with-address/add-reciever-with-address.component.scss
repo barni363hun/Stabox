@@ -14,7 +14,13 @@ input {
   width: 85%;
 }
 
-@media only screen and (max-width: 960px) {
+
+@media only screen and (max-width: 1200px) {
+  .centerLarge {
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 975px) {
   .title {
     font-size: 38px;
   }
@@ -32,10 +38,5 @@ input {
 @media only screen and (max-width: 610px) {
   .title {
     font-size: 26px;
-  }
-}
-@media only screen and (max-width: 484px) {
-  .title {
-    font-size: 22px;
   }
 }

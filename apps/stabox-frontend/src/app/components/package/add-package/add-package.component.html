@@ -7,12 +7,14 @@
         <div class="col-12 p-0 m-0 centerElements">
           <input class="w-75" type="text" placeholder="name" name="region" [(ngModel)]="package.name">
         </div>
-        <div class="underline gradientBg mb-3"></div>
+        <div class="underline gradientBg mb-5"></div>
 
-        <div class="col-12 p-0 m-0">
+        <div class="col-12 p-0 mb-3">
           <div class="row">
-            <div class="col-xl-3 col-sm-12 centerElements">
-              <span class="cardText gradient unselectable">Size(cm)</span>
+            <div class="col-xl-3 col-sm-12">
+              <div class="cardTextDivContent">
+                <span class="cardText gradient unselectable">Size(cm)</span>
+              </div>
             </div>
             <div class="col-xl-9 col-sm-12 centerElements">
               <input class="dataInput sizeInput" type="number" min="0" name="sizeX" [(ngModel)]="sizeX" />
@@ -24,10 +26,12 @@
           </div>
         </div>
 
-        <div class="col-12 p-0 m-0">
+        <div class="col-12 p-0 mb-3">
           <div class="row">
-            <div class="col-xl-3 col-sm-12 centerElements">
-              <span class="cardText gradient unselectable">Weight</span>
+            <div class="col-xl-3 col-sm-12">
+              <div class="cardTextDivContent">
+                <span class="cardText gradient unselectable">Weight</span>
+              </div>
             </div>
             <div class="col-xl-9 col-sm-12 centerElements">
               <input class="dataInput weightInput" type="number" min="0" name="weight" [(ngModel)]="myWeight" />
@@ -39,10 +43,12 @@
           </div>
         </div>
 
-        <div class="col-12 p-0 m-0">
+        <div class="col-12 p-0 mb-3">
           <div class="row">
-            <div class="col-xl-3 col-sm-12 centerElements">
-              <span class="cardText gradient unselectable">Fragile</span>
+            <div class="col-xl-3 col-sm-12">
+              <div class="cardTextDivContent">
+                <span class="cardText gradient unselectable">Fragile</span>
+              </div>
             </div>
             <div class="col-xl-9 col-sm-12 centerElements">
               <select class="fragilitySelect" name="fragility" [(ngModel)]="this.package.fragile">
@@ -53,7 +59,7 @@
           </div>
         </div>
 
-        <div class="col-12 p-0 m-0">
+        <div class="col-12 p-0 mb-3">
           <div class="row">
             <div class="col-xl-3 col-sm-12">
               <div class="cardTextDivContent">
@@ -77,7 +83,7 @@
           </div>
         </div>
 
-        <div class="col-12 p-0 m-0">
+        <div class="col-12 p-0 mb-3">
           <div class="row">
             <div class="col-xl-3 col-sm-12">
               <div class="cardTextDivContent">
