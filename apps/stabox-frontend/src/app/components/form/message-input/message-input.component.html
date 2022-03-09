@@ -1,4 +1,5 @@
 <div class="mb-3 w-100" id="messageDiv">
     <mat-icon id="messageIcon">message</mat-icon>
-    <input type="text" class="form-control" id="messageInput" placeholder="Message">
+    <input type="text" class="form-control" id="messageInput" placeholder="Message"
+    #message (change)="refreshMessage(message.value)">
 </div>

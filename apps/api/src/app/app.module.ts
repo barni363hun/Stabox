@@ -11,7 +11,9 @@ import { VehicleModule } from './vehicle/vehicle.module';
 import { AddressModule } from './address/address.module';
 import { RecieverModule } from './reciever/reciever.module';
 import { PackageModule } from './package/package.module';
+import { ContactUsController } from './contact-us/contact-us.controller';
 import ormconfig = require('./ormconfig');
+import { ContactUsModule } from './contact-us/contact-us.module';
 
 @Module({
   imports: [
@@ -25,6 +27,7 @@ import ormconfig = require('./ormconfig');
     AddressModule,
     RecieverModule,
     PackageModule,
+    ContactUsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

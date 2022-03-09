@@ -7,6 +7,7 @@ import {
   transactionEntity,
   userEntity,
   vehicleEntity,
+  contactUsEntity
 } from '../Entities';
 
 // You can load you .env file here synchronously using dotenv package (not installed here),
@@ -37,6 +38,7 @@ const config: MysqlConnectionOptions = {
     recieverEntity,
     vehicleEntity,
     transactionEntity,
+    contactUsEntity
   ],
 
   // We are using migrations, synchronize should be set to false.

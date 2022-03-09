@@ -5,3 +5,4 @@ export * from './user.entity';
 export * from './address.entity';
 export * from './exchangeDate.entity';
 export * from './reciever.entity';
+export * from './contactUs.entity'
