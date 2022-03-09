@@ -81,25 +81,9 @@ input,
   font-size: 32px;
 }
 
-.cardTextDiv {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  margin: 0;
-  padding: 0;
-}
-
-.cardText {
-  margin: 0 20px 0 0;
-  display: inline;
-}
-
-.cardInputDiv {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  margin: 0;
-  padding: 0;
+.cardTextDivContent {
+  margin: 0 auto;
+  width: fit-content;
 }
 
 .dataInput {
@@ -152,7 +136,7 @@ input,
   margin: 0 10px;
   padding: 5px 15px 5px 15px;
   text-shadow: 1px 1px 1px rgba($colorBlack, 0.5);
-  font-size: 32px;
+  font-size: 26px;
   text-align: center;
 }
 
@@ -168,7 +152,6 @@ input,
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin-top: 10px;
 }
 
 @media only screen and (max-width: 1400px) {

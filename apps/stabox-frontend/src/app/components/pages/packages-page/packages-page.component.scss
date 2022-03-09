@@ -15,11 +15,11 @@
   width: 50%;
 }
 
-.filter p:hover {
+.filter span:hover {
   cursor: pointer;
 }
 
-.filter p:hover + .navUnderline {
+.filterItem:hover .navUnderline {
   transition: 0.35s;
   width: 100%;
 }

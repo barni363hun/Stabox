@@ -207,6 +207,10 @@ input:hover + .hint {
   width: 50%;
   display: inline-block;
 }
+.inline {
+  display: inline-block;
+  vertical-align: middle;
+}
 select {
   background: transparent;
   color: $colorWhite;

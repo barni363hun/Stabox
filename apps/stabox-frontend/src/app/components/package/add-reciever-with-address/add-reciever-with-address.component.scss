@@ -14,19 +14,6 @@ input {
   width: 85%;
 }
 
-.card {
-  animation: appear 0.25s;
-}
-
-@keyframes appear {
-  from {
-    transform: translateY(-50%) scale(0.25);
-  }
-  to {
-    transform: translateY(-50%) scale(1);
-  }
-}
-
 @media only screen and (max-width: 960px) {
   .title {
     font-size: 38px;
