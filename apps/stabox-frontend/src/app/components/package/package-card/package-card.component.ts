@@ -18,8 +18,8 @@ export class PackageCardComponent implements OnInit {
   vehicles: any[] = []
   selectedVehicle: number = 0;
 
-  exchangeDates: any[] = [];
-  selectedExchangeDate: number = 0;
+  exchangeDates:{startDate:Date, endDate:Date}[]| any[] = [];
+  selectedExchangeDate: Date = new Date();
 
   constructor(
     private userService: UserService,
@@ -44,7 +44,7 @@ export class PackageCardComponent implements OnInit {
   }
 
   selectPostDate() {
-    let date = new Date(Date.now()).toISOString();
+    let date = this.selectedExchangeDate
     if (!this.selectedVehicle) {
       console.log('NO vehicle selected')
     }

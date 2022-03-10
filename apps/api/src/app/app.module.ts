@@ -11,8 +11,10 @@ import { VehicleModule } from './vehicle/vehicle.module';
 import { AddressModule } from './address/address.module';
 import { RecieverModule } from './reciever/reciever.module';
 import { PackageModule } from './package/package.module';
+import { ContactUsModule } from './contact-us/contact-us.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+
 
 import ormconfig = require('./ormconfig');
 
@@ -31,6 +33,7 @@ import ormconfig = require('./ormconfig');
     AddressModule,
     RecieverModule,
     PackageModule,
+    ContactUsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

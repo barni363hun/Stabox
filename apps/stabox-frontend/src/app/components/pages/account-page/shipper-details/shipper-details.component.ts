@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { ThemeService, VehicleService } from '../../../../services';
+import { SnackbarService, ThemeService, VehicleService } from '../../../../services';
 
 @Component({
   selector: 'app-shipper-details',
@@ -12,7 +12,8 @@ export class ShipperDetailsComponent implements OnInit {
 
   constructor(
     public vehicleService: VehicleService,
-    public themeService: ThemeService
+    public themeService: ThemeService,
+    private snackBarService:SnackbarService
   ) {
     themeService.getTheme();
   }
@@ -22,8 +23,7 @@ export class ShipperDetailsComponent implements OnInit {
   }
 
   stopBeingShipper() {
-    // TODO
-    alert('This is not avaible at now');
+    this.snackBarService.showErrorSnackbar('Not available now')
   }
 
   close() {

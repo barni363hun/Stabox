@@ -7,15 +7,17 @@
                     <app-divider></app-divider>
                     <form action="">
                         <div class="input">
-                            <app-email-input></app-email-input>
+                            <app-email-input  name="email">
+                            </app-email-input>
                         </div>
                         <div class="input">
-                            <app-name-input></app-name-input>
+                            <app-name-input name="name"></app-name-input>
                         </div>
                         <div class="input">
-                            <app-message-input></app-message-input>
+                            <app-message-input  name="message">
+                            </app-message-input>
                         </div>
-                        <app-contact-us-button></app-contact-us-button>
+                        <app-contact-us-button (click)="sendFeedback()"></app-contact-us-button>
                     </form>
                 </div>
             </div>

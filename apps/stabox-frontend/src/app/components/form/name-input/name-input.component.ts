@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ContactusService } from '../../../services/contactus.service';
 
 @Component({
   selector: 'app-name-input',
@@ -6,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./name-input.component.scss']
 })
 export class NameInputComponent implements OnInit {
-
-  constructor() { }
+  constructor(public contactService:ContactusService) { }
 
   ngOnInit(): void {
   }

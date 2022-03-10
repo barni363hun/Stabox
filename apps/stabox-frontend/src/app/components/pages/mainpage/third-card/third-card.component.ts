@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ApplicationRef, ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
+import { SnackbarService } from 'apps/stabox-frontend/src/app/services';
+import { ContactusService } from 'apps/stabox-frontend/src/app/services/contactus.service';
+import { environment } from 'apps/stabox-frontend/src/environments/environment';
 
 @Component({
   selector: 'app-third-card',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThirdCardComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private contactService:ContactusService,
+    private snackbarService: SnackbarService) { }
 
   ngOnInit(): void {
   }
-
+  sendFeedback() {
+  this.contactService.sendFeedback()
+  }
 }
