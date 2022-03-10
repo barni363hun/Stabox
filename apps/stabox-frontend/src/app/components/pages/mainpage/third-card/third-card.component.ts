@@ -18,9 +18,6 @@ export class ThirdCardComponent implements OnInit {
   ngOnInit(): void {
   }
   sendFeedback() {
-  this.contactService.sendFeedback().subscribe({
-    next:res=>this.snackbarService.showSuccessSnackbar('Feedback sent successFully!'),
-    error:err=>this.snackbarService.showErrorSnackbar('Unexpected error!')
-  })
+  this.contactService.sendFeedback()
   }
 }
