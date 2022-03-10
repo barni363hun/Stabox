@@ -6,18 +6,12 @@
 
 .packagesPage {
   margin: 125px auto 50px auto;
-  height: 100%;
+  padding: 0 40px;
 
-  overflow: scroll;
-  overflow-x: hidden;
+  min-height: 100vh;
+  height: fit-content;
+}
 
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.packagePage::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
 
 .filter {
   text-align: center;
@@ -88,6 +82,9 @@
   .filter {
     width: 70%;
   }
+  .packagesPage {
+    padding: 0 35px;
+  }
 }
 @media only screen and (max-width: 1400px) {
   .filter {
@@ -102,6 +99,9 @@
 @media only screen and (max-width: 1200px) {
   .filter {
     width: 85%;
+  }
+  .packagesPage {
+    padding: 0 30px;
   }
 }
 @media only screen and (max-width: 1100px) {
@@ -125,6 +125,11 @@
     font-size: 24px;
   }
 }
+@media only screen and (max-width: 768px) {
+  .packagesPage {
+    padding: 0 25px;
+  }
+}
 @media only screen and (max-width: 700px) {
   .filter {
     font-size: 22px;
@@ -135,6 +140,11 @@
     font-size: 20px;
   }
 }
+@media only screen and (max-width: 575px) {
+  .packagesPage {
+    padding: 0 20px;
+  }
+}
 @media only screen and (max-width: 500px) {
   .filter {
     font-size: 18px;
@@ -143,5 +153,16 @@
 @media only screen and (max-width: 400px) {
   .filter {
     font-size: 16px;
+  }
+  .packagesPage {
+    padding: 0 15px;
+  }
+}
+@media only screen and (max-width: 330px) {
+  .filter {
+    font-size: 14px;
+  }
+  .page {
+    padding: 0 10px;
   }
 }

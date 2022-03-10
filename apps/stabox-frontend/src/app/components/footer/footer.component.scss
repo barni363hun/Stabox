@@ -11,9 +11,11 @@
 }
 
 .footer {
+  position: relative;
+  height: 50px;
+  margin-top: -50px;
   z-index: 1;
   width: 100vw;
-  height: fit-content;
   text-align: center;
   padding-top: 10px;
   margin: 0 auto;
