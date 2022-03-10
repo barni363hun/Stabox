@@ -25,8 +25,8 @@ _[Design preview](https://www.figma.com/community/file/1049586110990675041/Stabo
 
 ## For developers
 
-:bar_chart:
-_[Entity relationship diagram](https://drive.google.com/file/d/16Sp48zplwlCXzkh4lGCJgLFKxFITv4Oc/view?usp=sharing)_
+:bar*chart:
+*[Entity relationship diagram](https://drive.google.com/file/d/16Sp48zplwlCXzkh4lGCJgLFKxFITv4Oc/view?usp=sharing)\_
 
 Naming conventions follow the angular syntax both on backend and frontend.
 
@@ -60,6 +60,13 @@ Test:
 - `npx nx run api:build`
 - `npx nx run api:build --prod` (creates package.json too)
 - `npx nx run-many --target=build --projects=stabox-frontend,api`
+
+#### Production:
+
+- `npm run build:all`
+- `cd dist/apps/api`
+- `npm i`
+- `node main.js`
 
 ### Other useful commands
 
