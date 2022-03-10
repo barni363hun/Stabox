@@ -21,7 +21,7 @@
             "assets": [
               "apps/api/src/assets",
               {
-                "glob": ".env",
+                "glob": "production/.env",
                 "input": "apps/api",
                 "output": "."
               }
@@ -140,6 +140,7 @@
           },
           "defaultConfiguration": "development",
           "options": {
+            "browserTarget": "stabox-frontend:build",
             "proxyConfig": "apps/stabox-frontend/proxy.conf.json"
           }
         },
