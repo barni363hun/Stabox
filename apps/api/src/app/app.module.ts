@@ -15,6 +15,7 @@ import { ContactUsModule } from './contact-us/contact-us.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 
+
 import ormconfig = require('./ormconfig');
 
 @Module({
