@@ -7,14 +7,14 @@
                     <app-divider></app-divider>
                     <form action="">
                         <div class="input">
-                            <app-email-input #email (emailEmitter)="this.comment.email=$event" name="email">
+                            <app-email-input  name="email">
                             </app-email-input>
                         </div>
                         <div class="input">
-                            <app-name-input (nameEmitter)="this.comment.name=$event" name="name"></app-name-input>
+                            <app-name-input name="name"></app-name-input>
                         </div>
                         <div class="input">
-                            <app-message-input (messageEmitter)="this.comment.message=$event" name="message">
+                            <app-message-input  name="message">
                             </app-message-input>
                         </div>
                         <app-contact-us-button (click)="sendFeedback()"></app-contact-us-button>

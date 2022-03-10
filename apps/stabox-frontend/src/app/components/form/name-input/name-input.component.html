@@ -1,5 +1,5 @@
 <div class="mb-3 w-100" id="nameDiv">
     <mat-icon id="nameIcon">person</mat-icon>
     <input type="text" class="form-control" id="nameInput" placeholder="Name"
-    #name (change)="refreshName(name.value)">
+    [(ngModel)]="this.contactService.feedback.name">
 </div>

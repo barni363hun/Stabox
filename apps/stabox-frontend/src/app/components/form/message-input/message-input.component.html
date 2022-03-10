@@ -1,5 +1,5 @@
 <div class="mb-3 w-100" id="messageDiv">
     <mat-icon id="messageIcon">message</mat-icon>
-    <input type="text" class="form-control" id="messageInput" placeholder="Message"
-    #message (change)="refreshMessage(message.value)">
+    <textarea style="height: 15rem;" maxlength="255" type="text" class="form-control" id="messageInput" placeholder="Message"
+    [(ngModel)]="this.contactService.feedback.message"></textarea>
 </div>

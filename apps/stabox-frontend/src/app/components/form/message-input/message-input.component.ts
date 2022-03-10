@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ContactusService } from '../../../services/contactus.service';
 
 @Component({
   selector: 'app-message-input',
@@ -6,11 +7,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./message-input.component.scss']
 })
 export class MessageInputComponent implements OnInit {
-  @Output() messageEmitter = new EventEmitter<string>();
-  refreshMessage(value:string){
-    this.messageEmitter.emit(value)
-  }
-  constructor() { }
+
+  constructor(public contactService:ContactusService) { }
 
   ngOnInit(): void {
   }

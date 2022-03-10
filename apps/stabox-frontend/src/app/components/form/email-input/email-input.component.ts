@@ -1,5 +1,6 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { observable, Observable } from 'rxjs';
+import { ContactusService } from '../../../services/contactus.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class EmailInputComponent implements OnInit {
   refreshEmail(value:string){
     this.emailEmitter.emit(value)
   }
-  constructor() { }
+  constructor(public contactService:ContactusService) { }
 
   ngOnInit(): void {
   }

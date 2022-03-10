@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ContactusService } from '../../../services/contactus.service';
 
 @Component({
   selector: 'app-name-input',
@@ -6,11 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./name-input.component.scss']
 })
 export class NameInputComponent implements OnInit {
-  @Output() nameEmitter = new EventEmitter<string>();
-  refreshName(value:string){
-    this.nameEmitter.emit(value)
-  }
-  constructor() { }
+  constructor(public contactService:ContactusService) { }
 
   ngOnInit(): void {
   }
