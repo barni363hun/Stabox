@@ -7,6 +7,16 @@
 .packagesPage {
   margin: 125px auto 50px auto;
   height: 100%;
+
+  overflow: scroll;
+  overflow-x: hidden;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.packagePage::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .filter {

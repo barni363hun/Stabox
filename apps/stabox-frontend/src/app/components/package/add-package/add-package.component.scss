@@ -141,25 +141,6 @@ input,
   background-color: rgba($colorDarkGray, 0.35);
 }
 
-.btn {
-  transition: 0.25s;
-  color: $colorWhite;
-  border-radius: 10px;
-  margin: 0 10px;
-  padding: 5px 15px;
-  text-shadow: 1px 1px 1px rgba($colorBlack, 0.5);
-  font-size: 26px;
-  text-align: center;
-}
-
-.addBtn {
-  background-color: $colorGreen;
-}
-
-.cancelBtn {
-  background-color: $colorRed;
-}
-
 .buttonGroup {
   display: flex;
   justify-content: center;

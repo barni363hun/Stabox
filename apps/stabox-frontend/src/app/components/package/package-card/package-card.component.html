@@ -1,5 +1,5 @@
 <div [ngClass]="{ lightMode: themeService.light }">
-    <div class="card">
+    <div class="card my-3">
         <div class="row centerElements">
             <div class="col-12 centerElements">
                 <span class="packageTitle gradient">{{package.name}}</span>
@@ -35,7 +35,7 @@
                     <span class="packageText">House Number:</span>
                 </div>
                 <div class="col-6">
-                    <span class="packageData">{{package.fromAddress.houseNumber}} (cm)</span>
+                    <span class="packageData">{{package.fromAddress.houseNumber}}</span>
                 </div>
             </div>
             <div class="row">
@@ -43,7 +43,7 @@
                     <span class="packageText">Size:</span>
                 </div>
                 <div class="col-6">
-                    <span class="packageData">{{package.size}}</span>
+                    <span class="packageData">{{package.size}} (cm)</span>
                 </div>
             </div>
             <div class="row">
@@ -67,34 +67,34 @@
                     <span class="packageText">Status:</span>
                 </div>
                 <div class="col-6">
-                    <span class="packageData">{{this.status}}</span>
+                    <span [ngStyle]="{'color': getStyles(this.status)}" class="packageData">{{this.status}}</span>
                 </div>
             </div>
 
             <div class="row mt-3" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
                 <div class="col-12">
                     <select class="packageCardSelect" name="vehicle" id="vehicle" [(ngModel)]="selectedVehicle">
-                        <option disabled selected>Vehicle</option>
+                        <option value="0" disabled selected>Vehicle</option>
                         <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.name}}</option>
                     </select>
                 </div>
                 <div class="col-12">
                     <select class="packageCardSelect" name="exchangeDates" id="exchangeDates" [(ngModel)]="selectedExchangeDate">
-                        <option disabled selected>Date</option>
+                        <option value="0" disabled selected>Date</option>
                         <option *ngFor="let exDate of exchangeDates" [value]="exDate.id">
                             {{exDate.startDate.toLocaleString() | date:'yyyy/MM/dd H:mm'}} -
                             {{exDate.endDate.toString() | date:'yyyy/MM/dd H:mm'}}
                         </option>
                     </select>
                 </div>
-                <div class="col-12">
-                    <button (click)="selectPostDate()">accept package</button>
+                <div class="col-12 mt-3 text-center">
+                    <span class="btn addBtn" (click)="selectPostDate()">Accept</span>
                 </div>
             </div>
 
             <div class="row mt-3" *ngIf="this.state == 'finishable' && !this.isUserTheOwner">
                 <div class="col-12 text-center">
-                    <button (click)="finishShipping()">Finish shipping</button>
+                    <span class="btn yellowBtn" (click)="finishShipping()">Finish</span>
                 </div>
             </div>
         </div>

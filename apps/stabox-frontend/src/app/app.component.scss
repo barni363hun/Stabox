@@ -225,15 +225,11 @@ select {
   background: transparent;
   color: $colorWhite;
 
-  border:2px solid rgba($colorDarkGray, 0.25);;
+  border: 2px solid rgba($colorDarkGray, 0.25);
   border-radius: 10px;
   font-size: 28px;
   width: 50%;
   text-align: center;
-
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
 }
 select:focus {
   outline: none;
@@ -282,6 +278,25 @@ select option {
   cursor: pointer;
   background-color: rgba($colorDarkGray, 0.25);
 }
+.btn {
+  transition: 0.25s;
+  color: $colorWhite;
+  border-radius: 10px;
+  margin: 0 10px;
+  padding: 5px 15px;
+  text-shadow: 1px 1px 1px rgba($colorBlack, 0.5);
+  font-size: 26px;
+  text-align: center;
+}
+.addBtn {
+  background-color: $colorGreen;
+}
+.cancelBtn {
+  background-color: $colorRed;
+}
+.yellowBtn {
+  background-color: $colorLightYellow;
+}
 
 @media only screen and (max-width: 1500px) {
   .page {
@@ -301,7 +316,7 @@ select option {
     font-size: 20px;
   }
   select {
-    font-size: 20px;
+    font-size: 18px;
   }
   .dataIcon {
     transform: scale(1.5);
@@ -334,7 +349,7 @@ select option {
     width: 85%;
   }
   select {
-    font-size: 24px;
+    font-size: 22px;
   }
   .dataIcon {
     transform: scale(1.35);
@@ -388,7 +403,7 @@ select option {
     font-size: 18px;
   }
   select {
-    font-size: 18px;
+    font-size: 16px;
   }
   ::-webkit-calendar-picker-indicator {
     margin-left: -20%;
@@ -435,7 +450,7 @@ select option {
     font-size: 16px;
   }
   select {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 

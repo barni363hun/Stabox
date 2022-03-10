@@ -42,11 +42,24 @@
                 </div>
             </div>
 
-            <div class="row mt-3" *ngIf="showToDeliver">
-                <div class="col-xl-4 col-lg-6 col-12" *ngFor="let pkg of packageService.packages">
+            <div class="row mt-3" *ngIf="showMyPackages">
+                <div class="col-xl-6 col-12" *ngFor="let pkg of packageService.packages">
                     <stabox-package-card [package]="pkg"></stabox-package-card>
                 </div>
             </div>
+
+            <div class="row mt-3" *ngIf="showAcceptedPackages">
+                <div class="col-xl-6 col-12" *ngFor="let pkg of packageService.packages">
+                    <stabox-package-card [package]="pkg"></stabox-package-card>
+                </div>
+            </div>
+
+            <div class="row mt-3" *ngIf="showToDeliver">
+                <div class="col-xl-6 col-12" *ngFor="let pkg of packageService.packages">
+                    <stabox-package-card [package]="pkg"></stabox-package-card>
+                </div>
+            </div>
+
         </div>
         <app-footer></app-footer>
     </div>
