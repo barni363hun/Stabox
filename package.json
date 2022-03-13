@@ -2,12 +2,17 @@
   "name": "stabox",
   "version": "0.0.0",
   "license": "MIT",
+  "files": [
+    "dist/apps/stabox-frontend",
+    "dist/apps/api"
+  ],
   "scripts": {
-    "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
-    "start": "nx serve",
-    "build": "nx build",
-    "test": "nx test"
+    "test": "concurrently -p=\"{name}\" -n=\"NestJs,Cypress\" -c=\"blue,magenta\" \"npm run start:be\" \"nx e2e stabox-frontend-e2e --watch\"",
+    "start:fe": "nx serve stabox-frontend",
+    "start:be": "nx serve api",
+    "dev": "concurrently -p=\"{name}\" -n=\"Angular,NestJS\" -c=\"green,blue\" \"npm run start:fe\" \"npm run start:be\"",
+    "build:all": "concurrently -p=\"{name}\" -n=\"Angular,NestJS\" -c=\"green,blue\" \"nx build\" \"nx build api --prod\""
   },
   "private": true,
   "dependencies": {
@@ -28,6 +33,7 @@
     "@nestjs/config": "1.1.5",
     "@nestjs/core": "8.0.0",
     "@nestjs/platform-express": "8.0.0",
+    "@nestjs/serve-static": "2.2.2",
     "@nestjs/typeorm": "8.0.2",
     "@nrwl/angular": "13.8.3",
     "@nrwl/web": "13.8.3",
@@ -67,6 +73,7 @@
     "@types/node": "14.14.33",
     "@typescript-eslint/eslint-plugin": "5.10.2",
     "@typescript-eslint/parser": "5.10.2",
+    "concurrently": "7.0.0",
     "cypress": "9.1.0",
     "eslint": "8.7.0",
     "eslint-config-prettier": "8.1.0",

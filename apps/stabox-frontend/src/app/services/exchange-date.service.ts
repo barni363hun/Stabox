@@ -49,7 +49,7 @@ export class ExchangeDateService {
               id: exDate.id,
               addressId: exDate.addressId,
             };
-          });
+          }).sort(e=>e.id==0?-e.id:e.id);
           console.log(this.exchangeDates);
         },
         error: (err) => {

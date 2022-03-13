@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { cError, cLog } from '@stabox/stabox-lib';
 import {
   ExchangeDateService,
   SnackbarService,
@@ -23,8 +24,8 @@ export class PackageCardComponent implements OnInit {
   vehicles: any[] = [];
   selectedVehicle: number = 0;
 
-  exchangeDates: any[] = [];
-  selectedExchangeDate: number = 0;
+  exchangeDates: { startDate: Date; endDate: Date }[] = [];
+  selectedExchangeDate: Date = new Date();
 
   constructor(
     private userService: UserService,
@@ -43,9 +44,7 @@ export class PackageCardComponent implements OnInit {
         next: (res) => {
           this.exchangeDates = res;
         },
-        error: (err) => {
-          console.log(err);
-        },
+        error: (err) => console.log(err),
       });
 
     this.updateState();
@@ -59,15 +58,16 @@ export class PackageCardComponent implements OnInit {
   }
 
   selectPostDate() {
-    let date = new Date(Date.now()).toISOString();
+    const date: Date = this.selectedExchangeDate;
     if (!this.selectedVehicle) {
-      console.log('NO vehicle selected');
+      cError('NO vehicle selected!');
       this.snackbarService.showErrorSnackbar('Select a vehicle, please.');
     } else if (!this.selectedExchangeDate) {
-      console.log('No exchangeDate selected');
-      this.snackbarService.showErrorSnackbar(
-        'Select an exchange date, please.'
-      );
+      cError('No exchangeDate selected!');
+      this.snackbarService.showErrorSnackbar('Select an exchange date, please.');
+    } else if (!this.isInDateRanges(date)) {
+      cError('exchangeDate Is Not In Range!');
+      this.snackbarService.showErrorSnackbar('Choose a date that is in the range, please.');
     } else {
       this.packageService.postPackage(
         this.package.id,
@@ -75,7 +75,7 @@ export class PackageCardComponent implements OnInit {
         date
       );
       this.snackbarService.showSuccessSnackbar(
-        `Package  '${this.package.name}' accepted successfully.`
+        `Package  '${this.package.name}' accepted.`
       );
     }
     this.updateState();
@@ -84,9 +84,33 @@ export class PackageCardComponent implements OnInit {
   finishShipping() {
     this.packageService.finishPackage(this.package.id);
     this.snackbarService.showSuccessSnackbar(
-      `Package  '${this.package.name}' delivered successfully.`
+      `Package  '${this.package.name}' delivered.`
     );
     this.updateState();
+  }
+
+  isInDateRanges(d: any): boolean {
+    let back = false;
+    const myDate = new Date(d);
+    this.exchangeDates.forEach((range) => {
+      if (
+        myDate.getTime() > new Date(range.startDate).getTime() &&
+        myDate.getTime() < new Date(range.endDate).getTime()
+      ) {
+        back = true;
+      }
+    });
+    return back;
+  }
+
+  //TODO a d valamiért string-ként jön de mégse
+  formatDate(sDate: any): string {
+    const d = new Date(sDate);
+    const dformat =
+      [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('-') +
+      ' ' +
+      [d.getHours(), d.getMinutes()].join(':');
+    return dformat;
   }
 
   updateState() {

@@ -1,102 +1,106 @@
 <div [ngClass]="{ lightMode: themeService.light }">
-    <div class="card my-3">
-        <div class="row centerElements">
-            <div class="col-12 m-0 p-0 centerElements gradientBg packageCardTitle">
-                <span class="packageTitle">{{package.name}}</span>
-            </div>
-            <div class="packageCardContent">
-                <div class="row">
-                    <div class="col-6 textRight">
-                        <span class="packageText">Zip code:</span>
-                    </div>
-                    <div class="col-6 centerVertical">
-                        <span class="packageData">{{package.fromAddress.zipCode}}</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6 textRight">
-                        <span class="packageText">City:</span>
-                    </div>
-                    <div class="col-6 centerVertical">
-                        <span class="packageData">{{package.fromAddress.cityName}}</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6 textRight">
-                        <span class="packageText">Street:</span>
-                    </div>
-                    <div class="col-6 centerVertical">
-                        <span class="packageData">{{package.fromAddress.street}}</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6 textRight">
-                        <span class="packageText">House Number:</span>
-                    </div>
-                    <div class="col-6 centerVertical">
-                        <span class="packageData">{{package.fromAddress.houseNumber}}</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6 textRight">
-                        <span class="packageText">Size:</span>
-                    </div>
-                    <div class="col-6 centerVertical">
-                        <span class="packageData">{{package.size}} (cm)</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6 textRight">
-                        <span class="packageText">Weight:</span>
-                    </div>
-                    <div class="col-6 centerVertical">
-                        <span class="packageData">{{package.weight}}</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6 textRight">
-                        <span class="packageText">Fragile:</span>
-                    </div>
-                    <div class="col-6 centerVertical">
-                        <span class="packageData">{{ package.fragile ? 'Yes' : 'No' }}</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6 textRight">
-                        <span class="packageText">Status:</span>
-                    </div>
-                    <div class="col-6 centerVertical">
-                        <span [ngStyle]="{'color': getStyles(this.status)}" class="packageData">{{this.status}}</span>
-                    </div>
-                </div>
-
-                <div class="row mt-3" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
-                    <div class="col-12 centerElements">
-                        <select class="packageCardSelect" name="vehicle" id="vehicle" [(ngModel)]="selectedVehicle">
-                            <option value="0" disabled selected>Vehicle</option>
-                            <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.name}}</option>
-                        </select>
-                    </div>
-                    <div class="col-12 centerElements">
-                        <select class="packageCardSelect" name="exchangeDates" id="exchangeDates" [(ngModel)]="selectedExchangeDate">
-                            <option value="0" disabled selected>Date</option>
-                            <option *ngFor="let exDate of exchangeDates" [value]="exDate.id">
-                                {{exDate.startDate.toLocaleString() | date:'yyyy/MM/dd H:mm'}} -
-                                {{exDate.endDate.toString() | date:'yyyy/MM/dd H:mm'}}
-                            </option>
-                        </select>
-                    </div>
-                    <div class="col-12 mt-3 text-center">
-                        <span class="btn addBtn" (click)="selectPostDate()">Accept</span>
-                    </div>
-                </div>
-
-                <div class="row mt-3" *ngIf="this.state == 'finishable' && !this.isUserTheOwner">
-                    <div class="col-12 text-center">
-                        <span class="btn yellowBtn" (click)="finishShipping()">Finish</span>
-                    </div>
-                </div>
-            </div>
+  <div class="card my-3">
+    <div class="row centerElements">
+      <div class="col-12 m-0 p-0 centerElements gradientBg packageCardTitle">
+        <span class="packageTitle">{{package.name}}</span>
+      </div>
+      <div class="packageCardContent">
+        <div class="row">
+          <div class="col-6 textRight">
+            <span class="packageText">Zip code:</span>
+          </div>
+          <div class="col-6 centerVertical">
+            <span class="packageData">{{package.fromAddress.zipCode}}</span>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-6 textRight">
+            <span class="packageText">City:</span>
+          </div>
+          <div class="col-6 centerVertical">
+            <span class="packageData">{{package.fromAddress.cityName}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 textRight">
+            <span class="packageText">Street:</span>
+          </div>
+          <div class="col-6 centerVertical">
+            <span class="packageData">{{package.fromAddress.street}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 textRight">
+            <span class="packageText">House Number:</span>
+          </div>
+          <div class="col-6 centerVertical">
+            <span class="packageData">{{package.fromAddress.houseNumber}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 textRight">
+            <span class="packageText">Size:</span>
+          </div>
+          <div class="col-6 centerVertical">
+            <span class="packageData">{{package.size}} (cm)</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 textRight">
+            <span class="packageText">Weight:</span>
+          </div>
+          <div class="col-6 centerVertical">
+            <span class="packageData">{{package.weight}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 textRight">
+            <span class="packageText">Fragile:</span>
+          </div>
+          <div class="col-6 centerVertical">
+            <span class="packageData">{{ package.fragile ? 'Yes' : 'No' }}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 textRight">
+            <span class="packageText">Status:</span>
+          </div>
+          <div class="col-6 centerVertical">
+            <span [ngStyle]="{'color': getStyles(this.status)}" class="packageData">{{this.status}}</span>
+          </div>
+        </div>
+
+        <div class="row mt-3" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
+          <div class="col-12 centerElements">
+            <select class="packageCardSelect" name="vehicle" id="vehicle" [(ngModel)]="selectedVehicle">
+              <option value="0" disabled selected>Vehicle</option>
+              <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.name}}</option>
+            </select>
+          </div>
+          <div class="col-12 centerElements">
+            <h3>Selectable dates</h3>
+            <div *ngFor="let exDate of exchangeDates">
+              <p>
+                from {{ formatDate(exDate.startDate) }} to
+                {{ formatDate(exDate.endDate) }}
+              </p>
+            </div>
+            <div class="col-6">
+              <input type="datetime-local" [(ngModel)]="selectedExchangeDate" />
+            </div>
+
+          </div>
+          <div class="col-12 mt-3 text-center">
+            <span class="btn addBtn" (click)="selectPostDate()">Accept</span>
+          </div>
+        </div>
+
+        <div class="row mt-3" *ngIf="this.state == 'finishable' && !this.isUserTheOwner">
+          <div class="col-12 text-center">
+            <span class="btn yellowBtn" (click)="finishShipping()">Finish</span>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
