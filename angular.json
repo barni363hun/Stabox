@@ -89,7 +89,6 @@
               "apps/stabox-frontend/src/assets"
             ],
             "styles": [
-              "apps/stabox-frontend/src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
