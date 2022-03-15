@@ -117,7 +117,7 @@ export class PackageController {
   getMyPackagesWithAddress(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
       where: { userId: req.user.sub },
-      relations: ['fromAddress'],
+      relations: ['fromAddress','reciever','reciever.address'],
     });
   }
   // gets acceptable packages
@@ -142,7 +142,7 @@ export class PackageController {
           userId: req.user.sub,
         },
       },
-      relations: ['fromAddress', 'vehicle'],
+      relations: ['fromAddress', 'vehicle','reciever','reciever.address'],
     });
   }
 
