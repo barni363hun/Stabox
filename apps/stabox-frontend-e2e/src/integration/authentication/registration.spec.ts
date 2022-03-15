@@ -10,7 +10,7 @@ describe('registration', () => {
     cy.auth0Registration(testname + '@cypresstest.com', 'Abc123456');
   });
   it('auth0 accept 3rd party data (email, username)', () => {
-    cy.get('.c295cd12c').click();
+    cy.get('button[value=accept]').click();
   });
   it('logout', () => {
     cy.logout();
