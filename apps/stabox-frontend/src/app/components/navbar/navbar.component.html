@@ -2,7 +2,8 @@
     <nav class="navbar fixed-top navbar-expand-xl navbar-dark nav">
         <div class="left me-5">
             <a routerLink="/">
-                <img class="logoImg" [src]="themeService.light ? '../../../../assets/images/LightMode/Logo.svg' : '../../../../assets/images/DarkMode/Logo.svg'" />
+                <img *ngIf="!userService.userLoggedIn()" class="logoImg" [src]="themeService.light ? '../../../../assets/images/LightMode/Logo.svg' : '../../../../assets/images/DarkMode/Logo.svg'" />
+                <app-home-icon *ngIf="userService.userLoggedIn()"></app-home-icon>
             </a>
         </div>
 
@@ -21,19 +22,16 @@
           }"></span>
         </button>
 
-        <div class="collapse navbar-collapse navBarList" id="navbarNav">
+        <div class="collapse navbar-collapse navBarList">
             <ul class="navbar-nav ms-5 me-auto">
-                <li class="nav-item me-3" *ngIf="userService.userLoggedIn()">
-                    <img class="navIcon" [src]="themeService.light ? '../../../../assets/images/LightMode/BoxIcon.svg' : '../../../../assets/images/DarkMode/BoxIcon.svg'">
-                    <a class="mt-1 navText" routerLink="/packages" routerLinkActive="activeLink">Packages</a>
+                <li class="nav-item me-3 mb-2" *ngIf="userService.userLoggedIn()" routerLink="/packages" routerLinkActive="activeLink">
+                    <div class="centerElements">
+                        <img class="navIcon" [src]="themeService.light ? '../../../../assets/images/LightMode/BoxIcon.svg' : '../../../../assets/images/DarkMode/BoxIcon.svg'">
+                        <a class="navText">Packages</a>
+                    </div>
                     <div class="navUnderline gradientBg"></div>
                 </li>
             </ul>
-
-            <div id="coinsDiv" title="View transactions" *ngIf="userService.userLoggedIn()">
-                <p id="coinAmount">69 420</p>
-                <img class="coinsIcon" src="../../../../assets/images/CoinsIcon.svg" />
-            </div>
             <div class="me-4" *ngIf="userService.userLoggedIn()">
                 <app-account-button></app-account-button>
             </div>
@@ -53,26 +51,13 @@
 <div class="sideBarDiv unselectable" *ngIf="showSideBar == true" [ngClass]="{ lightMode: themeService.light }">
     <div id="sideBarShade" (click)="showSideBar = false"></div>
     <div id="sideBar">
-        <div class="sideBarItemDiv" routerLink="/mypackages">
+        <div class="sideBarItemDiv" routerLink="/packages">
             <div class="sideBarItem">
-                <a class="mt-1 navText">My Packages</a>
-                <div class="navUnderline gradientBg"></div>
-            </div>
-        </div>
-
-        <div class="sideBarItemDiv" routerLink="/mypackages">
-            <div class="sideBarItem">
-                <a class="mt-1 navText">Available Packages</a>
-                <div class="navUnderline gradientBg"></div>
-            </div>
-        </div>
-
-        <div class="sideBarItemDiv">
-            <div class="sideBarItem">
-                <div id="sideBarItemCoinsDiv" title="View transactions">
-                    <p id="sideBarItemCoinAmount">69 420</p>
-                    <img class="sideBarItemCoinsIcon" src="../../../../assets/images/CoinsIcon.svg" />
+                <div class="centerElements">
+                    <img class="navIcon" [src]="themeService.light ? '../../../../assets/images/LightMode/BoxIcon.svg' : '../../../../assets/images/DarkMode/BoxIcon.svg'">
+                    <a class="navText">Packages</a>
                 </div>
+                <div class="navUnderline gradientBg"></div>
             </div>
         </div>
 

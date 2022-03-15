@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { cError, cSuccess, addressInterface } from '@stabox/stabox-lib';
+import { cError, cSuccess, addressInterface, cLog } from '@stabox/stabox-lib';
 import { Observable } from 'rxjs';
-import { SnackbarService, UserService } from '.';
+import { ExchangeDateService, SnackbarService, UserService } from '.';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -13,6 +13,7 @@ export class AddressService {
   constructor(
     private userService: UserService,
     private http: HttpClient,
+    private exchangeDateService:ExchangeDateService,
     private snackbarService: SnackbarService
   ) {
     this.getAddresses();
@@ -53,34 +54,33 @@ export class AddressService {
       houseNumber: '',
     };
     this.addresses.push(newADR);
-    console.log(this.addresses);
+    //console.log(this.addresses);
   }
 
   getAddresses() {
-    console.log('getting addresses');
+    cLog('getting addresses');
     this.http
       .get<addressInterface[]>(environment.apiURL + '/address')
       .subscribe({
         next: (res) => {
-          cSuccess('addresses refreshed');
           this.addresses = res;
+          cSuccess('addresses refreshed');
           console.log(this.addresses);
         },
         error: (err) => {
           cError(err.error.message);
-          this.snackbarService.showErrorSnackbar(this.formatMessage(err.error.message));
+          this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
   }
 
   save(address: addressInterface) {
-    console.log(address);
+    // console.log(address);
     address.zipCode = Number(address.zipCode);
-
     if (address.id === 0) {
       this.create(address);
     } else {
-      console.log('saving address ' + address.id);
+      cLog('saving address ' + address.id);
       this.http
         .patch<addressInterface>(environment.apiURL + '/address', {
           ...address,
@@ -88,40 +88,41 @@ export class AddressService {
         .subscribe({
           next: (res) => {
             cSuccess('address saved');
-            this.snackbarService.showSuccessSnackbar('Address saved successfully.')
             console.log(this.addresses);
+            this.snackbarService.showSuccessSnackbar('Address saved.')
             this.getAddresses();
           },
           error: (err) => {
             cError(err.error.message);
-            this.snackbarService.showErrorSnackbar(this.formatMessage(err.error.message));
+            this.snackbarService.showErrorSnackbar(err.error.message);
           },
         });
     }
   }
 
   private create(exDate: addressInterface) {
-    console.log('creating address ' + exDate.id);
+    cLog('creating address ' + exDate.name);
     this.http
       .put<addressInterface>(environment.apiURL + '/address', {
         ...exDate,
       })
       .subscribe({
         next: (res) => {
-          cSuccess('address' + exDate.id + ' created');
+          cSuccess('address ' + exDate.id + ' created');
+          this.snackbarService.showSuccessSnackbar('Address created.')
           console.log(this.addresses);
           this.getAddresses();
         },
         error: (err) => {
           cError(err.error.message);
-          this.getAddresses();
+          this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
   }
 
   delete(id: number) {
     const deleteEX: addressInterface = this.addresses[id];
-    console.log('deleting address ' + deleteEX.id);
+    cLog('deleting address ' + deleteEX.id);
     const headers = {};
     this.http
       .request('delete', environment.apiURL + '/address', {
@@ -132,27 +133,14 @@ export class AddressService {
         next: (res) => {
           cSuccess('address ' + id + ' deleted');
           console.log(this.addresses);
+          this.exchangeDateService.getExchangeDates();
           this.getAddresses();
         },
         error: (err) => {
           cError(err.error.message);
+          this.exchangeDateService.getExchangeDates();
           this.getAddresses();
         },
       });
-  }
-
-  private formatMessage(message: string) {
-    let messages: string[] = message.toString().split(',');
-    let errorMessage: string = '';
-    for (let index = 0; index < messages.length; index++) {
-      let message = messages[index];
-      const i = message.search(/[A-Z]/);
-      if (i != -1) {
-        message = message.replace(/[A-Z]/, ` ${message[i].toLowerCase()}`);
-      }
-      message = message.replace(message[0], message[0].toUpperCase());
-      errorMessage += message + '. ';
-    }
-    return errorMessage;
   }
 }

@@ -1,4 +1,5 @@
 <div class="mb-3 w-100" id="emailDiv">
         <mat-icon id="emailIcon">email</mat-icon>
-        <input type="email" class="form-control" id="emailInput" placeholder="Email" aria-describedby="emailHelp">
+        <input type="email" class="form-control" id="emailInput" placeholder="Email" aria-describedby="emailHelp"
+        [(ngModel)]="this.contactService.feedback.email" name="email">
 </div>

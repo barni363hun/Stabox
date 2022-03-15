@@ -5,13 +5,13 @@
         <div class="row">
           <div class="col-xl-8 col-12 text-center">
             <div class="row">
-              <div class="col-xl-6 col-lg-6 col-12 centerElements">
+              <div class="col-xl-6 col-lg-6 col-12 my-3 centerElements">
                 <div class="accountImageOutline gradientBg">
                   <img class="accountImage unselectable" [src]="userService.authUser.picture" alt="{{ userService.user.username }}" title="{{ userService.user.username }}" />
                 </div>
               </div>
 
-              <div class="col-xl-6 col-lg-6 col-12" *ngIf="userService.userInitialized">
+              <div class="col-xl-6 col-lg-6 col-12 my-3" *ngIf="userService.userInitialized">
                 <div class="accountDataDiv">
                   <mat-icon class="accountDataIcon gradient">verified_user</mat-icon>
                   <p class="accountDataTitle gradient unselectable">Username</p>
@@ -51,14 +51,14 @@
 
                 <div class="accountDataDiv">
                   <div class="saveButtonOutline gradientBg unselectable" (click)="userService.update()">
-                    <div class="saveButton">Save</div>
+                    <div class="saveButton centerElements">Save</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-xl-4 col-12">
+          <div class="col-xl-4 col-12 my-3">
             <div class="row text-center h-100">
               <div class="col-xl-12 col-sm-6 col-12 centerElements">
                 <div class="bigBtn unselectable" *ngIf="userService.isShipper" (click)="viewDetails = true">
@@ -95,7 +95,7 @@
 
         <div class="row mt-4 p-0">
           <div class="col-xl-6 col-12 my-4 text-center">
-            <p class="title gradient unselectable">Exchange</p>
+            <p class="title unselectable">Exchange</p>
             <app-divider></app-divider>
             <div class="dataInputDiv">
               <div class="row mt-2 group centerElements" *ngFor="let EXDate of exchangeDateService.exchangeDates;index as EXindex">
@@ -109,7 +109,7 @@
 
                 <div class="col-12 p-0 m-0">
                   <select class="mb-2" (change)="exchangeDateService.selectChange($event, EXindex)">
-                    <option value="0" selected disabled hidden>
+                    <option value="0" hidden>
                       {{ addressService.getAddressById(exchangeDateService.exchangeDates[EXindex].addressId).name }}
                     </option>
                     <option *ngFor="let address of addressService.addresses" [value]="address.id">
@@ -119,11 +119,11 @@
                 </div>
                 <div class="dataIconDiv saveIconDiv centerElements" (click)="exchangeDateService.save(EXDate)">
                   <mat-icon class="dataIcon gradient" title="Save">save</mat-icon>
-                  <p class="dataIconText saveIconText unselectable">Save</p>
+                  <span class="dataIconText saveIconText unselectable">Save</span>
                 </div>
                 <div class="dataIconDiv removeIconDiv centerElements" (click)="exchangeDateService.delete(EXindex)">
                   <mat-icon class="dataIcon gradient" title="Remove">delete</mat-icon>
-                  <p class="dataIconText removeIconText unselectable">Delete</p>
+                  <span class="dataIconText removeIconText unselectable">Delete</span>
                 </div>
               </div>
               <app-add-icon (click)="exchangeDateService.localeAddExchangeDate()"></app-add-icon>
@@ -131,18 +131,18 @@
           </div>
 
           <div class="col-xl-6 col-12 my-4 text-center">
-            <p class="title gradient unselectable">Addresses</p>
+            <p class="title unselectable">Addresses</p>
             <app-divider></app-divider>
             <div class="dataInputDiv">
               <div class="row mt-2 group centerElements" *ngFor="let address of addressService.addresses; index as i">
                 <stabox-address-input [myAddress]="address" [isReciever]="true" (saveAddressEvent)="addressService.save(address)"></stabox-address-input>
                 <div class="dataIconDiv saveIconDiv centerElements" (click)="addressService.save(address)">
                   <mat-icon class="dataIcon gradient" title="Save">save</mat-icon>
-                  <p class="dataIconText saveIconText unselectable">Save</p>
+                  <span class="dataIconText saveIconText unselectable">Save</span>
                 </div>
                 <div class="dataIconDiv removeIconDiv centerElements" (click)="addressService.delete(i)">
                   <mat-icon class="dataIcon gradient" title="Remove">delete</mat-icon>
-                  <p class="dataIconText removeIconText unselectable">Delete</p>
+                  <span class="dataIconText removeIconText unselectable">Delete</span>
                 </div>
               </div>
               <app-add-icon (click)="addressService.localeAddAddress()"></app-add-icon>

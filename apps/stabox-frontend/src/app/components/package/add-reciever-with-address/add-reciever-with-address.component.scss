@@ -1,2 +1,42 @@
 @import './../../../app.component.scss';
 @import './../add-package/add-package.component.scss';
+
+.receiverCard {
+  z-index: 2;
+  left: 0;
+}
+
+.title {
+  font-size: 42px;
+}
+
+input {
+  width: 85%;
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .centerLarge {
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 975px) {
+  .title {
+    font-size: 38px;
+  }
+}
+@media only screen and (max-width: 810px) {
+  .title {
+    font-size: 34px;
+  }
+}
+@media only screen and (max-width: 690px) {
+  .title {
+    font-size: 30px;
+  }
+}
+@media only screen and (max-width: 610px) {
+  .title {
+    font-size: 26px;
+  }
+}

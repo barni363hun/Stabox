@@ -13,7 +13,7 @@ import {
   styleUrls: ['./packages-page.component.scss'],
 })
 export class PackagesPageComponent implements OnInit {
-  showMyPackages = false;
+  showMyPackages = true;
   showAcceptedPackages = false;
   showToDeliver = false;
 
@@ -28,11 +28,13 @@ export class PackagesPageComponent implements OnInit {
     public exchangeDateService: ExchangeDateService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.filterMyPackages()
+  }
 
   filterMyPackages() {
-    this.showMyPackages = false;
-    this.showAcceptedPackages = true;
+    this.showMyPackages = true;
+    this.showAcceptedPackages = false;
     this.showToDeliver = false;
 
     this.packageService.update('/package/myPackages');

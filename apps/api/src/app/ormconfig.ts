@@ -7,6 +7,7 @@ import {
   transactionEntity,
   userEntity,
   vehicleEntity,
+  contactUsEntity,
 } from '../Entities';
 
 // You can load you .env file here synchronously using dotenv package (not installed here),
@@ -16,10 +17,6 @@ import {
 // const data: any = dotenv.parse(fs.readFileSync(`${environment}.env`));
 // You can also make a singleton service that load and expose the .env file content.
 // ...
-
-//!!!
-//!!! We can't get the db informations from .env
-//!!!
 
 // Check typeORM documentation for more information.
 const config: MysqlConnectionOptions = {
@@ -37,6 +34,7 @@ const config: MysqlConnectionOptions = {
     recieverEntity,
     vehicleEntity,
     transactionEntity,
+    contactUsEntity,
   ],
 
   // We are using migrations, synchronize should be set to false.

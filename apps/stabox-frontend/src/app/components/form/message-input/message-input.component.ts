@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ContactusService } from '../../../services/contactus.service';
 
 @Component({
   selector: 'app-message-input',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageInputComponent implements OnInit {
 
-  constructor() { }
+  constructor(public contactService:ContactusService) { }
 
   ngOnInit(): void {
   }

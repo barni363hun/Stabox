@@ -10,7 +10,7 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { IsBoolean, IsDateString, IsNumber, IsString, Matches } from 'class-validator';
+import { IsBoolean, IsDateString, IsNotEmpty, IsNumber, IsString, Matches } from 'class-validator';
 import { Not } from 'typeorm';
 import { packageEntity } from '../../Entities';
 import { AddressService } from '../address/address.service';
@@ -44,6 +44,7 @@ class packageDto {
   @IsNumber()
   fromAddressId: number;
   @IsString()
+  @IsNotEmpty()
   name: string;
   @IsNumber()
   recieverId: number;
@@ -116,18 +117,18 @@ export class PackageController {
   getMyPackagesWithAddress(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
       where: { userId: req.user.sub },
-      relations: ['fromAddress'],
+      relations: ['fromAddress','reciever','reciever.address'],
     });
   }
   // gets acceptable packages
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('shipper')
   @Get('/acceptable')
-  getAcceptable(@Req() req: authRequest): Promise<packageEntity[]> {
+  getAcceptable(@Req() req: authRequest): Promise<any> {
     return this.packageService.find({
       where: { vehicleId: null, userId: Not(req.user.sub) },
-      relations: ['fromAddress'],
-    });
+      relations: ['fromAddress','reciever','reciever.address'],
+    }).then((res: any[]) => res)
   }
   // gets accepted packages
   @UseGuards(AuthGuard, RoleGuard)
@@ -141,7 +142,7 @@ export class PackageController {
           userId: req.user.sub,
         },
       },
-      relations: ['fromAddress', 'vehicle'],
+      relations: ['fromAddress', 'vehicle','reciever','reciever.address'],
     });
   }
 

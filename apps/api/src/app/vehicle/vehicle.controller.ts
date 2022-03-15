@@ -10,7 +10,7 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { IsNumber, IsString } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { vehicleEntity } from '../../Entities';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
 import { Roles } from '../auth/roles.decorator';
@@ -23,6 +23,7 @@ class idDto {
 
 class vehicleDto {
   @IsString()
+  @IsNotEmpty()
   name: string;
 }
 
@@ -30,6 +31,7 @@ class myVehicleDto {
   @IsNumber()
   id: number;
   @IsString()
+  @IsNotEmpty()
   name: string;
 }
 

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AuthService, User } from '@auth0/auth0-angular';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { catchError, map, observable, Observable, window, zip } from 'rxjs';
-import { cError, cSuccess, userInterface } from '@stabox/stabox-lib';
+import { Observable} from 'rxjs';
+import { cError, cLog, cSuccess, userInterface } from '@stabox/stabox-lib';
 import { SnackbarService } from '.';
 
 @Injectable({
@@ -32,52 +32,51 @@ export class UserService {
     private snackbarService: SnackbarService
   ) {
     this.authUserInit.subscribe({
-      next: (authU) => {
+      next: (myAuthUser) => {
         if (
           !this.userInitialized &&
-          authU &&
-          authU.email &&
-          authU.picture &&
-          authU.nickname &&
-          authU.sub
+          myAuthUser &&
+          myAuthUser.email &&
+          myAuthUser.picture &&
+          myAuthUser.nickname &&
+          myAuthUser.sub
         ) {
-          cSuccess("authUser's been got");
-          this.authUser = authU;
+          this.authUser = myAuthUser;
           if (this.hasRole('user')) {
             this.isUser = true;
           }
           if (this.hasRole('shipper')) {
             this.isShipper = true;
           }
-          console.log(authU);
+          cSuccess("authUser's been got");
+          console.log(myAuthUser);
           const newUser: userInterface = {
-            email: authU.email,
-            firstName: authU.given_name,
-            lastName: authU.family_name,
-            picture: authU.picture,
-            username: authU.nickname,
-            id: authU.sub,
+            email: myAuthUser.email,
+            firstName: myAuthUser.given_name,
+            lastName: myAuthUser.family_name,
+            picture: myAuthUser.picture,
+            username: myAuthUser.nickname,
+            id: myAuthUser.sub,
             ['https://www.stabox.hu/roles']:
-              authU['https://www.stabox.hu/roles'],
+              myAuthUser['https://www.stabox.hu/roles'],
             //TODO possible to add 'email_verified' if needed
           };
-          if (authU.phone_number_verified) {
-            newUser.phoneNumber = authU.phone_number;
+          if (myAuthUser.phone_number_verified) {
+            newUser.phoneNumber = myAuthUser.phone_number;
           }
           this.getMyData().subscribe({
             next: (res) => {
-              cSuccess("user's been got");
               this.user = res;
+              cSuccess("user's been got");
+              console.log(this.user);
             },
             error: (err) => {
               cError(err.error.message);
               this.snackbarService.showErrorSnackbar(err.error.message);
+              console.log(this.user);
               this.user = newUser;
               this.createUser(newUser);
-            },
-            complete: () => {
-              console.log(this.user);
-            },
+            }
           });
           this.userInitialized = true;
         }
@@ -90,7 +89,7 @@ export class UserService {
   }
 
   public update() {
-    console.log('updating user information');
+    cLog('updating user information');
     this.http
       .patch<userInterface>(environment.apiURL + '/user', {
         email: this.user.email,
@@ -103,7 +102,7 @@ export class UserService {
         next: (res) => {
           cSuccess('user info updated');
           this.snackbarService.showSuccessSnackbar(
-            'User information saved successfully.'
+            'User information saved.'
           );
           console.log(this.user);
           if (!this.isUser) {
@@ -113,20 +112,20 @@ export class UserService {
         },
         error: (err) => {
           this.snackbarService.showErrorSnackbar(
-            this.formatMessage(err.error.message)
+            err.error.message
           );
           cError(err.error.message);
-        },
+        }
       });
   }
 
   private getMyData(): Observable<userInterface> {
-    console.log('getting user info');
+    cLog('getting user info');
     return this.http.get<userInterface>(environment.apiURL + '/user');
   }
 
   public refreshUserData() {
-    console.log('refreshing user information');
+    cLog('refreshing user information');
     this.http.get<userInterface>(environment.apiURL + '/user').subscribe({
       next: (res) => {
         cSuccess('user info refreshed');
@@ -140,15 +139,6 @@ export class UserService {
     });
   }
 
-  public deleteUser() {
-    if (confirm('Are you sure you want to delete your accaunt?')) {
-      //TODO delete accaunt
-      this.logout();
-    } else {
-      alert('uh... that was close');
-    }
-  }
-
   private createUser(u: userInterface) {
     console.log('create user');
     this.http
@@ -160,7 +150,7 @@ export class UserService {
         next: (res) => {
           cSuccess('user created');
           this.snackbarService.showSuccessSnackbar(
-            'User created successfully.'
+            'User created.'
           );
           console.log(res);
         },
@@ -205,7 +195,7 @@ export class UserService {
         next: (res) => {
           cSuccess('shipper role assigned');
           this.snackbarService.showSuccessSnackbar(
-            'Shipper role assigned successfully.'
+            'Shipper role assigned.'
           );
           console.log(res);
           this.login();
@@ -215,20 +205,5 @@ export class UserService {
           this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
-  }
-
-  private formatMessage(message: string) {
-    let messages: string[] = message.toString().split(',');
-    let errorMessage: string = '';
-    for (let index = 0; index < messages.length; index++) {
-      let message = messages[index];
-      const i = message.search(/[A-Z]/);
-      if (i != -1) {
-        message = message.replace(/[A-Z]/, ` ${message[i].toLowerCase()}`);
-      }
-      message = message.replace(message[0], message[0].toUpperCase());
-      errorMessage += message + '. ';
-    }
-    return errorMessage;
   }
 }

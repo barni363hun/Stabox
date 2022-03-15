@@ -15,14 +15,13 @@
             "{options.outputPath}"
           ],
           "options": {
-            "outputPath": "dist/apps/api",
+            "outputPath": "dist/stabox",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
             "assets": [
-              "apps/api/src/assets",
               {
-                "glob": ".env",
-                "input": ".",
+                "glob": "*",
+                "input": "apps/api/production/",
                 "output": "."
               }
             ]
@@ -78,7 +77,7 @@
             "{options.outputPath}"
           ],
           "options": {
-            "outputPath": "dist/apps/stabox-frontend",
+            "outputPath": "dist/stabox/frontend",
             "index": "apps/stabox-frontend/src/index.html",
             "main": "apps/stabox-frontend/src/main.ts",
             "polyfills": "apps/stabox-frontend/src/polyfills.ts",
@@ -140,6 +139,7 @@
           },
           "defaultConfiguration": "development",
           "options": {
+            "browserTarget": "stabox-frontend:build",
             "proxyConfig": "apps/stabox-frontend/proxy.conf.json"
           }
         },

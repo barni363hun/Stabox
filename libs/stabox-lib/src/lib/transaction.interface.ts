@@ -1,6 +1,6 @@
 export interface transactionInterface {
   id: number;
-  user: string;
+  userId: string;
   amount: number;
   direction: boolean;
 }

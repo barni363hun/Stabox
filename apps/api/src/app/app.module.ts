@@ -11,6 +11,10 @@ import { VehicleModule } from './vehicle/vehicle.module';
 import { AddressModule } from './address/address.module';
 import { RecieverModule } from './reciever/reciever.module';
 import { PackageModule } from './package/package.module';
+import { ContactUsModule } from './contact-us/contact-us.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+
 import ormconfig = require('./ormconfig');
 
 @Module({
@@ -18,6 +22,9 @@ import ormconfig = require('./ormconfig');
     AuthModule,
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot(ormconfig),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '.', 'frontend'),
+    }),
     UserModule,
     ExchangeDateModule,
     TransactionModule,
@@ -25,6 +32,7 @@ import ormconfig = require('./ormconfig');
     AddressModule,
     RecieverModule,
     PackageModule,
+    ContactUsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
