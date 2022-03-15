@@ -1,26 +1,32 @@
-<div id="secondCard">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xl-6">
-                <img class="w-100" id="drawing" src="../../../../assets/images/AboutUsDrawing.svg" alt="">
-            </div>
-            <div class="col-xl-6">
-                <div class="w-100" id="cardText">
-                    <h1>About Us</h1>
-                    <app-divider></app-divider>
-                    <div class="mx-auto" id="bottomCardDesc">
-                        <p class="aboutUsParagraph">
-                            Stabox is the newest community focused delivery service, with which you can send any type of
+<div [ngClass]="{ lightMode: themeService.light }">
+    <div id="secondCard">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-6">
+                    <img class="w-100" [src]="
+                    themeService.light
+                        ? '../../../../assets/images/LightMode/AboutUsDrawing.svg'
+                        : '../../../../assets/images/DarkMode/AboutUsDrawing.svg'
+                    " />
+                </div>
+                <div class="col-xl-6">
+                    <div class="w-100" id="cardText">
+                        <h1>About Us</h1>
+                        <app-divider></app-divider>
+                        <div class="mx-auto" id="bottomCardDesc">
+                            <p class="aboutUsParagraph">
+                                Stabox is the newest community focused delivery service, with which you can send any type of
                             package you want, to anyone you know.
-                        </p>
-                        <p class="aboutUsParagraph">
-                            If You aren't interested in sending packages, you can join Stabox, and become one of our
+                            </p>
+                            <p class="aboutUsParagraph">
+                                If You aren't interested in sending packages, you can join Stabox, and become one of our
                             shippers.
-                        </p>
-                        <p class="aboutUsParagraph">
-                            Stabox shippers can choose between long-distance and short-distance packages, so even if all
+                            </p>
+                            <p class="aboutUsParagraph">
+                                Stabox shippers can choose between long-distance and short-distance packages, so even if all
                             you have is a bicycle, you can become successfull with Us.
-                        </p>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

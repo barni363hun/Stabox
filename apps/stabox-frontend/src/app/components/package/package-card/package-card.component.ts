@@ -3,6 +3,7 @@ import { cError, cLog } from '@stabox/stabox-lib';
 import {
   ExchangeDateService,
   SnackbarService,
+  ThemeService,
   UserService,
   VehicleService,
 } from '../../../services';
@@ -16,8 +17,7 @@ export class PackageCardComponent implements OnInit {
   @Input() package!: any;
   isAvailable: boolean = false;
   state: 'notShipper' | 'finished' | 'shippable' | 'finishable' = 'finished';
-  status: 'waiting for shipper' | 'being shipped' | 'finished' =
-    'waiting for shipper';
+  status: 'Inactive' | 'Active' | 'Delivered' = 'Inactive';
 
   isUserTheOwner: boolean = false;
 
@@ -32,6 +32,7 @@ export class PackageCardComponent implements OnInit {
     private packageService: PackageService,
     private vehicleService: VehicleService,
     private exchangeDateSercice: ExchangeDateService,
+    public themeService: ThemeService,
     private snackbarService: SnackbarService
   ) {}
 
@@ -50,23 +51,23 @@ export class PackageCardComponent implements OnInit {
     this.isUserTheOwner = this.userService.user.id == this.package.userId;
     this.status =
       this.package.vehicleId == null
-        ? 'waiting for shipper'
+        ? 'Inactive'
         : this.package.shippingDate
-        ? 'finished'
-        : 'being shipped';
+        ? 'Delivered'
+        : 'Active';
   }
 
   selectPostDate() {
     const date: Date = this.selectedExchangeDate;
     if (!this.selectedVehicle) {
       cError('NO vehicle selected!');
-      this.snackbarService.showErrorSnackbar('NO vehicle selected!');
+      this.snackbarService.showErrorSnackbar('Select a vehicle, please.');
     } else if (!this.selectedExchangeDate) {
       cError('No exchangeDate selected!');
-      this.snackbarService.showErrorSnackbar('NO exchangeDate selected!');
+      this.snackbarService.showErrorSnackbar('Select an exchange date, please.');
     } else if (!this.isInDateRanges(date)) {
       cError('exchangeDate Is Not In Range!');
-      this.snackbarService.showErrorSnackbar('exchangeDate Is Not In Range!');
+      this.snackbarService.showErrorSnackbar('Choose a date that is in the range, please.');
     } else {
       this.packageService.postPackage(
         this.package.id,
@@ -74,7 +75,7 @@ export class PackageCardComponent implements OnInit {
         date
       );
       this.snackbarService.showSuccessSnackbar(
-        'Package selected successfully!'
+        `Package  '${this.package.name}' accepted.`
       );
     }
     this.updateState();
@@ -82,6 +83,9 @@ export class PackageCardComponent implements OnInit {
 
   finishShipping() {
     this.packageService.finishPackage(this.package.id);
+    this.snackbarService.showSuccessSnackbar(
+      `Package  '${this.package.name}' delivered.`
+    );
     this.updateState();
   }
 
@@ -121,5 +125,25 @@ export class PackageCardComponent implements OnInit {
     } else {
       this.state = 'finished';
     }
+  }
+
+  getStyles(status: string) {
+    let color = '';
+
+    switch (status) {
+      case 'Inactive':
+        color = '#ec2f4b';
+        break;
+      case 'Active':
+        color = '#f2da00';
+        break;
+      case 'Delivered':
+        color = '#00ff00';
+        break;
+      default:
+        break;
+    }
+
+    return color;
   }
 }

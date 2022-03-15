@@ -47,5 +47,6 @@ export class AddRecieverWithAddressComponent implements OnInit {
       await this.recieverService.addReciever(this.reciever);
       this.recieverService.refreshUserRecievers();
     }
+    this.doneEvent.emit();
   }
 }

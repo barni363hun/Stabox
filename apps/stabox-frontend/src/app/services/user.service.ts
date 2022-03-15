@@ -102,7 +102,7 @@ export class UserService {
         next: (res) => {
           cSuccess('user info updated');
           this.snackbarService.showSuccessSnackbar(
-            'User information saved successfully.'
+            'User information saved.'
           );
           console.log(this.user);
           if (!this.isUser) {
@@ -150,7 +150,7 @@ export class UserService {
         next: (res) => {
           cSuccess('user created');
           this.snackbarService.showSuccessSnackbar(
-            'User created successfully.'
+            'User created.'
           );
           console.log(res);
         },
@@ -195,7 +195,7 @@ export class UserService {
         next: (res) => {
           cSuccess('shipper role assigned');
           this.snackbarService.showSuccessSnackbar(
-            'Shipper role assigned successfully.'
+            'Shipper role assigned.'
           );
           console.log(res);
           this.login();

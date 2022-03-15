@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ThemeService } from '../../../services';
 
 @Component({
   selector: 'app-home-icon',
@@ -7,9 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HomeIconComponent implements OnInit {
 
-  @Input() lightMode = false;
-
-  constructor() { }
+  constructor(public themeService: ThemeService) { }
 
   ngOnInit(): void {
   }

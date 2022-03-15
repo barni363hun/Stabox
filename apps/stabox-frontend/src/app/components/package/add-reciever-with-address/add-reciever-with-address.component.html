@@ -1,103 +1,110 @@
 <div [ngClass]="{ lightMode: themeService.light }">
-  <div class="card">
-    <div class="row">
-      <div class="col-12">
-        <div class="row">
-          <div class="col-6 cardTextDiv">
-            <p class="cardText unselectable">FirstName</p>
-          </div>
-          <div class="col-6 cardInputDiv">
-            <input type="text" [(ngModel)]="reciever.firstName" />
-          </div>
-        </div>
-      </div>
+  <div class="cardDiv receiverCard">
+    <div class="card">
+      <div class="row">
 
-      <div class="col-12">
-        <div class="row">
-          <div class="col-6 cardTextDiv">
-            <p class="cardText unselectable">LastName</p>
-          </div>
-          <div class="col-6 cardInputDiv">
-            <input type="text" [(ngModel)]="reciever.lastName" />
-          </div>
+        <div class="col-12 centerElements">
+          <span class="title gradient">Add Receiver</span>
         </div>
-      </div>
+        <div class="underline gradientBg mb-5"></div>
 
-      <div class="col-12">
-        <div class="row">
-          <div class="col-6 cardTextDiv">
-            <p class="cardText unselectable">Email</p>
-          </div>
-          <div class="col-6 cardInputDiv">
-            <input type="text" [(ngModel)]="reciever.email" />
+        <div class="col-12">
+          <div class="row">
+            <div class="col-xl-4 col-sm-12 centerLarge">
+              <span class="cardText gradient unselectable">FirstName</span>
+            </div>
+            <div class="col-xl-8 col-sm-12 center">
+              <input type="text" [(ngModel)]="reciever.firstName" />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-12">
-        <div class="row">
-          <div class="col-6 cardTextDiv">
-            <p class="cardText unselectable">PhoneNumber</p>
-          </div>
-          <div class="col-6 cardInputDiv">
-            <input type="text" [(ngModel)]="reciever.phoneNumber" />
+        <div class="col-12">
+          <div class="row">
+            <div class="col-xl-4 col-sm-12 centerLarge">
+              <span class="cardText gradient unselectable">LastName</span>
+            </div>
+            <div class="col-xl-8 col-sm-12 center">
+              <input type="text" [(ngModel)]="reciever.lastName" />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-12">
-        <div class="row">
-          <div class="col-6 cardTextDiv">
-            <p class="cardText unselectable">ZipCode</p>
-          </div>
-          <div class="col-6 cardInputDiv">
-            <input type="number" [(ngModel)]="reciever.zipCode" />
+        <div class="col-12">
+          <div class="row">
+            <div class="col-xl-4 col-sm-12 centerLarge">
+              <span class="cardText gradient unselectable">Email</span>
+            </div>
+            <div class="col-xl-8 col-sm-12 center">
+              <input type="text" [(ngModel)]="reciever.email" />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-12">
-        <div class="row">
-          <div class="col-6 cardTextDiv">
-            <p class="cardText unselectable">City</p>
-          </div>
-          <div class="col-6 cardInputDiv">
-            <input type="text" [(ngModel)]="reciever.cityName" />
+        <div class="col-12">
+          <div class="row">
+            <div class="col-xl-4 col-sm-12 centerLarge">
+              <span class="cardText gradient unselectable">PhoneNumber</span>
+            </div>
+            <div class="col-xl-8 col-sm-12 center">
+              <input type="text" [(ngModel)]="reciever.phoneNumber" />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-12">
-        <div class="row">
-          <div class="col-6 cardTextDiv">
-            <p class="cardText unselectable">Street</p>
-          </div>
-          <div class="col-6 cardInputDiv">
-            <input type="text" [(ngModel)]="reciever.street" />
+        <div class="col-12">
+          <div class="row">
+            <div class="col-xl-4 col-sm-12 centerLarge">
+              <span class="cardText gradient unselectable">ZipCode</span>
+            </div>
+            <div class="col-xl-8 col-sm-12 center">
+              <input type="number" [(ngModel)]="reciever.zipCode" />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-12">
-        <div class="row">
-          <div class="col-6 cardTextDiv">
-            <p class="cardText unselectable">HouseNumber</p>
-          </div>
-          <div class="col-6 cardInputDiv">
-            <input type="text" [(ngModel)]="reciever.houseNumber" />
+        <div class="col-12">
+          <div class="row">
+            <div class="col-xl-4 col-sm-12 centerLarge">
+              <span class="cardText gradient unselectable">City</span>
+            </div>
+            <div class="col-xl-8 col-sm-12 center">
+              <input type="text" [(ngModel)]="reciever.cityName" />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-12 mt-3 centerElements">
-        <div class="btn addBtn centerElements" (click)="addToDB()">
-          <mat-icon class="btnIcon">done</mat-icon>
-          <span>Add Receiver</span>
+        <div class="col-12">
+          <div class="row">
+            <div class="col-xl-4 col-sm-12 centerLarge">
+              <span class="cardText gradient unselectable">Street</span>
+            </div>
+            <div class="col-xl-8 col-sm-12 center">
+              <input type="text" [(ngModel)]="reciever.street" />
+            </div>
+          </div>
         </div>
-        <div class="btn cancelBtn centerElements" (click)="done()">
-          <mat-icon class="btnIcon">close</mat-icon>
-          <span>Cancel</span>
+
+        <div class="col-12">
+          <div class="row">
+            <div class="col-xl-4 col-sm-12 centerLarge">
+              <span class="cardText gradient unselectable">HouseNumber</span>
+            </div>
+            <div class="col-xl-8 col-sm-12 center">
+              <input type="text" [(ngModel)]="reciever.houseNumber" />
+            </div>
+          </div>
         </div>
+
+        <div class="col-12 mt-5 buttonGroup">
+          <div class="btn addBtn" (click)="addToDB()">
+            <span>Create</span>
+          </div>
+          <div class="btn cancelBtn" (click)="done()">
+            <span>Cancel</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

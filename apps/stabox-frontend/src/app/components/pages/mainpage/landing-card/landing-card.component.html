@@ -1,4 +1,5 @@
-<div id="landingCard">
+<div [ngClass]="{ lightMode: themeService.light }">
+  <div id="landingCard">
     <div class="container-fluid mt-5">
       <div class="row">
 
@@ -16,8 +17,13 @@
         </div>
 
         <div class="col-xl-6">
-          <img class="w-100" src="../../../../assets/images/LandingCardDrawing.svg" alt="">
+          <img class="w-100" [src]="
+          themeService.light
+            ? '../../../../assets/images/LightMode/LandingCardDrawing.svg'
+            : '../../../../assets/images/DarkMode/LandingCardDrawing.svg'
+        " />
         </div>
       </div>
     </div>
   </div>
+</div>
