@@ -100,6 +100,9 @@ export class VehicleService {
       .subscribe({
         next: (res) => {
           cSuccess('vehicle ' + deleteVehicle.name + ' deleted');
+          this.snackbarService.showSuccessSnackbar(
+            `Vehicle '${deleteVehicle.name}' deleted.`
+          );
           this.getVehicles();
         },
         error: (err) => {

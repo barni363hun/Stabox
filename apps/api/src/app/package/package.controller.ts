@@ -124,11 +124,11 @@ export class PackageController {
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('shipper')
   @Get('/acceptable')
-  getAcceptable(@Req() req: authRequest): Promise<packageEntity[]> {
+  getAcceptable(@Req() req: authRequest): Promise<any> {
     return this.packageService.find({
       where: { vehicleId: null, userId: Not(req.user.sub) },
-      relations: ['fromAddress'],
-    });
+      relations: ['fromAddress','reciever','reciever.address'],
+    }).then((res: any[]) => res)
   }
   // gets accepted packages
   @UseGuards(AuthGuard, RoleGuard)

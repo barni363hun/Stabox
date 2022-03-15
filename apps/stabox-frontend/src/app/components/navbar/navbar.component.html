@@ -32,11 +32,6 @@
                     <div class="navUnderline gradientBg"></div>
                 </li>
             </ul>
-
-            <div id="coinsDiv" title="View transactions" *ngIf="userService.userLoggedIn()">
-                <p id="coinAmount">420</p>
-                <img class="coinsIcon" src="../../../../assets/images/CoinsIcon.svg" />
-            </div>
             <div class="me-4" *ngIf="userService.userLoggedIn()">
                 <app-account-button></app-account-button>
             </div>

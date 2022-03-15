@@ -27,7 +27,7 @@ export class ContactusService {
     }
       this.http.post(environment.apiURL + '/contact-us', this.feedback).subscribe({
         next: res => this.snackbarService.showSuccessSnackbar('Feedback sent successFully!'),
-        error: err => this.snackbarService.showErrorSnackbar('Unexpected error!')
+        error: err => this.snackbarService.showErrorSnackbar(err)
       });
     this.emptyFeedback();
     return true
