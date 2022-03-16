@@ -90,33 +90,41 @@ export class UserService {
 
   public update() {
     cLog('updating user information');
-    this.http
-      .patch<userInterface>(environment.apiURL + '/user', {
-        email: this.user.email,
-        username: this.user.username,
-        firstName: this.user.firstName,
-        lastName: this.user.lastName,
-        phoneNumber: this.user.phoneNumber,
-      })
-      .subscribe({
-        next: (res) => {
-          cSuccess('user info updated');
-          this.snackbarService.showSuccessSnackbar(
-            'User information saved.'
-          );
-          console.log(this.user);
-          if (!this.isUser) {
-            this.login();
-            location.reload();
+    if (!this.snackbarService.validateEmail(this.user.email)) {
+      this.snackbarService.showErrorSnackbar('Email field must contain an email')
+    }
+    else if (!this.snackbarService.validatePhoneNumber(this.user.phoneNumber)) {
+      this.snackbarService.showErrorSnackbar('Phone number field must contain a phone number')
+    }
+    else {
+      this.http
+        .patch<userInterface>(environment.apiURL + '/user', {
+          email: this.user.email,
+          username: this.user.username,
+          firstName: this.user.firstName,
+          lastName: this.user.lastName,
+          phoneNumber: this.user.phoneNumber,
+        })
+        .subscribe({
+          next: (res) => {
+            cSuccess('user info updated');
+            this.snackbarService.showSuccessSnackbar(
+              'User information saved.'
+            );
+            console.log(this.user);
+            if (!this.isUser) {
+              this.login();
+              location.reload();
+            }
+          },
+          error: (err) => {
+            this.snackbarService.showErrorSnackbar(
+              err.error.message
+            );
+            cError(err.error.message);
           }
-        },
-        error: (err) => {
-          this.snackbarService.showErrorSnackbar(
-            err.error.message
-          );
-          cError(err.error.message);
-        }
-      });
+        });
+    }
   }
 
   private getMyData(): Observable<userInterface> {

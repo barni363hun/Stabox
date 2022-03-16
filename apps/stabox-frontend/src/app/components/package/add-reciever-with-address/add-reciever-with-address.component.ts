@@ -38,15 +38,21 @@ export class AddRecieverWithAddressComponent implements OnInit {
   }
 
   async addToDB() {
-    // console.log("rec:");
-    // console.log(this.reciever);
     const { phoneNumber, ...checkReceiver } = this.reciever;
     if (
       this.snackbarService.checkAllValueOfAnObject(checkReceiver)
-      ) {
-      await this.recieverService.addReciever(this.reciever);
-      this.recieverService.refreshUserRecievers();
+    ) {
+      if (!this.snackbarService.validateEmail(this.reciever.email)){
+        this.snackbarService.showErrorSnackbar('email field must contain an email')
+      }
+      else if (!this.snackbarService.validatePhoneNumber(this.reciever.phoneNumber)) {
+        this.snackbarService.showErrorSnackbar('Phone number field must contain a phone number')
+      }
+      else {
+        await this.recieverService.addReciever(this.reciever);
+        this.recieverService.refreshUserRecievers();
+        this.doneEvent.emit();
+      }
     }
-    this.doneEvent.emit();
   }
 }

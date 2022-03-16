@@ -21,7 +21,7 @@ export class ContactusService {
       this.snackbarService.showErrorSnackbar('Please fill in all inputs!')
       return false;
     };
-    if (!this.validateEmail()){
+    if (!this.snackbarService.validateEmail(this.feedback.email)){
       this.snackbarService.showErrorSnackbar('email field must contain an email')
       return false;
     }
@@ -39,11 +39,5 @@ export class ContactusService {
       message: '',
     }
   }
-  private validateEmail() {
-    return String(this.feedback.email)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      )
-  }
+  
 }
