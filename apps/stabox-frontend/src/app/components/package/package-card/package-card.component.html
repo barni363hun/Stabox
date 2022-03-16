@@ -115,7 +115,36 @@
           </div>
         </div>
 
-        <div class="row mt-3" *ngIf="this.state == 'finishable' && !this.isUserTheOwner">
+        
+        <div class="col-12">
+          <div class="row py-2 w-75 group " *ngIf="this.state == 'finishable' && !this.isUserTheOwner">
+            <div class="row m-0 py-1">
+              <div class="col-6 textRight">
+                <span class="packageText">Receiver:</span>
+              </div>
+            </div>
+            <div class="row m-0 py-1">
+              <div class="col-6 textRight">
+                <span class="packageData">{{ package.reciever.firstName}}</span>
+              </div>
+              <div class="col-6 centerVertical">
+                <span class="packageData">{{ package.reciever.lastName}}</span>
+              </div>
+            </div>
+            <div class="row m-0 py-1">
+              <div class="col-6 textRight">
+                <span class="packageData">{{ package.reciever.email}}</span>
+              </div>
+              <div class="col-6 centerVertical">
+                <span class="packageData">{{ package.reciever.phoneNumber}}</span>
+              </div>
+            </div>
+            <div class="row m-0 py-1">
+                <span class="btn yellowBtn" (click)="finishShipping()">Finish</span>
+            </div>
+          </div> 
+        </div>
+        <!-- <div class="row mt-3" >
           <div class="col-6 text-center">
             <span class="packageText">Receiver:</span>
           </div>
@@ -140,7 +169,7 @@
           <div class="row text-center">
             <span class="btn yellowBtn" (click)="finishShipping()">Finish</span>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
