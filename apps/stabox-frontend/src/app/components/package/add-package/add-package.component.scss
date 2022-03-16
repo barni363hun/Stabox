@@ -9,6 +9,10 @@
   background-color: rgba($colorLightGray, 0.25);
 }
 
+.lightMode .packageNameInput::placeholder {
+  color: $colorLightBlue;
+}
+
 .cardDiv {
   position: absolute;
   top: 0;
