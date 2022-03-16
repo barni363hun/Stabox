@@ -7,115 +7,107 @@
       <div class="packageCardContent">
         <div class="row">
           <div class="col-12 mb-4">
-            <div class="row">
-              <div class="col-1"></div>
-              <div class="col-5 m-0 p-0 text-center">
+            <div class="row w-75 group">
+              <div class="col-12 m-0 p-0 text-center">
                 <div class="row">
-                  <div class="col-12 centerElements">
+                  <div class="col-3 centerElements">
                     <span class="gradient dateRangeTitle">From</span>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <span>{{package.fromAddress.cityName}}</span>
-                  </div>
-                  <div class="col-12">
-                    <span>{{package.fromAddress.zipCode}}</span>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <span>{{package.fromAddress.street}}</span>
-                  </div>
-                  <div class="col-12">
-                    <span>{{package.fromAddress.houseNumber}}</span>
+                  <div class="col-9 centerVertical">
+                    <div class="row w-100 m-0 p-0">
+                      <span>{{package.fromAddress.cityName}}</span>
+                      <span>{{package.fromAddress.zipCode}}</span>
+                    </div>
+                    <div class="row w-100 m-0 p-0">
+                      <span>{{package.fromAddress.street}}</span>
+                      <span>{{package.fromAddress.houseNumber}}</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              
-              <div class="col-5 m-0 p-0 text-center">
-                <div class="row">
-                  <div class="col-12 centerElements">
+
+              <div class="col-12 m-0 p-0 text-center">
+                <div class="row rowColoredBottom">
+                  <div class="col-3 centerElements">
                     <span class="gradient dateRangeTitle">To</span>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <span>{{package.reciever.address.cityName}}</span>
-                  </div>
-                  <div class="col-12">
-                    <span>{{package.reciever.address.zipCode}}</span>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <span>{{package.reciever.address.street}}</span>
-                  </div>
-                  <div class="col-12">
-                    <span>{{package.reciever.address.houseNumber}}</span>
+                  <div class="col-9 centerVertical">
+                    <div class="row w-100 m-0 p-0">
+                      <span>{{package.reciever.address.cityName}}</span>
+                      <span>{{package.reciever.address.zipCode}}</span>
+                    </div>
+                    <div class="row w-100 m-0 p-0">
+                      <span>{{package.reciever.address.street}}</span>
+                      <span>{{package.reciever.address.houseNumber}}</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-1"></div>
             </div>
           </div>
+
           <div class="col-12">
-            <div class="row">
-              <div class="col-6 textRight">
-                <span class="packageText">Size:</span>
+            <div class="row py-2 w-75 group">
+              <div class="row m-0 py-1">
+                <div class="col-6 textRight">
+                  <span class="packageText">Size(cm):</span>
+                </div>
+                <div class="col-6 centerVertical">
+                  <span class="packageData">{{package.size}}</span>
+                </div>
               </div>
-              <div class="col-6 centerVertical">
-                <span class="packageData">{{package.size}} (cm)</span>
+              <div class="row m-0 py-1">
+                <div class="col-6 textRight">
+                  <span class="packageText">Weight:</span>
+                </div>
+                <div class="col-6 centerVertical">
+                  <span class="packageData">{{package.weight}}</span>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-6 textRight">
-                <span class="packageText">Weight:</span>
+              <div class="row m-0 py-1">
+                <div class="col-6 textRight">
+                  <span class="packageText">Fragile:</span>
+                </div>
+                <div class="col-6 centerVertical">
+                  <span class="packageData">{{ package.fragile ? 'Yes' : 'No' }}</span>
+                </div>
               </div>
-              <div class="col-6 centerVertical">
-                <span class="packageData">{{package.weight}}</span>
+              <div class="row m-0 py-1">
+                <div class="col-6 textRight">
+                  <span class="packageText">Status:</span>
+                </div>
+                <div class="col-6 centerVertical">
+                  <span [ngStyle]="{'color': getStyles(this.status)}" class="packageData">{{this.status}}</span>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-6 textRight">
-                <span class="packageText">Fragile:</span>
-              </div>
-              <div class="col-6 centerVertical">
-                <span class="packageData">{{ package.fragile ? 'Yes' : 'No' }}</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-6 textRight">
-                <span class="packageText">Status:</span>
-              </div>
-              <div class="col-6 centerVertical">
-                <span [ngStyle]="{'color': getStyles(this.status)}" class="packageData">{{this.status}}</span>
-              </div>
-            </div>
+            </div> 
           </div>
         </div>
 
-
         <div class="mt-3" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
+          <div class="row w-75 group mb-4">
+            <div class="col-12 centerElements rowColoredTop">
+              <span class="dateRangeTitle gradient">Periods</span>
+            </div>
+
+            <div class="col-12 my-3 py-2 px-4 group">
+              <div class="row" *ngFor="let exDate of exchangeDates">
+                <span class="my-2 text-center">
+                  {{ formatDate(exDate.startDate) }} - {{ formatDate(exDate.endDate) }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-12 mb-1 centerElements">
+              <input class="w-75" type="datetime-local" [(ngModel)]="selectedExchangeDate" />
+            </div>
+          </div>
+
           <div class="row centerElements">
-            <select class="packageCardSelect" name="vehicle" id="vehicle" [(ngModel)]="selectedVehicle">
+            <select class="packageCardSelect w-50 p-1" name="vehicle" id="vehicle" [(ngModel)]="selectedVehicle">
               <option value="0" disabled selected>Vehicle</option>
               <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.name}}</option>
             </select>
-          </div>
-
-          <div class="col-12 centerElements">
-            <span class="dateRangeTitle gradient">Selectable date range</span>
-          </div>
-
-          <div class="col-12 centerElements" *ngFor="let exDate of exchangeDates">
-            <span class="text-center">
-              {{ formatDate(exDate.startDate) }} - {{ formatDate(exDate.endDate) }}
-            </span>
-          </div>
-
-          <div class="col-12 centerElements">
-            <input class="w-75" type="datetime-local" [(ngModel)]="selectedExchangeDate" />
           </div>
 
           <div class="col-12 mt-3 text-center">

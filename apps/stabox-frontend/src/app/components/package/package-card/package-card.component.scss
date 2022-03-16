@@ -4,6 +4,12 @@
   background-color: $bgColorWhite;
 }
 
+.lightMode .rowColoredTop,
+.lightMode .rowColoredBottom,
+.lightMode .rowColored {
+  background-color: rgba($colorLightGray, 0.1);
+}
+
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);
   transform: scale(0.75);
@@ -63,6 +69,33 @@
   height: 100%;
 }
 
+.group {
+  border: 2px solid rgba($colorDarkGray, 0.25);
+  border-radius: 15px;
+  padding: 0;
+  width: fit-content;
+  margin: 0 auto;
+  box-shadow: 0 2px 5px 0 rgba($colorDarkGray, 0.05);
+}
+
+.rowColored {
+  background-color: rgba($colorDarkGray, 0.1);
+  margin: 0;
+  padding: 0;
+}
+.rowColoredBottom {
+  border-radius: 0 0 13.5px 13.5px;
+  background-color: rgba($colorDarkGray, 0.1);
+  margin: 0;
+  padding: 0;
+}
+.rowColoredTop {
+  border-radius: 13.5px 13.5px 0 0;
+  background-color: rgba($colorDarkGray, 0.1);
+  margin: 0;
+  padding: 0;
+}
+
 .packageCardSelect {
   font-size: 24px;
   width: 75%;
@@ -74,9 +107,14 @@
   padding: 3px 9px;
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1400px) {
   .card {
-    width: 95%;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .card {
+    width: 75%;
   }
 }
 @media only screen and (max-width: 1100px) {
@@ -97,7 +135,7 @@
 }
 @media only screen and (max-width: 991px) {
   .card {
-    width: 75%;
+    width: 85%;
   }
 }
 @media only screen and (max-width: 720px) {

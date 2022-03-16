@@ -4,10 +4,18 @@
     <div class="card">
       <div class="row h-100">
 
-        <div class="col-12 p-0 m-0 centerElements">
-          <input class="packageNameInput" type="text" placeholder="name" name="region" [(ngModel)]="package.name">
+        <div class="col-12 p-0 mb-3">
+          <div class="row">
+            <div class="col-xl-3 col-sm-12">
+              <div class="cardTextDivContent">
+                <span class="cardText gradient unselectable leftOffset">Name</span>
+              </div>
+            </div>
+            <div class="col-xl-9 col-sm-12 centerElements">
+              <input class="w-75" type="text" placeholder="name" name="region" [(ngModel)]="package.name">
+            </div>
+          </div>
         </div>
-        <div class="underline gradientBg mb-5"></div>
 
         <div class="col-12 p-0 mb-3">
           <div class="row">
