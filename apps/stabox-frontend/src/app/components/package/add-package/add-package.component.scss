@@ -9,6 +9,10 @@
   background-color: rgba($colorLightGray, 0.25);
 }
 
+.lightMode .packageNameInput::placeholder {
+  color: $colorLightBlue;
+}
+
 .cardDiv {
   position: absolute;
   top: 0;
@@ -70,6 +74,10 @@
   to {
     transform: translateY(-50%) scale(1);
   }
+}
+
+.packageNameInput::placeholder {
+  color: $colorLightYellow;
 }
 
 .underline {

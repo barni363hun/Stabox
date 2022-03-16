@@ -77,19 +77,21 @@
               <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.name}}</option>
             </select>
           </div>
-          <div class="col-12 centerElements">
-            <h3>Selectable dates</h3>
-            <div *ngFor="let exDate of exchangeDates">
-              <p>
-                from {{ formatDate(exDate.startDate) }} to
-                {{ formatDate(exDate.endDate) }}
-              </p>
-            </div>
-            <div class="col-6">
-              <input type="datetime-local" [(ngModel)]="selectedExchangeDate" />
-            </div>
 
+          <div class="col-12 centerElements">
+            <span class="dateRangeTitle gradient">Selectable date range</span>
           </div>
+
+          <div class="col-12 centerElements" *ngFor="let exDate of exchangeDates">
+            <span class="text-center">
+              {{ formatDate(exDate.startDate) }} - {{ formatDate(exDate.endDate) }}
+            </span>
+          </div>
+
+          <div class="col-12 centerElements">
+            <input class="w-75" type="datetime-local" [(ngModel)]="selectedExchangeDate" />
+          </div>
+
           <div class="col-12 mt-3 text-center">
             <span class="btn addBtn" (click)="selectPostDate()">Accept</span>
           </div>

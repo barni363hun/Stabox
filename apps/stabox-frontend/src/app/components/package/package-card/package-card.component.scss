@@ -4,6 +4,13 @@
   background-color: $bgColorWhite;
 }
 
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  transform: scale(0.75);
+  margin-left: -20%;
+  padding-right: 20%;
+}
+
 .packageCardTitle {
   color: $colorWhite;
   text-shadow: 1px 1px 1px rgba($colorBlack, 0.5);
@@ -11,6 +18,12 @@
 
 .packageTitle {
   font-size: 32px;
+}
+
+.dateRangeTitle {
+  text-align: center;
+  font-size: 32px;
+  margin: 15px 0;
 }
 
 .textRight {
@@ -61,6 +74,27 @@
   padding: 3px 9px;
 }
 
+@media only screen and (max-width: 1300px) {
+  .card {
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .card {
+    font-size: 22px;
+  }
+  .dateRangeTitle {
+    font-size: 30px;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .card {
+    font-size: 20px;
+  }
+  .dateRangeTitle {
+    font-size: 28px;
+  }
+}
 @media only screen and (max-width: 991px) {
   .card {
     width: 75%;
@@ -83,6 +117,9 @@
   .card {
     font-size: 22px;
   }
+  .dateRangeTitle {
+    font-size: 30px;
+  }
   .btn {
     font-size: 16px;
   }
@@ -94,6 +131,9 @@
   .card {
     font-size: 20px;
   }
+  .dateRangeTitle {
+    font-size: 28px;
+  }
 }
 @media only screen and (max-width: 450px) {
   .packageTitle {
@@ -101,6 +141,9 @@
   }
   .card {
     font-size: 18px;
+  }
+  .dateRangeTitle {
+    font-size: 26px;
   }
 }
 @media only screen and (max-width: 425px) {
@@ -110,6 +153,9 @@
   .card {
     font-size: 16px;
   }
+  .dateRangeTitle {
+    font-size: 24px;
+  }
 }
 @media only screen and (max-width: 375px) {
   .packageTitle {
@@ -117,5 +163,8 @@
   }
   .card {
     font-size: 14px;
+  }
+  .dateRangeTitle {
+    font-size: 22px;
   }
 }
