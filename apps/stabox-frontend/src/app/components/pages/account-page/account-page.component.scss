@@ -3,29 +3,50 @@
 .lightMode .accountDataTitle {
   color: $colorLightBlue;
 }
-
 .lightMode .bigBtn {
   color: $colorDarkGray;
   border: 2px solid rgba($colorLightGray, 0.25);
 }
-
 .lightMode .bigBtn:hover {
   border-color: $colorLightBlue;
   box-shadow: inset 0 1px 1px rgba($colorLightBlue, 0.075),
     0 0 8px rgba($colorDarkBlue, 0.6);
 }
-
 .lightMode .saveButton {
   background: $colorWhite;
   color: $colorDarkGray;
 }
-
 .lightMode .saveButtonOutline:hover .saveButton {
   color: $colorWhite;
 }
-
 .lightMode .deleteIconDiv:hover {
   background-color: rgba($colorLightGray, 0.15);
+}
+.lightMode .helpIcon {
+  color: $colorLightBlue;
+}
+
+.helpButtonDiv {
+  position: relative;
+}
+.helpButtonDiv:hover {
+  cursor: pointer;
+}
+.helpButtonDiv:hover .helpIcon {
+  transition: 0.35s;
+  transform: scale(2);
+}
+.helpButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: fit-content;
+  height: fit-content;
+}
+.helpIcon {
+  transition: 0.35s;
+  transform: scale(1.5);
+  color: $colorLightYellow;
 }
 
 .accountImageOutline {
