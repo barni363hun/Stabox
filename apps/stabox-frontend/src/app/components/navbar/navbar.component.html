@@ -32,11 +32,6 @@
                     <div class="navUnderline gradientBg"></div>
                 </li>
             </ul>
-
-            <div id="coinsDiv" title="View transactions" *ngIf="userService.userLoggedIn()">
-                <p id="coinAmount">420</p>
-                <img class="coinsIcon" src="../../../../assets/images/CoinsIcon.svg" />
-            </div>
             <div class="me-4" *ngIf="userService.userLoggedIn()">
                 <app-account-button></app-account-button>
             </div>
@@ -63,15 +58,6 @@
                     <a class="navText">Packages</a>
                 </div>
                 <div class="navUnderline gradientBg"></div>
-            </div>
-        </div>
-
-        <div class="sideBarItemDiv">
-            <div class="sideBarItem">
-                <div id="sideBarItemCoinsDiv" title="View transactions">
-                    <p id="sideBarItemCoinAmount">420</p>
-                    <img class="sideBarItemCoinsIcon" src="../../../../assets/images/CoinsIcon.svg" />
-                </div>
             </div>
         </div>
 

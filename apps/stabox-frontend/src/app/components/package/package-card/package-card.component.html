@@ -6,72 +6,89 @@
       </div>
       <div class="packageCardContent">
         <div class="row">
-          <div class="col-6 textRight">
-            <span class="packageText">Zip code:</span>
+          <div class="col-6">
+              <div class="row">
+                <div class="col-auto centerVertical">
+                  <span class="packageText">From:</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-auto centerVertical">
+                  <span class="packageData">{{package.fromAddress.cityName}}</span>
+                </div>
+                <div class="col-auto centerVertical">
+                  <span class="packageData">{{package.fromAddress.zipCode}}</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-auto centerVertical">
+                  <span class="packageData">{{package.fromAddress.street}}</span>
+                </div>
+                <div class="col-auto centerVertical">
+                  <span class="packageData">{{package.fromAddress.houseNumber}}</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col centerVertical">
+                  <span class="packageText">To:</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-auto centerVertical">
+                  <span class="packageData">{{package.reciever.address.cityName}}</span>
+                </div>
+                <div class="col-auto centerVertical">
+                  <span class="packageData">{{package.reciever.address.zipCode}}</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-auto centerVertical">
+                  <span class="packageData">{{package.reciever.address.street}}</span>
+                </div>
+                <div class="col-auto centerVertical">
+                  <span class="packageData">{{package.reciever.address.houseNumber}}</span>
+                </div>
+              </div>
           </div>
-          <div class="col-6 centerVertical">
-            <span class="packageData">{{package.fromAddress.zipCode}}</span>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-auto textRight">
+                <span class="packageText">Size:</span>
+              </div>
+              <div class="col-auto centerVertical">
+                <span class="packageData">{{package.size}} (cm)</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-auto textRight">
+                <span class="packageText">Weight:</span>
+              </div>
+              <div class="col-auto centerVertical">
+                <span class="packageData">{{package.weight}}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-auto textRight">
+                <span class="packageText">Fragile:</span>
+              </div>
+              <div class="col-auto centerVertical">
+                <span class="packageData">{{ package.fragile ? 'Yes' : 'No' }}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-auto textRight">
+                <span class="packageText">Status:</span>
+              </div>
+              <div class="col-auto centerVertical">
+                <span [ngStyle]="{'color': getStyles(this.status)}" class="packageData">{{this.status}}</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-6 textRight">
-            <span class="packageText">City:</span>
-          </div>
-          <div class="col-6 centerVertical">
-            <span class="packageData">{{package.fromAddress.cityName}}</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6 textRight">
-            <span class="packageText">Street:</span>
-          </div>
-          <div class="col-6 centerVertical">
-            <span class="packageData">{{package.fromAddress.street}}</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6 textRight">
-            <span class="packageText">House Number:</span>
-          </div>
-          <div class="col-6 centerVertical">
-            <span class="packageData">{{package.fromAddress.houseNumber}}</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6 textRight">
-            <span class="packageText">Size:</span>
-          </div>
-          <div class="col-6 centerVertical">
-            <span class="packageData">{{package.size}} (cm)</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6 textRight">
-            <span class="packageText">Weight:</span>
-          </div>
-          <div class="col-6 centerVertical">
-            <span class="packageData">{{package.weight}}</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6 textRight">
-            <span class="packageText">Fragile:</span>
-          </div>
-          <div class="col-6 centerVertical">
-            <span class="packageData">{{ package.fragile ? 'Yes' : 'No' }}</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6 textRight">
-            <span class="packageText">Status:</span>
-          </div>
-          <div class="col-6 centerVertical">
-            <span [ngStyle]="{'color': getStyles(this.status)}" class="packageData">{{this.status}}</span>
-          </div>
-        </div>
+        
 
-        <div class="row mt-3" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
-          <div class="col-12 centerElements">
+        <div class="mt-3" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
+          <div class="row centerElements">
             <select class="packageCardSelect" name="vehicle" id="vehicle" [(ngModel)]="selectedVehicle">
               <option value="0" disabled selected>Vehicle</option>
               <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.name}}</option>
@@ -98,7 +115,28 @@
         </div>
 
         <div class="row mt-3" *ngIf="this.state == 'finishable' && !this.isUserTheOwner">
-          <div class="col-12 text-center">
+          <div class="col-6 text-center">
+              <span class="packageText">Receiver:</span>
+          </div>
+          <div class="row">
+            <div class="row">
+              <div class="col-auto centerVertical">
+                <span class="packageData">{{ package.reciever.firstName}}</span>
+              </div>
+              <div class="col-auto centerVertical">
+                <span class="packageData">{{ package.reciever.lastName}}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-auto centerVertical">
+                <span class="packageData">{{ package.reciever.email}}</span>
+              </div>
+              <div class="col-auto centerVertical">
+                <span class="packageData">{{ package.reciever.phoneNumber}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="row text-center">
             <span class="btn yellowBtn" (click)="finishShipping()">Finish</span>
           </div>
         </div>

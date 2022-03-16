@@ -67,7 +67,7 @@ export class PackageCardComponent implements OnInit {
       this.snackbarService.showErrorSnackbar('Select an exchange date, please.');
     } else if (!this.isInDateRanges(date)) {
       cError('exchangeDate Is Not In Range!');
-      this.snackbarService.showErrorSnackbar('Choose a date that is in the range, please.');
+      this.snackbarService.showErrorSnackbar('Choose a date that is in one of the ranges, please.');
     } else {
       this.packageService.postPackage(
         this.package.id,

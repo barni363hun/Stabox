@@ -94,8 +94,7 @@ export class ExchangeDateService {
                 },
                 error: (err) => {
                   cError(err.error.message);
-                  this.snackbarService.showErrorSnackbar(err.error.message
-                  );
+                  this.snackbarService.showErrorSnackbar(err.error.message);
                 },
               });
           }
@@ -157,10 +156,16 @@ export class ExchangeDateService {
       .subscribe({
         next: (res) => {
           cSuccess('exchangeDate deleted');
+          this.snackbarService.showSuccessSnackbar(
+            'exchangeDate deleted.'
+          );
           this.getExchangeDates();
         },
         error: (err) => {
           this.getExchangeDates();
+          this.snackbarService.showErrorSnackbar(
+            err.error.message
+          );
           cError(err.error.message);
         },
       });
