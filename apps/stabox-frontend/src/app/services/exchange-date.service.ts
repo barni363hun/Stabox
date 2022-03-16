@@ -88,14 +88,13 @@ export class ExchangeDateService {
                 next: (res) => {
                   cSuccess('exchangeDates saved');
                   this.snackbarService.showSuccessSnackbar(
-                    'Exchange dates saved succesfully.'
+                    'Exchange date saved.'
                   );
                   this.getExchangeDates();
                 },
                 error: (err) => {
                   cError(err.error.message);
-                  this.snackbarService.showErrorSnackbar(err.error.message
-                  );
+                  this.snackbarService.showErrorSnackbar(err.error.message);
                 },
               });
           }
@@ -132,7 +131,7 @@ export class ExchangeDateService {
         next: (res) => {
           cSuccess('exchangeDate created');
           this.snackbarService.showSuccessSnackbar(
-            'exchangeDate created'
+            'Exchange date created.'
           );
           this.getExchangeDates();
         },
@@ -158,12 +157,15 @@ export class ExchangeDateService {
         next: (res) => {
           cSuccess('exchangeDate deleted');
           this.snackbarService.showSuccessSnackbar(
-            'exchangeDate deleted'
+            'exchangeDate deleted.'
           );
           this.getExchangeDates();
         },
         error: (err) => {
           this.getExchangeDates();
+          this.snackbarService.showErrorSnackbar(
+            err.error.message
+          );
           cError(err.error.message);
         },
       });

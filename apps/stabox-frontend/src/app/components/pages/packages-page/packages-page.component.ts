@@ -13,7 +13,7 @@ import {
   styleUrls: ['./packages-page.component.scss'],
 })
 export class PackagesPageComponent implements OnInit {
-  showMyPackages = false;
+  showMyPackages = true;
   showAcceptedPackages = false;
   showToDeliver = false;
 

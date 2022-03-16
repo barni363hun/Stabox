@@ -1,59 +1,76 @@
-<div id="firstCard">
-    <div class="container-fluid mt-5">
-        <div class="row">
+<div [ngClass]="{ lightMode: themeService.light }">
+    <div id="firstCard">
+        <div class="container-fluid mt-5">
+            <div class="row">
 
-            <div class="col-xl-7">
-                <div class="w-100" id="cardText">
-                    <h1>Our Services</h1>
-                    <app-divider></app-divider>
-                    <div class="mt-4 container-fluid">
-                        <div class="row">
-                            <div class="col-xl-4">
-                                <div class="servicesCard">
-                                    <img src="../../../../assets/images/BlazingFastDelivery.svg" alt="">
-                                    <p class="servicesCardTitle">Blazing fast delivery</p>
-                                    <app-divider></app-divider>
-                                    <p class="servicesCardDesc">
-                                        With Stabox's new ground-breaking delivery techniques your package won't be late
+                <div class="col-xl-7">
+                    <div class="w-100" id="cardText">
+                        <h1>Our Services</h1>
+                        <app-divider></app-divider>
+                        <div class="mt-4 container-fluid">
+                            <div class="row">
+                                <div class="col-xl-4">
+                                    <div class="servicesCard">
+                                        <img class="bigBtnImg" [src]="
+                                            themeService.light
+                                                ? '../../../../assets/images/LightMode/LightningOutlinedIcon.svg'
+                                                : '../../../../assets/images/DarkMode/LightningOutlinedIcon.svg'
+                                           " />
+                                        <p class="gradient">Blazing fast delivery</p>
+                                        <app-divider></app-divider>
+                                        <p class="servicesCardDesc">
+                                            With Stabox's new ground-breaking delivery techniques your package won't be late
                                         ever again!
-                                    </p>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-xl-4">
-                                <div class="servicesCard">
-                                    <img src="../../../../assets/images/CountryWideCoverage.svg" alt="">
-                                    <p class="servicesCardTitle">Send your package anywhere</p>
-                                    <app-divider></app-divider>
-                                    <p class="servicesCardDesc">
-                                        With the help of Stabox shippers from all accross the country you can send
+                                <div class="col-xl-4">
+                                    <div class="servicesCard">
+                                        <img class="bigBtnImg" [src]="
+                                            themeService.light
+                                                ? '../../../../assets/images/LightMode/CompassOutlinedIcon.svg'
+                                                : '../../../../assets/images/DarkMode/CompassOutlinedIcon.svg'
+                                           " />
+                                        <p class="gradient">Send your package anywhere</p>
+                                        <app-divider></app-divider>
+                                        <p class="servicesCardDesc">
+                                            With the help of Stabox shippers from all accross the country you can send
                                         packages anywhere without a need to pay for extra fees.
-                                    </p>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-xl-4">
-                                <div class="servicesCard">
-                                    <img src="../../../../assets/images/AllDayDelivery.svg" alt="">
-                                    <p class="servicesCardTitle">Post your package in no time</p>
-                                    <app-divider></app-divider>
-                                    <p class="servicesCardDesc">
-                                        With Stabox you can post a package in a matter of a few minutes, and you can
+                                <div class="col-xl-4">
+                                    <div class="servicesCard">
+                                        <img class="bigBtnImg" [src]="
+                                            themeService.light
+                                                ? '../../../../assets/images/LightMode/ClockOutlinedIcon.svg'
+                                                : '../../../../assets/images/DarkMode/ClockOutlinedIcon.svg'
+                                           " />
+                                        <p class="gradient">Post your package in no time</p>
+                                        <app-divider></app-divider>
+                                        <p class="servicesCardDesc">
+                                            With Stabox you can post a package in a matter of a few minutes, and you can
                                         even choose the timeframes when your package is available to be picked up.
-                                    </p>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
-
                 </div>
-            </div>
 
-            <div class="col-xl-5">
-                <img class="w-100 p-5" id="drawing" src="../../../../assets/images/TopCardDrawing.svg" alt="">
-            </div>
+                <div class="col-xl-5">
+                    <img class="w-100 p-5" [src]="
+                themeService.light
+                  ? '../../../../assets/images/LightMode/TopCardDrawing.svg'
+                  : '../../../../assets/images/DarkMode/TopCardDrawing.svg'
+              " />
+                </div>
 
+            </div>
         </div>
     </div>
-
 </div>

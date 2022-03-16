@@ -21,13 +21,13 @@ export class ContactusService {
       this.snackbarService.showErrorSnackbar('Please fill in all inputs!')
       return false;
     };
-    if (!this.validateEmail()){
+    if (!this.snackbarService.validateEmail(this.feedback.email)){
       this.snackbarService.showErrorSnackbar('email field must contain an email')
       return false;
     }
       this.http.post(environment.apiURL + '/contact-us', this.feedback).subscribe({
         next: res => this.snackbarService.showSuccessSnackbar('Feedback sent successFully!'),
-        error: err => this.snackbarService.showErrorSnackbar('Unexpected error!')
+        error: err => this.snackbarService.showErrorSnackbar(err)
       });
     this.emptyFeedback();
     return true
@@ -39,11 +39,5 @@ export class ContactusService {
       message: '',
     }
   }
-  private validateEmail() {
-    return String(this.feedback.email)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      )
-  }
+  
 }

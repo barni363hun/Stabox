@@ -1,30 +1,28 @@
+@import '../../../../app.component.scss';
+@import '../mainpage.component.scss';
+
 #secondCard {
-    margin-bottom: 200px;
+  margin-bottom: 200px;
 }
 
 #cardText {
-    text-align: center;
-    margin-top: 50px;
-}
-
-h1, p {
-    font-family: 'PT Sans Caption', sans-serif;
+  text-align: center;
+  margin-top: 50px;
 }
 
 h1 {
-    font-size: 64px;
+  font-size: 64px;
 }
 
 p {
-    color: rgba($color: #CAC8D9, $alpha: 0.75);
-    font-size: 28px;
+  font-size: 28px;
 }
 
 .aboutUsParagraph {
-    text-indent: 50px;
+  text-indent: 50px;
 }
 
 #bottomCardDesc {
-    width: 85%;
-    text-align: left;
+  width: 85%;
+  text-align: left;
 }

@@ -1,7 +1,7 @@
 @import './../../../app.component.scss';
 
 .lightMode .card {
-  background: transparent;
+  background: $bgColorWhite;
   box-shadow: 0 2px 5px 1px rgba($colorDarkGray, 0.25);
 }
 
@@ -9,15 +9,67 @@
   background-color: rgba($colorLightGray, 0.25);
 }
 
-.card {
-  width: 450px;
-  height: fit-content;
+.cardDiv {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
 
-  background: transparent;
+.shade {
+  width: 100%;
+  height: 100%;
+  background-color: rgba($shadeColor, 0.75);
+  position: absolute;
+  top: 0;
+  z-index: 0;
+
+  animation: shadeAppear ease 0.15s;
+}
+
+@keyframes shadeAppear {
+  from {
+    background-color: rgba($shadeColor, 0);
+  }
+  to {
+    background-color: rgba($shadeColor, 0.75);
+  }
+}
+
+.card {
+  position: relative;
+  margin: auto;
+  padding: 50px 100px 50px 100px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 75%;
+  height: 75%;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  background: $bgColorBlack;
   box-shadow: 0 2px 5px 1px rgba($colorBlack, 0.25);
   border-radius: 25px;
 
-  padding: 10px 25px 10px 25px;
+  animation: appear 0.15s;
+}
+.card::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+@keyframes appear {
+  from {
+    transform: translateY(-50%) scale(0.75);
+  }
+  to {
+    transform: translateY(-50%) scale(1);
+  }
 }
 
 .underline {
@@ -27,47 +79,37 @@
   margin: 0 auto;
 }
 
+select {
+  margin: 7.5px 0;
+}
+
 select,
-input {
-  font-size: 20px;
-}
-
-.cardTextDiv {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  margin: 0;
-  padding: 0;
-}
-
+input,
+.dimensionsIcon,
 .cardText {
-  margin: 0 20px 0 0;
-  display: inline;
-  font-size: 20px;
+  font-size: 32px;
 }
 
-.cardInputDiv {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  margin: 0;
-  padding: 0;
+.leftOffset {
+  padding-left: 55px;
+}
+
+.centerMedium {
+  text-align: left;
 }
 
 .dataInput {
-  font-size: 20px;
   padding-left: 10px;
   text-align: center;
 }
 
 .sizeInput {
-  width: 30%;
+  width: 25%;
   padding-left: 0;
 }
 
 .weightInput {
-  width: 75%;
-  text-align: left;
+  width: 50%;
 }
 
 .weightSelect {
@@ -79,18 +121,18 @@ input {
 }
 
 .addressSelect {
-  width: 100%;
+  width: 75%;
 }
 
 .addIcon {
-  transform: scale(1.25);
+  transform: scale(1.5);
 }
 
 .iconBg {
   width: fit-content;
   height: fit-content;
-  padding: 5px;
-  margin: 0 10px;
+  padding: 10px;
+  margin: 0 10px 0 0;
   border-radius: 50%;
 }
 
@@ -99,28 +141,152 @@ input {
   background-color: rgba($colorDarkGray, 0.35);
 }
 
-.btn {
-  transition: 0.25s;
-  color: $colorWhite;
-  border-radius: 25px;
-  margin: 0 10px;
-  padding: 2px 7.5px 2.5px 2.5px;
-  text-shadow: 1px 1px 1px rgba($colorBlack, 0.5);
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.btn:hover {
-  transition: 0.25s;
-  transform: scale(1.05);
+@media only screen and (max-width: 1400px) {
+  .card {
+    width: 80%;
+  }
 }
-
-.addBtn {
-  background-color: $colorGreen;
+@media only screen and (max-width: 1300px) {
+  .card {
+    width: 85%;
+  }
 }
-
-.cancelBtn {
-  background-color: $colorRed;
+@media only screen and (max-width: 1200px) {
+  .card {
+    width: 90%;
+  }
+  .cardTextDivContent {
+    margin: 0 auto;
+    width: fit-content;
+  }
+  .leftOffset {
+    padding: 0;
+  }
+  .rightOffset {
+    padding-right: 55px;
+  }
 }
-
-.btnIcon {
-  padding-right: 2.5px;
+@media only screen and (max-width: 1100px) {
+  .card {
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 975px) {
+  .card {
+    padding: 40px 80px;
+  }
+  .cardText,
+  select,
+  input,
+  .btn,
+  .dimensionsIcon {
+    font-size: 26px;
+  }
+  .btn {
+    padding: 4.5px 13.5px;
+  }
+  .addIcon {
+    transform: scale(1.45);
+  }
+  .iconBg {
+    padding: 9px;
+    margin: 0 9px 0 0;
+  }
+  .underline {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 810px) {
+  .card {
+    padding: 30px 60px;
+  }
+  .cardText,
+  select,
+  input,
+  .btn,
+  .dimensionsIcon {
+    font-size: 24px;
+  }
+  .btn {
+    padding: 4px 12px;
+  }
+  .addIcon {
+    transform: scale(1.35);
+  }
+  .iconBg {
+    padding: 8px;
+    margin: 0 8px 0 0;
+  }
+  .underline {
+    width: 85%;
+  }
+}
+@media only screen and (max-width: 690px) {
+  .card {
+    padding: 20px 40px;
+  }
+  .cardText,
+  select,
+  input,
+  .btn,
+  .dimensionsIcon {
+    font-size: 22px;
+  }
+  .btn {
+    padding: 3.5px 10.5px;
+  }
+  .addIcon {
+    transform: scale(1.25);
+  }
+  .iconBg {
+    padding: 7px;
+    margin: 0 7px 0 0;
+  }
+  .underline {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 610px) {
+  .card {
+    padding: 10px 20px;
+  }
+  .cardText,
+  select,
+  input,
+  .btn,
+  .dimensionsIcon {
+    font-size: 20px;
+  }
+  .btn {
+    padding: 3px 9px;
+  }
+  .addIcon {
+    transform: scale(1.15);
+  }
+  .iconBg {
+    padding: 6px;
+    margin: 0 6px 0 0;
+  }
+  .underline {
+    width: 75%;
+  }
+}
+@media only screen and (max-width: 484px) {
+  .addIcon {
+    transform: scale(1.05);
+  }
+  .iconBg {
+    padding: 5px;
+    margin: 0 5px 0 0;
+  }
+  .btn {
+    font-size: 18px;
+    padding: 2px 6px;
+  }
 }

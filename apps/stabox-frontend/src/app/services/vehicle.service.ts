@@ -9,9 +9,11 @@ import { environment } from '../../environments/environment';
 })
 export class VehicleService {
   vehicles: vehicleInterface[] = [];
-  constructor(private userService: UserService,
-    private snackbarService: SnackbarService
-    , private http: HttpClient) {
+  constructor(
+    private userService: UserService,
+    private snackbarService: SnackbarService,
+    private http: HttpClient
+  ) {
     this.getVehicles();
   }
 
@@ -52,17 +54,14 @@ export class VehicleService {
         .subscribe({
           next: (res) => {
             cSuccess('vehicle saved');
-            
-          this.snackbarService.showSuccessSnackbar(
-            'Vehicle '+vehicle.name+' saved successfully.'
-          );
+            this.snackbarService.showSuccessSnackbar(
+              `Vehicle '${vehicle.name}' saved.`
+            );
             this.getVehicles();
           },
           error: (err) => {
             cError(err.error.message);
-            this.snackbarService.showErrorSnackbar(
-              err.error.message
-            );
+            this.snackbarService.showErrorSnackbar(err.error.message);
           },
         });
     }
@@ -78,15 +77,13 @@ export class VehicleService {
         next: (res) => {
           cSuccess('vehicle' + vehicle.name + ' created');
           this.snackbarService.showSuccessSnackbar(
-            'Vehicle ' + vehicle.name + ' created successfully.'
+            `Vehicle '${vehicle.name}' added.`
           );
           this.getVehicles();
         },
         error: (err) => {
           cError(err.error.message);
-          this.snackbarService.showErrorSnackbar(
-            err.error.message
-          );
+          this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
   }
@@ -104,15 +101,13 @@ export class VehicleService {
         next: (res) => {
           cSuccess('vehicle ' + deleteVehicle.name + ' deleted');
           this.snackbarService.showSuccessSnackbar(
-            'Vehicle ' + deleteVehicle.name + ' deleted successfully.'
+            `Vehicle '${deleteVehicle.name}' deleted.`
           );
           this.getVehicles();
         },
         error: (err) => {
           cError(err.error.message);
-          this.snackbarService.showErrorSnackbar(
-            err.error.message
-          );
+          this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
   }

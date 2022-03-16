@@ -1,22 +1,30 @@
 <div [ngClass]="{ lightMode: themeService.light }">
     <div class="content">
+        <stabox-add-package (newRecieverEvent)="addRecieverMode = true" (doneEvent)="addPackageMode = false" *ngIf="addPackageMode"></stabox-add-package>
+        <stabox-add-reciever-with-address (doneEvent)="addRecieverMode = false" *ngIf="addRecieverMode"></stabox-add-reciever-with-address>
         <div class="container-fluid packagesPage">
-            <div class="row filter">
-                <div class="col-4 mx-auto" >
-                    <div class="filterItem" (click)="filterMyPackages()">
-                        <p class="m-0 unselectable">My Packages</p>
+            <div class="row mx-auto filter">
+                <div class="col-4 mx-auto">
+                    <div class="filterItem" (click)="filterMyPackages()" [ngClass]="{ active: showMyPackages }">
+                        <div class="h-100 w-100 centerElements">
+                            <span class="unselectable">My Packages</span>
+                        </div>
                         <div class="navUnderline gradientBg"></div>
                     </div>
                 </div>
                 <div class="col-4 mx-auto" *ngIf="userService.isShipper">
-                    <div class="filterItem" (click)="filterAcceptedPackages()">
-                        <p class="m-0">Accepted Packages</p>
+                    <div class="filterItem" (click)="filterAcceptedPackages()" [ngClass]="{ active: showAcceptedPackages }">
+                        <div class="h-100 w-100 centerElements">
+                            <span class="unselectable">Accepted Packages</span>
+                        </div>
                         <div class="navUnderline gradientBg"></div>
                     </div>
                 </div>
                 <div class="col-4 mx-auto" *ngIf="userService.isShipper">
-                    <div class="filterItem" (click)="filterToDeliver()">
-                        <p class="m-0">Packages waiting for delivery</p>
+                    <div class="filterItem" (click)="filterToDeliver()" [ngClass]="{ active: showToDeliver }">
+                        <div class="h-100 w-100 centerElements">
+                            <span class="unselectable">Available Packages</span>
+                        </div>
                         <div class="navUnderline gradientBg"></div>
                     </div>
                 </div>
@@ -26,25 +34,22 @@
                 <div class="iconBg" title="Add package" (click)="addPackageMode = true">
                     <mat-icon class="gradient centerElements addIcon">add</mat-icon>
                 </div>
-                <div class="iconBg" title="Edit package">
-                    <mat-icon class="gradient centerElements editIcon">edit</mat-icon>
-                </div>
-                <div class="iconBg" title="Remove package">
-                    <mat-icon class="gradient centerElements editIcon">delete</mat-icon>
+            </div>
+
+            <div class="row mt-3" *ngIf="showMyPackages">
+                <div class="col-xl-6 col-lg-6 col-12" *ngFor="let pkg of packageService.packages">
+                    <stabox-package-card [package]="pkg"></stabox-package-card>
                 </div>
             </div>
 
-            <div class="row" *ngIf="addPackageMode || addRecieverMode">
-                <div class="col-6">
-                    <stabox-add-package (newRecieverEvent)="addRecieverMode = true" (doneEvent)="addPackageMode = false" *ngIf="addPackageMode"></stabox-add-package>
-                </div>
-                <div class="col-6">
-                    <stabox-add-reciever-with-address (doneEvent)="addRecieverMode = false" *ngIf="addRecieverMode"></stabox-add-reciever-with-address>
+            <div class="row mt-3" *ngIf="showAcceptedPackages">
+                <div class="col-xl-6 col-lg-6 col-12" *ngFor="let pkg of packageService.packages">
+                    <stabox-package-card [package]="pkg"></stabox-package-card>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-xl-4 col-lg-6 col-md-12 col-12 my-2" *ngFor="let pkg of packageService.packages">
+            <div class="row mt-3" *ngIf="showToDeliver">
+                <div class="col-xl-6 col-lg-6 col-12" *ngFor="let pkg of packageService.packages">
                     <stabox-package-card [package]="pkg"></stabox-package-card>
                 </div>
             </div>

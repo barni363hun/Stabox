@@ -25,6 +25,8 @@
 }
 
 .snackBar {
+  z-index: 9999;
+
   position: absolute;
   bottom: -10%;
 

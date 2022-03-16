@@ -21,6 +21,17 @@
   position: absolute;
   top: 0;
   z-index: 0;
+
+  animation: shadeAppear ease 0.15s;
+}
+
+@keyframes shadeAppear {
+  from {
+    background-color: rgba($shadeColor, 0);
+  }
+  to {
+    background-color: rgba($shadeColor, 0.75);
+  }
 }
 
 #shipperDetailsDiv {
@@ -33,16 +44,31 @@
 
 #shipperDetails {
   background-color: $bgColorBlack;
+
   width: 75%;
   height: 75%;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
   position: relative;
-  padding: 60px;
-  border-radius: 100px;
+
   margin: auto;
+  padding: 60px;
+
+  border-radius: 50px;
+
   top: 50%;
   transform: translateY(-50%);
+
   animation-name: appear;
   animation-duration: 0.15s;
+}
+#shipperDetails::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 @keyframes appear {

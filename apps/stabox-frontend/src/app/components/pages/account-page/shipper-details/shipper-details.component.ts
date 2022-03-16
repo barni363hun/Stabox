@@ -13,7 +13,7 @@ export class ShipperDetailsComponent implements OnInit {
   constructor(
     public vehicleService: VehicleService,
     public themeService: ThemeService,
-    private snackBarService:SnackbarService
+    private snackbarService: SnackbarService
   ) {
     themeService.getTheme();
   }
@@ -23,7 +23,8 @@ export class ShipperDetailsComponent implements OnInit {
   }
 
   stopBeingShipper() {
-    this.snackBarService.showErrorSnackbar('Not available now')
+    // TODO
+    this.snackbarService.showErrorSnackbar('Currently not available.');
   }
 
   close() {

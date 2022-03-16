@@ -1,9 +1,5 @@
-<div [ngClass]="{'lightMode': lightMode == true}">
-    <div id="homeIconDiv">
-        <a routerLink="/">
-            <mat-icon id="homeIcon">home</mat-icon>
-        </a>
+<div [ngClass]="{'lightMode': themeService.light}">
+    <div class="homeIconDiv">
+        <mat-icon class="homeIcon gradient">home</mat-icon>
     </div>
 </div>
-
-

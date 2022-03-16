@@ -15,7 +15,6 @@ import { ContactUsModule } from './contact-us/contact-us.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 
-
 import ormconfig = require('./ormconfig');
 
 @Module({
@@ -24,7 +23,7 @@ import ormconfig = require('./ormconfig');
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot(ormconfig),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'stabox-frontend'),
+      rootPath: join(__dirname, '.', 'frontend'),
     }),
     UserModule,
     ExchangeDateModule,
