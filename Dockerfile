@@ -1,9 +1,11 @@
-FROM node:16
+FROM node:16 as builder
 WORKDIR /stabox
 COPY . .
 RUN npm install
 RUN npm run build:all
-#CMD cd ./dist/stabox
-#CMD node main.js
-# CMD mysql -e "CREATE DATABASE stabox"
-# CMD node main.js
+
+
+FROM node:16-alpine
+WORKDIR /app
+COPY --from=builder /stabox ./
+CMD ["npm", "run", "start:prod"]
