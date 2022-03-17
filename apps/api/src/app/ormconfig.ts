@@ -21,11 +21,11 @@ import {
 // Check typeORM documentation for more information.
 const config: MysqlConnectionOptions = {
   type: 'mysql',
-  host: 'localhost',
-  port: 3306,
-  username: 'root',
-  password: '',
-  database: 'stabox',
+  host: process.env.DB_HOST || 'localhost',
+  port: Number(process.env.DB_HOST) || 3306,
+  username: process.env.DB_USERNAME || 'root',
+  password: process.env.DB_PWD || '123456',
+  database: process.env.DB_NAME || 'stabox',
   entities: [
     userEntity,
     addressEntity,
