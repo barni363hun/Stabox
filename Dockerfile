@@ -1,7 +1,6 @@
 FROM node:16 as builder
 WORKDIR /stabox
 COPY . .
-RUN sed -i 's|base href="/"|base href="/stabox/"|g' /stabox/apps/stabox-frontend/src/index.html
 RUN npm install
 RUN npm run build:all
 
