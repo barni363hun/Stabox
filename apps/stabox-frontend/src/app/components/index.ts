@@ -38,3 +38,5 @@ export * from './pages/mainpage/third-card/third-card.component';
 export * from './pages/packages-page/packages-page.component';
 
 export * from './snackbar/snackbar.component';
+
+export * from './new/home-page/home-page.component';

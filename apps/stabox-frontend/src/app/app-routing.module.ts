@@ -10,6 +10,7 @@ import {
   MainpageComponent,
   AccountPageComponent,
   PackagesPageComponent,
+  HomePageComponent,
 } from './components';
 
 @Component({
@@ -39,6 +40,12 @@ const routes: Routes = [
     component: PackagesPageComponent,
     canActivate: [AuthGuard],
   },
+
+  {
+    path: 'home',
+    component: HomePageComponent,
+  },
+
   { path: 'test1', component: AddRecieverWithAddressComponent },
   { path: 'test', component: AddPackageComponent },
   { path: 'logout', component: LogoutComponent },

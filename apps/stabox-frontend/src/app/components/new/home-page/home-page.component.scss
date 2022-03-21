@@ -1,0 +1,117 @@
+@import '../colors.scss';
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $green;
+}
+.content {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+
+  padding: 0;
+  margin: 0;
+
+  overflow: auto;
+
+  scrollbar-color: $green $black;
+  scrollbar-width: thin;
+
+  position: relative;
+}
+
+.landingContainer {
+  z-index: -1;
+
+  width: 100%;
+  height: 100%;
+
+  color: $white;
+  background-color: $black;
+
+  background-image: url('../../../../assets/images/new/images/homePageBackground.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center top;
+
+  padding: 2%;
+  margin: 0;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.designTriangle {
+  width: 100%;
+  height: 100%;
+
+  background-image: url('../../../../assets/images/new/images/designTriangle.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center top;
+
+  opacity: 0.1;
+
+  padding: 0;
+  margin: 0;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.shade {
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba($black, 50%);
+
+  padding: 0;
+  margin: 0;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.vignette {
+  width: 100%;
+  height: 100%;
+
+  background: radial-gradient($transparent, $black);
+  opacity: 0.5;
+
+  padding: 0;
+  margin: 0;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.sloganTitle {
+  width: 100%;
+  height: 100%;
+
+  padding: 15% 0 0 0;
+  margin: 0;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.sloganTitle span {
+  color: $green;
+}
+.sloganTitle h1 {
+  font-size: 9vw;
+}
+.sloganTitle h2 {
+  font-size: 3vw;
+}

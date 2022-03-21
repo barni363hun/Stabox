@@ -39,8 +39,10 @@ import {
   SecondCardComponent,
   ThirdCardComponent,
   SnackbarComponent,
+  PackagesPageComponent,
+  HomePageComponent,
 } from './components';
-import { PackagesPageComponent } from './components/pages/packages-page/packages-page.component';
+import { NavComponent } from './components/new/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,8 @@ import { PackagesPageComponent } from './components/pages/packages-page/packages
     NavbarComponent,
     AddressInputComponent,
     PackagesPageComponent,
+    HomePageComponent,
+    NavComponent,
   ],
   imports: [
     GooglePlaceModule,
