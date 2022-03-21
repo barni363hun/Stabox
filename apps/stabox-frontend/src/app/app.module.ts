@@ -43,6 +43,7 @@ import {
   HomePageComponent,
   NavComponent,
   ButtonPrimaryComponent,
+  ButtonUnderlinedComponent
 } from './components';
 
 @NgModule({
@@ -80,6 +81,7 @@ import {
     HomePageComponent,
     NavComponent,
     ButtonPrimaryComponent,
+    ButtonUnderlinedComponent,
   ],
   imports: [
     GooglePlaceModule,

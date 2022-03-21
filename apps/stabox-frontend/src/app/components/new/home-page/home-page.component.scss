@@ -108,7 +108,7 @@
   height: fit-content;
 
   padding: 0;
-  margin: 150px 0 0 0;
+  margin: 150px 0;
 
   position: relative;
 
@@ -146,6 +146,15 @@
   .buttonPanel {
     margin: 125px 0 0 0;
   }
+  .applyAsUserButton {
+    margin: 17.5px auto 0 auto;
+  }
+  .applyAsUserButton span {
+    font-size: 26px;
+  }
+  .underline {
+    height: 2.5px;
+  }
 }
 @media only screen and (max-width: 960px) {
   .sloganTitle h1 {
@@ -157,6 +166,15 @@
   .sloganTitle,
   .buttonPanel {
     margin: 100px 0 0 0;
+  }
+  .applyAsUserButton {
+    margin: 15px auto 0 auto;
+  }
+  .applyAsUserButton span {
+    font-size: 22px;
+  }
+  .underline {
+    height: 2px;
   }
 }
 @media only screen and (max-width: 720px) {
@@ -170,6 +188,15 @@
   .buttonPanel {
     margin: 75px 0 0 0;
   }
+  .applyAsUserButton {
+    margin: 12.5px auto 0 auto;
+  }
+  .applyAsUserButton span {
+    font-size: 18px;
+  }
+  .underline {
+    height: 1.5px;
+  }
 }
 @media only screen and (max-width: 540px) {
   .sloganTitle h1 {
@@ -181,6 +208,15 @@
   .sloganTitle,
   .buttonPanel {
     margin: 50px 0 0 0;
+  }
+  .applyAsUserButton {
+    margin: 10px auto 0 auto;
+  }
+  .applyAsUserButton span {
+    font-size: 14px;
+  }
+  .underline {
+    height: 1px;
   }
 }
 @media only screen and (max-width: 380px) {
@@ -194,6 +230,15 @@
   .buttonPanel {
     margin: 37.5px 0 0 0;
   }
+  .applyAsUserButton {
+    margin: 8.75px auto 0 auto;
+  }
+  .applyAsUserButton span {
+    font-size: 12px;
+  }
+  .underline {
+    height: 0.5px;
+  }
 }
 @media only screen and (max-width: 300px) {
   .sloganTitle h1 {
@@ -205,5 +250,11 @@
   .sloganTitle,
   .buttonPanel {
     margin: 25px 0 0 0;
+  }
+  .applyAsUserButton {
+    margin: 7.5px auto 0 auto;
+  }
+  .applyAsUserButton span {
+    font-size: 10px;
   }
 }

@@ -1,0 +1,90 @@
+@import '../colors.scss';
+
+.applyAsUserButton {
+  height: fit-content;
+  width: fit-content;
+
+  padding: 0;
+  margin: 20px auto 0 auto;
+}
+.applyAsUserButton span {
+  color: $white;
+
+  font-size: 30px;
+}
+
+.underline {
+  width: 100%;
+  height: 3px;
+
+  background-color: $white;
+
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 1140px) {
+  .applyAsUserButton {
+    margin: 17.5px auto 0 auto;
+  }
+  .applyAsUserButton span {
+    font-size: 26px;
+  }
+  .underline {
+    height: 2.5px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .applyAsUserButton {
+    margin: 15px auto 0 auto;
+  }
+  .applyAsUserButton span {
+    font-size: 22px;
+  }
+  .underline {
+    height: 2px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .applyAsUserButton {
+    margin: 12.5px auto 0 auto;
+  }
+  .applyAsUserButton span {
+    font-size: 18px;
+  }
+  .underline {
+    height: 1.5px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .applyAsUserButton {
+    margin: 10px auto 0 auto;
+  }
+  .applyAsUserButton span {
+    font-size: 14px;
+  }
+  .underline {
+    height: 1px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .applyAsUserButton {
+    margin: 8.75px auto 0 auto;
+  }
+  .applyAsUserButton span {
+    font-size: 12px;
+  }
+  .underline {
+    height: 0.75px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .applyAsUserButton {
+    margin: 7.5px auto 0 auto;
+  }
+  .applyAsUserButton span {
+    font-size: 10px;
+  }
+  .underline {
+    height: 0.5px;
+  }
+}

@@ -42,3 +42,4 @@ export * from './snackbar/snackbar.component';
 export * from './new/home-page/home-page.component';
 export * from './new/nav/nav.component';
 export * from './new/button-primary/button-primary.component';
+export * from './new/button-underlined/button-underlined.component';
