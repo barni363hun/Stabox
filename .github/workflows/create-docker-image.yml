@@ -25,6 +25,6 @@ jobs:
     - name: Build the Docker image
       working-directory: .
       run: |
-        docker build . --file Dockerfile -t ghcr.io/bognarpal/stabox:${{steps.package-version.outputs.current-version}} -t ghcr.io/bognarpal/stabox:latest 
-        docker push ghcr.io/bognarpal/stabox:latest
-        docker push ghcr.io/bognarpal/stabox:${{steps.package-version.outputs.current-version}}
+        docker build . --file Dockerfile -t ghcr.io/barni363hun/stabox:${{steps.package-version.outputs.current-version}} -t ghcr.io/barni363hun/stabox:latest 
+        docker push ghcr.io/barni363hun/stabox:latest
+        docker push ghcr.io/barni363hun/stabox:${{steps.package-version.outputs.current-version}}
