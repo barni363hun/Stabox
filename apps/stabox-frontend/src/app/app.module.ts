@@ -41,8 +41,9 @@ import {
   SnackbarComponent,
   PackagesPageComponent,
   HomePageComponent,
+  NavComponent,
+  ButtonPrimaryComponent,
 } from './components';
-import { NavComponent } from './components/new/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { NavComponent } from './components/new/nav/nav.component';
     PackagesPageComponent,
     HomePageComponent,
     NavComponent,
+    ButtonPrimaryComponent,
   ],
   imports: [
     GooglePlaceModule,

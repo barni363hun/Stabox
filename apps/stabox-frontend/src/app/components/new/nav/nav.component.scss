@@ -18,15 +18,69 @@
 }
 
 .nav img {
-  margin: 0 0.5%;
+  margin: 0 6px;
+  width: 55px;
+  height: 55px;
 }
 
 .navItem {
   height: 100%;
   width: fit-content;
 
-  padding: 0.1%;
+  padding: 6px;
 }
 .navItem:hover {
+  cursor: pointer;
   background-color: $hover;
+}
+
+@media only screen and (max-width: 1140px) {
+  .nav img {
+    margin: 0 5px;
+    width: 50px;
+    height: 50px;
+  }
+  .navItem {
+    padding: 5px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .nav img {
+    margin: 0 4px;
+    width: 45px;
+    height: 45px;
+  }
+  .navItem {
+    padding: 4px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .nav img {
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
+  }
+  .navItem {
+    padding: 3px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .nav img {
+    margin: 0 2px;
+    width: 35px;
+    height: 35px;
+  }
+  .navItem {
+    padding: 2px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .nav img {
+    margin: 0 1px;
+    width: 30px;
+    height: 30px;
+  }
+  .navItem {
+    padding: 1px;
+  }
 }

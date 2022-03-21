@@ -1,0 +1,67 @@
+@import '../colors.scss';
+
+.buttonPrimary {
+  height: fit-content;
+  width: fit-content;
+
+  color: $white;
+  background: linear-gradient(60deg, $blueGreen 50%, $green 50%);
+
+  padding: 15px 45px;
+  margin: 0 auto;
+
+  font-size: 35px;
+  text-shadow: 1px 1px 4px rgba($black, 50%);
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  border: none;
+  border-radius: 15px;
+}
+.buttonPrimary:hover {
+  cursor: pointer;
+  background: linear-gradient(60deg, $blueGreen 60%, $green 40%);
+}
+
+@media only screen and (max-width: 1140px) {
+  .buttonPrimary {
+    padding: 13.5px 41px;
+    font-size: 31px;
+    border-radius: 12.5px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .buttonPrimary {
+    padding: 11px 37px;
+    font-size: 27px;
+    border-radius: 10px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .buttonPrimary {
+    padding: 8.5px 33px;
+    font-size: 23px;
+    border-radius: 7.5px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .buttonPrimary {
+    padding: 6px 29px;
+    font-size: 19px;
+    border-radius: 5px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .buttonPrimary {
+    padding: 3.5px 23px;
+    font-size: 14px;
+    border-radius: 2.5px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .buttonPrimary {
+    padding: 1.5px 19px;
+    font-size: 12px;
+  }
+}
