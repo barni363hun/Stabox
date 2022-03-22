@@ -1,90 +1,79 @@
 @import '../colors.scss';
 
-.applyAsUserButton {
+.button {
   height: fit-content;
   width: fit-content;
 
   padding: 0;
   margin: 20px auto 0 auto;
+
+  border-bottom: 3px solid $white;
+
+  text-shadow: 1px 1px 4px rgba($black, 50%);
 }
-.applyAsUserButton span {
+.button span {
   color: $white;
 
   font-size: 30px;
 }
-
-.underline {
-  width: 100%;
-  height: 3px;
-
-  background-color: $white;
-
-  border-radius: 5px;
+.button:hover,
+.button:hover span {
+  cursor: pointer;
+  color: $blueGreen;
+  border-color: $blueGreen;
 }
 
 @media only screen and (max-width: 1140px) {
-  .applyAsUserButton {
+  .button {
     margin: 17.5px auto 0 auto;
+    border-bottom: 2.5px solid $white;
   }
-  .applyAsUserButton span {
+  .button span {
     font-size: 26px;
-  }
-  .underline {
-    height: 2.5px;
   }
 }
 @media only screen and (max-width: 960px) {
-  .applyAsUserButton {
+  .button {
     margin: 15px auto 0 auto;
+    border-bottom: 2px solid $white;
   }
-  .applyAsUserButton span {
+  .button span {
     font-size: 22px;
-  }
-  .underline {
-    height: 2px;
   }
 }
 @media only screen and (max-width: 720px) {
-  .applyAsUserButton {
+  .button {
     margin: 12.5px auto 0 auto;
+    border-bottom: 1.5px solid $white;
   }
-  .applyAsUserButton span {
+  .button span {
     font-size: 18px;
-  }
-  .underline {
-    height: 1.5px;
   }
 }
 @media only screen and (max-width: 540px) {
-  .applyAsUserButton {
+  .button {
     margin: 10px auto 0 auto;
+    border-bottom: 1px solid $white;
   }
-  .applyAsUserButton span {
+  .button span {
     font-size: 14px;
-  }
-  .underline {
-    height: 1px;
   }
 }
 @media only screen and (max-width: 380px) {
-  .applyAsUserButton {
+  .button {
     margin: 8.75px auto 0 auto;
+    border-bottom: 0.75px solid $white;
   }
-  .applyAsUserButton span {
+  .button span {
     font-size: 12px;
-  }
-  .underline {
-    height: 0.75px;
   }
 }
 @media only screen and (max-width: 300px) {
-  .applyAsUserButton {
+  .button {
     margin: 7.5px auto 0 auto;
+    border-bottom: 0.5px solid $white;
   }
-  .applyAsUserButton span {
+  .button span {
     font-size: 10px;
-  }
-  .underline {
-    height: 0.5px;
   }
 }

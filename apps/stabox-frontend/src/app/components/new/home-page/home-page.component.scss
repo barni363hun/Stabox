@@ -14,8 +14,10 @@
   height: 100vh;
   min-height: 100vh;
 
-  padding: 0;
+  padding: 0 0 50px 0;
   margin: 0;
+
+  text-shadow: 1px 1px 4px rgba($black, 50%);
 
   overflow: auto;
 
@@ -29,12 +31,12 @@
   z-index: 0;
 
   width: 100%;
-  min-height: fit-content;
+  min-height: 100%;
 
   color: $white;
   background-color: $black;
 
-  background-image: url('../../../../assets/images/new/images/homePageBackground.png');
+  background-image: url('../../../../assets/images/new/images/Background.png');
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center top;
@@ -42,63 +44,8 @@
   padding: 0;
   margin: 0;
 
-  position: absolute;
+  position: relative;
   top: 0;
-  left: 0;
-}
-
-.designTriangle {
-  z-index: 0;
-
-  width: 100%;
-  height: 100%;
-
-  background-image: url('../../../../assets/images/new/images/designTriangle.png');
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: center top;
-
-  opacity: 0.1;
-
-  padding: 0;
-  margin: 0;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.shade {
-  z-index: 0;
-
-  width: 100%;
-  height: 100%;
-
-  background-color: rgba($black, 50%);
-
-  padding: 0;
-  margin: 0;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.vignette {
-  z-index: 0;
-
-  width: 100%;
-  height: 100%;
-
-  background: radial-gradient($transparent, $black);
-  opacity: 0.5;
-
-  padding: 0;
-  margin: 0;
-
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .sloganTitle {
@@ -107,8 +54,8 @@
   width: 100%;
   height: fit-content;
 
-  padding: 0;
-  margin: 150px 0;
+  padding: 150px 0 0 0;
+  margin: 0;
 
   position: relative;
 
@@ -135,126 +82,235 @@
   margin: 150px 0 0 0;
 }
 
+.feedbackContainer {
+  width: 100%;
+  height: fit-content;
+
+  padding: 75px 0 25px 0;
+  margin: 0;
+
+  position: relative;
+}
+.feedbackItem {
+  padding: 0;
+  margin: 0;
+
+  color: $white;
+
+  font-size: 64px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.feedbackItem img {
+  width: 200px;
+  height: 200px;
+}
+
+.hint {
+  width: 100%;
+  height: fit-content;
+
+  font-size: 48px;
+
+  text-align: center;
+
+  position: absolute;
+  top: 15px;
+}
+.hint span {
+  visibility: hidden;
+}
+.feedbackItem:hover .hint span {
+  visibility: visible;
+  animation: hintAppear 0.5s;
+}
+@keyframes hintAppear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @media only screen and (max-width: 1140px) {
+  .content {
+    padding-bottom: 50px;
+  }
+  .landingContainer {
+    min-height: fit-content;
+    padding-bottom: 175px;
+  }
   .sloganTitle h1 {
     font-size: 125px;
   }
   .sloganTitle h2 {
     font-size: 42px;
   }
-  .sloganTitle,
+  .sloganTitle {
+    padding: 125px 0 0 0;
+  }
   .buttonPanel {
     margin: 125px 0 0 0;
   }
-  .applyAsUserButton {
-    margin: 17.5px auto 0 auto;
+  .feedbackContainer {
+    padding: 63.5px 0 21.85px 0;
   }
-  .applyAsUserButton span {
-    font-size: 26px;
+  .feedbackItem {
+    font-size: 56px;
   }
-  .underline {
-    height: 2.5px;
+  .feedbackItem img {
+    width: 175px;
+    height: 175px;
   }
 }
 @media only screen and (max-width: 960px) {
+  .content {
+    padding-bottom: 45px;
+  }
+  .landingContainer {
+    padding-bottom: 150px;
+  }
   .sloganTitle h1 {
     font-size: 100px;
   }
   .sloganTitle h2 {
     font-size: 34px;
   }
-  .sloganTitle,
+  .sloganTitle {
+    padding: 100px 0 0 0;
+  }
   .buttonPanel {
     margin: 100px 0 0 0;
   }
-  .applyAsUserButton {
-    margin: 15px auto 0 auto;
+  .feedbackContainer {
+    padding: 51.5px 0 17.7px 0;
   }
-  .applyAsUserButton span {
-    font-size: 22px;
+  .feedbackItem {
+    font-size: 48px;
   }
-  .underline {
-    height: 2px;
+  .feedbackItem img {
+    width: 150px;
+    height: 150px;
   }
 }
 @media only screen and (max-width: 720px) {
+  .content {
+    padding-bottom: 40px;
+  }
+  .landingContainer {
+    padding-bottom: 125px;
+  }
   .sloganTitle h1 {
     font-size: 75px;
   }
   .sloganTitle h2 {
     font-size: 26px;
   }
-  .sloganTitle,
+  .feedbackContainer {
+    padding: 39px 0 13.55px 0;
+  }
+  .sloganTitle {
+    padding: 75px 0 0 0;
+  }
   .buttonPanel {
     margin: 75px 0 0 0;
   }
-  .applyAsUserButton {
-    margin: 12.5px auto 0 auto;
+  .feedbackItem {
+    font-size: 40px;
   }
-  .applyAsUserButton span {
-    font-size: 18px;
-  }
-  .underline {
-    height: 1.5px;
+  .feedbackItem img {
+    width: 125px;
+    height: 125px;
   }
 }
 @media only screen and (max-width: 540px) {
+  .content {
+    padding-bottom: 35px;
+  }
+  .landingContainer {
+    padding-bottom: 100px;
+  }
   .sloganTitle h1 {
     font-size: 50px;
   }
   .sloganTitle h2 {
     font-size: 18px;
   }
-  .sloganTitle,
+  .sloganTitle {
+    padding: 50px 0 0 0;
+  }
   .buttonPanel {
     margin: 50px 0 0 0;
   }
-  .applyAsUserButton {
-    margin: 10px auto 0 auto;
+  .feedbackContainer {
+    padding: 26.5px 0 9.4px 0;
   }
-  .applyAsUserButton span {
-    font-size: 14px;
+  .feedbackItem {
+    font-size: 32px;
   }
-  .underline {
-    height: 1px;
+  .feedbackItem img {
+    width: 100px;
+    height: 100px;
   }
 }
 @media only screen and (max-width: 380px) {
+  .content {
+    padding-bottom: 30px;
+  }
+  .landingContainer {
+    padding-bottom: 75px;
+  }
   .sloganTitle h1 {
     font-size: 37.5px;
   }
   .sloganTitle h2 {
     font-size: 14px;
   }
-  .sloganTitle,
+  .sloganTitle {
+    padding: 37.5px 0 0 0;
+  }
   .buttonPanel {
     margin: 37.5px 0 0 0;
   }
-  .applyAsUserButton {
-    margin: 8.75px auto 0 auto;
+  .feedbackContainer {
+    padding: 20.25px 0 7.4px 0;
   }
-  .applyAsUserButton span {
-    font-size: 12px;
+  .feedbackItem {
+    font-size: 24px;
   }
-  .underline {
-    height: 0.5px;
+  .feedbackItem img {
+    width: 75px;
+    height: 75px;
   }
 }
 @media only screen and (max-width: 300px) {
+  .landingContainer {
+    padding-bottom: 50px;
+  }
   .sloganTitle h1 {
     font-size: 31.25px;
   }
   .sloganTitle h2 {
     font-size: 12px;
   }
-  .sloganTitle,
+  .sloganTitle {
+    padding: 25px 0 0 0;
+  }
   .buttonPanel {
     margin: 25px 0 0 0;
   }
-  .applyAsUserButton {
-    margin: 7.5px auto 0 auto;
+  .feedbackContainer {
+    padding: 14px 0 5.4px 0;
   }
-  .applyAsUserButton span {
-    font-size: 10px;
+  .feedbackItem {
+    font-size: 16px;
+  }
+  .feedbackItem img {
+    width: 50px;
+    height: 50px;
   }
 }
