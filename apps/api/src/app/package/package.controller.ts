@@ -88,16 +88,18 @@ export class PackageController {
       userId: req.user.sub,
       price: price,
       ...body,
+    }).then(async () => {
+      this.userService.addtransaction(user, -price)
     })
-      .then(async () => {
-        user.stabucks -= price;
-        await this.userService.update((await user).id, user);
-      })
-      .then(async () => this.transactionService.create({
-        userId: user.id,
-        amount: -price
-      },
-      ));
+    // .then(async () => {
+    //   user.stabucks -= price;
+    //   await this.userService.update((await user).id, user);
+    // })
+    // .then(async () => this.transactionService.create({
+    //   userId: user.id,
+    //   amount: -price
+    // },
+    // ));
   }
 
   // gets all packages
@@ -132,11 +134,12 @@ export class PackageController {
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('shipper')
   @Get('/acceptable')
-  getAcceptable(@Req() req: authRequest): Promise<any> {
-    return this.packageService.find({
+  async getAcceptable(@Req() req: authRequest): Promise<any> {
+    const res = await this.packageService.find({
       where: { vehicleId: null, userId: Not(req.user.sub) },
       relations: ['fromAddress', 'reciever', 'reciever.address'],
-    }).then((res: any[]) => res)
+    });
+    return res;
   }
   // gets accepted packages
   @UseGuards(AuthGuard, RoleGuard)
@@ -158,35 +161,33 @@ export class PackageController {
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
   @Delete()
-  delete(@Req() req: authRequest, @Body() body: idDto) {
-    return this.packageService.getById(body.id).then((a) => {
-      if (a.userId == req.user.sub) {
-        return this.packageService.delete(body.id);
-      } else {
-        throw new MethodNotAllowedException(
-          'You can only delete your own package'
-        );
-      }
-    });
+  async delete(@Req() req: authRequest, @Body() body: idDto) {
+    const a = await this.packageService.getById(body.id);
+    if (a.userId == req.user.sub) {
+      return this.packageService.delete(body.id);
+    } else {
+      throw new MethodNotAllowedException(
+        'You can only delete your own package'
+      );
+    }
   }
 
   //assign vehicle, select post date
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('shipper')
   @Patch()
-  assignMe(@Req() req: authRequest, @Body() body: assignMeDto) {
-    return this.packageService.getById(body.id).then((a) => {
-      if (a.userId !== req.user.sub) {
-        return this.packageService.update(body.id, {
-          vehicleId: body.vehicleId,
-          postDate: body.postDate,
-        });
-      } else {
-        throw new MethodNotAllowedException(
-          'You can not accept your own package'
-        );
-      }
-    });
+  async assignMe(@Req() req: authRequest, @Body() body: assignMeDto) {
+    const a = await this.packageService.getById(body.id);
+    if (a.userId !== req.user.sub) {
+      return this.packageService.update(body.id, {
+        vehicleId: body.vehicleId,
+        postDate: body.postDate,
+      });
+    } else {
+      throw new MethodNotAllowedException(
+        'You can not accept your own package'
+      );
+    }
   }
 
   //sent
@@ -194,12 +195,11 @@ export class PackageController {
   @Roles('user')
   @Post()
   async sent(@Req() req: authRequest, @Body() body: idDto) {
-    return this.packageService.getById(body.id).then((a) => {
+    return this.packageService.getById(body.id).then(async (a) => {
       if (a.vehicleId == 0) {
-        return this.addressService.getById(a.fromAddressId).then((n) => {
-          return this.packageService.update(body.id, {
-            currentCity: n.cityName,
-          });
+        const n = await this.addressService.getById(a.fromAddressId);
+        return await this.packageService.update(body.id, {
+          currentCity: n.cityName,
         });
       } else {
         throw new MethodNotAllowedException(
@@ -235,27 +235,24 @@ export class PackageController {
   }
 
   //adds "shipped" date
+  //finishes a package
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('shipper')
   @Post('/shipped')
-  shipped(@Req() req: authRequest, @Body() body: idDateDto) {
-    return this.packageService
-      .find({
-        where: { id: body.id },
-      })
-      .then((packag) => {
-        return this.vehicleService.getById(packag[0].vehicleId).then((veh) => {
-          if (veh.userId == req.user.sub) {
-            return this.packageService.update(body.id, {
-              shippingDate: new Date().toISOString(),
-            });
-          } else {
-            throw new MethodNotAllowedException(
-              'You can only approve packages shipped by you'
-            );
-          }
-        });
+  async shipped(@Req() req: authRequest, @Body() body: idDateDto) {
+    const _package = await this.packageService.getById(body.id);
+    const vehicle = await this.vehicleService.getById(_package.vehicleId);
+    if (vehicle.userId == req.user.sub) {
+      return this.packageService.update(body.id, {
+        shippingDate: new Date().toISOString(),
+      }).then(async () => {
+        this.userService.addtransaction(await this.userService.getById(vehicle.userId), _package.price)
       });
+    } else {
+      throw new MethodNotAllowedException(
+        'You can only approve packages shipped by you'
+      );
+    }
   }
 
   private async calculatePrice(size: string, weight: string): Promise<number> {

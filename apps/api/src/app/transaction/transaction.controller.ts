@@ -41,7 +41,7 @@ export class TransactionController {
   @Roles('admin') // TODO: hogyan lehessen venni stabuck-ot
   @Patch()
   buy(@Req() req: authRequest, @Body() body: buyDto) {
-    const tra = { userId: req.user.sub, amount: body.amount };
-    return this.transactionService.create(tra);
+    const transaction = { userId: req.user.sub, amount: body.amount };
+    return this.transactionService.create(transaction);
   }
 }
