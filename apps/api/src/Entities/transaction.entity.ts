@@ -16,9 +16,6 @@ export class transactionEntity implements transactionInterface {
   @Column()
   amount: number;
 
-  @Column()
-  direction: boolean;
-
   @Column('timestamp')
   timeStamp: Date;
 }
