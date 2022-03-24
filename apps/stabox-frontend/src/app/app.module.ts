@@ -4,11 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon';
 import { AuthModule, AuthHttpInterceptor } from '@auth0/auth0-angular';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
+
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
 
 import {
   AccountButtonComponent,
@@ -42,8 +45,8 @@ import {
   PackagesPageComponent,
   HomePageComponent,
   NavComponent,
-  ButtonPrimaryComponent,
-  ButtonUnderlinedComponent
+  ButtonRaisedComponent,
+  ButtonBasicComponent,
 } from './components';
 
 @NgModule({
@@ -80,8 +83,8 @@ import {
     PackagesPageComponent,
     HomePageComponent,
     NavComponent,
-    ButtonPrimaryComponent,
-    ButtonUnderlinedComponent,
+    ButtonRaisedComponent,
+    ButtonBasicComponent,
   ],
   imports: [
     GooglePlaceModule,
@@ -104,6 +107,8 @@ import {
       },
     }),
     MatIconModule,
+    MatTooltipModule,
+    MatButtonModule,
   ],
   bootstrap: [AppComponent],
   providers: [

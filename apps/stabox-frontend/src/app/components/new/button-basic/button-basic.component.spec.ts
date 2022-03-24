@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ButtonUnderlinedComponent } from './button-underlined.component';
+import { ButtonBasicComponent } from './button-basic.component';
 
-describe('ButtonUnderlinedComponent', () => {
-  let component: ButtonUnderlinedComponent;
-  let fixture: ComponentFixture<ButtonUnderlinedComponent>;
+describe('ButtonBasicComponent', () => {
+  let component: ButtonBasicComponent;
+  let fixture: ComponentFixture<ButtonBasicComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ButtonUnderlinedComponent ]
+      declarations: [ ButtonBasicComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ButtonUnderlinedComponent);
+    fixture = TestBed.createComponent(ButtonBasicComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

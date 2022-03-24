@@ -1,4 +1,5 @@
 @import '../colors.scss';
+@import '../variables.scss';
 
 ::-webkit-scrollbar {
   width: 5px;
@@ -76,13 +77,18 @@
 
   padding: 150px 0;
   margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .feedbackContainer {
   width: 100%;
   height: fit-content;
 
-  padding: 50px 0;
+  padding: 75px 0;
   margin: 0;
 
   position: relative;
@@ -111,6 +117,18 @@ $feedbackItemImageSize: 150px;
 .feedbackItem img {
   width: $feedbackItemImageSize;
   height: $feedbackItemImageSize;
+}
+::ng-deep .feedbackItemTooltip {
+  height: fit-content;
+  width: fit-content;
+
+  color: $white;
+  background-color: $hoverDark;
+
+  font-size: 24px;
+  font-family: $font;
+
+  text-align: center;
 }
 
 .benefitsContainer {
@@ -238,7 +256,7 @@ $listIconSize: 5em;
     padding: 125px 0;
   }
   .feedbackContainer {
-    padding: 45px 0;
+    padding: 70px 0;
   }
   .feedbackItem {
     font-size: 42px;
@@ -247,6 +265,9 @@ $listIconSize: 5em;
   .feedbackItem img {
     width: $feedbackItemImageSize;
     height: $feedbackItemImageSize;
+  }
+  ::ng-deep .feedbackItemTooltip {
+    font-size: 20px;
   }
   .title {
     font-size: 46px;
@@ -270,7 +291,7 @@ $listIconSize: 5em;
     font-size: 27px;
   }
 }
-@media only screen and (max-width: 991.5px) {
+@media only screen and (max-width: 1199.5px) {
   .listImage {
     display: none;
   }
@@ -295,7 +316,7 @@ $listIconSize: 5em;
     padding: 100px 0;
   }
   .feedbackContainer {
-    padding: 40px 0;
+    padding: 65px 0;
   }
   .feedbackItem {
     font-size: 36px;
@@ -304,6 +325,9 @@ $listIconSize: 5em;
   .feedbackItem img {
     width: $feedbackItemImageSize;
     height: $feedbackItemImageSize;
+  }
+  ::ng-deep .feedbackItemTooltip {
+    font-size: 18px;
   }
   .title {
     font-size: 38px;
@@ -341,7 +365,7 @@ $listIconSize: 5em;
     font-size: 26px;
   }
   .feedbackContainer {
-    padding: 35px 0;
+    padding: 60px 0;
   }
   .sloganTitle {
     padding: 75px 0 0 0;
@@ -356,6 +380,9 @@ $listIconSize: 5em;
   .feedbackItem img {
     width: $feedbackItemImageSize;
     height: $feedbackItemImageSize;
+  }
+  ::ng-deep .feedbackItemTooltip {
+    font-size: 16px;
   }
   .title {
     font-size: 30px;
@@ -399,7 +426,7 @@ $listIconSize: 5em;
     padding: 50px 0;
   }
   .feedbackContainer {
-    padding: 30px 0;
+    padding: 55px 0;
   }
   .feedbackItem {
     font-size: 24px;
@@ -408,6 +435,9 @@ $listIconSize: 5em;
   .feedbackItem img {
     width: $feedbackItemImageSize;
     height: $feedbackItemImageSize;
+  }
+  ::ng-deep .feedbackItemTooltip {
+    font-size: 14px;
   }
   .title {
     font-size: 22px;
@@ -451,7 +481,7 @@ $listIconSize: 5em;
     padding: 37.5px 0;
   }
   .feedbackContainer {
-    padding: 25px 0;
+    padding: 45px 0;
   }
   .feedbackItem {
     font-size: 21px;
@@ -460,6 +490,9 @@ $listIconSize: 5em;
   .feedbackItem img {
     width: $feedbackItemImageSize;
     height: $feedbackItemImageSize;
+  }
+  ::ng-deep .feedbackItemTooltip {
+    font-size: 10px;
   }
   .title {
     font-size: 18px;
@@ -503,7 +536,7 @@ $listIconSize: 5em;
     padding: 25px 0;
   }
   .feedbackContainer {
-    padding: 20px 0;
+    padding: 35px 0;
   }
   .feedbackItem {
     font-size: 18px;
@@ -512,6 +545,9 @@ $listIconSize: 5em;
   .feedbackItem img {
     width: $feedbackItemImageSize;
     height: $feedbackItemImageSize;
+  }
+  ::ng-deep .feedbackItemTooltip {
+    font-size: 8px;
   }
   .title {
     font-size: 16px;
