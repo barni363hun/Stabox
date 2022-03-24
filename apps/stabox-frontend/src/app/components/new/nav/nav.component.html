@@ -1,8 +1,8 @@
 <div class="nav">
-    <div class="navItem" (mouseover)="homeIconSrc = '../../../../assets/images/new/icons/hover/home.svg'" (mouseout)="homeIconSrc = '../../../../assets/images/new/icons/home.svg'">
-        <img [src]="homeIconSrc">
-    </div>
-    <div class="navItem" (mouseover)="personIconSrc = '../../../../assets/images/new/icons/hover/person.svg'" (mouseout)="personIconSrc = '../../../../assets/images/new/icons/person.svg'">
-        <img [src]="personIconSrc">
-    </div>
+    <button mat-icon-button class="navItem">
+        <mat-icon class="navItemIcon">home</mat-icon>
+    </button>
+    <button mat-icon-button class="navItem">
+        <mat-icon class="navItemIcon">person</mat-icon>
+    </button>
 </div>

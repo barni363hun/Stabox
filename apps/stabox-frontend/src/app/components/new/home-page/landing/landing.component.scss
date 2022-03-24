@@ -1,0 +1,164 @@
+@import '../../colors.scss';
+@import '../../variables.scss';
+
+.landingContainer {
+  z-index: 0;
+
+  width: 100%;
+  min-height: 100%;
+
+  color: $white;
+  background-color: $black;
+
+  background-image: url('../../../../../assets/images/new/images/homePageBackground.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center top;
+
+  padding: 0;
+  margin: 0;
+
+  position: relative;
+  top: 0;
+}
+
+.sloganTitle {
+  z-index: 1;
+
+  width: 100%;
+  height: fit-content;
+
+  padding: 150px 0 0 0;
+  margin: 0;
+
+  position: relative;
+}
+.sloganTitle span {
+  color: $blueGreen;
+}
+.sloganTitle h1 {
+  font-size: 150px;
+}
+.sloganTitle h2 {
+  font-size: 50px;
+}
+
+.buttonPanel {
+  height: fit-content;
+  width: 100%;
+
+  padding: 150px 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 1140px) {
+  .landingContainer {
+    min-height: fit-content;
+    padding-bottom: 175px;
+  }
+  .sloganTitle h1 {
+    font-size: 125px;
+  }
+  .sloganTitle h2 {
+    font-size: 42px;
+  }
+  .sloganTitle {
+    padding: 125px 0 0 0;
+  }
+  .buttonPanel {
+    padding: 125px 0;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .landingContainer {
+    padding-bottom: 150px;
+  }
+  .sloganTitle h1 {
+    font-size: 100px;
+  }
+  .sloganTitle h2 {
+    font-size: 34px;
+  }
+  .sloganTitle {
+    padding: 100px 0 0 0;
+  }
+  .buttonPanel {
+    padding: 100px 0;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .landingContainer {
+    padding-bottom: 125px;
+  }
+  .sloganTitle h1 {
+    font-size: 75px;
+  }
+  .sloganTitle h2 {
+    font-size: 26px;
+  }
+  .feedbackContainer {
+    padding: 60px 0;
+  }
+  .sloganTitle {
+    padding: 75px 0 0 0;
+  }
+  .buttonPanel {
+    padding: 75px 0;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .landingContainer {
+    padding-bottom: 100px;
+  }
+  .sloganTitle h1 {
+    font-size: 50px;
+  }
+  .sloganTitle h2 {
+    font-size: 18px;
+  }
+  .sloganTitle {
+    padding: 50px 0 0 0;
+  }
+  .buttonPanel {
+    padding: 50px 0;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .landingContainer {
+    padding-bottom: 75px;
+  }
+  .sloganTitle h1 {
+    font-size: 37.5px;
+  }
+  .sloganTitle h2 {
+    font-size: 14px;
+  }
+  .sloganTitle {
+    padding: 37.5px 0 0 0;
+  }
+  .buttonPanel {
+    padding: 37.5px 0;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .landingContainer {
+    padding-bottom: 50px;
+  }
+  .sloganTitle h1 {
+    font-size: 31.25px;
+  }
+  .sloganTitle h2 {
+    font-size: 12px;
+  }
+  .sloganTitle {
+    padding: 25px 0 0 0;
+  }
+  .buttonPanel {
+    padding: 25px 0;
+  }
+}

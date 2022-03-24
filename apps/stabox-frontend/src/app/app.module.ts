@@ -47,6 +47,9 @@ import {
   NavComponent,
   ButtonRaisedComponent,
   ButtonBasicComponent,
+  LandingComponent,
+  StatisticsComponent,
+  BenefitsComponent,
 } from './components';
 
 @NgModule({
@@ -85,6 +88,9 @@ import {
     NavComponent,
     ButtonRaisedComponent,
     ButtonBasicComponent,
+    LandingComponent,
+    StatisticsComponent,
+    BenefitsComponent,
   ],
   imports: [
     GooglePlaceModule,
@@ -108,7 +114,7 @@ import {
     }),
     MatIconModule,
     MatTooltipModule,
-    MatButtonModule,
+    MatButtonModule
   ],
   bootstrap: [AppComponent],
   providers: [

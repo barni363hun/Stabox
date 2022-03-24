@@ -1,4 +1,5 @@
 @import '../colors.scss';
+@import '../variables.scss';
 
 .nav {
   z-index: 9999;
@@ -21,71 +22,79 @@
   -ms-user-select: none;
   user-select: none;
 }
-
-.nav img {
-  margin: 0 6px;
-  width: 55px;
-  height: 55px;
-}
-
 .navItem {
-  height: 100%;
-  width: fit-content;
-
-  padding: 6px;
+  width: $navItemSize;
+  height: $navItemSize;
 }
-.navItem:hover {
-  cursor: pointer;
-  background-color: $hoverDark;
+.navItemIcon {
+  font-size: $navItemSize - 15;
+
+  color: $white;
+
+  display: inline;
+  vertical-align: middle;
+}
+.navItem:hover .navItemIcon {
+  color: $blueGreen;
 }
 
 @media only screen and (max-width: 1140px) {
-  .nav img {
-    margin: 0 5px;
-    width: 50px;
-    height: 50px;
-  }
+  $navItemSize: 55px;
   .navItem {
-    padding: 5px;
+    width: $navItemSize;
+    height: $navItemSize;
+  }
+  .navItemIcon {
+    font-size: $navItemSize - 15;
   }
 }
 @media only screen and (max-width: 960px) {
-  .nav img {
-    margin: 0 4px;
-    width: 45px;
-    height: 45px;
-  }
+  $navItemSize: 50px;
   .navItem {
-    padding: 4px;
+    width: $navItemSize;
+    height: $navItemSize;
+  }
+  .navItemIcon {
+    font-size: $navItemSize - 15;
   }
 }
 @media only screen and (max-width: 720px) {
-  .nav img {
-    margin: 0 3px;
-    width: 40px;
-    height: 40px;
-  }
+  $navItemSize: 45px;
   .navItem {
-    padding: 3px;
+    width: $navItemSize;
+    height: $navItemSize;
+  }
+  .navItemIcon {
+    font-size: $navItemSize - 15;
   }
 }
 @media only screen and (max-width: 540px) {
-  .nav img {
-    margin: 0 2px;
-    width: 35px;
-    height: 35px;
-  }
+  $navItemSize: 40px;
   .navItem {
-    padding: 2px;
+    width: $navItemSize;
+    height: $navItemSize;
+  }
+  .navItemIcon {
+    font-size: $navItemSize - 15;
   }
 }
 @media only screen and (max-width: 380px) {
-  .nav img {
-    margin: 0 1px;
-    width: 30px;
-    height: 30px;
-  }
+  $navItemSize: 37.5px;
   .navItem {
-    padding: 1px;
+    width: $navItemSize;
+    height: $navItemSize;
+  }
+  .navItemIcon {
+    font-size: $navItemSize - 15;
+  }
+}
+@media only screen and (max-width: 300px) {
+  $navItemSize: 35px;
+  .navItem {
+    width: $navItemSize;
+    height: $navItemSize;
+  }
+  .navItemIcon {
+    font-size: $navItemSize - 15;
   }
 }
