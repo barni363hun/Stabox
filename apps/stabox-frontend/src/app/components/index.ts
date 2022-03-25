@@ -43,8 +43,10 @@ export * from './new/home-page/home-page.component';
 export * from './new/home-page/benefits/benefits.component';
 export * from './new/home-page/landing/landing.component';
 export * from './new/home-page/statistics/statistics.component';
+export * from './new/home-page/instructions/instructions.component';
 
 export * from './new/nav/nav.component';
+export * from './new/page-footer/page-footer.component';
 
 export * from './new/button-raised/button-raised.component';
 export * from './new/button-basic/button-basic.component';

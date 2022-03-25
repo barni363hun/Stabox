@@ -1,0 +1,302 @@
+@import '../../colors.scss';
+
+.instructionsContainer {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 50px 0 0 0;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.title {
+  color: $white;
+
+  padding: 0 10px;
+  margin: 0;
+
+  font-size: 64px;
+}
+.underline {
+  width: 85%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 5px auto;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.content {
+  width: 75%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0 auto;
+}
+.instructionsColumn {
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.instructionsColumn h1 {
+  padding: 0;
+  margin: 10px 0;
+
+  font-size: 48px;
+}
+.instructionsColumn span {
+  color: $description;
+
+  padding: 0;
+  margin: 10px 0;
+
+  font-size: 36px;
+}
+$instructionsComponentImageSize: 175px;
+img {
+  width: $instructionsComponentImageSize;
+  height: $instructionsComponentImageSize;
+
+  padding: 0;
+  margin: 10px 0;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+$arrowIconSize: 125px;
+.arrowIcon {
+  width: $arrowIconSize;
+  height: $arrowIconSize;
+
+  padding: 0;
+  margin: 25px 0;
+}
+
+.buttonPanel {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 75px 0 0 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.decorativeLineContainer {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.decorativeLine {
+  width: 80%;
+  height: 3px;
+
+  background-color: $white;
+
+  border: none;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .arrowIcon {
+    transform: rotate(90deg);
+  }
+  .content {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 1140px) {
+  .title {
+    font-size: 46px;
+  }
+  .content {
+    width: 55%;
+  }
+  .instructionsColumn h1 {
+    margin: 9px 0;
+
+    font-size: 40px;
+  }
+  .instructionsColumn span {
+    margin: 9px 0;
+
+    font-size: 30px;
+  }
+  $instructionsComponentImageSize: $instructionsComponentImageSize - 15;
+  img {
+    width: $instructionsComponentImageSize;
+    height: $instructionsComponentImageSize;
+    margin: 9px 0;
+  }
+  $arrowIconSize: $arrowIconSize - 12.5;
+  .arrowIcon {
+    width: $arrowIconSize;
+    height: $arrowIconSize;
+    margin: 22.5px 0;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .title {
+    font-size: 38px;
+  }
+  .content {
+    width: 50%;
+  }
+  .instructionsColumn h1 {
+    margin: 8px 0;
+
+    font-size: 32px;
+  }
+  .instructionsColumn span {
+    margin: 8px 0;
+
+    font-size: 24px;
+  }
+  $instructionsComponentImageSize: $instructionsComponentImageSize - 30;
+  img {
+    width: $instructionsComponentImageSize;
+    height: $instructionsComponentImageSize;
+    margin: 8px 0;
+  }
+  $arrowIconSize: $arrowIconSize - 25;
+  .arrowIcon {
+    width: $arrowIconSize;
+    height: $arrowIconSize;
+    margin: 20px 0;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .title {
+    font-size: 30px;
+  }
+  .content {
+    width: 45%;
+  }
+  .instructionsColumn h1 {
+    margin: 7px 0;
+
+    font-size: 24px;
+  }
+  .instructionsColumn span {
+    margin: 7px 0;
+
+    font-size: 18px;
+  }
+  $instructionsComponentImageSize: $instructionsComponentImageSize - 45;
+  img {
+    width: $instructionsComponentImageSize;
+    height: $instructionsComponentImageSize;
+    margin: 7px 0;
+  }
+  $arrowIconSize: $arrowIconSize - 37.5;
+  .arrowIcon {
+    width: $arrowIconSize;
+    height: $arrowIconSize;
+    margin: 17.5px 0;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .title {
+    font-size: 22px;
+  }
+  .content {
+    width: 40%;
+  }
+  .instructionsColumn h1 {
+    margin: 6px 0;
+
+    font-size: 18px;
+  }
+  .instructionsColumn span {
+    margin: 6px 0;
+
+    font-size: 14px;
+  }
+  $instructionsComponentImageSize: $instructionsComponentImageSize - 60;
+  img {
+    width: $instructionsComponentImageSize;
+    height: $instructionsComponentImageSize;
+    margin: 6px 0;
+  }
+  $arrowIconSize: $arrowIconSize - 50;
+  .arrowIcon {
+    width: $arrowIconSize;
+    height: $arrowIconSize;
+    margin: 15px 0;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .title {
+    font-size: 18px;
+  }
+  .content {
+    width: 35%;
+  }
+  .instructionsColumn h1 {
+    margin: 5px 0;
+
+    font-size: 16px;
+  }
+  .instructionsColumn span {
+    margin: 5px 0;
+
+    font-size: 12px;
+  }
+  $instructionsComponentImageSize: $instructionsComponentImageSize - 75;
+  img {
+    width: $instructionsComponentImageSize;
+    height: $instructionsComponentImageSize;
+    margin: 5px 0;
+  }
+  $arrowIconSize: $arrowIconSize - 62.5;
+  .arrowIcon {
+    width: $arrowIconSize;
+    height: $arrowIconSize;
+    margin: 12.5px 0;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .title {
+    font-size: 16px;
+  }
+  .instructionsColumn h1 {
+    margin: 4px 0;
+
+    font-size: 14px;
+  }
+  .instructionsColumn span {
+    margin: 4px 0;
+
+    font-size: 10px;
+  }
+  $instructionsComponentImageSize: $instructionsComponentImageSize - 100;
+  img {
+    width: $instructionsComponentImageSize;
+    height: $instructionsComponentImageSize;
+    margin: 4px 0;
+  }
+  $arrowIconSize: $arrowIconSize - 75;
+  .arrowIcon {
+    width: $arrowIconSize;
+    height: $arrowIconSize;
+    margin: 10px 0;
+  }
+}

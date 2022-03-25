@@ -50,6 +50,8 @@ import {
   LandingComponent,
   StatisticsComponent,
   BenefitsComponent,
+  InstructionsComponent,
+  PageFooterComponent
 } from './components';
 
 @NgModule({
@@ -91,6 +93,8 @@ import {
     LandingComponent,
     StatisticsComponent,
     BenefitsComponent,
+    InstructionsComponent,
+    PageFooterComponent,
   ],
   imports: [
     GooglePlaceModule,

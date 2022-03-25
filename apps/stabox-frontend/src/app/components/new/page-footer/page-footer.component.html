@@ -1,0 +1,19 @@
+<div class="container-fluid footerContainer">
+    <div class="row">
+        <div class="col-12 socialsRow">
+            <button mat-icon-button (mouseover)="instagramIconSrc = 'assets/images/new/icons/instagramGreen.svg'" (mouseleave)="instagramIconSrc = 'assets/images/new/icons/instagram.svg'">
+                <img [src]="instagramIconSrc">
+            </button>
+            <button mat-icon-button (mouseover)="facebookIconSrc = 'assets/images/new/icons/facebookGreen.svg'" (mouseleave)="facebookIconSrc = 'assets/images/new/icons/facebook.svg'">
+                <img [src]="facebookIconSrc">
+            </button>
+            <button mat-icon-button (mouseover)="twitterIconSrc = 'assets/images/new/icons/twitterGreen.svg'" (mouseleave)="twitterIconSrc = 'assets/images/new/icons/twitter.svg'">
+                <img [src]="twitterIconSrc">
+            </button>
+        </div>
+        <div class="col-12 copyrightRow">
+            <mat-icon>copyright</mat-icon>
+            <span>2022 Stabox. All rights reserved.</span>
+        </div>
+    </div>
+</div>
