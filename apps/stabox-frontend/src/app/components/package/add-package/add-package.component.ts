@@ -25,7 +25,7 @@ export class AddPackageComponent implements OnInit {
   sizeY = 0;
   sizeZ = 0;
   myWeight = 0;
-  selectedWeight = 'gramm';
+  selectedWeight = 'g';
 
   selectedReciever = 0;
   selectedAddress = 0;
@@ -41,7 +41,7 @@ export class AddPackageComponent implements OnInit {
     private snackbarService: SnackbarService,
     public recieverService: RecieverService,
     public themeService: ThemeService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     //get user's addresses
@@ -77,14 +77,25 @@ export class AddPackageComponent implements OnInit {
     ) {
       this.package.size = this.sizeX + 'x' + this.sizeY + 'x' + this.sizeZ;
       this.package.weight = this.myWeight + this.selectedWeight;
-      this.snackbarService.showSuccessSnackbar(this.package.name+" added, waiting for a shipper!")
+
       console.log(this.package);
       this.packageService.addPackage({
         ...this.package,
         recieverId: Number(this.selectedReciever),
         fromAddressId: Number(this.selectedAddress),
-      });
-      this.done();
+      }).then(succ => {
+        if (succ) {
+          this.snackbarService.showSuccessSnackbar(this.package.name + " added, waiting for a shipper!");
+          console.log('DONE')
+          this.done();
+        }
+        else {
+          this.snackbarService.showErrorSnackbar("You dont have enough stabucks to post this package")
+        }
+      },
+        err => this.snackbarService.showErrorSnackbar('Unexpected Server error')
+      );
+
     }
   }
 

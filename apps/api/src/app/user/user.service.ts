@@ -18,7 +18,7 @@ export class UserService extends GenericService<userInterface> {
   constructor(
     @InjectRepository(userEntity)
     private userRepository: Repository<userInterface>,
-    private readonly transactinoService: TransactionService,
+    private readonly transactionService: TransactionService,
     private httpService: HttpService
   ) {
     super(userRepository);
@@ -132,7 +132,7 @@ export class UserService extends GenericService<userInterface> {
   async addtransaction(user: userInterface, amount: number) {
     user.stabucks += amount;
     return this.update(user.id, user).then(async () => {
-      this.transactinoService.create({
+      this.transactionService.create({
         userId: user.id,
         amount: amount
       })

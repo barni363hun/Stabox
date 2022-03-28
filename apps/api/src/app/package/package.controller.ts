@@ -40,7 +40,7 @@ class packageDto {
   @Matches('[0-9]+x[0-9]+x[0-9]+')
   size: string;
   @IsString()
-  @Matches('([0-9]+gramm|[0-9]+kilogramm)')
+  @Matches('([0-9]+g|[0-9]+kg)')
   weight: string;
   @IsBoolean()
   fragile: boolean;
@@ -70,7 +70,7 @@ export class PackageController {
     private readonly exchangeDateService: ExchangeDateService,
     private readonly vehicleService: VehicleService,
     private readonly userService: UserService,
-    private readonly transactionService: TransactionService
+    // private readonly transactionService: TransactionService
   ) { }
 
   //creates package
@@ -80,8 +80,10 @@ export class PackageController {
   @Put()
   async create(@Req() req: authRequest, @Body() body: packageDto) {
     const price = await this.calculatePrice(body.size, body.weight);
-    const user = await this.userService.getById(req.user.sub)
-    if (price < user.stabucks) {
+    const user = await this.userService.getById(req.user.sub);
+    console.log(user);
+    console.log(price);
+    if (price > user.stabucks) {
       throw new NotAcceptableException('Not enough stabucks to post this package')
     }
     return this.packageService.create({
@@ -197,9 +199,9 @@ export class PackageController {
   async sent(@Req() req: authRequest, @Body() body: idDto) {
     return this.packageService.getById(body.id).then(async (a) => {
       if (a.vehicleId == 0) {
-        const n = await this.addressService.getById(a.fromAddressId);
+        const address = await this.addressService.getById(a.fromAddressId);
         return await this.packageService.update(body.id, {
-          currentCity: n.cityName,
+          currentCity: address.cityName,
         });
       } else {
         throw new MethodNotAllowedException(
@@ -262,16 +264,15 @@ export class PackageController {
   }
 
   private async getWeightInGramms(weight: string): Promise<number> {
-    if (weight.includes('gramm'))
-      return Number(weight.replace('gramm', ''));
+    if (weight.includes('kg'))
+      return Number(weight.replace('kg', '')) * 1000;
     else
-      return Number(weight.replace('kilogramm', '')) * 1000;
+      return Number(weight.replace('g', ''));
   }
 
   private async calcDimensions(size: string): Promise<number> {
     const dimensions: number[] = size.split('x').map(Number);
-    return dimensions.reduce((a, b) => a * b, 1)
+    return dimensions.reduce((a, b) => a * b, 1);
   }
-
 
 }

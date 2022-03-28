@@ -11,7 +11,7 @@ export class PackageService {
   public packages: any[] = []
   private route: '/package/myPackages' | '/package/acceptable' | '/package/accepted' = '/package/myPackages';
 
-  
+
   constructor(private http: HttpClient) {
     this.update()
   }
@@ -27,7 +27,7 @@ export class PackageService {
       }
     )
   }
-  
+
   postPackage(id: any, vehicleId: number, postDate: any) {
     this.http.patch(environment.apiURL + '/package',
       { id, vehicleId, postDate }).subscribe(
@@ -42,10 +42,19 @@ export class PackageService {
   }
 
   async addPackage(_package: any) {
-    await firstValueFrom(this.http.put(environment.apiURL + '/package', _package)).catch(err => console.log(err))
-    this.update()
+    // await firstValueFrom(this.http.put(environment.apiURL + '/package', _package)).catch(err => console.log(err))
+    // this.update()
+    let successful: Boolean = false;
+    await firstValueFrom(this.http.put(environment.apiURL + '/package', _package)).then(
+      () => {
+        this.update();
+        successful = true
+      },
+      console.log
+    )
+    return successful;
   }
-  
+
   update(route: typeof this.route = this.route) {
     this.route = route
     this.getMypackages().subscribe((res) => {
@@ -54,7 +63,7 @@ export class PackageService {
       console.log(this.packages)
     })
   }
-  
+
   getMypackages(): Observable<any> {
     return this.http.get(environment.apiURL + this.route)
   }
