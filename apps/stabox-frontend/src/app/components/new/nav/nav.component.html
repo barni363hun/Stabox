@@ -1,14 +1,16 @@
-<div class="nav">
-    <button mat-icon-button class="navItem" routerLink="home">
-        <mat-icon class="navItemIcon">home</mat-icon>
-    </button>
-    <button mat-icon-button class="navItem" routerLink="profile">
-        <mat-icon class="navItemIcon">person</mat-icon>
-    </button>
-    <div class="themeToggleContainer">
-        <button mat-icon-button class="navItem" (click)="toggleChecked()">
-            <mat-icon class="themeToggleIcon">brightness_2</mat-icon>
+<div [ngClass]="{ light: themeService.light }">
+    <div class="nav">
+        <button mat-icon-button class="navItem" routerLink="home">
+            <mat-icon class="navItemIcon">home</mat-icon>
         </button>
-        <mat-slide-toggle [(ngModel)]="isChecked" (click)="toggleTheme()"></mat-slide-toggle>
+        <button mat-icon-button class="navItem" routerLink="profile">
+            <mat-icon class="navItemIcon">person</mat-icon>
+        </button>
+        <div class="themeToggleContainer">
+            <button mat-icon-button class="navItem" (click)="toggleChecked()">
+                <mat-icon class="themeToggleIcon">brightness_2</mat-icon>
+            </button>
+            <mat-slide-toggle [(ngModel)]="isChecked" (click)="toggleTheme()"></mat-slide-toggle>
+        </div>
     </div>
 </div>

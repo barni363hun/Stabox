@@ -1,9 +1,18 @@
 @import '../../colors.scss';
 @import '../../variables.scss';
 
+.light .benefitsContainer {
+  color: $blackLight;
+}
+.light .listItemDescription {
+  color: $descriptionLight;
+}
+
 .benefitsContainer {
   width: 100%;
   height: fit-content;
+
+  color: $white;
 
   padding: 0;
   margin: 0;
@@ -15,8 +24,6 @@
 }
 
 .title {
-  color: $white;
-
   padding: 0 10px;
   margin: 0;
 
@@ -93,8 +100,6 @@
 .listItemTitle {
   width: fit-content;
   height: fit-content;
-
-  color: $white;
 
   margin: 0;
   padding: 0;

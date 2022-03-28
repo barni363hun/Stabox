@@ -1,8 +1,17 @@
 @import '../../colors.scss';
 
+.light .instructionsContainer {
+  color: $blackLight;
+}
+.light .instructionsColumn span {
+  color: $descriptionLight;
+}
+
 .instructionsContainer {
   width: 100%;
   height: fit-content;
+
+  color: $white;
 
   padding: 0;
   margin: 50px 0 0 0;
@@ -14,8 +23,6 @@
 }
 
 .title {
-  color: $white;
-
   padding: 0 10px;
   margin: 0;
 
@@ -298,5 +305,8 @@ $arrowIconSize: 125px;
     width: $arrowIconSize;
     height: $arrowIconSize;
     margin: 10px 0;
+  }
+  .decorativeLineContainer {
+    display: none;
   }
 }

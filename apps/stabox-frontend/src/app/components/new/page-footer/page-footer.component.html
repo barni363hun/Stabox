@@ -1,19 +1,33 @@
-<div class="container-fluid footerContainer">
-    <div class="row">
-        <div class="col-12 socialsRow">
-            <button mat-icon-button (mouseover)="instagramIconSrc = 'assets/images/new/icons/instagramGreen.svg'" (mouseleave)="instagramIconSrc = 'assets/images/new/icons/instagram.svg'">
-                <img [src]="instagramIconSrc">
-            </button>
-            <button mat-icon-button (mouseover)="facebookIconSrc = 'assets/images/new/icons/facebookGreen.svg'" (mouseleave)="facebookIconSrc = 'assets/images/new/icons/facebook.svg'">
-                <img [src]="facebookIconSrc">
-            </button>
-            <button mat-icon-button (mouseover)="twitterIconSrc = 'assets/images/new/icons/twitterGreen.svg'" (mouseleave)="twitterIconSrc = 'assets/images/new/icons/twitter.svg'">
-                <img [src]="twitterIconSrc">
-            </button>
-        </div>
-        <div class="col-12 copyrightRow">
-            <mat-icon>copyright</mat-icon>
-            <span>2022 Stabox. All rights reserved.</span>
+<div [ngClass]="{ light: themeService.light }">
+    <div class="container-fluid footerContainer">
+        <div class="row">
+            <div class="col-12 socialsRow" *ngIf="!themeService.light">
+                <button mat-icon-button (mouseover)="instagramIconSrc = 'assets/images/new/darkTheme/icons/instagramGreen.svg'" (mouseleave)="instagramIconSrc = 'assets/images/new/darkTheme/icons/instagram.svg'">
+                    <img [src]="instagramIconSrc">
+                </button>
+                <button mat-icon-button (mouseover)="facebookIconSrc = 'assets/images/new/darkTheme/icons/facebookGreen.svg'" (mouseleave)="facebookIconSrc = 'assets/images/new/darkTheme/icons/facebook.svg'">
+                    <img [src]="facebookIconSrc">
+                </button>
+                <button mat-icon-button (mouseover)="twitterIconSrc = 'assets/images/new/darkTheme/icons/twitterGreen.svg'" (mouseleave)="twitterIconSrc = 'assets/images/new/darkTheme/icons/twitter.svg'">
+                    <img [src]="twitterIconSrc">
+                </button>
+            </div>
+            <div class="col-12 socialsRow" *ngIf="themeService.light">
+                <button mat-icon-button (mouseover)="instagramIconLightSrc = 'assets/images/new/darkTheme/icons/instagramGreen.svg'" (mouseleave)="instagramIconLightSrc = 'assets/images/new/lightTheme/icons/instagram.svg'">
+                    <img [src]="instagramIconLightSrc">
+                </button>
+                <button mat-icon-button (mouseover)="facebookIconLightSrc = 'assets/images/new/darkTheme/icons/facebookGreen.svg'" (mouseleave)="facebookIconLightSrc = 'assets/images/new/lightTheme/icons/facebook.svg'">
+                    <img [src]="facebookIconLightSrc">
+                </button>
+                <button mat-icon-button (mouseover)="twitterIconLightSrc = 'assets/images/new/darkTheme/icons/twitterGreen.svg'" (mouseleave)="twitterIconLightSrc = 'assets/images/new/lightTheme/icons/twitter.svg'">
+                    <img [src]="twitterIconLightSrc">
+                </button>
+            </div>
+            <div class="col-12 copyrightRow">
+                <mat-icon>copyright</mat-icon>
+                <span>2022 Stabox.&nbsp;</span>
+                <span>All rights reserved.</span>
+            </div>
         </div>
     </div>
 </div>

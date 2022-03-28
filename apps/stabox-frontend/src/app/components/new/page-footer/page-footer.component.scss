@@ -1,5 +1,9 @@
 @import '../colors.scss';
 
+.light .copyrightRow {
+  color: $descriptionLight;
+}
+
 .footerContainer {
   width: 100%;
   height: fit-content;
@@ -7,6 +11,31 @@
 
   padding: 0 0 75px 0;
   margin: 50px 0 0 0;
+}
+
+.socialsRow {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.socialsRow button {
+  padding: 25px;
+  margin: 0 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+$footerSocialIconSize: 35px;
+button img {
+  width: $footerSocialIconSize;
+  height: $footerSocialIconSize;
 }
 
 .copyrightRow {
@@ -25,33 +54,9 @@
   align-items: center;
 }
 .copyrightRow mat-icon {
-  transform: scale(1);
   margin: 0 5px 0 0;
-}
 
-.socialsRow {
-  width: 100%;
-  height: fit-content;
-
-  padding: 0;
-  margin: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.socialsRow button {
-  padding: 20px;
-  margin: 0 5px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-$footerSocialIconSize: 35px;
-button img {
-  width: $footerSocialIconSize;
-  height: $footerSocialIconSize;
+  transform: scale(1);
 }
 
 @media only screen and (max-width: 1140px) {
@@ -66,7 +71,7 @@ button img {
     margin: 0 4.5px 0 0;
   }
   .socialsRow button {
-    padding: 19px;
+    padding: 24px;
     margin: 0 4.5px;
   }
   $footerSocialIconSize: $footerSocialIconSize - 2.5px;
@@ -84,7 +89,7 @@ button img {
     margin: 0 4px 0 0;
   }
   .socialsRow button {
-    padding: 18px;
+    padding: 23px;
     margin: 0 4px;
   }
   $footerSocialIconSize: $footerSocialIconSize - 5px;
@@ -102,7 +107,7 @@ button img {
     margin: 0 3.5px 0 0;
   }
   .socialsRow button {
-    padding: 17px;
+    padding: 22px;
     margin: 0 3.5px;
   }
   $footerSocialIconSize: $footerSocialIconSize - 7.5px;
@@ -120,7 +125,7 @@ button img {
     margin: 0 3px 0 0;
   }
   .socialsRow button {
-    padding: 16px;
+    padding: 21px;
     margin: 0 3px;
   }
   $footerSocialIconSize: $footerSocialIconSize - 10px;
@@ -138,7 +143,7 @@ button img {
     margin: 0 2.5px 0 0;
   }
   .socialsRow button {
-    padding: 15px;
+    padding: 20px;
     margin: 0 2.75px;
   }
   $footerSocialIconSize: $footerSocialIconSize - 11.25px;
@@ -150,13 +155,14 @@ button img {
 @media only screen and (max-width: 300px) {
   .copyrightRow {
     font-size: 10px;
+    flex-direction: column;
   }
   .copyrightRow mat-icon {
     transform: scale(0.7);
     margin: 0 2px 0 0;
   }
   .socialsRow button {
-    padding: 14px;
+    padding: 19px;
     margin: 0 2.5px;
   }
   $footerSocialIconSize: $footerSocialIconSize - 12.5px;

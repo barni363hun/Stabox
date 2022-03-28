@@ -10,7 +10,7 @@
   color: $white;
   background-color: $black;
 
-  background-image: url('../../../../../assets/images/new/images/homePageBackground.png');
+  background-image: url('../../../../../assets/images/new/darkTheme/images/homePageBackground.png');
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center top;
@@ -27,6 +27,8 @@
 
   width: 100%;
   height: fit-content;
+
+  text-shadow: 1px 1px 4px rgba($black, 50%);
 
   padding: 150px 0 0 0;
   margin: 0;

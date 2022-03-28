@@ -95,7 +95,7 @@ $shadeColor: black;
 .lightMode .group {
   border-color: rgba($colorLightGray, 0.15);
 }
-.lightMode {
+.lightMode .contentContainer {
   background-color: $bgColorWhite;
 }
 

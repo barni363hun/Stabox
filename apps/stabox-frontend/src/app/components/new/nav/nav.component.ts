@@ -14,17 +14,26 @@ export class NavComponent implements OnInit {
 
   constructor(public themeService: ThemeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isChecked = !this.themeService.light;
+  }
+
+  toggleTheme() {
+    if (!this.isChecked) {
+      this.themeService.setTheme('dark');
+    } else {
+      this.themeService.setTheme('light');
+    }
+  }
 
   toggleChecked() {
     if (this.isChecked) {
       this.isChecked = false;
-    } else {
+    }
+    else {
       this.isChecked = true;
     }
-  }
 
-  toggleTheme() {
     if (this.isChecked) {
       this.themeService.setTheme('dark');
     } else {

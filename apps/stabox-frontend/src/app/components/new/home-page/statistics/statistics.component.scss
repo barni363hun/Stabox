@@ -1,6 +1,10 @@
 @import '../../colors.scss';
 @import '../../variables.scss';
 
+.light .statisticsItem {
+  color: $blackLight;
+}
+
 .statisticsContainer {
   width: 100%;
   height: fit-content;
