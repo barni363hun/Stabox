@@ -61,29 +61,107 @@ button img {
   .copyrightRow {
     font-size: 15px;
   }
+  .copyrightRow mat-icon {
+    transform: scale(0.95);
+    margin: 0 4.5px 0 0;
+  }
+  .socialsRow button {
+    padding: 19px;
+    margin: 0 4.5px;
+  }
+  $footerSocialIconSize: $footerSocialIconSize - 2.5px;
+  button img {
+    width: $footerSocialIconSize;
+    height: $footerSocialIconSize;
+  }
 }
 @media only screen and (max-width: 960px) {
   .copyrightRow {
     font-size: 14px;
+  }
+  .copyrightRow mat-icon {
+    transform: scale(0.9);
+    margin: 0 4px 0 0;
+  }
+  .socialsRow button {
+    padding: 18px;
+    margin: 0 4px;
+  }
+  $footerSocialIconSize: $footerSocialIconSize - 5px;
+  button img {
+    width: $footerSocialIconSize;
+    height: $footerSocialIconSize;
   }
 }
 @media only screen and (max-width: 720px) {
   .copyrightRow {
     font-size: 13px;
   }
+  .copyrightRow mat-icon {
+    transform: scale(0.85);
+    margin: 0 3.5px 0 0;
+  }
+  .socialsRow button {
+    padding: 17px;
+    margin: 0 3.5px;
+  }
+  $footerSocialIconSize: $footerSocialIconSize - 7.5px;
+  button img {
+    width: $footerSocialIconSize;
+    height: $footerSocialIconSize;
+  }
 }
 @media only screen and (max-width: 540px) {
   .copyrightRow {
     font-size: 12px;
+  }
+  .copyrightRow mat-icon {
+    transform: scale(0.8);
+    margin: 0 3px 0 0;
+  }
+  .socialsRow button {
+    padding: 16px;
+    margin: 0 3px;
+  }
+  $footerSocialIconSize: $footerSocialIconSize - 10px;
+  button img {
+    width: $footerSocialIconSize;
+    height: $footerSocialIconSize;
   }
 }
 @media only screen and (max-width: 380px) {
   .copyrightRow {
     font-size: 11px;
   }
+  .copyrightRow mat-icon {
+    transform: scale(0.75);
+    margin: 0 2.5px 0 0;
+  }
+  .socialsRow button {
+    padding: 15px;
+    margin: 0 2.75px;
+  }
+  $footerSocialIconSize: $footerSocialIconSize - 11.25px;
+  button img {
+    width: $footerSocialIconSize;
+    height: $footerSocialIconSize;
+  }
 }
 @media only screen and (max-width: 300px) {
   .copyrightRow {
     font-size: 10px;
+  }
+  .copyrightRow mat-icon {
+    transform: scale(0.7);
+    margin: 0 2px 0 0;
+  }
+  .socialsRow button {
+    padding: 14px;
+    margin: 0 2.5px;
+  }
+  $footerSocialIconSize: $footerSocialIconSize - 12.5px;
+  button img {
+    width: $footerSocialIconSize;
+    height: $footerSocialIconSize;
   }
 }
