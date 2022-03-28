@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   MethodNotAllowedException,
+  NotAcceptableException,
   Patch,
   Post,
   Put,
@@ -17,6 +18,8 @@ import { AddressService } from '../address/address.service';
 import { AuthGuard, authRequest, RoleGuard } from '../auth';
 import { Roles } from '../auth/roles.decorator';
 import { ExchangeDateService } from '../exchange-date/exchange-date.service';
+import { TransactionService } from '../transaction/transaction.service';
+import { UserService } from '../user/user.service';
 import { VehicleService } from '../vehicle/vehicle.service';
 import { PackageService } from './package.service';
 
@@ -65,31 +68,38 @@ export class PackageController {
     private readonly packageService: PackageService,
     private readonly addressService: AddressService,
     private readonly exchangeDateService: ExchangeDateService,
-    private readonly vehicleService: VehicleService
-  ) {}
+    private readonly vehicleService: VehicleService,
+    private readonly userService: UserService,
+    private readonly transactionService: TransactionService
+  ) { }
 
   //creates package
+  // TODO!! NEEDS TESTING!!!!
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
   @Put()
-  create(@Req() req: authRequest, @Body() body: packageDto) {
+  async create(@Req() req: authRequest, @Body() body: packageDto) {
+    const price = await this.calculatePrice(body.size, body.weight);
+    const user = await this.userService.getById(req.user.sub)
+    if (price < user.stabucks) {
+      throw new NotAcceptableException('Not enough stabucks to post this package')
+    }
     return this.packageService.create({
       userId: req.user.sub,
-      price: 500,
+      price: price,
       ...body,
-    });
-  }
-
-  //create package with address
-  @UseGuards(AuthGuard, RoleGuard)
-  @Roles('user')
-  @Put('/add')
-  createWithAddress(@Req() req: authRequest, @Body() body: packageDto) {
-    return this.packageService.create({
-      userId: req.user.sub,
-      price: 500,
-      ...body,
-    });
+    }).then(async () => {
+      this.userService.addtransaction(user, -price)
+    })
+    // .then(async () => {
+    //   user.stabucks -= price;
+    //   await this.userService.update((await user).id, user);
+    // })
+    // .then(async () => this.transactionService.create({
+    //   userId: user.id,
+    //   amount: -price
+    // },
+    // ));
   }
 
   // gets all packages
@@ -117,18 +127,19 @@ export class PackageController {
   getMyPackagesWithAddress(@Req() req: authRequest): Promise<packageEntity[]> {
     return this.packageService.find({
       where: { userId: req.user.sub },
-      relations: ['fromAddress','reciever','reciever.address'],
+      relations: ['fromAddress', 'reciever', 'reciever.address'],
     });
   }
   // gets acceptable packages
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('shipper')
   @Get('/acceptable')
-  getAcceptable(@Req() req: authRequest): Promise<any> {
-    return this.packageService.find({
+  async getAcceptable(@Req() req: authRequest): Promise<any> {
+    const res = await this.packageService.find({
       where: { vehicleId: null, userId: Not(req.user.sub) },
-      relations: ['fromAddress','reciever','reciever.address'],
-    }).then((res: any[]) => res)
+      relations: ['fromAddress', 'reciever', 'reciever.address'],
+    });
+    return res;
   }
   // gets accepted packages
   @UseGuards(AuthGuard, RoleGuard)
@@ -142,7 +153,7 @@ export class PackageController {
           userId: req.user.sub,
         },
       },
-      relations: ['fromAddress', 'vehicle','reciever','reciever.address'],
+      relations: ['fromAddress', 'vehicle', 'reciever', 'reciever.address'],
     });
   }
 
@@ -150,35 +161,33 @@ export class PackageController {
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('user')
   @Delete()
-  delete(@Req() req: authRequest, @Body() body: idDto) {
-    return this.packageService.getById(body.id).then((a) => {
-      if (a.userId == req.user.sub) {
-        return this.packageService.delete(body.id);
-      } else {
-        throw new MethodNotAllowedException(
-          'You can only delete your own package'
-        );
-      }
-    });
+  async delete(@Req() req: authRequest, @Body() body: idDto) {
+    const a = await this.packageService.getById(body.id);
+    if (a.userId == req.user.sub) {
+      return this.packageService.delete(body.id);
+    } else {
+      throw new MethodNotAllowedException(
+        'You can only delete your own package'
+      );
+    }
   }
 
   //assign vehicle, select post date
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('shipper')
   @Patch()
-  assignMe(@Req() req: authRequest, @Body() body: assignMeDto) {
-    return this.packageService.getById(body.id).then((a) => {
-      if (a.userId !== req.user.sub) {
-        return this.packageService.update(body.id, {
-          vehicleId: body.vehicleId,
-          postDate: body.postDate,
-        });
-      } else {
-        throw new MethodNotAllowedException(
-          'You can not accept your own package'
-        );
-      }
-    });
+  async assignMe(@Req() req: authRequest, @Body() body: assignMeDto) {
+    const a = await this.packageService.getById(body.id);
+    if (a.userId !== req.user.sub) {
+      return this.packageService.update(body.id, {
+        vehicleId: body.vehicleId,
+        postDate: body.postDate,
+      });
+    } else {
+      throw new MethodNotAllowedException(
+        'You can not accept your own package'
+      );
+    }
   }
 
   //sent
@@ -186,12 +195,11 @@ export class PackageController {
   @Roles('user')
   @Post()
   async sent(@Req() req: authRequest, @Body() body: idDto) {
-    return this.packageService.getById(body.id).then((a) => {
+    return this.packageService.getById(body.id).then(async (a) => {
       if (a.vehicleId == 0) {
-        return this.addressService.getById(a.fromAddressId).then((n) => {
-          return this.packageService.update(body.id, {
-            currentCity: n.cityName,
-          });
+        const n = await this.addressService.getById(a.fromAddressId);
+        return await this.packageService.update(body.id, {
+          currentCity: n.cityName,
         });
       } else {
         throw new MethodNotAllowedException(
@@ -227,26 +235,43 @@ export class PackageController {
   }
 
   //adds "shipped" date
+  //finishes a package
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('shipper')
   @Post('/shipped')
-  shipped(@Req() req: authRequest, @Body() body: idDateDto) {
-    return this.packageService
-      .find({
-        where: { id: body.id },
-      })
-      .then((packag) => {
-        return this.vehicleService.getById(packag[0].vehicleId).then((veh) => {
-          if (veh.userId == req.user.sub) {
-            return this.packageService.update(body.id, {
-              shippingDate: new Date().toISOString(),
-            });
-          } else {
-            throw new MethodNotAllowedException(
-              'You can only approve packages shipped by you'
-            );
-          }
-        });
+  async shipped(@Req() req: authRequest, @Body() body: idDateDto) {
+    const _package = await this.packageService.getById(body.id);
+    const vehicle = await this.vehicleService.getById(_package.vehicleId);
+    if (vehicle.userId == req.user.sub) {
+      return this.packageService.update(body.id, {
+        shippingDate: new Date().toISOString(),
+      }).then(async () => {
+        this.userService.addtransaction(await this.userService.getById(vehicle.userId), _package.price)
       });
+    } else {
+      throw new MethodNotAllowedException(
+        'You can only approve packages shipped by you'
+      );
+    }
   }
+
+  private async calculatePrice(size: string, weight: string): Promise<number> {
+    const weightNumber = this.getWeightInGramms(weight);
+    const sizeNumber = this.calcDimensions(size);
+    return (await weightNumber * await sizeNumber) / 100000;
+  }
+
+  private async getWeightInGramms(weight: string): Promise<number> {
+    if (weight.includes('gramm'))
+      return Number(weight.replace('gramm', ''));
+    else
+      return Number(weight.replace('kilogramm', '')) * 1000;
+  }
+
+  private async calcDimensions(size: string): Promise<number> {
+    const dimensions: number[] = size.split('x').map(Number);
+    return dimensions.reduce((a, b) => a * b, 1)
+  }
+
+
 }

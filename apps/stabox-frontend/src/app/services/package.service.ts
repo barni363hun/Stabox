@@ -42,7 +42,7 @@ export class PackageService {
   }
 
   async addPackage(_package: any) {
-    await firstValueFrom(this.http.put(environment.apiURL + '/package/add', _package)).catch(err => console.log(err))
+    await firstValueFrom(this.http.put(environment.apiURL + '/package', _package)).catch(err => console.log(err))
     this.update()
   }
   
