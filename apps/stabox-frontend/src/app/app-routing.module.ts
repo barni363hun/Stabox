@@ -11,6 +11,7 @@ import {
   AccountPageComponent,
   PackagesPageComponent,
   HomePageComponent,
+  ProfilePageComponent,
 } from './components';
 
 @Component({
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomePageComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfilePageComponent,
   },
 
   { path: 'test1', component: AddRecieverWithAddressComponent },

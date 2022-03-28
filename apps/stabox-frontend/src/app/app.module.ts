@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import {
   AccountButtonComponent,
@@ -51,7 +52,8 @@ import {
   StatisticsComponent,
   BenefitsComponent,
   InstructionsComponent,
-  PageFooterComponent
+  PageFooterComponent,
+  ProfilePageComponent,
 } from './components';
 
 @NgModule({
@@ -95,6 +97,7 @@ import {
     BenefitsComponent,
     InstructionsComponent,
     PageFooterComponent,
+    ProfilePageComponent,
   ],
   imports: [
     GooglePlaceModule,
@@ -118,7 +121,8 @@ import {
     }),
     MatIconModule,
     MatTooltipModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSlideToggleModule
   ],
   bootstrap: [AppComponent],
   providers: [

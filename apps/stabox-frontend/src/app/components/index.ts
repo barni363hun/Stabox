@@ -45,6 +45,8 @@ export * from './new/home-page/landing/landing.component';
 export * from './new/home-page/statistics/statistics.component';
 export * from './new/home-page/instructions/instructions.component';
 
+export * from './new/profile-page/profile-page.component';
+
 export * from './new/nav/nav.component';
 export * from './new/page-footer/page-footer.component';
 
