@@ -48,6 +48,7 @@ export * from './new/home-page/instructions/instructions.component';
 export * from './new/profile-page/profile-page.component';
 
 export * from './new/nav/nav.component';
+export * from './new/side-nav/side-nav.component';
 export * from './new/page-footer/page-footer.component';
 
 export * from './new/button-raised/button-raised.component';

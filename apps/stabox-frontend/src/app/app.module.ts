@@ -54,6 +54,7 @@ import {
   InstructionsComponent,
   PageFooterComponent,
   ProfilePageComponent,
+  SideNavComponent,
 } from './components';
 
 @NgModule({
@@ -98,6 +99,7 @@ import {
     InstructionsComponent,
     PageFooterComponent,
     ProfilePageComponent,
+    SideNavComponent,
   ],
   imports: [
     GooglePlaceModule,

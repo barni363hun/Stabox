@@ -1,0 +1,36 @@
+<div class="sideNav">
+
+    <div class="logo">
+        <img class="logoImage" src="assets/images/new/icons/logo.svg">
+        <span class="logoText">stabox</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <div class="navItem" routerLink="/home" (mouseover)="homeIconSrc = 'assets/images/new/icons/homeGreen.svg'" (mouseleave)="homeIconSrc = 'assets/images/new/icons/homeWhite.svg'">
+            <img [src]="homeIconSrc">
+            <span>Home</span>
+        </div>
+        <div class="navItem" (mouseover)="accountIconSrc = 'assets/images/new/icons/personGreen.svg'" (mouseleave)="accountIconSrc = 'assets/images/new/icons/personWhite.svg'">
+            <img [src]="accountIconSrc">
+            <span>Account</span>
+        </div>
+        <div class="navItem" (mouseover)="addressIconSrc = 'assets/images/new/icons/locationGreen.svg'" (mouseleave)="addressIconSrc = 'assets/images/new/icons/locationWhite.svg'">
+            <img [src]="addressIconSrc">
+            <span>Addressess</span>
+        </div>
+        <div class="navItem" (mouseover)="dateIconSrc = 'assets/images/new/icons/dateGreen.svg'" (mouseleave)="dateIconSrc = 'assets/images/new/icons/dateWhite.svg'">
+            <img [src]="dateIconSrc">
+            <span>Dates</span>
+        </div>
+        <div class="navItem" (mouseover)="boxIconSrc = 'assets/images/new/icons/boxGreen.svg'" (mouseleave)="boxIconSrc = 'assets/images/new/icons/boxWhite.svg'">
+            <img [src]="boxIconSrc">
+            <span>Packages</span>
+        </div>
+    </div>
+
+    <div class="profileContainer">
+        
+    </div>
+</div>
