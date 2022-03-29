@@ -1,0 +1,63 @@
+@import '../colors.scss';
+
+.button {
+  height: fit-content;
+  width: fit-content;
+
+  color: $white;
+  background: linear-gradient(60deg, $lightRed 50%, $red 50%);
+
+  padding: 15px 45px;
+  margin: 0 auto;
+
+  font-size: 35px;
+
+  text-shadow: 1px 1px 4px rgba($black, 50%);
+  box-shadow: 0 0 5px rgba($black, 50%);
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  border: none;
+}
+.button:hover {
+  cursor: pointer;
+  background: linear-gradient(60deg, $lightRed 60%, $red 40%);
+}
+
+@media only screen and (max-width: 1140px) {
+  .button {
+    padding: 13.5px 41px;
+    font-size: 31px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .button {
+    padding: 11px 37px;
+    font-size: 27px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .button {
+    padding: 8.5px 33px;
+    font-size: 23px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .button {
+    padding: 6px 29px;
+    font-size: 19px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .button {
+    padding: 3.5px 23px;
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .button {
+    padding: 1.5px 19px;
+    font-size: 12px;
+  }
+}
