@@ -55,6 +55,8 @@ import {
   PageFooterComponent,
   ProfilePageComponent,
   SideNavComponent,
+  BottomNavComponent,
+  AccountComponent,
 } from './components';
 
 @NgModule({
@@ -100,6 +102,8 @@ import {
     PageFooterComponent,
     ProfilePageComponent,
     SideNavComponent,
+    BottomNavComponent,
+    AccountComponent,
   ],
   imports: [
     GooglePlaceModule,
@@ -124,7 +128,7 @@ import {
     MatIconModule,
     MatTooltipModule,
     MatButtonModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
   ],
   bootstrap: [AppComponent],
   providers: [

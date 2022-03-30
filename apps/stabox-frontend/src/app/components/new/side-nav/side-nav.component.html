@@ -12,7 +12,7 @@
             <img [src]="homeIconSrc">
             <span>Home</span>
         </div>
-        <div class="navItem" (mouseover)="accountIconSrc = 'assets/images/new/icons/personGreen.svg'" (mouseleave)="accountIconSrc = 'assets/images/new/icons/personWhite.svg'">
+        <div class="navItem" routerLink="/profile" (mouseover)="accountIconSrc = 'assets/images/new/icons/personGreen.svg'" (mouseleave)="accountIconSrc = 'assets/images/new/icons/personWhite.svg'">
             <img [src]="accountIconSrc">
             <span>Account</span>
         </div>
@@ -31,6 +31,12 @@
     </div>
 
     <div class="profileContainer">
-        
+        <!-- <stabox-user-icon></stabox-user-icon> -->
+        <div class="profileImg"></div>
+        <div class="profileData">
+            <span class="nickname">nickname</span>
+            <span class="role">Role</span>
+        </div>
+        <mat-icon class="logoutIcon" matTooltip="Sign out" matTooltipClass="statisticTooltip" matTooltipPosition="above" matTooltipShowDelay="500">power_settings_new</mat-icon>
     </div>
 </div>

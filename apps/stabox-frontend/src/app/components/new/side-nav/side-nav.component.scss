@@ -22,6 +22,11 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .logo img {
   width: $logoImageSize;
@@ -74,9 +79,79 @@
 .navItem img {
   width: $sideNavItemImageSize;
   height: $sideNavItemImageSize;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .navItem span {
   font-size: 40px;
 
   margin: 0 0 0 12.5px;
+}
+
+.profileContainer {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0 50px auto 50px;
+
+  position: absolute;
+  bottom: 50px;
+
+  display: flex;
+  align-items: center;
+}
+.profileImg {
+  width: 55px;
+  height: 55px;
+
+  background-color: $white;
+
+  border-radius: 50%;
+}
+.profileData {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0 25px 0 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  line-height: 1.75em;
+}
+.nickname {
+  font-size: 24px;
+}
+.role {
+  font-size: 18px;
+}
+.logoutIcon {
+  transform: scale(1.5);
+
+  color: $lightRed;
+}
+.logoutIcon:hover {
+  cursor: pointer;
+}
+::ng-deep .statisticTooltip {
+  height: fit-content;
+  width: fit-content;
+
+  color: $white;
+  background-color: $hoverDark;
+
+  font-size: 18px;
+  font-family: $font;
+
+  text-align: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

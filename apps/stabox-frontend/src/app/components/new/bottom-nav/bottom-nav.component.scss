@@ -1,0 +1,270 @@
+@import '../colors.scss';
+@import '../variables.scss';
+
+.bottomNav {
+  z-index: 9999;
+
+  width: 100%;
+  height: fit-content;
+
+  color: $white;
+  background-color: rgba($white, 0.015);
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+::ng-deep .mat-button-wrapper {
+  width: $bottomNavImageSize;
+  height: $bottomNavImageSize;
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navItem {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 7.5px;
+  margin: 0 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navItem img {
+  width: $bottomNavImageSize;
+  height: $bottomNavImageSize;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.profileContainer {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+
+  position: absolute;
+  right: 15px;
+
+  display: flex;
+  align-items: center;
+}
+.profileDataContainer {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+}
+.profileImg {
+  width: 35px;
+  height: 35px;
+
+  background-color: $white;
+
+  border-radius: 50%;
+}
+.profileData {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0 25px 0 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  line-height: 1.25em;
+}
+.nickname {
+  font-size: 18px;
+}
+.role {
+  font-size: 14px;
+}
+.logoutIcon {
+  transform: scale(1.55);
+
+  color: $lightRed;
+}
+.logoutIcon:hover {
+  cursor: pointer;
+}
+
+::ng-deep .navTooltip {
+  height: fit-content;
+  width: fit-content;
+
+  color: $white;
+  background-color: $hoverDark;
+
+  font-size: 18px;
+  font-family: $font;
+
+  text-align: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media only screen and (max-width: 1140px) {
+  .navItem {
+    padding: 7px;
+  }
+  $bottomNavImageSize: $bottomNavImageSize - 2.5px;
+  .navItem img {
+    width: $bottomNavImageSize;
+    height: $bottomNavImageSize;
+  }
+  ::ng-deep .mat-button-wrapper {
+    width: $bottomNavImageSize;
+    height: $bottomNavImageSize;
+  }
+  .logoutIcon {
+    transform: scale(1.55);
+
+    color: $lightRed;
+  }
+  ::ng-deep .navTooltip {
+    font-size: 17px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .navItem {
+    padding: 6.5px;
+  }
+  $bottomNavImageSize: $bottomNavImageSize - 5px;
+  .navItem img {
+    width: $bottomNavImageSize;
+    height: $bottomNavImageSize;
+  }
+  ::ng-deep .mat-button-wrapper {
+    width: $bottomNavImageSize;
+    height: $bottomNavImageSize;
+  }
+  .logoutIcon {
+    transform: scale(1.45);
+
+    color: $lightRed;
+  }
+  ::ng-deep .navTooltip {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .navItem {
+    padding: 6px;
+  }
+  $bottomNavImageSize: $bottomNavImageSize - 7.5px;
+  .navItem img {
+    width: $bottomNavImageSize;
+    height: $bottomNavImageSize;
+  }
+  ::ng-deep .mat-button-wrapper {
+    width: $bottomNavImageSize;
+    height: $bottomNavImageSize;
+  }
+  .profileDataContainer {
+    display: none;
+  }
+  .logoutIcon {
+    transform: scale(1.35);
+
+    color: $lightRed;
+  }
+  ::ng-deep .navTooltip {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .navItem {
+    padding: 5.5px;
+  }
+  $bottomNavImageSize: $bottomNavImageSize - 15px;
+  .navItem img {
+    width: $bottomNavImageSize;
+    height: $bottomNavImageSize;
+  }
+  ::ng-deep .mat-button-wrapper {
+    width: $bottomNavImageSize;
+    height: $bottomNavImageSize;
+  }
+  .logoutIcon {
+    transform: scale(1.05);
+
+    color: $lightRed;
+  }
+  ::ng-deep .navTooltip {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .navItem {
+    padding: 5px;
+  }
+  $bottomNavImageSize: $bottomNavImageSize - 17.5px;
+  .navItem img {
+    width: $bottomNavImageSize;
+    height: $bottomNavImageSize;
+  }
+  ::ng-deep .mat-button-wrapper {
+    width: $bottomNavImageSize;
+    height: $bottomNavImageSize;
+  }
+  .logoutIcon {
+    transform: scale(0.95);
+
+    color: $lightRed;
+  }
+  ::ng-deep .navTooltip {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .navItem {
+    padding: 4.5px;
+  }
+  $bottomNavImageSize: $bottomNavImageSize - 20px;
+  .navItem img {
+    width: $bottomNavImageSize;
+    height: $bottomNavImageSize;
+  }
+  ::ng-deep .mat-button-wrapper {
+    width: $bottomNavImageSize;
+    height: $bottomNavImageSize;
+  }
+  .logoutIcon {
+    transform: scale(0.85);
+
+    color: $lightRed;
+  }
+  ::ng-deep .navTooltip {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .profileContainer {
+    bottom: 35px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}

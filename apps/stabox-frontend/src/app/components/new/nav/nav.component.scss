@@ -65,15 +65,43 @@
   align-items: center;
   text-align: center;
 }
+.indicatorContainer {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+
+  position: relative;
+}
+$themeIndicatorSize: 10px;
+.indicator {
+  z-index: 1;
+
+  width: $themeIndicatorSize;
+  height: $themeIndicatorSize;
+
+  background-color: $blueGreen;
+
+  padding: 0;
+  margin: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  position: absolute;
+  left: -2.5px;
+  top: 22.5px;
+}
+.off {
+  background-color: $black;
+}
 .themeToggleIcon {
   font-size: $navItemSize - 30;
 
   color: $white;
 
   transform: rotate(150deg);
-}
-.themeToggleIcon:hover {
-  color: $blueGreen;
 }
 ::ng-deep
   .mat-slide-toggle.mat-checked:not(.mat-disabled)
@@ -85,12 +113,10 @@
   .mat-slide-toggle-thumb {
   background-color: $blueGreen;
 }
-::ng-deep
-  .mat-slide-toggle-bar {
+::ng-deep .mat-slide-toggle-bar {
   background-color: $hoverDark;
 }
-::ng-deep
-  .mat-slide-toggle-thumb {
+::ng-deep .mat-slide-toggle-thumb {
   background-color: $blackLight;
 }
 
@@ -106,6 +132,14 @@
   .themeToggleIcon {
     font-size: $navItemSize - 20;
   }
+  $themeIndicatorSize: $themeIndicatorSize - 0.1;
+  .indicator {
+    width: $themeIndicatorSize;
+    height: $themeIndicatorSize;
+
+    left: -5px;
+    top: 25px;
+  }
 }
 @media only screen and (max-width: 960px) {
   $navItemSize: 50px;
@@ -118,6 +152,14 @@
   }
   .themeToggleIcon {
     font-size: $navItemSize - 20;
+  }
+  $themeIndicatorSize: $themeIndicatorSize - 0.2;
+  .indicator {
+    width: $themeIndicatorSize;
+    height: $themeIndicatorSize;
+
+    left: -2.5px;
+    top: 22.5px;
   }
 }
 @media only screen and (max-width: 720px) {
@@ -132,6 +174,14 @@
   .themeToggleIcon {
     font-size: $navItemSize - 20;
   }
+  $themeIndicatorSize: $themeIndicatorSize - 1;
+  .indicator {
+    width: $themeIndicatorSize;
+    height: $themeIndicatorSize;
+
+    left: 0px;
+    top: 22.5px;
+  }
 }
 @media only screen and (max-width: 540px) {
   $navItemSize: 40px;
@@ -144,6 +194,14 @@
   }
   .themeToggleIcon {
     font-size: $navItemSize - 20;
+  }
+  $themeIndicatorSize: $themeIndicatorSize - 2.5;
+  .indicator {
+    width: $themeIndicatorSize;
+    height: $themeIndicatorSize;
+
+    left: 2.5px;
+    top: 20px;
   }
 }
 @media only screen and (max-width: 380px) {
@@ -158,6 +216,7 @@
   .themeToggleIcon {
     font-size: $navItemSize - 17.5;
   }
+
 }
 @media only screen and (max-width: 300px) {
   $navItemSize: 35px;

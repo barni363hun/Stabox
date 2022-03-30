@@ -8,6 +8,9 @@
         </button>
         <div class="themeToggleContainer">
             <button mat-icon-button class="navItem" (click)="toggleChecked()">
+                <div class="indicatorContainer">
+                    <div class="indicator" [ngClass]="{ off: themeService.light }"></div>
+                </div>
                 <mat-icon class="themeToggleIcon">brightness_2</mat-icon>
             </button>
             <mat-slide-toggle [(ngModel)]="isChecked" (click)="toggleTheme()"></mat-slide-toggle>
