@@ -7,7 +7,7 @@ import {
 } from '.';
 
 @Entity()
-  
+
 //forntend gets roles but we are not storing them so userEntity cant implement userInterface  
 export class userEntity {
   @PrimaryColumn()
@@ -28,7 +28,7 @@ export class userEntity {
   @Column()
   phoneNumber: string;
 
-  @Column({ default: 0 })
+  @Column({ default: 15000 })
   stabucks: number;
 
   //Relations

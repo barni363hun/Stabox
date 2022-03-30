@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SnackbarService } from '.';
 import { environment } from '../../environments/environment';
@@ -8,30 +8,38 @@ import { environment } from '../../environments/environment';
 })
 export class ContactusService {
 
-  constructor(private http: HttpClient, private snackbarService: SnackbarService) { }
+  private http: HttpClient;
   public feedback = {
     email: '',
     name: '',
     message: '',
+  }
 
+  constructor(private httpBackend: HttpBackend, private snackbarService: SnackbarService) {
+    this.http = new HttpClient(httpBackend);
   }
 
   sendFeedback() {
     if (!this.snackbarService.checkAllValueOfAnObject(this.feedback)) {
-      this.snackbarService.showErrorSnackbar('Please fill in all inputs!')
+      this.snackbarService.showErrorSnackbar('Please fill in all inputs!');
       return false;
     };
-    if (!this.snackbarService.validateEmail(this.feedback.email)){
-      this.snackbarService.showErrorSnackbar('email field must contain an email')
+
+    if (!this.snackbarService.validateEmail(this.feedback.email)) {
+      this.snackbarService.showErrorSnackbar('email field must contain an email');
       return false;
     }
-      this.http.post(environment.apiURL + '/contact-us', this.feedback).subscribe({
-        next: res => this.snackbarService.showSuccessSnackbar('Feedback sent successFully!'),
-        error: err => this.snackbarService.showErrorSnackbar(err)
-      });
+
+    this.http.post(environment.apiURL + '/contact-us', this.feedback,).subscribe({
+      next: res => this.snackbarService.showSuccessSnackbar('Feedback sent successFully!'),
+      error: err => this.snackbarService.showErrorSnackbar(err)
+
+    });
+
     this.emptyFeedback();
-    return true
+    return true;
   }
+  
   private emptyFeedback() {
     this.feedback = {
       email: '',
@@ -39,5 +47,5 @@ export class ContactusService {
       message: '',
     }
   }
-  
+
 }

@@ -6,27 +6,25 @@ import { contactUsEntity } from '../../Entities';
 import { authRequest } from '../auth';
 import { GenericService } from '../generics/generic.service';
 
-class myExchangeDateDto {
+class ContactUsDto {
+  @IsEmail()
+  email: string;
+  @IsString()
+  name: string;
+  @IsString()
+  message: string;
+}
 
-    @IsEmail()
-    email: string;
-    @IsString()
-    name: string;
-    @IsString()
-    message: string;
-  }
-  
 
 @Controller('contact-us')
 export class ContactUsController {
 
-constructor(@InjectRepository(contactUsEntity)private contactUsRepository:Repository<contactUsEntity>){}
+  constructor(@InjectRepository(contactUsEntity) private contactUsRepository: Repository<contactUsEntity>) { }
 
-@Post()
- async create(@Body() body: myExchangeDateDto) {
-  const result= this.contactUsRepository.create(body);
-  return await this.contactUsRepository.save(result)
-}
-
+  @Post()
+  async create(@Body() body: ContactUsDto) {
+    const result = this.contactUsRepository.create(body);
+    return await this.contactUsRepository.save(result)
+  }
 
 }

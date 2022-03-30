@@ -34,7 +34,7 @@ export class PackageCardComponent implements OnInit {
     private exchangeDateSercice: ExchangeDateService,
     public themeService: ThemeService,
     private snackbarService: SnackbarService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.vehicles = this.vehicleService.vehicles;
@@ -53,8 +53,8 @@ export class PackageCardComponent implements OnInit {
       this.package.vehicleId == null
         ? 'Inactive'
         : this.package.shippingDate
-        ? 'Delivered'
-        : 'Active';
+          ? 'Delivered'
+          : 'Active';
   }
 
   selectPostDate() {
@@ -84,7 +84,7 @@ export class PackageCardComponent implements OnInit {
   finishShipping() {
     this.packageService.finishPackage(this.package.id);
     this.snackbarService.showSuccessSnackbar(
-      `Package  '${this.package.name}' delivered.`
+      `Package  '${this.package.name}' delivered. Earned ${this.package.price} Stabucks!`
     );
     this.updateState();
   }
