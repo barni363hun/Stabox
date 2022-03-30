@@ -2,7 +2,7 @@
     <button mat-icon-button class="navItem" routerLink="/home" matTooltip="Home" matTooltipClass="navTooltip" (mouseover)="homeIconSrc = 'assets/images/new/icons/homeGreen.svg'" (mouseleave)="homeIconSrc = 'assets/images/new/icons/homeWhite.svg'">
         <img [src]="homeIconSrc">
     </button>
-    <button mat-icon-button class="navItem" matTooltip="Account" matTooltipClass="navTooltip" (mouseover)="accountIconSrc = 'assets/images/new/icons/personGreen.svg'" (mouseleave)="accountIconSrc = 'assets/images/new/icons/personWhite.svg'">
+    <button mat-icon-button class="navItem" routerLink="/profile" matTooltip="Account" matTooltipClass="navTooltip" (mouseover)="accountIconSrc = 'assets/images/new/icons/personGreen.svg'" (mouseleave)="accountIconSrc = 'assets/images/new/icons/personWhite.svg'">
         <img [src]="accountIconSrc">
     </button>
     <button mat-icon-button class="navItem" matTooltip="Addresses" matTooltipClass="navTooltip" (mouseover)="addressIconSrc = 'assets/images/new/icons/locationGreen.svg'" (mouseleave)="addressIconSrc = 'assets/images/new/icons/locationWhite.svg'">

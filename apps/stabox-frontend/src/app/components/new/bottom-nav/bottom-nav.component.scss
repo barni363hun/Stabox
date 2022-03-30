@@ -8,7 +8,7 @@
   height: fit-content;
 
   color: $white;
-  background-color: rgba($white, 0.015);
+  background-color: $navBlack;
 
   padding: 0;
   margin: 0;
@@ -258,13 +258,5 @@
   }
   ::ng-deep .navTooltip {
     font-size: 12px;
-  }
-}
-@media only screen and (max-width: 300px) {
-  .profileContainer {
-    bottom: 35px;
-    left: 0;
-    right: 0;
-    margin: auto;
   }
 }
