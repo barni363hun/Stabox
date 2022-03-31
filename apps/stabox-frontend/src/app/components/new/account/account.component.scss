@@ -38,6 +38,15 @@
   flex-direction: column;
 }
 
+.profileImageContainer {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+
+  position: relative;
+}
 .profileImage {
   width: $profileImageSize;
   height: $profileImageSize;
@@ -49,6 +58,46 @@
 
   border: none;
   border-radius: 50%;
+}
+
+.roleIconContainer {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+
+  position: absolute;
+  bottom: 15px;
+  right: -15px;
+}
+.roleIcon {
+  width: $roleIconSize;
+  height: $roleIconSize;
+
+  position: absolute;
+  bottom: 15px;
+  right: -15px;
+}
+.roleIcon:hover {
+  cursor: pointer;
+}
+::ng-deep .roleTooltip {
+  height: fit-content;
+  width: fit-content;
+
+  color: $white;
+  background-color: $hoverDark;
+
+  font-size: 18px;
+  font-family: $font;
+
+  text-align: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .accountData {
@@ -113,6 +162,11 @@
     width: $profileImageSize;
     height: $profileImageSize;
   }
+  $roleIconSize: $roleIconSize - 5px;
+  .roleIcon {
+    width: $roleIconSize;
+    height: $roleIconSize;
+  }
   .input-group-text {
     padding: 22px;
   }
@@ -135,6 +189,13 @@
   .profileImage {
     width: $profileImageSize;
     height: $profileImageSize;
+  }
+  $roleIconSize: $roleIconSize - 10px;
+  .roleIcon {
+    width: $roleIconSize;
+    height: $roleIconSize;
+    bottom: 16px;
+    right: -14px;
   }
   .input-group-text {
     padding: 19px;
@@ -159,6 +220,13 @@
     width: $profileImageSize;
     height: $profileImageSize;
   }
+  $roleIconSize: $roleIconSize - 15px;
+  .roleIcon {
+    width: $roleIconSize;
+    height: $roleIconSize;
+    bottom: 17px;
+    right: -13px;
+  }
   .input-group-text {
     padding: 16px;
   }
@@ -181,6 +249,13 @@
   .profileImage {
     width: $profileImageSize;
     height: $profileImageSize;
+  }
+  $roleIconSize: $roleIconSize - 20px;
+  .roleIcon {
+    width: $roleIconSize;
+    height: $roleIconSize;
+    bottom: 18px;
+    right: -12px;
   }
   .input-group-text {
     padding: 13px;
@@ -210,11 +285,15 @@
     width: $profileImageSize;
     height: $profileImageSize;
   }
+  $roleIconSize: $roleIconSize - 25px;
+  .roleIcon {
+    width: $roleIconSize;
+    height: $roleIconSize;
+    bottom: 19px;
+    right: -11px;
+  }
   .input-group-text {
     padding: 10px;
-  }
-  .input-group-text mat-icon {
-    transform: scale(1.3);
   }
   .input-group input {
     font-size: 16px;
@@ -233,11 +312,15 @@
     width: $profileImageSize;
     height: $profileImageSize;
   }
+  $roleIconSize: $roleIconSize - 30px;
+  .roleIcon {
+    width: $roleIconSize;
+    height: $roleIconSize;
+    bottom: 20px;
+    right: -10px;
+  }
   .input-group-text {
     padding: 7px;
-  }
-  .input-group-text mat-icon {
-    transform: scale(1.1);
   }
   .input-group input {
     font-size: 12px;

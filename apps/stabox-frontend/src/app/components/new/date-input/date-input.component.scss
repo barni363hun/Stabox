@@ -1,0 +1,25 @@
+@import '../colors.scss';
+
+.title {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0 auto 100px auto;
+
+  font-size: 56px;
+
+  text-align: center;
+}
+.title span {
+  margin: 0 50px;
+}
+.underline {
+  height: 2px;
+  width: 100%;
+
+  background-color: rgba($white, 0.75);
+
+  border: none;
+  border-radius: 5px;
+}

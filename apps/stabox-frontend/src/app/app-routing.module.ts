@@ -12,6 +12,7 @@ import {
   PackagesPageComponent,
   HomePageComponent,
   ProfilePageComponent,
+  ExchangeDatesComponent,
 } from './components';
 
 @Component({
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfilePageComponent,
+  },
+  {
+    path: 'dates',
+    component: ExchangeDatesComponent,
   },
 
   { path: 'test1', component: AddRecieverWithAddressComponent },

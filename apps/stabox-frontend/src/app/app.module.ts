@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
 
 import {
   AccountButtonComponent,
@@ -57,7 +58,9 @@ import {
   SideNavComponent,
   BottomNavComponent,
   AccountComponent,
+  ExchangeDatesComponent,
 } from './components';
+import { DateInputComponent } from './components/new/date-input/date-input.component';
 
 @NgModule({
   declarations: [
@@ -104,6 +107,8 @@ import {
     SideNavComponent,
     BottomNavComponent,
     AccountComponent,
+    ExchangeDatesComponent,
+    DateInputComponent,
   ],
   imports: [
     GooglePlaceModule,
@@ -129,6 +134,7 @@ import {
     MatTooltipModule,
     MatButtonModule,
     MatSlideToggleModule,
+    MatSelectModule,
   ],
   bootstrap: [AppComponent],
   providers: [
