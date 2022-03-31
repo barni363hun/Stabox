@@ -55,4 +55,5 @@ export * from './new/bottom-nav/bottom-nav.component';
 export * from './new/page-footer/page-footer.component';
 
 export * from './new/button-raised/button-raised.component';
+export * from './new/button-raised-danger/button-raised-danger.component';
 export * from './new/button-basic/button-basic.component';

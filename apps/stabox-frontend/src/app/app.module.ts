@@ -13,7 +13,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatSelectModule } from '@angular/material/select';
 
 import {
   AccountButtonComponent,
@@ -48,6 +47,7 @@ import {
   HomePageComponent,
   NavComponent,
   ButtonRaisedComponent,
+  ButtonRaisedDangerComponent,
   ButtonBasicComponent,
   LandingComponent,
   StatisticsComponent,
@@ -97,6 +97,7 @@ import { DateInputComponent } from './components/new/date-input/date-input.compo
     HomePageComponent,
     NavComponent,
     ButtonRaisedComponent,
+    ButtonRaisedDangerComponent,
     ButtonBasicComponent,
     LandingComponent,
     StatisticsComponent,
@@ -134,7 +135,6 @@ import { DateInputComponent } from './components/new/date-input/date-input.compo
     MatTooltipModule,
     MatButtonModule,
     MatSlideToggleModule,
-    MatSelectModule,
   ],
   bootstrap: [AppComponent],
   providers: [

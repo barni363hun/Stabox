@@ -141,6 +141,9 @@
   border-left: none;
   border-color: $descriptionLight;
 }
+.input-group input:focus {
+  border-color: $blueGreen;
+}
 .form-control:focus {
   box-shadow: 0 0 0 2px rgba($blueGreen, 0.5);
 }

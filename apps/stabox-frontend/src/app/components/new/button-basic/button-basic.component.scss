@@ -26,10 +26,6 @@
 }
 .button:hover {
   cursor: pointer;
-  color: $blueGreen;
-}
-.button:hover .underline {
-  background-color: $blueGreen;
 }
 
 @media only screen and (max-width: 1140px) {

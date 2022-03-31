@@ -91,7 +91,7 @@ $themeIndicatorSize: 10px;
 
   position: absolute;
   left: -2.5px;
-  top: 22.5px;
+  top: 2.5px;
 }
 .off {
   background-color: $black;
@@ -138,7 +138,7 @@ $themeIndicatorSize: 10px;
     height: $themeIndicatorSize;
 
     left: -5px;
-    top: 25px;
+    top: 5px;
   }
 }
 @media only screen and (max-width: 960px) {
@@ -159,7 +159,7 @@ $themeIndicatorSize: 10px;
     height: $themeIndicatorSize;
 
     left: -2.5px;
-    top: 22.5px;
+    top: 2.5px;
   }
 }
 @media only screen and (max-width: 720px) {
@@ -180,7 +180,7 @@ $themeIndicatorSize: 10px;
     height: $themeIndicatorSize;
 
     left: 0px;
-    top: 22.5px;
+    top: 2.5px;
   }
 }
 @media only screen and (max-width: 540px) {
@@ -201,7 +201,7 @@ $themeIndicatorSize: 10px;
     height: $themeIndicatorSize;
 
     left: 2.5px;
-    top: 20px;
+    top: 0px;
   }
 }
 @media only screen and (max-width: 380px) {

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeService } from 'apps/stabox-frontend/src/app/services';
+import {
+  ThemeService,
+  UserService,
+} from 'apps/stabox-frontend/src/app/services';
 
 @Component({
   selector: 'stabox-instructions',
@@ -7,7 +10,10 @@ import { ThemeService } from 'apps/stabox-frontend/src/app/services';
   styleUrls: ['./instructions.component.scss'],
 })
 export class InstructionsComponent implements OnInit {
-  constructor(public themeService: ThemeService) {}
+  constructor(
+    public themeService: ThemeService,
+    public userService: UserService
+  ) {}
 
   ngOnInit(): void {}
 }

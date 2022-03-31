@@ -3,14 +3,25 @@
     <div class="underline"></div>
 </div>
 
-<mat-form-field appearance="fill">
-    <mat-label>Favorite food</mat-label>
-    <mat-select>
-        <mat-option value="0">
-            Option 1
-        </mat-option>
-        <mat-option value="1">
-            Option 2
-        </mat-option>
-    </mat-select>
-</mat-form-field>
+<div class="inputContainer">
+    <select class="form-select">
+        <option selected disabled>Choose an address</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+
+    <input class="form-control" type="datetime-local" [value]="defaultValue" />
+    <input class="form-control" type="datetime-local" [value]="defaultValue" />
+
+    <div class="buttonPanel">
+        <stabox-button-raised text="Save" class="button"></stabox-button-raised>
+        <stabox-button-raised-danger text="Remove" class="button"></stabox-button-raised-danger>
+    </div>
+</div>
+
+<div class="addIconContainer">
+    <button mat-icon-button>
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
