@@ -1,0 +1,109 @@
+@import '../colors.scss';
+@import '../variables.scss';
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $blueGreen;
+}
+.content {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+
+  padding: 0;
+  margin: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-color: $blueGreen $black;
+  scrollbar-width: thin;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottomNavContainer {
+  z-index: 1;
+
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+
+  position: fixed;
+  bottom: 0;
+
+  display: none;
+}
+.sideNavContainer {
+  z-index: 1;
+
+  width: fit-content;
+  height: 100%;
+
+  padding: 0;
+  margin: 0;
+
+  position: fixed;
+  left: 0;
+}
+.dataContainer {
+  z-index: 0;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 50px;
+  margin: 0 0 0 434px;
+}
+
+@media only screen and (max-width: 1140px) {
+  .sideNavContainer {
+    display: none;
+  }
+  .bottomNavContainer {
+    display: block;
+  }
+  .dataContainer {
+    margin: 0;
+    padding: 45px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .dataContainer {
+    margin: 0;
+    padding: 40px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .dataContainer {
+    margin: 0;
+    padding: 35px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .dataContainer {
+    margin: 0;
+    padding: 30px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .dataContainer {
+    margin: 0;
+    padding: 25px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .dataContainer {
+    margin: 0;
+    padding: 20px;
+  }
+}

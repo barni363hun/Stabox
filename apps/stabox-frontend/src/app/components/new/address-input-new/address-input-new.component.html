@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-12">
+        <input class="form-control" id="autocomplete" placeholder="enter a location" ngx-google-places-autocomplete (onAddressChange)="placeChangedCallback($event)" />
+    </div>
+    <div class="col-xl-6 col-12 p-0 m-0">
+        <input class="form-control field" [(ngModel)]="myAddress.name" placeholder="nickname" />
+    </div>
+    <div class="col-xl-6 col-12 p-0 m-0">
+        <input class="form-control field" [(ngModel)]="myAddress.country" placeholder="country" />
+    </div>
+    <div class="col-xl-6 col-12 p-0 m-0">
+        <input class="form-control field" [(ngModel)]="myAddress.cityName" placeholder="city" />
+    </div>
+    <div class="col-xl-6 col-12 p-0 m-0">
+        <input class="form-control field" [(ngModel)]="myAddress.zipCode" placeholder="zip code" />
+    </div>
+    <div class="col-xl-6 col-12 p-0 m-0">
+        <input class="form-control field" [(ngModel)]="myAddress.street" placeholder="street" />
+    </div>
+    <div class="col-xl-6 col-12 p-0 m-0">
+        <input class="form-control field" [(ngModel)]="myAddress.houseNumber" placeholder="house number" />
+    </div>
+</div>

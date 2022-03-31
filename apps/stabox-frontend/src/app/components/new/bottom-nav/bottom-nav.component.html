@@ -5,10 +5,10 @@
     <button mat-icon-button class="navItem" routerLink="/profile" matTooltip="Account" matTooltipClass="navTooltip" (mouseover)="accountIconSrc = 'assets/images/new/icons/personGreen.svg'" (mouseleave)="accountIconSrc = 'assets/images/new/icons/personWhite.svg'">
         <img [src]="accountIconSrc">
     </button>
-    <button mat-icon-button class="navItem" matTooltip="Addresses" matTooltipClass="navTooltip" (mouseover)="addressIconSrc = 'assets/images/new/icons/locationGreen.svg'" (mouseleave)="addressIconSrc = 'assets/images/new/icons/locationWhite.svg'">
+    <button mat-icon-button class="navItem" routerLink="/addresses" matTooltip="Addresses" matTooltipClass="navTooltip" (mouseover)="addressIconSrc = 'assets/images/new/icons/locationGreen.svg'" (mouseleave)="addressIconSrc = 'assets/images/new/icons/locationWhite.svg'">
         <img [src]="addressIconSrc">
     </button>
-    <button mat-icon-button class="navItem" matTooltip="Dates" matTooltipClass="navTooltip" (mouseover)="dateIconSrc = 'assets/images/new/icons/dateGreen.svg'" (mouseleave)="dateIconSrc = 'assets/images/new/icons/dateWhite.svg'">
+    <button mat-icon-button class="navItem" routerLink="/dates" matTooltip="Dates" matTooltipClass="navTooltip" (mouseover)="dateIconSrc = 'assets/images/new/icons/dateGreen.svg'" (mouseleave)="dateIconSrc = 'assets/images/new/icons/dateWhite.svg'">
         <img [src]="dateIconSrc">
     </button>
     <button mat-icon-button class="navItem" matTooltip="Packages" matTooltipClass="navTooltip" (mouseover)="boxIconSrc = 'assets/images/new/icons/boxGreen.svg'" (mouseleave)="boxIconSrc = 'assets/images/new/icons/boxWhite.svg'">

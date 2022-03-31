@@ -48,6 +48,8 @@ export * from './new/home-page/instructions/instructions.component';
 export * from './new/profile-page/profile-page.component';
 export * from './new/account/account.component';
 export * from './new/exchange-dates/exchange-dates.component';
+export * from './new/date-input/date-input.component';
+export * from './new/addresses/addresses.component';
 
 export * from './new/nav/nav.component';
 export * from './new/side-nav/side-nav.component';

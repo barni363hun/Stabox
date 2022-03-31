@@ -59,8 +59,10 @@ import {
   BottomNavComponent,
   AccountComponent,
   ExchangeDatesComponent,
+  DateInputComponent,
+  AddressesComponent
 } from './components';
-import { DateInputComponent } from './components/new/date-input/date-input.component';
+import { AddressInputNewComponent } from './components/new/address-input-new/address-input-new.component';
 
 @NgModule({
   declarations: [
@@ -110,6 +112,8 @@ import { DateInputComponent } from './components/new/date-input/date-input.compo
     AccountComponent,
     ExchangeDatesComponent,
     DateInputComponent,
+    AddressesComponent,
+    AddressInputNewComponent,
   ],
   imports: [
     GooglePlaceModule,

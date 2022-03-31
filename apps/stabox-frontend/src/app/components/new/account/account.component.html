@@ -23,14 +23,14 @@
                 <div class="input-group-text">
                     <mat-icon>person</mat-icon>
                 </div>
-                <input type="text" class="form-control" placeholder="First name" [(ngModel)]="userService.user.username">
+                <input type="text" class="form-control" placeholder="First name" [(ngModel)]="userService.user.firstName">
             </div>
 
             <div class="input-group nameInput">
                 <div class="input-group-text">
                     <mat-icon>person</mat-icon>
                 </div>
-                <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="userService.user.username">
+                <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="userService.user.lastName">
             </div>
         </div>
 
@@ -38,14 +38,14 @@
             <div class="input-group-text">
                 <mat-icon>mail</mat-icon>
             </div>
-            <input type="text" class="form-control" placeholder="Email address" [(ngModel)]="userService.user.username">
+            <input type="text" class="form-control" placeholder="Email address" [(ngModel)]="userService.user.email">
         </div>
 
         <div class="input-group">
             <div class="input-group-text">
                 <mat-icon>phone</mat-icon>
             </div>
-            <input type="text" class="form-control" placeholder="Phone number" [(ngModel)]="userService.user.username">
+            <input type="text" class="form-control" placeholder="Phone number" [(ngModel)]="userService.user.phoneNumber">
         </div>
 
         <stabox-button-raised text="Save"></stabox-button-raised>
