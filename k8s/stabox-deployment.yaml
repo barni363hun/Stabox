@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stabox-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: stabox
+  template:
+    metadata:
+      labels:
+        component: stabox
+    spec:
+      containers:
+        - name: stabox
+          image: ghcr.io/barni363hun/stabox:1.0.0
+          env:
+          - name: DB_HOST
+            value: mysql-stabox-cluster-ip-service.default.svc.cluster.local
+          - name: DB_PWD
+            value: St@b0xPwd
+          ports:
+            - containerPort: 3333
+

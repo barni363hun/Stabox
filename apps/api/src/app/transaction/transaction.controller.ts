@@ -19,7 +19,7 @@ class buyDto {
 
 @Controller('transaction')
 export class TransactionController {
-  constructor(private readonly transactionService: TransactionService) {}
+  constructor(private readonly transactionService: TransactionService) { }
 
   @UseGuards(AuthGuard, RoleGuard)
   @Roles('admin')
@@ -41,7 +41,7 @@ export class TransactionController {
   @Roles('admin') // TODO: hogyan lehessen venni stabuck-ot
   @Patch()
   buy(@Req() req: authRequest, @Body() body: buyDto) {
-    const tra = { userId: req.user.sub, amount: body.amount, direction: true };
-    return this.transactionService.create(tra);
+    const transaction = { userId: req.user.sub, amount: body.amount };
+    return this.transactionService.create(transaction);
   }
 }
