@@ -7,6 +7,8 @@ import { addressInterface } from '@stabox/stabox-lib';
   styleUrls: ['./address-input-new.component.scss'],
 })
 export class AddressInputNewComponent implements OnInit {
+  search: Boolean = false;
+
   @Input() myAddress: addressInterface = {
     id: 0,
     userId: '',
@@ -23,6 +25,14 @@ export class AddressInputNewComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  toggleSearch() {
+    if (this.search) {
+      this.search = false;
+    } else {
+      this.search = true;
+    }
+  }
 
   save() {
     this.saveAddressEvent.emit(this.myAddress);

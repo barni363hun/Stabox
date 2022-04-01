@@ -7,8 +7,8 @@ import { ThemeService } from '../../../services';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit {
-  homeIconSrc: string = '../../../../assets/images/new/icons/home.svg';
-  personIconSrc: string = '../../../../assets/images/new/icons/person.svg';
+  homeIconSrc = 'assets/images/new/icons/homeWhite.svg';
+  accountIconSrc = 'assets/images/new/icons/personWhite.svg';
 
   isChecked: boolean = true;
 
@@ -29,8 +29,7 @@ export class NavComponent implements OnInit {
   toggleChecked() {
     if (this.isChecked) {
       this.isChecked = false;
-    }
-    else {
+    } else {
       this.isChecked = true;
     }
 

@@ -34,23 +34,24 @@
   user-select: none;
 }
 .navItem {
-  width: $navItemSize;
-  height: $navItemSize;
+  width: fit-content;
+  height: fit-content;
+
+  padding: 7.5px;
+  margin: 0 5px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.navItemIcon {
-  font-size: $navItemSize - 15;
+.navItem img {
+  width: $bottomNavImageSize;
+  height: $bottomNavImageSize;
 
-  color: $white;
-
-  display: inline;
-  vertical-align: middle;
-}
-.navItem:hover .navItemIcon {
-  color: $blueGreen;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .themeToggleContainer {
@@ -216,7 +217,6 @@ $themeIndicatorSize: 10px;
   .themeToggleIcon {
     font-size: $navItemSize - 17.5;
   }
-
 }
 @media only screen and (max-width: 300px) {
   $navItemSize: 35px;

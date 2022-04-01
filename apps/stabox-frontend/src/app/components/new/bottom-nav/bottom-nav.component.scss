@@ -1,6 +1,21 @@
 @import '../colors.scss';
 @import '../variables.scss';
 
+.bottomNavContainer {
+  z-index: 1;
+
+  width: 100vw;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+
+  position: fixed;
+  bottom: 0;
+
+  display: none;
+}
+
 .bottomNav {
   z-index: 9999;
 
@@ -126,6 +141,9 @@
 }
 
 @media only screen and (max-width: 1140px) {
+  .bottomNavContainer {
+    display: block;
+  }
   .navItem {
     padding: 7px;
   }

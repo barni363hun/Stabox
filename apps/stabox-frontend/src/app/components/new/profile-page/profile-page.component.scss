@@ -29,32 +29,6 @@
   align-items: center;
 }
 
-.bottomNavContainer {
-  z-index: 1;
-
-  width: 100%;
-  height: fit-content;
-
-  padding: 0;
-  margin: 0;
-
-  position: fixed;
-  bottom: 0;
-
-  display: none;
-}
-.sideNavContainer {
-  z-index: 1;
-
-  width: fit-content;
-  height: 100%;
-
-  padding: 0;
-  margin: 0;
-
-  position: fixed;
-  left: 0;
-}
 .dataContainer {
   z-index: 0;
 
@@ -66,12 +40,6 @@
 }
 
 @media only screen and (max-width: 1140px) {
-  .sideNavContainer {
-    display: none;
-  }
-  .bottomNavContainer {
-    display: block;
-  }
   .dataContainer {
     margin: 0;
     padding: 45px;
