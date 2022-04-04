@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://8080-barni363hun-stabox-ay17bqk4cei.ws-eu38.gitpod.io/",
+    "target": "https://localhost:8080/api",
     "secure": false
   }
 }
