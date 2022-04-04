@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://stabox.cluster.jedlik.eu",
+    "target": "https://8080-barni363hun-stabox-ay17bqk4cei.ws-eu38.gitpod.io/",
     "secure": false
   }
 }
