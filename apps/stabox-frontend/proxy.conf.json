@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://localhost:8080/api",
+    "target": "http://localhost:7000",
     "secure": false
   }
 }
