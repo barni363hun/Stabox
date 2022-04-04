@@ -14,11 +14,8 @@ export class transactionEntity implements transactionInterface {
   user: userEntity;
 
   @Column()
-  amount: number;
+  amount: number; // negative number if outgoing else positive
 
-  @Column()
-  direction: boolean;
-
-  @Column('timestamp')
+  @Column('timestamp', { default: () => "CURRENT_TIMESTAMP" })
   timeStamp: Date;
 }

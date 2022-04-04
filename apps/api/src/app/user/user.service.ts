@@ -10,6 +10,7 @@ import { Repository } from 'typeorm';
 import { userEntity } from '../../Entities';
 import { authRequest } from '../auth';
 import { GenericService } from '../generics/generic.service';
+import { TransactionService } from '../transaction/transaction.service';
 import { userMinDto } from './userMin.DTO';
 
 @Injectable()
@@ -17,6 +18,7 @@ export class UserService extends GenericService<userInterface> {
   constructor(
     @InjectRepository(userEntity)
     private userRepository: Repository<userInterface>,
+    private readonly transactionService: TransactionService,
     private httpService: HttpService
   ) {
     super(userRepository);
@@ -125,6 +127,15 @@ export class UserService extends GenericService<userInterface> {
         };
         return { ...roles, ...res }; // TODO: test this
       }
+    });
+  }
+  async addtransaction(user: userInterface, amount: number) {
+    user.stabucks += amount;
+    return this.update(user.id, user).then(async () => {
+      this.transactionService.create({
+        userId: user.id,
+        amount: amount
+      })
     });
   }
 }
