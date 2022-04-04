@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://stabox.cluster.jedlik.eu",
+    "target": "http://localhost:7000",
     "secure": false
   }
 }
