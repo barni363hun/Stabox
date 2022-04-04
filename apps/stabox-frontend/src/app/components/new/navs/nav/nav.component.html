@@ -1,9 +1,9 @@
 <div [ngClass]="{ light: themeService.light }">
     <div class="nav">
-        <button mat-icon-button class="navItem" routerLink="/home" (mouseover)="homeIconSrc = 'assets/images/new/icons/homeGreen.svg'" (mouseleave)="homeIconSrc = 'assets/images/new/icons/homeWhite.svg'">
+        <button mat-icon-button class="navItem" routerLink="/home" (mouseover)="homeIconSrc = 'assets/new/icons/homeGreen.svg'" (mouseleave)="homeIconSrc = 'assets/new/icons/homeWhite.svg'">
             <img [src]="homeIconSrc">
         </button>
-        <button mat-icon-button class="navItem" routerLink="/profile" (mouseover)="accountIconSrc = 'assets/images/new/icons/personGreen.svg'" (mouseleave)="accountIconSrc = 'assets/images/new/icons/personWhite.svg'">
+        <button mat-icon-button class="navItem" routerLink="/profile" (mouseover)="accountIconSrc = 'assets/new/icons/personGreen.svg'" (mouseleave)="accountIconSrc = 'assets/new/icons/personWhite.svg'">
             <img [src]="accountIconSrc">
         </button>
         <div class="themeToggleContainer">

@@ -1,5 +1,5 @@
-@import '../../colors.scss';
-@import '../../variables.scss';
+@import '../../../colors.scss';
+@import '../../../variables.scss';
 
 .landingContainer {
   z-index: 0;
@@ -10,7 +10,7 @@
   color: $white;
   background-color: $black;
 
-  background-image: url('../../../../../assets/images/new/darkTheme/images/homePageBackground.png');
+  background-image: url('../../../../../../assets/new/homePageBackground.png');
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center top;

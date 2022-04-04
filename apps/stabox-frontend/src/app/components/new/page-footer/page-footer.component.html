@@ -2,25 +2,25 @@
     <div class="container-fluid footerContainer">
         <div class="row">
             <div class="col-12 socialsRow" *ngIf="!themeService.light">
-                <button mat-icon-button (mouseover)="instagramIconSrc = 'assets/images/new/darkTheme/icons/instagramGreen.svg'" (mouseleave)="instagramIconSrc = 'assets/images/new/darkTheme/icons/instagram.svg'">
-                    <img [src]="instagramIconSrc">
+                <button mat-icon-button (mouseover)="instagramIconSrcLight = 'assets/new/icons/instagramGreen.svg'" (mouseleave)="instagramIconSrcLight = 'assets/new/icons/instagramLight.svg'">
+                    <img [src]="instagramIconSrcLight">
                 </button>
-                <button mat-icon-button (mouseover)="facebookIconSrc = 'assets/images/new/darkTheme/icons/facebookGreen.svg'" (mouseleave)="facebookIconSrc = 'assets/images/new/darkTheme/icons/facebook.svg'">
-                    <img [src]="facebookIconSrc">
+                <button mat-icon-button (mouseover)="facebookIconSrcLight = 'assets/new/icons/facebookGreen.svg'" (mouseleave)="facebookIconSrcLight = 'assets/new/icons/facebookLight.svg'">
+                    <img [src]="facebookIconSrcLight">
                 </button>
-                <button mat-icon-button (mouseover)="twitterIconSrc = 'assets/images/new/darkTheme/icons/twitterGreen.svg'" (mouseleave)="twitterIconSrc = 'assets/images/new/darkTheme/icons/twitter.svg'">
-                    <img [src]="twitterIconSrc">
+                <button mat-icon-button (mouseover)="twitterIconSrcLight = 'assets/new/icons/twitterGreen.svg'" (mouseleave)="twitterIconSrcLight = 'assets/new/icons/twitterLight.svg'">
+                    <img [src]="twitterIconSrcLight">
                 </button>
             </div>
             <div class="col-12 socialsRow" *ngIf="themeService.light">
-                <button mat-icon-button (mouseover)="instagramIconLightSrc = 'assets/images/new/darkTheme/icons/instagramGreen.svg'" (mouseleave)="instagramIconLightSrc = 'assets/images/new/lightTheme/icons/instagram.svg'">
-                    <img [src]="instagramIconLightSrc">
+                <button mat-icon-button (mouseover)="instagramIconSrcDark =  'assets/new/icons/instagramGreen.svg'" (mouseleave)="instagramIconSrcDark =  'assets/new/icons/instagramDark.svg'">
+                    <img [src]="instagramIconSrcDark">
                 </button>
-                <button mat-icon-button (mouseover)="facebookIconLightSrc = 'assets/images/new/darkTheme/icons/facebookGreen.svg'" (mouseleave)="facebookIconLightSrc = 'assets/images/new/lightTheme/icons/facebook.svg'">
-                    <img [src]="facebookIconLightSrc">
+                <button mat-icon-button (mouseover)="facebookIconSrcDark =  'assets/new/icons/facebookGreen.svg'" (mouseleave)="facebookIconSrcDark = 'assets/new/icons/facebookDark.svg'">
+                    <img [src]="facebookIconSrcDark">
                 </button>
-                <button mat-icon-button (mouseover)="twitterIconLightSrc = 'assets/images/new/darkTheme/icons/twitterGreen.svg'" (mouseleave)="twitterIconLightSrc = 'assets/images/new/lightTheme/icons/twitter.svg'">
-                    <img [src]="twitterIconLightSrc">
+                <button mat-icon-button (mouseover)="twitterIconSrcDark =  'assets/new/icons/twitterGreen.svg'" (mouseleave)="twitterIconSrcDark = 'assets/new/icons/twitterDark.svg'">
+                    <img [src]="twitterIconSrcDark">
                 </button>
             </div>
             <div class="col-12 copyrightRow">

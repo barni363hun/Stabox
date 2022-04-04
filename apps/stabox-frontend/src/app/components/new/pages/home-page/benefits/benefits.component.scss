@@ -1,5 +1,5 @@
-@import '../../colors.scss';
-@import '../../variables.scss';
+@import '../../../colors.scss';
+@import '../../../variables.scss';
 
 .light .benefitsContainer {
   color: $blackLight;
@@ -90,7 +90,7 @@
 
   content: '';
 
-  background-image: url('../../../../../assets/images/new/darkTheme/icons/listItem.svg');
+  background-image: url('../../../../../../assets/new/icons/listItem.svg');
   background-size: contain;
   background-repeat: no-repeat;
 

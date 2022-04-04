@@ -7,13 +7,13 @@ import { ThemeService } from '../../../services';
   styleUrls: ['./page-footer.component.scss'],
 })
 export class PageFooterComponent implements OnInit {
-  instagramIconSrc: string = 'assets/images/new/darkTheme/icons/instagram.svg';
-  facebookIconSrc: string = 'assets/images/new/darkTheme/icons/facebook.svg';
-  twitterIconSrc: string = 'assets/images/new/darkTheme/icons/twitter.svg';
+  instagramIconSrcLight: string = 'assets/new/icons/instagramLight.svg';
+  facebookIconSrcLight: string = 'assets/new/icons/facebookLight.svg';
+  twitterIconSrcLight: string = 'assets/new/icons/twitterLight.svg';
 
-  instagramIconLightSrc: string = 'assets/images/new/lightTheme/icons/instagram.svg';
-  facebookIconLightSrc: string = 'assets/images/new/lightTheme/icons/facebook.svg';
-  twitterIconLightSrc: string = 'assets/images/new/lightTheme/icons/twitter.svg';
+  instagramIconSrcDark: string = 'assets/new/icons/instagramDark.svg';
+  facebookIconSrcDark: string = 'assets/new/icons/facebookDark.svg';
+  twitterIconSrcDark: string = 'assets/new/icons/twitterDark.svg';
 
   constructor(public themeService: ThemeService) {}
 
