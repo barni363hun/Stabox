@@ -60,9 +60,9 @@ import {
   AccountComponent,
   ExchangeDatesComponent,
   DateInputComponent,
-  AddressesComponent
+  AddressesComponent,
+  AddressInputNewComponent,
 } from './components';
-import { AddressInputNewComponent } from './components/new/address-input-new/address-input-new.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +96,6 @@ import { AddressInputNewComponent } from './components/new/address-input-new/add
     NavbarComponent,
     AddressInputComponent,
     PackagesPageComponent,
-    HomePageComponent,
     NavComponent,
     ButtonRaisedComponent,
     ButtonRaisedDangerComponent,
@@ -109,11 +108,12 @@ import { AddressInputNewComponent } from './components/new/address-input-new/add
     ProfilePageComponent,
     SideNavComponent,
     BottomNavComponent,
-    AccountComponent,
     ExchangeDatesComponent,
     DateInputComponent,
     AddressesComponent,
     AddressInputNewComponent,
+    HomePageComponent,
+    AccountComponent,
   ],
   imports: [
     GooglePlaceModule,
