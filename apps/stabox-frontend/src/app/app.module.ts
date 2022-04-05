@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import {
   AccountButtonComponent,
@@ -62,6 +63,7 @@ import {
   DateInputComponent,
   AddressesComponent,
   AddressInputNewComponent,
+  SnackbarBasicComponent,
 } from './components';
 
 @NgModule({
@@ -114,6 +116,8 @@ import {
     AddressInputNewComponent,
     HomePageComponent,
     AccountComponent,
+    SnackbarBasicComponent,
+    SnackbarBasicComponent,
   ],
   imports: [
     GooglePlaceModule,
@@ -139,6 +143,7 @@ import {
     MatTooltipModule,
     MatButtonModule,
     MatSlideToggleModule,
+    MatSnackBarModule,
   ],
   bootstrap: [AppComponent],
   providers: [

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarBasicComponent } from '../../../..';
 import { SnackbarService, UserService } from '../../../../../services';
 
 @Component({
@@ -9,10 +11,13 @@ import { SnackbarService, UserService } from '../../../../../services';
 export class AccountComponent implements OnInit {
   constructor(
     public userService: UserService,
-    public snackbarService: SnackbarService
+    public snackbarService: SnackbarService,
+    private snackBar: MatSnackBar
   ) {}
 
-  ngOnInit(): void {
-    this.userService.refreshUserData();
+  ngOnInit(): void {}
+
+  openSnackBar() {
+    this.snackbarService.show(3000, 'Success.', 'success');
   }
 }

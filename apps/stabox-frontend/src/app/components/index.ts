@@ -63,3 +63,5 @@ export * from './new/page-footer/page-footer.component';
 export * from './new/buttons/button-raised/button-raised.component';
 export * from './new/buttons/button-raised-danger/button-raised-danger.component';
 export * from './new/buttons/button-basic/button-basic.component';
+
+export * from './new/snackbar-basic/snackbar-basic.component';
