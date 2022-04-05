@@ -14,6 +14,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import {
   AccountButtonComponent,
@@ -64,6 +65,7 @@ import {
   AddressesComponent,
   AddressInputNewComponent,
   SnackbarBasicComponent,
+  DialogComponent,
 } from './components';
 
 @NgModule({
@@ -118,6 +120,7 @@ import {
     AccountComponent,
     SnackbarBasicComponent,
     SnackbarBasicComponent,
+    DialogComponent,
   ],
   imports: [
     GooglePlaceModule,
@@ -144,6 +147,7 @@ import {
     MatButtonModule,
     MatSlideToggleModule,
     MatSnackBarModule,
+    MatDialogModule,
   ],
   bootstrap: [AppComponent],
   providers: [

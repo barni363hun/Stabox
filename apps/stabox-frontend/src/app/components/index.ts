@@ -37,7 +37,6 @@ export * from './old/pages/mainpage/second-card/second-card.component';
 export * from './old/pages/mainpage/third-card/third-card.component';
 export * from './old/pages/packages-page/packages-page.component';
 
-
 // new
 export * from './new/pages/home-page/home-page.component';
 export * from './new/pages/home-page/benefits/benefits.component';
@@ -65,3 +64,5 @@ export * from './new/buttons/button-raised-danger/button-raised-danger.component
 export * from './new/buttons/button-basic/button-basic.component';
 
 export * from './new/snackbar-basic/snackbar-basic.component';
+
+export * from './new/dialog/dialog.component';

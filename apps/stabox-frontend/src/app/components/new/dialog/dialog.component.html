@@ -1,0 +1,25 @@
+<span mat-dialog-title>{{ data.title }}</span>
+<img class="underline" src="assets/new/icons/underlineVar2.svg">
+<mat-dialog-content>
+    <div class="content">
+        <div class="row">
+            <div class="col-xl-4 col-12 instructionsColumn">
+                <img src='assets/new/icons/fileLight.svg'>
+                <h1>Apply and sign a contract</h1>
+                <span>After the application you will receive an email message with further instructions.</span>
+            </div>
+            <div class="col-xl-4 col-12 instructionsColumn">
+                <img src='assets/new/icons/arrowLight.svg'>
+            </div>
+            <div class="col-xl-4 col-12 instructionsColumn">
+                <img src='assets/new/icons/briefcaseLight.svg'>
+                <h1>Work whenever you want</h1>
+                <span>Log into your account and set your work periods. Take matters into your own hands.</span>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <stabox-button-raised [mat-dialog-close]="true" cdkFocusInitial text="Apply" class="button"></stabox-button-raised>
+    <stabox-button-raised-danger mat-dialog-close text="Close" class="button"></stabox-button-raised-danger>
+</mat-dialog-actions>
