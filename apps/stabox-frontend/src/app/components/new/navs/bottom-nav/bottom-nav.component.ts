@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bottom-nav.component.scss'],
 })
 export class BottomNavComponent implements OnInit {
-  homeIconSrc = 'assets/images/new/icons/homeWhite.svg';
-  accountIconSrc = 'assets/images/new/icons/personWhite.svg';
-  addressIconSrc = 'assets/images/new/icons/locationWhite.svg';
-  dateIconSrc = 'assets/images/new/icons/dateWhite.svg';
-  boxIconSrc = 'assets/images/new/icons/boxWhite.svg';
+  homeIconSrc = 'assets/new/icons/homeWhite.svg';
+  accountIconSrc = 'assets/new/icons/personWhite.svg';
+  addressIconSrc = 'assets/new/icons/locationWhite.svg';
+  dateIconSrc = 'assets/new/icons/dateWhite.svg';
+  boxIconSrc = 'assets/new/icons/boxWhite.svg';
 
   constructor() {}
 

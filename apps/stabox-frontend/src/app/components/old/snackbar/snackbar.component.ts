@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { SnackbarService, ThemeService, UserService } from '../../../services';
 
 @Component({
@@ -10,7 +10,8 @@ export class SnackbarComponent implements OnInit {
   constructor(
     public snackbarService: SnackbarService,
     public themeService: ThemeService,
-    public userService: UserService
+    public userService: UserService,
+    private eRef: ElementRef
   ) {}
 
   ngOnInit(): void {}

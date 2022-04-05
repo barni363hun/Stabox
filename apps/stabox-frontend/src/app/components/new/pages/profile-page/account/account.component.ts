@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../../../services';
+import { SnackbarService, UserService } from '../../../../../services';
 
 @Component({
   selector: 'stabox-account',
@@ -7,7 +7,10 @@ import { UserService } from '../../../../../services';
   styleUrls: ['./account.component.scss'],
 })
 export class AccountComponent implements OnInit {
-  constructor(public userService: UserService) {}
+  constructor(
+    public userService: UserService,
+    public snackbarService: SnackbarService
+  ) {}
 
   ngOnInit(): void {
     this.userService.refreshUserData();
