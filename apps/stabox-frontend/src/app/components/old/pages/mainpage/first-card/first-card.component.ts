@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ThemeService } from 'apps/stabox-frontend/src/app/services';
 
 @Component({

@@ -2,7 +2,7 @@
     <nav class="navbar fixed-top navbar-expand-xl navbar-dark nav">
         <div class="left me-5">
             <a routerLink="/">
-                <img *ngIf="!userService.userLoggedIn()" class="logoImg" [src]="themeService.light ? '../../../../assets/images/LightMode/Logo.svg' : '../../../../assets/images/DarkMode/Logo.svg'" />
+                <img *ngIf="!userService.userLoggedIn()" class="logoImg" [src]="themeService.light ? 'assets/old/LightMode/Logo.svg' : 'assets/old/DarkMode/Logo.svg'" />
                 <app-home-icon *ngIf="userService.userLoggedIn()"></app-home-icon>
             </a>
         </div>
@@ -10,15 +10,15 @@
         <button class="navbar-toggler" type="button" *ngIf="showSideBar == false" (click)="showSideBar = true">
             <span class="navbar-toggler-icon" [ngStyle]="{
             'background-image': themeService.light
-              ? 'url(../../../../assets/images/LightMode/MenuIcon.svg)'
-              : 'url(../../../../assets/images/DarkMode/MenuIcon.svg)'
+              ? 'url(../../../../../assets/images/LightMode/MenuIcon.svg)'
+              : 'url(../../../../../assets/images/DarkMode/MenuIcon.svg)'
           }"></span>
         </button>
         <button class="navbar-toggler" type="button" *ngIf="showSideBar == true" (click)="showSideBar = false">
             <span class="navbar-toggler-icon" [ngStyle]="{
             'background-image': themeService.light
-              ? 'url(../../../../assets/images/LightMode/CloseIcon.svg)'
-              : 'url(../../../../assets/images/DarkMode/CloseIcon.svg)'
+              ? 'url(../../../../../assets/images/LightMode/CloseIcon.svg)'
+              : 'url(../../../../../assets/images/DarkMode/CloseIcon.svg)'
           }"></span>
         </button>
 
@@ -26,7 +26,7 @@
             <ul class="navbar-nav ms-5 me-auto">
                 <li class="nav-item me-3 mb-2" *ngIf="userService.userLoggedIn()" routerLink="/packages" routerLinkActive="activeLink">
                     <div class="centerElements">
-                        <img class="navIcon" [src]="themeService.light ? '../../../../assets/images/LightMode/BoxIcon.svg' : '../../../../assets/images/DarkMode/BoxIcon.svg'">
+                        <img class="navIcon" [src]="themeService.light ? 'assets/old/LightMode/BoxIcon.svg' : 'assets/old/DarkMode/BoxIcon.svg'">
                         <a class="navText">Packages</a>
                     </div>
                     <div class="navUnderline gradientBg"></div>
@@ -39,10 +39,10 @@
                 <app-sign-in-button></app-sign-in-button>
             </div>
             <div class="themeSwitchIconDiv" *ngIf="themeService.light" (click)="themeService.setTheme('dark')" title="Turn Light Theme Off">
-                <img class="themeSwitchIcon" src="../../../../assets/images/LightMode/LightModeIcon.svg" />
+                <img class="themeSwitchIcon" src="assets/old/LightMode/LightModeIcon.svg" />
             </div>
             <div class="themeSwitchIconDiv" *ngIf="!themeService.light" (click)="themeService.setTheme('light')" title="Turn Light Theme On">
-                <img class="themeSwitchIcon" src="../../../../assets/images/DarkMode/DarkModeIcon.svg" />
+                <img class="themeSwitchIcon" src="assets/old/DarkMode/DarkModeIcon.svg" />
             </div>
         </div>
     </nav>
@@ -54,7 +54,7 @@
         <div class="sideBarItemDiv" routerLink="/packages">
             <div class="sideBarItem">
                 <div class="centerElements">
-                    <img class="navIcon" [src]="themeService.light ? '../../../../assets/images/LightMode/BoxIcon.svg' : '../../../../assets/images/DarkMode/BoxIcon.svg'">
+                    <img class="navIcon" [src]="themeService.light ? 'assets/old/LightMode/BoxIcon.svg' : 'assets/old/DarkMode/BoxIcon.svg'">
                     <a class="navText">Packages</a>
                 </div>
                 <div class="navUnderline gradientBg"></div>
@@ -72,10 +72,10 @@
 
         <div class="sideBarItemDiv">
             <div class="themeSwitchIconDiv" *ngIf="themeService.light" (click)="themeService.setTheme('dark')" title="Turn Light Theme Off">
-                <img class="themeSwitchIcon" src="../../../../assets/images/LightMode/LightModeIcon.svg" />
+                <img class="themeSwitchIcon" src="assets/old/LightMode/LightModeIcon.svg" />
             </div>
             <div class="themeSwitchIconDiv" *ngIf="!themeService.light" (click)="themeService.setTheme('light')" title="Turn Light Theme On">
-                <img class="themeSwitchIcon" src="../../../../assets/images/DarkMode/DarkModeIcon.svg" />
+                <img class="themeSwitchIcon" src="assets/old/DarkMode/DarkModeIcon.svg" />
             </div>
         </div>
     </div>

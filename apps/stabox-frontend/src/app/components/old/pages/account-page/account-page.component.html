@@ -73,16 +73,16 @@
                 <div class="bigBtn unselectable" *ngIf="userService.isShipper" (click)="viewDetails = true">
                   <img class="bigBtnImg" [src]="
                       themeService.light
-                        ? '../../../../assets/images/LightMode/ShipperIcon.svg'
-                        : '../../../../assets/images/DarkMode/ShipperIcon.svg'
+                        ? 'assets/old/LightMode/ShipperIcon.svg'
+                        : 'assets/old/DarkMode/ShipperIcon.svg'
                     " />
                   <p class="bigBtnText">Vehicles</p>
                 </div>
                 <div class="bigBtn unselectable" *ngIf="!userService.isShipper" (click)="wantToBeShipper()">
                   <img class="bigBtnImg" [src]="
                   themeService.light
-                        ? '../../../../assets/images/LightMode/ShipperIcon.svg'
-                        : '../../../../assets/images/DarkMode/ShipperIcon.svg'
+                        ? 'assets/old/LightMode/ShipperIcon.svg'
+                        : 'assets/old/DarkMode/ShipperIcon.svg'
                     " />
                   <p class="bigBtnText">Be a shipper</p>
                 </div>
@@ -92,8 +92,8 @@
                 <div class="bigBtn unselectable" routerLink="/packages">
                   <img class="bigBtnImg" [src]="
                   themeService.light
-                        ? '../../../../assets/images/LightMode/BoxIcon.svg'
-                        : '../../../../assets/images/DarkMode/BoxIcon.svg'
+                        ? 'assets/old/LightMode/BoxIcon.svg'
+                        : 'assets/old/DarkMode/BoxIcon.svg'
                     " />
                   <p class="bigBtnText">Packages</p>
                 </div>
