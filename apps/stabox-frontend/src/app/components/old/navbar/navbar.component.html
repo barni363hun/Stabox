@@ -10,15 +10,15 @@
         <button class="navbar-toggler" type="button" *ngIf="showSideBar == false" (click)="showSideBar = true">
             <span class="navbar-toggler-icon" [ngStyle]="{
             'background-image': themeService.light
-              ? 'url(../../../../../assets/images/LightMode/MenuIcon.svg)'
-              : 'url(../../../../../assets/images/DarkMode/MenuIcon.svg)'
+              ? 'url(assets/old/LightMode/MenuIcon.svg)'
+              : 'url(assets/old/DarkMode/MenuIcon.svg)'
           }"></span>
         </button>
         <button class="navbar-toggler" type="button" *ngIf="showSideBar == true" (click)="showSideBar = false">
             <span class="navbar-toggler-icon" [ngStyle]="{
             'background-image': themeService.light
-              ? 'url(../../../../../assets/images/LightMode/CloseIcon.svg)'
-              : 'url(../../../../../assets/images/DarkMode/CloseIcon.svg)'
+              ? 'url(assets/old/LightMode/CloseIcon.svg)'
+              : 'url(assets/old/DarkMode/CloseIcon.svg)'
           }"></span>
         </button>
 
