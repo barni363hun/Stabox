@@ -2,7 +2,11 @@ image:
   file: .gitpod.Dockerfile
 tasks:
   - init: npm i
-    command: ng serve stabox-frontend
+    command: npm run dev
 ports:
   - port: 7000
+    onOpen: notify
+  - port: 8080
+    onOpen: notify
+  - port: 80
     onOpen: notify
