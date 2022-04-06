@@ -21,11 +21,16 @@
 
   text-align: center;
 
+  overflow: hidden;
+
   scrollbar-color: $blueGreen $black;
   scrollbar-width: thin;
 }
 
 ::ng-deep .mat-dialog-title {
+  padding: 0;
+  margin: 0;
+
   font-size: 48px;
 }
 
@@ -47,7 +52,7 @@
   height: fit-content;
 
   padding: 0;
-  margin: 50px auto;
+  margin: 0 auto;
 }
 .instructionsColumn {
   padding: 0;
@@ -107,8 +112,15 @@ $arrowIconSize: 125px;
   }
 }
 @media only screen and (max-width: 1140px) {
+  ::ng-deep .mat-dialog-container {
+    padding: 42.5px;
+  }
   ::ng-deep .mat-dialog-title {
     font-size: 46px;
+  }
+  .underline {
+    width: 87.5%;
+    margin: 4px auto;
   }
   .content {
     width: 55%;
@@ -137,8 +149,15 @@ $arrowIconSize: 125px;
   }
 }
 @media only screen and (max-width: 960px) {
+  ::ng-deep .mat-dialog-container {
+    padding: 35px;
+  }
   ::ng-deep .mat-dialog-title {
     font-size: 38px;
+  }
+  .underline {
+    width: 90%;
+    margin: 3px auto;
   }
   .content {
     width: 50%;
@@ -167,8 +186,15 @@ $arrowIconSize: 125px;
   }
 }
 @media only screen and (max-width: 720px) {
+  ::ng-deep .mat-dialog-container {
+    padding: 27.5px;
+  }
   ::ng-deep .mat-dialog-title {
     font-size: 30px;
+  }
+  .underline {
+    width: 92.5%;
+    margin: 2px auto;
   }
   .content {
     width: 45%;
@@ -197,8 +223,15 @@ $arrowIconSize: 125px;
   }
 }
 @media only screen and (max-width: 540px) {
+  ::ng-deep .mat-dialog-container {
+    padding: 20px;
+  }
   ::ng-deep .mat-dialog-title {
     font-size: 22px;
+  }
+  .underline {
+    width: 95%;
+    margin: 1px auto;
   }
   .content {
     width: 40%;
@@ -227,8 +260,14 @@ $arrowIconSize: 125px;
   }
 }
 @media only screen and (max-width: 380px) {
+  ::ng-deep .mat-dialog-container {
+    padding: 12.5px;
+  }
   ::ng-deep .mat-dialog-title {
     font-size: 18px;
+  }
+  .underline {
+    width: 97.5%;
   }
   .content {
     width: 35%;
@@ -257,8 +296,14 @@ $arrowIconSize: 125px;
   }
 }
 @media only screen and (max-width: 300px) {
+  ::ng-deep .mat-dialog-container {
+    padding: 5px;
+  }
   ::ng-deep .mat-dialog-title {
     font-size: 16px;
+  }
+  .underline {
+    width: 100%;
   }
   .instructionsColumn h1 {
     margin: 4px 0;

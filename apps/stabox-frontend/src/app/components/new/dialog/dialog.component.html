@@ -1,6 +1,14 @@
-<span mat-dialog-title>{{ data.title }}</span>
-<img class="underline" src="assets/new/icons/underlineVar2.svg">
-<mat-dialog-content>
+<span mat-dialog-title *ngIf="data.title">{{ data.title }}</span>
+
+<img *ngIf="data.showUnderline" class="underline" src="assets/new/icons/underlineVar2.svg">
+
+<mat-dialog-content *ngIf="data.description">
+    <div class="content">
+        <span> {{ data.description }} </span>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-content *ngIf="!data.description">
     <div class="content">
         <div class="row">
             <div class="col-xl-4 col-12 instructionsColumn">
@@ -9,7 +17,7 @@
                 <span>After the application you will receive an email message with further instructions.</span>
             </div>
             <div class="col-xl-4 col-12 instructionsColumn">
-                <img src='assets/new/icons/arrowLight.svg'>
+                <img class="arrowIcon" src='assets/new/icons/arrowLight.svg'>
             </div>
             <div class="col-xl-4 col-12 instructionsColumn">
                 <img src='assets/new/icons/briefcaseLight.svg'>
@@ -19,7 +27,8 @@
         </div>
     </div>
 </mat-dialog-content>
+
 <mat-dialog-actions align="center">
-    <stabox-button-raised [mat-dialog-close]="true" cdkFocusInitial text="Apply" class="button"></stabox-button-raised>
-    <stabox-button-raised-danger mat-dialog-close text="Close" class="button"></stabox-button-raised-danger>
+    <stabox-button-raised [mat-dialog-close]="true" cdkFocusInitial text="{{ data.confirmButtonText }}" class="button"></stabox-button-raised>
+    <stabox-button-raised-danger mat-dialog-close text="{{ data.cancelButtonText }}" class="button"></stabox-button-raised-danger>
 </mat-dialog-actions>
