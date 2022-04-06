@@ -1,6 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { cError, cLog, cSuccess, exchangeDateInterface } from '@stabox/stabox-lib';
+import {
+  cError,
+  cLog,
+  cSuccess,
+  exchangeDateInterface,
+} from '@stabox/stabox-lib';
 import { Observable } from 'rxjs';
 import { SnackbarService } from '.';
 import { environment } from '../../environments/environment';
@@ -17,11 +22,30 @@ export class ExchangeDateService {
     this.getExchangeDates();
   }
 
+  setDateTimeNow() {
+    let date: Date = new Date();
+    return date
+      .toLocaleString('hu-HU', {
+        timeZone: 'Europe/Berlin',
+        hour12: false,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+      })
+      .slice(0, 19)
+      .replace(/\. /g, '-')
+      .replace(/\-/g, 'T')
+      .replace('T', '-')
+      .replace('T', '-');
+  }
+
   localeAddExchangeDate() {
     const newEX: exchangeDateInterface = {
       id: 0,
-      startDate: '',
-      endDate: '',
+      startDate: this.setDateTimeNow(),
+      endDate: this.setDateTimeNow(),
       addressId: 0,
     };
     this.exchangeDates.push(newEX);
@@ -42,14 +66,16 @@ export class ExchangeDateService {
       .subscribe({
         next: (res) => {
           cSuccess('exchangeDates refreshed');
-          this.exchangeDates = res.map((exDate) => {
-            return {
-              startDate: this.toDateTimeLocal(new Date(exDate.startDate)),
-              endDate: this.toDateTimeLocal(new Date(exDate.endDate)),
-              id: exDate.id,
-              addressId: exDate.addressId,
-            };
-          }).sort(e=>e.id==0?-e.id:e.id);
+          this.exchangeDates = res
+            .map((exDate) => {
+              return {
+                startDate: this.toDateTimeLocal(new Date(exDate.startDate)),
+                endDate: this.toDateTimeLocal(new Date(exDate.endDate)),
+                id: exDate.id,
+                addressId: exDate.addressId,
+              };
+            })
+            .sort((e) => (e.id == 0 ? -e.id : e.id));
           console.log(this.exchangeDates);
         },
         error: (err) => {
@@ -74,8 +100,6 @@ export class ExchangeDateService {
         new Date(exDate.endDate).getTime()
       ) {
         if (exDate.addressId !== 0) {
-          
-        
           if (exDate.id === 0) {
             this.create(exDate);
           } else {
@@ -98,12 +122,11 @@ export class ExchangeDateService {
                 },
               });
           }
-        }
-        else {
+        } else {
           cError('You need to select an address.');
-        this.snackbarService.showErrorSnackbar(
-          'You need to select an address.'
-        );
+          this.snackbarService.showErrorSnackbar(
+            'You need to select an address.'
+          );
         }
       } else {
         cError('endDate must be later than startDate');
@@ -130,16 +153,12 @@ export class ExchangeDateService {
       .subscribe({
         next: (res) => {
           cSuccess('exchangeDate created');
-          this.snackbarService.showSuccessSnackbar(
-            'Exchange date created.'
-          );
+          this.snackbarService.showSuccessSnackbar('Exchange date created.');
           this.getExchangeDates();
         },
         error: (err) => {
           cError(err.error.message);
-          this.snackbarService.showErrorSnackbar(
-            err.error.message
-          );
+          this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
   }
@@ -156,16 +175,12 @@ export class ExchangeDateService {
       .subscribe({
         next: (res) => {
           cSuccess('exchangeDate deleted');
-          this.snackbarService.showSuccessSnackbar(
-            'exchangeDate deleted.'
-          );
+          this.snackbarService.showSuccessSnackbar('exchangeDate deleted.');
           this.getExchangeDates();
         },
         error: (err) => {
           this.getExchangeDates();
-          this.snackbarService.showErrorSnackbar(
-            err.error.message
-          );
+          this.snackbarService.showErrorSnackbar(err.error.message);
           cError(err.error.message);
         },
       });
@@ -173,5 +188,4 @@ export class ExchangeDateService {
   getExchangeDateByPackageId(id: number): Observable<any> {
     return this.http.get(`${environment.apiURL}/EXdate/package/${id}`);
   }
-
 }

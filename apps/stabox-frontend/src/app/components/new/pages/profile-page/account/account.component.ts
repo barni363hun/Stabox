@@ -31,19 +31,22 @@ export class AccountComponent implements OnInit {
     private breakpointObserver: BreakpointObserver
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userService.refreshUserData();
+  }
 
   openSnackBar() {
     this.snackbarService.show(3000, 'Success.', 'success');
   }
 
-  openDialog() {
+  openApplyAsCourierDialog() {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: this.desktopWidth,
       height: this.desktopHeight,
       data: {
         title: 'Would you like to apply as a courier?',
         showUnderline: true,
+        showVehicles: false,
         description: null,
         confirmButtonText: 'Apply',
         cancelButtonText: 'Cancel',
@@ -60,7 +63,36 @@ export class AccountComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       smallDialogSubscription.unsubscribe();
-      console.log(`Dialog result: ${result}`);
+      if (result) {
+        this.userService.beShipper();
+      }
+    });
+  }
+
+  openCourierVehiclesDialog() {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: this.desktopWidth,
+      height: this.desktopHeight,
+      data: {
+        title: 'Your vehicles',
+        showUnderline: true,
+        showVehicles: true,
+        description: null,
+        confirmButtonText: 'Save',
+        cancelButtonText: 'Cancel',
+      },
+    });
+
+    const smallDialogSubscription = this.isExtraSmall.subscribe((size) => {
+      if (size.matches) {
+        dialogRef.updateSize(this.mobileWidth, this.mobileHeight);
+      } else {
+        dialogRef.updateSize(this.desktopWidth, this.desktopHeight);
+      }
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      smallDialogSubscription.unsubscribe();
     });
   }
 }

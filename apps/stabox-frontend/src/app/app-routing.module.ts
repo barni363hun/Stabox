@@ -51,14 +51,17 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfilePageComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'dates',
     component: ExchangeDatesComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'addresses',
     component: AddressesComponent,
+    canActivate: [AuthGuard],
   },
 
   { path: 'test1', component: AddRecieverWithAddressComponent },

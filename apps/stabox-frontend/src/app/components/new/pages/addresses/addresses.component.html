@@ -2,6 +2,23 @@
     <stabox-bottom-nav></stabox-bottom-nav>
     <stabox-side-nav></stabox-side-nav>
     <div class="dataContainer">
-        <stabox-address-input-new></stabox-address-input-new>
+        <div class="title">
+            <span>Addresses</span>
+            <div class="underline"></div>
+        </div>
+        
+        <stabox-address-input-new 
+            *ngFor="let address of addressService.addresses; index as i"
+            [myAddress]="address"
+            [index]="i"
+            [isReciever]="true"
+            (saveAddressEvent)="addressService.save(address)">
+        </stabox-address-input-new>
+
+        <div class="addIconContainer" (click)="addressService.localeAddAddress()">
+            <button mat-icon-button class="addButton">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
     </div>
 </div>

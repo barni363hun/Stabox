@@ -6,7 +6,8 @@
 <div class="accountDataContainer">
     <div class="profileImageContainer">
         <img class="profileImage" [src]="userService.authUser.picture">
-        <img (click)="openDialog()" class="roleIcon" src="assets/new/icons/personGreen.svg" matTooltip="User" matTooltipClass="roleTooltip" matTooltipPosition="after">
+        <img (click)="openApplyAsCourierDialog()" *ngIf="!userService.isShipper" class="roleIcon" src="assets/new/icons/personGreen.svg" matTooltip="User" matTooltipClass="roleTooltip" matTooltipPosition="after">
+        <img (click)="openCourierVehiclesDialog()" *ngIf="userService.isShipper" class="roleIcon" src="assets/new/icons/courierYellow.svg" matTooltip="Courier" matTooltipClass="roleTooltip" matTooltipPosition="after">
     </div>
 
     <div class="accountData">
@@ -48,7 +49,7 @@
             <input type="text" class="form-control" placeholder="Phone number" [(ngModel)]="userService.user.phoneNumber">
         </div>
 
-        <stabox-button-raised text="Save" (click)="openSnackBar()"></stabox-button-raised>
+        <stabox-button-raised text="Save" (click)="userService.update()"></stabox-button-raised>
 
     </div>
 </div>

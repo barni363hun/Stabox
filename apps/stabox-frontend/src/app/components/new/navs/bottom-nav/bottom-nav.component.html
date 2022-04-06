@@ -19,15 +19,15 @@
         <div class="profileContainer">
 
             <div class="profileDataContainer">
-                <!-- <stabox-user-icon></stabox-user-icon> -->
-                <div class="profileImg"></div>
+                <stabox-user-icon class="profileImage"></stabox-user-icon>
                 <div class="profileData">
-                    <span class="nickname">nickname</span>
-                    <span class="role">Role</span>
+                    <span class="nickname">{{ userService.user.username }}</span>
+                    <span *ngIf="!userService.isShipper" class="role userColor">User</span>
+                    <span *ngIf="userService.isShipper" class="role courierColor">Courier</span>
                 </div>
             </div>
 
-            <mat-icon class="logoutIcon" matTooltip="Sign out" matTooltipClass="navTooltip">power_settings_new</mat-icon>
+            <mat-icon class="logoutIcon" (click)="this.userService.logout()" matTooltip="Sign out" matTooltipClass="navTooltip">power_settings_new</mat-icon>
         </div>
     </div>
 </div>

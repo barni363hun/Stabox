@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AddressService } from 'apps/stabox-frontend/src/app/services';
 
 @Component({
   selector: 'stabox-addresses',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddressesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public addressService: AddressService) { }
 
   ngOnInit(): void {
   }

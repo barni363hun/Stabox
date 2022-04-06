@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'apps/stabox-frontend/src/app/services';
 
 @Component({
   selector: 'stabox-side-nav',
@@ -12,7 +13,7 @@ export class SideNavComponent implements OnInit {
   dateIconSrc = 'assets/new/icons/dateWhite.svg';
   boxIconSrc = 'assets/new/icons/boxWhite.svg';
 
-  constructor() {}
+  constructor(public userService: UserService) {}
 
   ngOnInit(): void {}
 }

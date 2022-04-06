@@ -1,9 +1,5 @@
 <div class="content">
-    <div class="title">
-        <span>Addresses</span>
-        <div class="underline"></div>
-    </div>
-    
+
     <div class="inputContainer">
         <div class="row">
             <div class="col-12 searchInputContainer">
@@ -13,10 +9,10 @@
                 <input *ngIf="search" class="form-control" id="autocomplete" placeholder="Enter a location" ngx-google-places-autocomplete (onAddressChange)="placeChangedCallback($event)" />
             </div>
         </div>
-    
+
         <div class="row">
             <div class="col-xl-6 col-12">
-                <input class="form-control field" [(ngModel)]="myAddress.name" placeholder="Address nickname" />
+                <input class="form-control field" [(ngModel)]="myAddress.name" placeholder="Address name" />
             </div>
             <div class="col-xl-6 col-12">
                 <input class="form-control field" [(ngModel)]="myAddress.country" placeholder="Country" />
@@ -34,16 +30,10 @@
                 <input class="form-control field" [(ngModel)]="myAddress.houseNumber" placeholder="House number" />
             </div>
         </div>
-    
+
         <div class="buttonPanel">
-            <stabox-button-raised text="Save" class="button"></stabox-button-raised>
-            <stabox-button-raised-danger text="Remove" class="button"></stabox-button-raised-danger>
+            <stabox-button-raised text="Save" (click)="addressService.save(myAddress)" class="button"></stabox-button-raised>
+            <stabox-button-raised-danger text="Remove" (click)="addressService.delete(index)" class="button"></stabox-button-raised-danger>
         </div>
-    </div>
-    
-    <div class="addIconContainer">
-        <button mat-icon-button class="addButton">
-            <mat-icon>add</mat-icon>
-        </button>
     </div>
 </div>

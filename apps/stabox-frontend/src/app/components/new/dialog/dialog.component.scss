@@ -39,12 +39,81 @@
   height: fit-content;
 
   padding: 0;
-  margin: 5px auto;
+  margin: 10px auto 5px auto;
 
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.vehiclesContent {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+}
+
+.vehicleRow {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+.form-control {
+  color: $white;
+  background: transparent;
+
+  font-size: 36px;
+
+  border-color: $descriptionLight;
+}
+.form-control:focus {
+  border-color: $blueGreen;
+  box-shadow: 0 0 0 2px rgba($blueGreen, 0.5);
+}
+
+.removeIconContainer {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+}
+.removeButton {
+  padding: 35px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.removeIconContainer mat-icon {
+  transform: scale(2.5);
+}
+.removeIconContainer:hover mat-icon {
+  color: $blueGreen;
+}
+
+.addIconContainer {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 100px 0 0 0;
+}
+.addButton {
+  padding: 35px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addIconContainer mat-icon {
+  transform: scale(2.5);
 }
 
 .content {
@@ -120,7 +189,9 @@ $arrowIconSize: 125px;
   }
   .underline {
     width: 87.5%;
-    margin: 4px auto;
+  }
+  .addButton {
+    padding: 33px;
   }
   .content {
     width: 55%;
@@ -157,7 +228,12 @@ $arrowIconSize: 125px;
   }
   .underline {
     width: 90%;
-    margin: 3px auto;
+  }
+  .addButton {
+    padding: 31px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(2.25);
   }
   .content {
     width: 50%;
@@ -194,7 +270,12 @@ $arrowIconSize: 125px;
   }
   .underline {
     width: 92.5%;
-    margin: 2px auto;
+  }
+  .addButton {
+    padding: 29px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(2);
   }
   .content {
     width: 45%;
@@ -231,7 +312,12 @@ $arrowIconSize: 125px;
   }
   .underline {
     width: 95%;
-    margin: 1px auto;
+  }
+  .addButton {
+    padding: 27px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(1.75);
   }
   .content {
     width: 40%;
@@ -269,6 +355,12 @@ $arrowIconSize: 125px;
   .underline {
     width: 97.5%;
   }
+  .addButton {
+    padding: 25px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(1.5);
+  }
   .content {
     width: 35%;
   }
@@ -304,6 +396,12 @@ $arrowIconSize: 125px;
   }
   .underline {
     width: 100%;
+  }
+  .addButton {
+    padding: 23px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(1.25);
   }
   .instructionsColumn h1 {
     margin: 4px 0;

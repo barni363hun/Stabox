@@ -5,32 +5,8 @@
   width: 100%;
   height: fit-content;
 
-  padding: 0 0 100px 0;
+  padding: 0 0 50px 0;
   margin: 0;
-}
-
-.title {
-  width: fit-content;
-  height: fit-content;
-
-  padding: 0;
-  margin: 0 auto 100px auto;
-
-  font-size: 56px;
-
-  text-align: center;
-}
-.title span {
-  margin: 0 50px;
-}
-.underline {
-  height: 2px;
-  width: 100%;
-
-  background-color: rgba($white, 0.75);
-
-  border: none;
-  border-radius: 5px;
 }
 
 .inputContainer {
@@ -113,32 +89,9 @@
   margin: 10px;
 }
 
-.addIconContainer {
-  width: 100%;
-  height: fit-content;
-
-  padding: 0;
-  margin: 50px 0 0 0;
-}
-.addButton {
-  padding: 35px;
-  margin: 0 auto;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.addIconContainer mat-icon {
-  transform: scale(2.5);
-}
-
 @media only screen and (max-width: 1140px) {
-  .title {
-    margin: 0 auto 90px auto;
-    font-size: 50px;
-  }
-  .title span {
-    margin: 0 45px;
+  .content {
+    padding: 0 0 45px 0;
   }
   .inputContainer {
     width: 67.5%;
@@ -157,12 +110,8 @@
   }
 }
 @media only screen and (max-width: 960px) {
-  .title {
-    margin: 0 auto 80px auto;
-    font-size: 44px;
-  }
-  .title span {
-    margin: 0 40px;
+  .content {
+    padding: 0 0 40px 0;
   }
   .inputContainer {
     width: 70%;
@@ -185,12 +134,8 @@
   }
 }
 @media only screen and (max-width: 720px) {
-  .title {
-    margin: 0 auto 70px auto;
-    font-size: 38px;
-  }
-  .title span {
-    margin: 0 35px;
+  .content {
+    padding: 0 0 35px 0;
   }
   .inputContainer {
     width: 72.5%;
@@ -203,7 +148,6 @@
   .searchButton mat-icon {
     transform: scale(2);
   }
-  .addIconContainer mat-icon,
   .addIconContainer mat-icon {
     transform: scale(1.75);
   }
@@ -216,12 +160,8 @@
   }
 }
 @media only screen and (max-width: 540px) {
-  .title {
-    margin: 0 auto 60px auto;
-    font-size: 32px;
-  }
-  .title span {
-    margin: 0 30px;
+  .content {
+    padding: 0 0 30px 0;
   }
   .inputContainer {
     width: 75%;
@@ -247,12 +187,8 @@
   }
 }
 @media only screen and (max-width: 380px) {
-  .title {
-    margin: 0 auto 50px auto;
-    font-size: 26px;
-  }
-  .title span {
-    margin: 0 25px;
+  .content {
+    padding: 0 0 25px 0;
   }
   .inputContainer {
     width: 80%;
@@ -275,12 +211,8 @@
   }
 }
 @media only screen and (max-width: 300px) {
-  .title {
-    margin: 0 auto 40px auto;
-    font-size: 20px;
-  }
-  .title span {
-    margin: 0 20px;
+  .content {
+    padding: 0 0 20px 0;
   }
   .inputContainer {
     width: 85%;

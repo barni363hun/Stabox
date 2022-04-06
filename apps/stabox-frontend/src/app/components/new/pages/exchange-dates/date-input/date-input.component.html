@@ -3,25 +3,28 @@
         <span>Exchange dates</span>
         <div class="underline"></div>
     </div>
-    
-    <div class="inputContainer">
-        <select class="form-select">
+
+    <div class="inputContainer" *ngFor="let EXDate of exchangeDateService.exchangeDates;index as EXindex">
+        <select class="form-select" (change)="exchangeDateService.selectChange($event, EXindex)">
             <option selected disabled>Choose an address</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <!-- <option *ngIf="addressService.addresses != null">
+                {{ addressService.getAddressById(exchangeDateService.exchangeDates[EXindex].addressId).name }}
+            </option> -->
+            <option *ngFor="let address of addressService.addresses" [value]="address.id">
+                {{ address.name }}
+            </option>
         </select>
-    
-        <input class="form-control" type="datetime-local" [value]="defaultValue" />
-        <input class="form-control" type="datetime-local" [value]="defaultValue" />
-    
+
+        <input class="form-control" type="datetime-local" [(ngModel)]="EXDate.startDate" />
+        <input class="form-control" type="datetime-local" [(ngModel)]="EXDate.endDate" />
+
         <div class="buttonPanel">
-            <stabox-button-raised text="Save" class="button"></stabox-button-raised>
-            <stabox-button-raised-danger text="Remove" class="button"></stabox-button-raised-danger>
+            <stabox-button-raised text="Save" (click)="exchangeDateService.save(EXDate)" class="button"></stabox-button-raised>
+            <stabox-button-raised-danger text="Remove" (click)="exchangeDateService.delete(EXindex)" class="button"></stabox-button-raised-danger>
         </div>
     </div>
-    
-    <div class="addIconContainer">
+
+    <div class="addIconContainer" (click)="exchangeDateService.localeAddExchangeDate()">
         <button mat-icon-button class="addButton">
             <mat-icon>add</mat-icon>
         </button>

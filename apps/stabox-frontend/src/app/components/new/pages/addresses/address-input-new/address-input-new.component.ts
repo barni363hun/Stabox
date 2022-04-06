@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { addressInterface } from '@stabox/stabox-lib';
+import { AddressService } from 'apps/stabox-frontend/src/app/services';
 
 @Component({
   selector: 'stabox-address-input-new',
@@ -20,9 +21,10 @@ export class AddressInputNewComponent implements OnInit {
     houseNumber: '',
   };
   @Input() isReciever = false;
+  @Input() index = 0;
   @Output() saveAddressEvent = new EventEmitter<addressInterface>();
 
-  constructor() {}
+  constructor(public addressService: AddressService) {}
 
   ngOnInit(): void {}
 
