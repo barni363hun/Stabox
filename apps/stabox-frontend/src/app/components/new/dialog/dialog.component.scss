@@ -39,7 +39,7 @@
   height: fit-content;
 
   padding: 0;
-  margin: 10px auto 5px auto;
+  margin: 15px auto 5px auto;
 
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -75,26 +75,13 @@
   box-shadow: 0 0 0 2px rgba($blueGreen, 0.5);
 }
 
-.removeIconContainer {
-  width: 100%;
-  height: fit-content;
-
+.horizontalCenter {
   padding: 0;
   margin: 0;
-}
-.removeButton {
-  padding: 35px;
-  margin: 0 auto;
 
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.removeIconContainer mat-icon {
-  transform: scale(2.5);
-}
-.removeIconContainer:hover mat-icon {
-  color: $blueGreen;
 }
 
 .addIconContainer {
@@ -218,6 +205,9 @@ $arrowIconSize: 125px;
     height: $arrowIconSize;
     margin: 22.5px 0;
   }
+  .form-control {
+    font-size: 32px;
+  }
 }
 @media only screen and (max-width: 960px) {
   ::ng-deep .mat-dialog-container {
@@ -259,6 +249,9 @@ $arrowIconSize: 125px;
     width: $arrowIconSize;
     height: $arrowIconSize;
     margin: 20px 0;
+  }
+  .form-control {
+    font-size: 28px;
   }
 }
 @media only screen and (max-width: 720px) {
@@ -302,6 +295,9 @@ $arrowIconSize: 125px;
     height: $arrowIconSize;
     margin: 17.5px 0;
   }
+  .form-control {
+    font-size: 24px;
+  }
 }
 @media only screen and (max-width: 540px) {
   ::ng-deep .mat-dialog-container {
@@ -343,6 +339,9 @@ $arrowIconSize: 125px;
     width: $arrowIconSize;
     height: $arrowIconSize;
     margin: 15px 0;
+  }
+  .form-control {
+    font-size: 20px;
   }
 }
 @media only screen and (max-width: 380px) {
@@ -386,6 +385,9 @@ $arrowIconSize: 125px;
     height: $arrowIconSize;
     margin: 12.5px 0;
   }
+  .form-control {
+    font-size: 16px;
+  }
 }
 @media only screen and (max-width: 300px) {
   ::ng-deep .mat-dialog-container {
@@ -427,5 +429,8 @@ $arrowIconSize: 125px;
   }
   .decorativeLineContainer {
     display: none;
+  }
+  .form-control {
+    font-size: 12px;
   }
 }

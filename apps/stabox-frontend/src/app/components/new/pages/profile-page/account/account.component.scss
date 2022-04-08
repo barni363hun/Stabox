@@ -1,6 +1,14 @@
 @import '../../../colors.scss';
 @import '../../../variables.scss';
 
+.content {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+}
+
 .title {
   width: fit-content;
   height: fit-content;
