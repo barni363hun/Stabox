@@ -15,7 +15,7 @@
         <input type="text" class="form-control" placeholder="Vehicle type" [(ngModel)]="vehicle.name" (change)="vehicleService.save(vehicle)" />
       </div>
       <div class="col-1 horizontalCenter">
-        <div class="addIconContainer m-0" (click)="vehicleService.delete(i)">
+        <div class="addIconContainer m-0" matTooltip="Remove" matTooltipClass="removeTooltip" matTooltipPosition="after" (click)="vehicleService.delete(i)">
           <button mat-icon-button class="addButton">
             <mat-icon>delete</mat-icon>
           </button>

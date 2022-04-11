@@ -19,10 +19,10 @@ export class AccountComponent implements OnInit {
     Breakpoints.XSmall
   );
 
-  mobileWidth: string = '95%';
-  mobileHeight: string = '95%';
+  mobileWidth: string = '100%';
+  mobileHeight: string = '85%';
   desktopWidth: string = '75%';
-  desktopHeight: string = '95%';
+  desktopHeight: string = '85%';
 
   constructor(
     public userService: UserService,
