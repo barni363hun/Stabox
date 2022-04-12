@@ -67,8 +67,6 @@ export class UserService {
             },
             error: (err) => {
               cError(err.error.message);
-              this.snackbarService.show(3000, err.error.message, 'error');
-              this.snackbarService.showErrorSnackbar(err.error.message);
 
               this.user = newUser;
               this.createUser(newUser);
@@ -79,8 +77,6 @@ export class UserService {
       },
       error: (err) => {
         cError(err.error.message);
-        this.snackbarService.show(3000, err.error.message, 'error');
-        this.snackbarService.showErrorSnackbar(err.error.message);
       },
     });
   }
@@ -88,25 +84,13 @@ export class UserService {
   public update() {
     cLog('updating user information');
     if (!this.snackbarService.validateEmail(this.user.email)) {
-      this.snackbarService.show(
-        3000,
-        'Email field must contain an email',
-        'error'
-      );
-      this.snackbarService.showErrorSnackbar(
-        'Email field must contain an email'
-      );
+      this.snackbarService.show(3000,'Email field must contain an email','error');
+      this.snackbarService.showErrorSnackbar('Email field must contain an email');
     } else if (
       !this.snackbarService.validatePhoneNumber(this.user.phoneNumber)
     ) {
-      this.snackbarService.show(
-        3000,
-        'Phone number field must contain a phone number',
-        'error'
-      );
-      this.snackbarService.showErrorSnackbar(
-        'Phone number field must contain a phone number'
-      );
+      this.snackbarService.show(3000,'Phone number field must contain a phone number','error');
+      this.snackbarService.showErrorSnackbar('Phone number field must contain a phone number');
     } else {
       this.http
         .patch<userInterface>(environment.apiURL + '/user', {
@@ -119,11 +103,7 @@ export class UserService {
         .subscribe({
           next: (res) => {
             cSuccess('user info updated');
-            this.snackbarService.show(
-              3000,
-              'User information saved.',
-              'success'
-            );
+            this.snackbarService.show(3000,'User information saved.','success');
             this.snackbarService.showSuccessSnackbar('User information saved.');
             if (!this.isUser) {
               this.login();
@@ -150,11 +130,9 @@ export class UserService {
       next: (res) => {
         cSuccess('user info refreshed');
         this.user = res;
-        console.log(this.user);
       },
       error: (err) => {
         cError(err.error.message);
-        this.snackbarService.showErrorSnackbar(err.error.message);
       },
     });
   }
@@ -170,7 +148,6 @@ export class UserService {
           cSuccess('user created');
           this.snackbarService.show(3000, 'User created.', 'success');
           this.snackbarService.showSuccessSnackbar('User created.');
-          console.log(res);
         },
         error: (err) => {
           cError(err.error.message);
@@ -205,7 +182,6 @@ export class UserService {
   }
 
   public beShipper() {
-    console.log('assigning shipper role');
     this.http
       .post(environment.apiURL + '/user/shipper', {
         id: this.user.id,

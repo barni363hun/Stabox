@@ -135,13 +135,13 @@ export class PackageComponent implements OnInit {
 
     switch (status) {
       case 'Inactive':
-        color = '#ec2f4b';
+        color = '#ff5f60';
         break;
       case 'Active':
         color = '#f2da00';
         break;
       case 'Delivered':
-        color = '#00ff00';
+        color = '#41ffc2';
         break;
       default:
         break;
