@@ -68,7 +68,7 @@ export class UserService {
             error: (err) => {
               cError(err.error.message);
               this.snackbarService.show(3000, err.error.message, 'error');
-              // this.snackbarService.showErrorSnackbar(err.error.message);
+              this.snackbarService.showErrorSnackbar(err.error.message);
 
               this.user = newUser;
               this.createUser(newUser);
@@ -80,7 +80,7 @@ export class UserService {
       error: (err) => {
         cError(err.error.message);
         this.snackbarService.show(3000, err.error.message, 'error');
-        // this.snackbarService.showErrorSnackbar(err.error.message);
+        this.snackbarService.showErrorSnackbar(err.error.message);
       },
     });
   }
@@ -93,7 +93,9 @@ export class UserService {
         'Email field must contain an email',
         'error'
       );
-      // this.snackbarService.showErrorSnackbar('Email field must contain an email')
+      this.snackbarService.showErrorSnackbar(
+        'Email field must contain an email'
+      );
     } else if (
       !this.snackbarService.validatePhoneNumber(this.user.phoneNumber)
     ) {
@@ -102,7 +104,9 @@ export class UserService {
         'Phone number field must contain a phone number',
         'error'
       );
-      // this.snackbarService.showErrorSnackbar('Phone number field must contain a phone number')
+      this.snackbarService.showErrorSnackbar(
+        'Phone number field must contain a phone number'
+      );
     } else {
       this.http
         .patch<userInterface>(environment.apiURL + '/user', {
@@ -120,7 +124,7 @@ export class UserService {
               'User information saved.',
               'success'
             );
-            // this.snackbarService.showSuccessSnackbar('User information saved.');
+            this.snackbarService.showSuccessSnackbar('User information saved.');
             if (!this.isUser) {
               this.login();
               location.reload();
@@ -129,7 +133,7 @@ export class UserService {
           error: (err) => {
             cError(err.error.message);
             this.snackbarService.show(3000, err.error.message, 'error');
-            // this.snackbarService.showErrorSnackbar(err.error.message);
+            this.snackbarService.showErrorSnackbar(err.error.message);
           },
         });
     }
@@ -165,13 +169,13 @@ export class UserService {
         next: (res) => {
           cSuccess('user created');
           this.snackbarService.show(3000, 'User created.', 'success');
-          // this.snackbarService.showSuccessSnackbar('User created.');
+          this.snackbarService.showSuccessSnackbar('User created.');
           console.log(res);
         },
         error: (err) => {
           cError(err.error.message);
           this.snackbarService.show(3000, err.error.message, 'error');
-          // this.snackbarService.showErrorSnackbar(err.error.message);
+          this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
   }
@@ -210,13 +214,13 @@ export class UserService {
         next: (res) => {
           cSuccess('shipper role assigned');
           this.snackbarService.show(3000, 'Shipper role assigned.', 'success');
-          // this.snackbarService.showSuccessSnackbar('Shipper role assigned.');
+          this.snackbarService.showSuccessSnackbar('Shipper role assigned.');
           this.login();
         },
         error: (err) => {
           cError(err.error.message);
           this.snackbarService.show(3000, err.error.message, 'error');
-          // this.snackbarService.showErrorSnackbar(err.error.message);
+          this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
   }

@@ -216,11 +216,6 @@
     transform: scale(1.75);
   }
 }
-@media only screen and (max-width: 500px) {
-  .nameInputContainer {
-    flex-direction: column;
-  }
-}
 @media only screen and (max-width: 380px) {
   .title {
     margin: 0 auto 50px auto;

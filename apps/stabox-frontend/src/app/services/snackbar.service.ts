@@ -12,14 +12,18 @@ export class SnackbarService {
   showConfirm = false;
   message = '';
 
+  new = true;
+
   constructor(private snackBar: MatSnackBar) {}
 
   show(duration: number, text: string, mode: string) {
-    this.snackBar.openFromComponent(SnackbarBasicComponent, {
-      duration: duration,
-      data: text,
-      panelClass: [mode],
-    });
+    if (this.new) {
+      this.snackBar.openFromComponent(SnackbarBasicComponent, {
+        duration: duration,
+        data: text,
+        panelClass: [mode],
+      });
+    }
   }
 
   public validateEmail(email: any) {
@@ -85,39 +89,45 @@ export class SnackbarService {
   }
 
   showErrorSnackbar(message: string) {
-    this.message = this.formatMessage(message);
-    this.showSuccess = false;
-    this.showConfirm = false;
+    if (!this.new) {
+      this.message = this.formatMessage(message);
+      this.showSuccess = false;
+      this.showConfirm = false;
 
-    const context = this;
-    context.showError = false;
-    setTimeout(function () {
-      context.showError = true;
-    }, 100);
+      const context = this;
+      context.showError = false;
+      setTimeout(function () {
+        context.showError = true;
+      }, 100);
 
-    this.message = message;
+      this.message = message;
+    }
   }
 
   showSuccessSnackbar(message: string) {
-    this.showError = false;
-    this.showConfirm = false;
+    if (!this.new) {
+      this.showError = false;
+      this.showConfirm = false;
 
-    const context = this;
-    context.showSuccess = false;
-    setTimeout(function () {
-      context.showSuccess = true;
-    }, 100);
+      const context = this;
+      context.showSuccess = false;
+      setTimeout(function () {
+        context.showSuccess = true;
+      }, 100);
 
-    this.message = message;
+      this.message = message;
+    }
   }
 
   showConfirmSnackbar(message: string) {
-    this.showError = false;
-    this.showSuccess = false;
+    if (!this.new) {
+      this.showError = false;
+      this.showSuccess = false;
 
-    this.showConfirm = true;
+      this.showConfirm = true;
 
-    this.message = message;
+      this.message = message;
+    }
   }
 
   clearSnackBars() {

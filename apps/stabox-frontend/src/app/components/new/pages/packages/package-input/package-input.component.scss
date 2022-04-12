@@ -1,0 +1,155 @@
+@import '../../../colors.scss';
+@import '../../../variables.scss';
+
+.content {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0 0 100px 0;
+  margin: 0;
+}
+
+.title {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0 auto 100px auto;
+
+  font-size: 56px;
+
+  text-align: center;
+}
+.title span {
+  margin: 0 50px;
+}
+.underline {
+  height: 2px;
+  width: 100%;
+
+  background-color: rgba($white, 0.75);
+
+  border: none;
+  border-radius: 5px;
+}
+
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label {
+  color: $white;
+  background-color: transparent;
+
+  font-family: $font;
+  font-size: 24px;
+}
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+  opacity: 1;
+}
+::ng-deep .mat-ink-bar {
+  background-color: var(--primary-color, $blueGreen) !important;
+}
+
+.addIconContainer {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+}
+.addButton {
+  padding: 35px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addIconContainer mat-icon {
+  transform: scale(2.5);
+}
+
+@media only screen and (max-width: 1140px) {
+  .title {
+    margin: 0 auto 90px auto;
+    font-size: 50px;
+  }
+  .title span {
+    margin: 0 45px;
+  }
+  .addButton {
+    padding: 33px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .title {
+    margin: 0 auto 80px auto;
+    font-size: 44px;
+  }
+  .title span {
+    margin: 0 40px;
+  }
+  .addButton {
+    padding: 31px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(2.25);
+  }
+}
+@media only screen and (max-width: 720px) {
+  .title {
+    margin: 0 auto 70px auto;
+    font-size: 38px;
+  }
+  .title span {
+    margin: 0 35px;
+  }
+  .addButton {
+    padding: 29px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(2);
+  }
+}
+@media only screen and (max-width: 540px) {
+  .title {
+    margin: 0 auto 60px auto;
+    font-size: 32px;
+  }
+  .title span {
+    margin: 0 30px;
+  }
+  .addButton {
+    padding: 27px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(1.75);
+  }
+}
+@media only screen and (max-width: 380px) {
+  .title {
+    margin: 0 auto 50px auto;
+    font-size: 26px;
+  }
+  .title span {
+    margin: 0 25px;
+  }
+  .addButton {
+    padding: 25px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(1.5);
+  }
+}
+@media only screen and (max-width: 300px) {
+  .title {
+    margin: 0 auto 40px auto;
+    font-size: 20px;
+  }
+  .title span {
+    margin: 0 20px;
+  }
+  .addButton {
+    padding: 23px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(1.25);
+  }
+}

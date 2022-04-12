@@ -52,16 +52,14 @@ export class VehicleService {
         .subscribe({
           next: (res) => {
             cSuccess('vehicle saved');
-            this.snackbarService.show(3000, `Vehicle "${vehicle.name}" saved.`, 'success');
-            // this.snackbarService.showSuccessSnackbar(
-            //   `Vehicle '${vehicle.name}' saved.`
-            // );
-            // this.getVehicles();
+            this.snackbarService.show(3000,`Vehicle "${vehicle.name}" saved.`,'success');
+            this.snackbarService.showSuccessSnackbar(`Vehicle '${vehicle.name}' saved.`);
+            this.getVehicles();
           },
           error: (err) => {
             cError(err.error.message);
-            this.snackbarService.show(3000, 'err.error.message', 'error');
-            // this.snackbarService.showErrorSnackbar(err.error.message);
+            this.snackbarService.show(3000, err.error.message, 'error');
+            this.snackbarService.showErrorSnackbar(err.error.message);
           },
         });
     }
@@ -76,16 +74,14 @@ export class VehicleService {
       .subscribe({
         next: (res) => {
           cSuccess('vehicle' + vehicle.name + ' created');
-          this.snackbarService.show(3000, `Vehicle "${vehicle.name}" added.`, 'success');
-          // this.snackbarService.showSuccessSnackbar(
-          //   `Vehicle '${vehicle.name}' added.`
-          // );
+          this.snackbarService.show(3000,`Vehicle "${vehicle.name}" added.`, 'success');
+          this.snackbarService.showSuccessSnackbar( `Vehicle '${vehicle.name}' added.`);
           this.getVehicles();
         },
         error: (err) => {
           cError(err.error.message);
-          this.snackbarService.show(3000, 'err.error.message', 'error');
-          // this.snackbarService.showErrorSnackbar(err.error.message);
+          this.snackbarService.show(3000, err.error.message, 'error');
+          this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
   }
@@ -106,8 +102,8 @@ export class VehicleService {
         },
         error: (err) => {
           cError(err.error.message);
-          this.snackbarService.show(3000, 'err.error.message', 'error');
-          // this.snackbarService.showErrorSnackbar(err.error.message);
+          this.snackbarService.show(3000, err.error.message, 'error');
+          this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
   }

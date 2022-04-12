@@ -1,4 +1,5 @@
-// old
+import { from } from 'rxjs';
+
 export * from './old/buttons/account-button/account-button.component';
 export * from './old/buttons/contact-us-button/contact-us-button.component';
 export * from './old/buttons/get-started-button/get-started-button.component';
@@ -37,7 +38,6 @@ export * from './old/pages/mainpage/second-card/second-card.component';
 export * from './old/pages/mainpage/third-card/third-card.component';
 export * from './old/pages/packages-page/packages-page.component';
 
-// new
 export * from './new/pages/home-page/home-page.component';
 export * from './new/pages/home-page/benefits/benefits.component';
 export * from './new/pages/home-page/landing/landing.component';
@@ -52,6 +52,10 @@ export * from './new/pages/exchange-dates/date-input/date-input.component';
 
 export * from './new/pages/addresses/addresses.component';
 export * from './new/pages/addresses/address-input-new/address-input-new.component';
+
+export * from './new/pages/packages/packages.component';
+export * from './new/pages/packages/package-input/package-input.component';
+export * from './new/pages/packages/package/package.component';
 
 export * from './new/navs/nav/nav.component';
 export * from './new/navs/side-nav/side-nav.component';

@@ -15,6 +15,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
 
 import {
   AccountButtonComponent,
@@ -66,6 +68,9 @@ import {
   AddressInputNewComponent,
   SnackbarBasicComponent,
   DialogComponent,
+  PackagesComponent,
+  PackageInputComponent,
+  PackageComponent,
 } from './components';
 
 @NgModule({
@@ -121,6 +126,9 @@ import {
     SnackbarBasicComponent,
     SnackbarBasicComponent,
     DialogComponent,
+    PackagesComponent,
+    PackageInputComponent,
+    PackageComponent,
   ],
   imports: [
     GooglePlaceModule,
@@ -148,6 +156,8 @@ import {
     MatSlideToggleModule,
     MatSnackBarModule,
     MatDialogModule,
+    MatTabsModule,
+    MatCardModule,
   ],
   bootstrap: [AppComponent],
   providers: [

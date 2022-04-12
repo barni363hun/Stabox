@@ -12,7 +12,7 @@
         <button mat-icon-button class="navItem" routerLink="/dates" matTooltip="Dates" matTooltipClass="navTooltip" (mouseover)="dateIconSrc = 'assets/new/icons/dateGreen.svg'" (mouseleave)="dateIconSrc = 'assets/new/icons/dateWhite.svg'">
             <img [src]="dateIconSrc">
         </button>
-        <button mat-icon-button class="navItem" matTooltip="Packages" matTooltipClass="navTooltip" (mouseover)="boxIconSrc = 'assets/new/icons/boxGreen.svg'" (mouseleave)="boxIconSrc = 'assets/new/icons/boxWhite.svg'">
+        <button mat-icon-button class="navItem" routerLink="/allpackages" matTooltip="Packages" matTooltipClass="navTooltip" (mouseover)="boxIconSrc = 'assets/new/icons/boxGreen.svg'" (mouseleave)="boxIconSrc = 'assets/new/icons/boxWhite.svg'">
             <img [src]="boxIconSrc">
         </button>
 

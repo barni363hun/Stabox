@@ -14,6 +14,7 @@ import {
   AddressesComponent,
   AddPackageComponent,
   AddRecieverWithAddressComponent,
+  PackagesComponent,
 } from './components';
 
 @Component({
@@ -43,7 +44,6 @@ const routes: Routes = [
     component: PackagesPageComponent,
     canActivate: [AuthGuard],
   },
-
   {
     path: 'home',
     component: HomePageComponent,
@@ -61,6 +61,11 @@ const routes: Routes = [
   {
     path: 'addresses',
     component: AddressesComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'allpackages',
+    component: PackagesComponent,
     canActivate: [AuthGuard],
   },
 

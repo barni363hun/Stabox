@@ -13,7 +13,7 @@ export class AddressService {
   constructor(
     private userService: UserService,
     private http: HttpClient,
-    private exchangeDateService:ExchangeDateService,
+    private exchangeDateService: ExchangeDateService,
     private snackbarService: SnackbarService
   ) {
     this.getAddresses();
@@ -24,7 +24,6 @@ export class AddressService {
     if (add) {
       return add;
     }
-    //TODO error
     const newADR: addressInterface = {
       id: 0,
       userId: this.userService.user.id,
@@ -54,7 +53,6 @@ export class AddressService {
       houseNumber: '',
     };
     this.addresses.push(newADR);
-    //console.log(this.addresses);
   }
 
   getAddresses() {
@@ -65,17 +63,14 @@ export class AddressService {
         next: (res) => {
           this.addresses = res;
           cSuccess('addresses refreshed');
-          console.log(this.addresses);
         },
         error: (err) => {
           cError(err.error.message);
-          this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
   }
 
   save(address: addressInterface) {
-    // console.log(address);
     address.zipCode = Number(address.zipCode);
     if (address.id === 0) {
       this.create(address);
@@ -88,12 +83,13 @@ export class AddressService {
         .subscribe({
           next: (res) => {
             cSuccess('address saved');
-            console.log(this.addresses);
-            this.snackbarService.showSuccessSnackbar('Address saved.')
+            this.snackbarService.show(3000,'Address saved.', 'success');
+            this.snackbarService.showSuccessSnackbar('Address saved.');
             this.getAddresses();
           },
           error: (err) => {
             cError(err.error.message);
+            this.snackbarService.show(3000, err.error.message, 'error');
             this.snackbarService.showErrorSnackbar(err.error.message);
           },
         });
@@ -109,12 +105,13 @@ export class AddressService {
       .subscribe({
         next: (res) => {
           cSuccess('address ' + exDate.id + ' created');
-          this.snackbarService.showSuccessSnackbar('Address created.')
-          console.log(this.addresses);
+          this.snackbarService.show(3000, 'Address created.', 'success');
+          this.snackbarService.showSuccessSnackbar('Address created.');
           this.getAddresses();
         },
         error: (err) => {
           cError(err.error.message);
+          this.snackbarService.show(3000, err.error.message, 'error');
           this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
@@ -132,7 +129,6 @@ export class AddressService {
       .subscribe({
         next: (res) => {
           cSuccess('address ' + id + ' deleted');
-          console.log(this.addresses);
           this.exchangeDateService.getExchangeDates();
           this.getAddresses();
         },

@@ -49,14 +49,12 @@ export class ExchangeDateService {
       addressId: 0,
     };
     this.exchangeDates.push(newEX);
-    //console.log(this.exchangeDates);
   }
   selectChange(e: any, EXindex: number) {
     const myEX: exchangeDateInterface = this.exchangeDates[EXindex];
     if (myEX) {
       myEX.addressId = Number(e.target.value);
     }
-    //console.log(myEX);
   }
 
   getExchangeDates() {
@@ -76,7 +74,6 @@ export class ExchangeDateService {
               };
             })
             .sort((e) => (e.id == 0 ? -e.id : e.id));
-          console.log(this.exchangeDates);
         },
         error: (err) => {
           cError(err.error.message);
@@ -111,40 +108,35 @@ export class ExchangeDateService {
               .subscribe({
                 next: (res) => {
                   cSuccess('exchangeDates saved');
-                  this.snackbarService.showSuccessSnackbar(
-                    'Exchange date saved.'
-                  );
+                  this.snackbarService.show(3000, 'Exchange date saved.', 'success');
+                  this.snackbarService.showSuccessSnackbar('Exchange date saved.');
                   this.getExchangeDates();
                 },
                 error: (err) => {
                   cError(err.error.message);
+                  this.snackbarService.show(3000, err.error.message, 'error');
                   this.snackbarService.showErrorSnackbar(err.error.message);
                 },
               });
           }
         } else {
           cError('You need to select an address.');
-          this.snackbarService.showErrorSnackbar(
-            'You need to select an address.'
-          );
+          this.snackbarService.show(3000, 'You need to select an address.', 'error');
+          this.snackbarService.showErrorSnackbar('You need to select an address.');
         }
       } else {
         cError('endDate must be later than startDate');
-        this.snackbarService.showErrorSnackbar(
-          'End date must be later then start date.'
-        );
+        this.snackbarService.show(3000, 'End date must be later than start date.', 'error');
+        this.snackbarService.showErrorSnackbar('End date must be later then start date.');
       }
     } else {
       cError('both dates must be later than now');
-      this.snackbarService.showErrorSnackbar(
-        'Both dates must be later than now.'
-      );
+      this.snackbarService.show(3000, 'Both dates must be later than now.', 'error');
+      this.snackbarService.showErrorSnackbar('Both dates must be later than now.');
     }
   }
 
-  // TODO show these options only for users with USER role
   private create(exDate: exchangeDateInterface) {
-    // console.log(exDate);
     cLog('creating exchangeDate');
     this.http
       .put<exchangeDateInterface>(environment.apiURL + '/EXdate', {
@@ -153,11 +145,13 @@ export class ExchangeDateService {
       .subscribe({
         next: (res) => {
           cSuccess('exchangeDate created');
+          this.snackbarService.show(3000, 'Exchange date created.', 'success');
           this.snackbarService.showSuccessSnackbar('Exchange date created.');
           this.getExchangeDates();
         },
         error: (err) => {
           cError(err.error.message);
+          this.snackbarService.show(3000, err.error.message, 'error');
           this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
@@ -175,12 +169,10 @@ export class ExchangeDateService {
       .subscribe({
         next: (res) => {
           cSuccess('exchangeDate deleted');
-          this.snackbarService.showSuccessSnackbar('exchangeDate deleted.');
           this.getExchangeDates();
         },
         error: (err) => {
           this.getExchangeDates();
-          this.snackbarService.showErrorSnackbar(err.error.message);
           cError(err.error.message);
         },
       });

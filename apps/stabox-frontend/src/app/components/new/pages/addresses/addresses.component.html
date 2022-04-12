@@ -15,8 +15,8 @@
             (saveAddressEvent)="addressService.save(address)">
         </stabox-address-input-new>
 
-        <div class="addIconContainer" (click)="addressService.localeAddAddress()">
-            <button mat-icon-button class="addButton">
+        <div class="addIconContainer">
+            <button mat-icon-button class="addButton" (click)="addressService.localeAddAddress()">
                 <mat-icon>add</mat-icon>
             </button>
         </div>
