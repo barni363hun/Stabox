@@ -2269,6 +2269,11 @@
   dependencies:
     "source-map-support" "^0.5.21"
 
+"@swc/core-win32-x64-msvc@1.2.146":
+  "integrity" "sha512-P45vAh0hR9dISIceSv6MkypjT0WduLWB4U8LPoCneeAw7mA1U7liS0Uu1PeiafxQVMWg8SNyIJFDcSg/haLJgg=="
+  "resolved" "https://registry.npmjs.org/@swc/core-win32-x64-msvc/-/core-win32-x64-msvc-1.2.146.tgz"
+  "version" "1.2.146"
+
 "@swc/core@^1.2.119":
   "integrity" "sha512-axIapm2mReT45ILuYxwe0xEWqtITj3dyfDIGIgdC8Tx7ss5vpXvr22UbDSUTRIS+nypFy6hViIR1RhXE1hXnig=="
   "resolved" "https://registry.npmjs.org/@swc/core/-/core-1.2.146.tgz"
@@ -4883,6 +4888,16 @@
 "esbuild-wasm@0.14.22":
   "integrity" "sha512-FOSAM29GN1fWusw0oLMv6JYhoheDIh5+atC72TkJKfIUMID6yISlicoQSd9gsNSFsNBvABvtE2jR4JB1j4FkFw=="
   "resolved" "https://registry.npmjs.org/esbuild-wasm/-/esbuild-wasm-0.14.22.tgz"
+  "version" "0.14.22"
+
+"esbuild-windows-64@0.14.11":
+  "integrity" "sha512-h9FmMskMuGeN/9G9+LlHPAoiQk9jlKDUn9yA0MpiGzwLa82E7r1b1u+h2a+InprbSnSLxDq/7p5YGtYVO85Mlg=="
+  "resolved" "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.14.11.tgz"
+  "version" "0.14.11"
+
+"esbuild-windows-64@0.14.22":
+  "integrity" "sha512-AxjIDcOmx17vr31C5hp20HIwz1MymtMjKqX4qL6whPj0dT9lwxPexmLj6G1CpR3vFhui6m75EnBEe4QL82SYqw=="
+  "resolved" "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.14.22.tgz"
   "version" "0.14.22"
 
 "esbuild@0.14.11":

@@ -6,13 +6,12 @@
 
     <div class="inputContainer" *ngFor="let EXDate of exchangeDateService.exchangeDates;index as EXindex">
         <select class="form-select" (change)="exchangeDateService.selectChange($event, EXindex)">
-            <option selected disabled>Choose an address</option>
-            <!-- <option *ngIf="addressService.addresses != null">
+            <option value="0" hidden>
                 {{ addressService.getAddressById(exchangeDateService.exchangeDates[EXindex].addressId).name }}
-            </option> -->
-            <option *ngFor="let address of addressService.addresses" [value]="address.id">
+              </option>
+              <option *ngFor="let address of addressService.addresses" [value]="address.id">
                 {{ address.name }}
-            </option>
+              </option>
         </select>
 
         <input class="form-control" type="datetime-local" [(ngModel)]="EXDate.startDate" />

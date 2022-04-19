@@ -1,12 +1,12 @@
-<mat-card class="example-card">
+<mat-card>
     <mat-card-header>
         <mat-card-title>{{package.name}}</mat-card-title>
         <mat-card-subtitle>
             <div class="container-fluid noGutters">
                 <div class="row noGutters">
                     <div class="row noGutters">
-                        <div class="col-6 center noGutters">From</div>
-                        <div class="col-6 center noGutters">To</div>
+                        <div class="col-6 center noGutters green">From</div>
+                        <div class="col-6 center noGutters green">To</div>
                     </div>
                     <div class="row noGutters">
                         <div class="col-6 center noGutters">
@@ -74,7 +74,7 @@
         </div>
     </mat-card-content>
 
-    <mat-card-actions>
+    <mat-card-actions *ngIf="this.state == 'finishable' && !this.isUserTheOwner">
         <button mat-button>Accept</button>
     </mat-card-actions>
 </mat-card>

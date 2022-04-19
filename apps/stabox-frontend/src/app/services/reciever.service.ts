@@ -25,6 +25,6 @@ export class RecieverService {
     });;
   }
   refreshUserRecievers() {
-    this.getRecievers().subscribe((res) => this.userSRecievers = res)
+    this.getRecievers().subscribe((res) => this.userSRecievers = res);
   }
 }

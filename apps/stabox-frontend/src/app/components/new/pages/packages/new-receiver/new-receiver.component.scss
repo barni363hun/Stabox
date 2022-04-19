@@ -1,0 +1,99 @@
+@import '../../../colors.scss';
+@import '../../../variables.scss';
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $blueGreen;
+}
+::ng-deep .mat-dialog-container {
+    color: $white;
+    background-color: $black;
+  
+    padding: 50px;
+    margin: 0;
+  
+    font-family: $font;
+  
+    text-align: center;
+  
+    overflow: hidden;
+  
+    scrollbar-color: $blueGreen $black;
+    scrollbar-width: thin;
+}
+
+::ng-deep .mat-dialog-title {
+    padding: 0;
+    margin: 0;
+  
+    font-size: 48px;
+}
+
+.content {
+    width: 100%;
+    height: fit-content;
+  
+    padding: 0;
+    margin: 0;
+  }
+
+.underline {
+    width: 85%;
+    height: fit-content;
+  
+    padding: 0;
+    margin: 20px auto 5px auto;
+  
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.button {
+    margin: 5px 25px;
+}
+
+.form-control {
+    color: $white;
+    background: transparent;
+  
+    margin: 10px 0;
+  
+    font-size: 36px;
+  
+    border: 2px solid $descriptionLight;
+}
+  .form-control:focus {
+    border-color: $blueGreen;
+    box-shadow: 0 0 0 2px rgba($blueGreen, 0.5);
+}
+
+.centerText {
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    align-items: center;
+}
+.centerElements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.centerText {
+    font-size: 32px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .centerText {
+        justify-content: center;
+        text-align: center;
+    }
+}

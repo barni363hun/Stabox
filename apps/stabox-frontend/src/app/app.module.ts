@@ -71,6 +71,8 @@ import {
   PackagesComponent,
   PackageInputComponent,
   PackageComponent,
+  NewPackageComponent,
+  NewReceiverComponent
 } from './components';
 
 @NgModule({
@@ -129,6 +131,8 @@ import {
     PackagesComponent,
     PackageInputComponent,
     PackageComponent,
+    NewPackageComponent,
+    NewReceiverComponent,
   ],
   imports: [
     GooglePlaceModule,

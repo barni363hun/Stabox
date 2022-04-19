@@ -1,0 +1,102 @@
+<span mat-dialog-title *ngIf="data.title">{{ data.title }}</span>
+
+<img class="underline" src="assets/new/icons/underlineVar1.svg">
+
+<mat-dialog-content>
+    <div class="content">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-sm-13 centerText">
+                 <span class="cardText">First name</span>
+                </div>
+                <div class="col-xl-9 col-sm-13 centerElements">
+                 <input class="form-control" type="text" placeholder="First name" [(ngModel)]="reciever.firstName">
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-sm-13 centerText">
+                 <span class="cardText">Last name</span>
+                </div>
+                <div class="col-xl-9 col-sm-13 centerElements">
+                 <input class="form-control" type="text" placeholder="Last name" [(ngModel)]="reciever.lastName">
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-sm-13 centerText">
+                  <span class="cardText">Email</span>
+                </div>
+                <div class="col-xl-9 col-sm-13 centerElements">
+                 <input class="form-control" type="text" placeholder="Email" [(ngModel)]="reciever.email">
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-sm-13 centerText">
+                  <span class="cardText">Phone number</span>
+                </div>
+                <div class="col-xl-9 col-sm-13 centerElements">
+                 <input class="form-control" type="text" placeholder="Phone number" [(ngModel)]="reciever.phoneNumber">
+                </div>
+              </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-sm-13 centerText">
+                  <span class="cardText">Zip code</span>
+                </div>
+                <div class="col-xl-9 col-sm-13 centerElements">
+                  <input class="form-control" type="text" placeholder="Zip code" [(ngModel)]="reciever.zipCode">
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-sm-13 centerText">
+                  <span class="cardText">City</span>
+                </div>
+                <div class="col-xl-9 col-sm-13 centerElements">
+                 <input class="form-control" type="text" placeholder="City" [(ngModel)]="reciever.cityName">
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-sm-13 centerText">
+                  <span class="cardText">Street</span>
+                </div>
+                <div class="col-xl-9 col-sm-13 centerElements">
+                 <input class="form-control" type="text" placeholder="Street" [(ngModel)]="reciever.street">
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-sm-13 centerText">
+                  <span class="cardText">House number</span>
+                </div>
+                <div class="col-xl-9 col-sm-13 centerElements">
+                 <input class="form-control" type="text" placeholder="House number" [(ngModel)]="reciever.houseNumber">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center" *ngIf="!data.showVehicles">
+    <stabox-button-raised (click)="addToDB()" text="{{ data.confirmButtonText }}" class="button"></stabox-button-raised>
+    <stabox-button-raised-danger mat-dialog-close text="{{ data.cancelButtonText }}" class="button"></stabox-button-raised-danger>
+</mat-dialog-actions>

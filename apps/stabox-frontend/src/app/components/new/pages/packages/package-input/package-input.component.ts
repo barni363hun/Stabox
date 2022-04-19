@@ -1,9 +1,13 @@
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import {
   ExchangeDateService,
   PackageService,
   VehicleService,
 } from 'apps/stabox-frontend/src/app/services';
+import { Observable } from 'rxjs';
+import { NewPackageComponent } from '../new-package/new-package.component';
 
 @Component({
   selector: 'stabox-package-input',
@@ -11,6 +15,16 @@ import {
   styleUrls: ['./package-input.component.scss'],
 })
 export class PackageInputComponent implements OnInit {
+  isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe(
+    Breakpoints.XSmall
+  );
+
+  mobileWidth: string = '100%';
+  mobileHeight: string = '85%';
+  desktopWidth: string = '75%';
+  desktopHeight: string = '85%';
+
+
   showMyPackages = true;
   showAcceptedPackages = false;
   showToDeliver = false;
@@ -21,7 +35,9 @@ export class PackageInputComponent implements OnInit {
   constructor(
     public packageService: PackageService,
     public vehicleService: VehicleService,
-    public exchangeDateService: ExchangeDateService
+    public exchangeDateService: ExchangeDateService,
+    private dialog: MatDialog,
+    private breakpointObserver: BreakpointObserver,
   ) {}
 
   ngOnInit(): void {}
@@ -50,5 +66,29 @@ export class PackageInputComponent implements OnInit {
     this.vehicleService.getVehicles();
     this.exchangeDateService.getExchangeDates();
     this.packageService.update('/package/acceptable');
+  }
+
+  openNewPackageDialog() {
+    const dialogRef = this.dialog.open(NewPackageComponent, {
+      width: this.desktopWidth,
+      height: this.desktopHeight,
+      data: {
+        title: 'New package',
+        confirmButtonText: 'Save',
+        cancelButtonText: 'Cancel',
+      },
+    })
+
+    const smallDialogSubscription = this.isExtraSmall.subscribe((size) => {
+      if (size.matches) {
+        dialogRef.updateSize(this.mobileWidth, this.mobileHeight);
+      } else {
+        dialogRef.updateSize(this.desktopWidth, this.desktopHeight);
+      }
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      smallDialogSubscription.unsubscribe();
+    });
   }
 }

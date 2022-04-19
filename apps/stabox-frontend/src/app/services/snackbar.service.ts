@@ -83,7 +83,10 @@ export class SnackbarService {
     ) {
       return true;
     } else {
-      this.showErrorSnackbar(errorMessage);
+      if (!this.new) {
+        this.showErrorSnackbar(errorMessage);
+      }
+      this.show(3000, errorMessage, 'error');
       return false;
     }
   }
