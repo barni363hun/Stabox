@@ -67,14 +67,35 @@
             </div>
         </div>
 
-        <div class="container-fluid noGutters">
+        <div class="container-fluid noGutters my-2" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
             <div class="row m-0 py-1">
-                
+                <span class="periodsTitle green">Periods</span>
+                <span class="my-2" *ngFor="let exDate of exchangeDates">
+                    {{ formatDate(exDate.startDate) }} - {{ formatDate(exDate.endDate) }}
+                </span>
             </div>
         </div>
+
+        <div class="container-fluid noGutters" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
+            <div class="row m-0 py-1 packageDataInputRow">
+                <input class="form-control my-1" type="datetime-local" [(ngModel)]="selectedExchangeDate"/>
+                <select class="form-select my-1" name="vehicle" id="vehicle" [(ngModel)]="selectedVehicle">
+                    <option value="0" disabled selected>Vehicle</option>
+                    <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.name}}</option>
+                  </select>
+            </div>
+        </div>
+
+
     </mat-card-content>
 
-    <mat-card-actions *ngIf="this.state == 'finishable' && !this.isUserTheOwner">
-        <button mat-button>Accept</button>
+    <mat-card-actions>
+        <button mat-raised-button *ngIf="this.state == 'shippable' && !this.isUserTheOwner" (click)="selectPostDate()">
+            Accept
+        </button>
+        <button mat-raised-button *ngIf="this.state == 'finishable' && !this.isUserTheOwner" (click)="finishShipping()">
+            Finish
+        </button>
     </mat-card-actions>
+
 </mat-card>

@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 export class PackageService {
 
   public packages: any[] = []
-  private route: '/package/myPackages' | '/package/acceptable' | '/package/accepted' = '/package/myPackages';
+  public route: '/package/myPackages' | '/package/acceptable' | '/package/accepted' = '/package/myPackages';
 
 
   constructor(private http: HttpClient) {

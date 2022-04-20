@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeService } from './services';
+import { SnackbarService, ThemeService } from './services';
 
 @Component({
   selector: 'stabox-root',
@@ -7,7 +7,7 @@ import { ThemeService } from './services';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(public themeService: ThemeService) {}
+  constructor(public themeService: ThemeService, public snackbarService: SnackbarService) {}
 
   ngOnInit(): void {
     this.themeService.getTheme();

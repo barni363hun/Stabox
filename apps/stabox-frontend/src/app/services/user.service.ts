@@ -146,7 +146,7 @@ export class UserService {
       .subscribe({
         next: (res) => {
           cSuccess('user created');
-          this.snackbarService.show(3000, 'User created.', 'success');
+          this.snackbarService.show(3000, 'Fill in all your data to complete registration.', 'info');
           this.snackbarService.showSuccessSnackbar('User created.');
         },
         error: (err) => {

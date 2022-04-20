@@ -103,7 +103,7 @@ input,
   
     border: 2px solid $descriptionLight;
 }
-  .form-control:focus {
+.form-control:focus {
     border-color: $blueGreen;
     box-shadow: 0 0 0 2px rgba($blueGreen, 0.5);
 }

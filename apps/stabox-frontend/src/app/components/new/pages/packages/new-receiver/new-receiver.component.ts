@@ -24,7 +24,8 @@ export class NewReceiverComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public snackbarService: SnackbarService,
-    public recieverService: RecieverService
+    public recieverService: RecieverService,
+    private dialogRef: MatDialogRef<NewReceiverComponent>
   ) { }
 
   ngOnInit(): void {
@@ -44,6 +45,7 @@ export class NewReceiverComponent implements OnInit {
       else {
         await this.recieverService.addReciever(this.reciever);
         this.recieverService.refreshUserRecievers();
+        this.dialogRef.close();
       }
     }
   }

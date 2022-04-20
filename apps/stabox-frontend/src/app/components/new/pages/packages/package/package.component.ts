@@ -32,7 +32,7 @@ export class PackageComponent implements OnInit {
     private packageService: PackageService,
     private vehicleService: VehicleService,
     private exchangeDateSercice: ExchangeDateService,
-    private snackbarService: SnackbarService
+    private snackbarService: SnackbarService,
   ) {}
 
   ngOnInit(): void {
@@ -60,35 +60,28 @@ export class PackageComponent implements OnInit {
     const date: Date = this.selectedExchangeDate;
     if (!this.selectedVehicle) {
       cError('NO vehicle selected!');
+      this.snackbarService.show(3000, 'Select a vehicle, please.', 'error');
       this.snackbarService.showErrorSnackbar('Select a vehicle, please.');
     } else if (!this.selectedExchangeDate) {
       cError('No exchangeDate selected!');
-      this.snackbarService.showErrorSnackbar(
-        'Select an exchange date, please.'
-      );
+      this.snackbarService.show(3000, 'Select an exchange date, please.', 'error');
+      this.snackbarService.showErrorSnackbar('Select an exchange date, please.');
     } else if (!this.isInDateRanges(date)) {
       cError('exchangeDate Is Not In Range!');
-      this.snackbarService.showErrorSnackbar(
-        'Choose a date that is in one of the ranges, please.'
-      );
+      this.snackbarService.show(3000, 'Choose a date that is in one of the ranges, please.', 'error');
+      this.snackbarService.showErrorSnackbar('Choose a date that is in one of the ranges, please.');
     } else {
-      this.packageService.postPackage(
-        this.package.id,
-        Number(this.selectedVehicle),
-        date
-      );
-      this.snackbarService.showSuccessSnackbar(
-        `Package  '${this.package.name}' accepted.`
-      );
+      this.packageService.postPackage(this.package.id, Number(this.selectedVehicle), date);
+      this.snackbarService.show(3000, `Package  '${this.package.name}' accepted.`, 'success');
+      this.snackbarService.showSuccessSnackbar(`Package  '${this.package.name}' accepted.`);
     }
     this.updateState();
   }
 
   finishShipping() {
     this.packageService.finishPackage(this.package.id);
-    this.snackbarService.showSuccessSnackbar(
-      `Package  '${this.package.name}' delivered. Earned ${this.package.price} Stabucks!`
-    );
+    this.snackbarService.show(3000, `Package '${this.package.name}' delivered. Earned ${this.package.price} stabucks!`, 'success');
+    this.snackbarService.showSuccessSnackbar(`Package  '${this.package.name}' delivered. Earned ${this.package.price} Stabucks!`);
     this.updateState();
   }
 
@@ -110,7 +103,7 @@ export class PackageComponent implements OnInit {
   formatDate(sDate: any): string {
     const d = new Date(sDate);
     const dformat =
-      [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('-') +
+      [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('.') +
       ' ' +
       [d.getHours(), d.getMinutes()].join(':');
     return dformat;

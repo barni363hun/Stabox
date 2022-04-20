@@ -29,23 +29,33 @@ class LogoutComponent implements OnInit {
 }
 
 const routes: Routes = [
-  {
-    path: '',
-    component: MainpageComponent,
-    pathMatch: 'full',
-  },
-  {
-    path: 'account',
-    component: AccountPageComponent,
-    canActivate: [AuthGuard],
-  },
+  // {
+  //   path: '',
+  //   component: MainpageComponent,
+  //   pathMatch: 'full',
+  // },
+  // {
+  //   path: 'account',
+  //   component: AccountPageComponent,
+  //   canActivate: [AuthGuard],
+  // },
+  // {
+  //   path: 'packages',
+  //   component: PackagesPageComponent,
+  //   canActivate: [AuthGuard],
+  // },
+  // { 
+  //   path: '**',
+  //   component: MainpageComponent
+  // },
+
   {
     path: 'packages',
-    component: PackagesPageComponent,
+    component: PackagesComponent,
     canActivate: [AuthGuard],
   },
   {
-    path: 'home',
+    path: '',
     component: HomePageComponent,
   },
   {
@@ -63,16 +73,11 @@ const routes: Routes = [
     component: AddressesComponent,
     canActivate: [AuthGuard],
   },
-  {
-    path: 'allpackages',
-    component: PackagesComponent,
-    canActivate: [AuthGuard],
-  },
 
   { path: 'test1', component: AddRecieverWithAddressComponent },
   { path: 'test', component: AddPackageComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: '**', component: MainpageComponent },
+
 ];
 
 @NgModule({

@@ -17,9 +17,11 @@ export class RecieverService {
   addReciever(reciever: recieverWithAddress) {
     this.http.put(environment.apiURL + '/reciever', reciever).subscribe({
       next: (res) => {
+        this.snackbarService.show(3000, 'Receiver added.', 'success');
         this.snackbarService.showSuccessSnackbar("Reciever added.");
       },
       error: (err) => {
+        this.snackbarService.show(3000, err.error.message, 'error');
         this.snackbarService.showErrorSnackbar(err.error.message);
       },
     });;

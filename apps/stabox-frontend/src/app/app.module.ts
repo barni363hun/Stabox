@@ -161,7 +161,7 @@ import {
     MatSnackBarModule,
     MatDialogModule,
     MatTabsModule,
-    MatCardModule,
+    MatCardModule
   ],
   bootstrap: [AppComponent],
   providers: [

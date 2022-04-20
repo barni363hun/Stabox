@@ -1,9 +1,11 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 import {
   ExchangeDateService,
   PackageService,
+  UserService,
   VehicleService,
 } from 'apps/stabox-frontend/src/app/services';
 import { Observable } from 'rxjs';
@@ -24,13 +26,7 @@ export class PackageInputComponent implements OnInit {
   desktopWidth: string = '75%';
   desktopHeight: string = '85%';
 
-
-  showMyPackages = true;
-  showAcceptedPackages = false;
-  showToDeliver = false;
-
-  addPackageMode = false;
-  addRecieverMode = false;
+  tabs = ['My packages',  'Accepted packages', 'Available packages'];
 
   constructor(
     public packageService: PackageService,
@@ -38,34 +34,30 @@ export class PackageInputComponent implements OnInit {
     public exchangeDateService: ExchangeDateService,
     private dialog: MatDialog,
     private breakpointObserver: BreakpointObserver,
+    public userService: UserService
   ) {}
 
   ngOnInit(): void {}
 
-  filterMyPackages() {
-    this.showMyPackages = true;
-    this.showAcceptedPackages = false;
-    this.showToDeliver = false;
+  filter(tabChangeEvent: MatTabChangeEvent) {
+    switch (tabChangeEvent.index) {
+      case 0:
+        this.packageService.update('/package/myPackages');
+        break;
+    
+      case 1:
+        this.packageService.update('/package/accepted');
+        break;
 
-    this.packageService.update('/package/myPackages');
-  }
+      case 2:
+        this.vehicleService.getVehicles();
+        this.exchangeDateService.getExchangeDates();
+        this.packageService.update('/package/acceptable');
+        break;
 
-  filterAcceptedPackages() {
-    this.showMyPackages = false;
-    this.showAcceptedPackages = true;
-    this.showToDeliver = false;
-
-    this.packageService.update('/package/accepted');
-  }
-
-  filterToDeliver() {
-    this.showMyPackages = false;
-    this.showAcceptedPackages = false;
-    this.showToDeliver = true;
-
-    this.vehicleService.getVehicles();
-    this.exchangeDateService.getExchangeDates();
-    this.packageService.update('/package/acceptable');
+      default:
+        break;
+    }
   }
 
   openNewPackageDialog() {

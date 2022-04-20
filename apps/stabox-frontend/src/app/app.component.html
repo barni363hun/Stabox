@@ -1,8 +1,9 @@
 <div [ngClass]="{ lightMode: themeService.light }">
     <div class="contentContainer">
-        <stabox-navbar></stabox-navbar>
+        <stabox-navbar *ngIf="!this.snackbarService.new"></stabox-navbar>
 
         <router-outlet></router-outlet>
-        <stabox-snackbar></stabox-snackbar>
+
+        <stabox-snackbar *ngIf="!this.snackbarService.new"></stabox-snackbar>
     </div>
 </div>
