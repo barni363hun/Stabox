@@ -86,24 +86,32 @@ li:hover .navUnderline {
   width: 50px;
 }
 
-.coinsIcon {
+.stabucksDiv {
+  width: 100%;
+  height: fit-content;
+
+  padding: 10px 0;
+
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+.stabucks {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0 25px 0 0;
+}
+.stabucks img {
   width: 50px;
-  margin-right: 35px;
-  display: inline;
-  vertical-align: middle;
+  height: 50px;
+}
+.stabucks span {
+  margin: 0 15px 0 0;
+  font-size: 28px;
 }
 
-#coinAmount {
-  color: $colorWhite;
-  margin-right: 15px;
-  font-size: 24px;
-  display: inline;
-  vertical-align: middle;
-}
-
-#coinsDiv:hover {
-  cursor: pointer;
-}
 
 .themeSwitchIcon {
   width: 45px;
@@ -202,32 +210,13 @@ li:hover .navUnderline {
   width: 100%;
 }
 
-.sideBarItemCoinsIcon {
-  width: 40px;
-  display: inline;
-  vertical-align: middle;
-}
-
-#sideBarItemCoinAmount {
-  color: $colorWhite;
-  margin-right: 20px;
-  font-size: 24px;
-  display: inline;
-  vertical-align: middle;
-}
-
-#sideBarItemCoinsDiv:hover {
-  cursor: pointer;
-}
-
 @media only screen and (max-width: 320px) {
+  .stabucks span,
   .navText {
     font-size: 24px;
   }
-  #sideBarItemCoinAmount {
-    font-size: 22px;
-  }
-  .sideBarItemCoinsIcon {
-    width: 40px;
+  .stabucks img {
+    width: 45px;
+    height: 45px;
   }
 }
