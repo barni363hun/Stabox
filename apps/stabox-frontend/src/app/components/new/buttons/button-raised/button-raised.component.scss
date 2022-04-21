@@ -1,0 +1,85 @@
+@import '../../colors.scss';
+
+.button {
+  height: fit-content;
+  width: fit-content;
+  min-width: 225px;
+
+  color: $white;
+  background: linear-gradient(60deg, $blueGreen 50%, $green 50%);
+
+  padding: 15px 45px;
+  margin: 0 auto;
+
+  font-size: 35px;
+
+  text-shadow: 1px 1px 4px rgba($black, 50%);
+  box-shadow: 0 0 5px rgba($black, 50%);
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button:hover {
+  cursor: pointer;
+  background: linear-gradient(60deg, $blueGreen 60%, $green 40%);
+}
+::ng-deep .mat-button-wrapper {
+  min-width: fit-content;
+  min-height: fit-content;
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1140px) {
+  .button {
+    padding: 13.5px 41px;
+    font-size: 31px;
+    min-width: 200px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .button {
+    padding: 11px 37px;
+    font-size: 27px;
+    min-width: 175px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .button {
+    padding: 8.5px 33px;
+    font-size: 23px;
+    min-width: 150px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .button {
+    padding: 6px 29px;
+    font-size: 19px;
+    min-width: 125px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .button {
+    padding: 3.5px 23px;
+    font-size: 14px;
+    min-width: 100px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .button {
+    padding: 1.5px 19px;
+    font-size: 12px;
+    min-width: 75px;
+  }
+}

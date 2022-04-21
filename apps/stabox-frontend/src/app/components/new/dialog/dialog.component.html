@@ -1,0 +1,57 @@
+<span mat-dialog-title *ngIf="data.title">{{ data.title }}</span>
+
+<img *ngIf="data.showUnderline" class="underline" src="assets/new/icons/underlineVar2.svg">
+
+<mat-dialog-content *ngIf="data.description">
+  <div class="content">
+    <span> {{ data.description }} </span>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-content *ngIf="data.showVehicles">
+  <div class="vehiclesContent">
+    <div class="row vehicleRow" *ngFor="let vehicle of vehicleService.vehicles; index as i">
+      <div class="col-sm-11 col-10 horizontalCenter">
+        <input type="text" class="form-control" placeholder="Vehicle type" [(ngModel)]="vehicle.name" (change)="vehicleService.save(vehicle)" />
+      </div>
+      <div class="col-sm-1 col-2 horizontalCenter">
+        <div class="addIconContainer m-0" matTooltip="Remove" matTooltipClass="removeTooltip" matTooltipPosition="after" (click)="vehicleService.delete(i)">
+          <button mat-icon-button class="addButton">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="addIconContainer" (click)="vehicleService.localeAddVehicle()">
+      <button mat-icon-button class="addButton">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-content *ngIf="!data.description && !data.showVehicles">
+  <div class="content">
+    <div class="row">
+      <div class="col-xl-4 col-12 instructionsColumn">
+        <img src='assets/new/icons/fileLight.svg'>
+        <h1>Apply and sign a contract</h1>
+        <span>After the application you will receive an email message with further instructions.</span>
+      </div>
+      <div class="col-xl-4 col-12 instructionsColumn">
+        <img class="arrowIcon" src='assets/new/icons/arrowLight.svg'>
+      </div>
+      <div class="col-xl-4 col-12 instructionsColumn">
+        <img src='assets/new/icons/briefcaseLight.svg'>
+        <h1>Work whenever you want</h1>
+        <span>Log into your account and set your work periods. Take matters into your own hands.</span>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center" *ngIf="!data.showVehicles">
+  <stabox-button-raised [mat-dialog-close]="true" cdkFocusInitial text="{{ data.confirmButtonText }}" class="button"></stabox-button-raised>
+  <stabox-button-raised-danger mat-dialog-close text="{{ data.cancelButtonText }}" class="button"></stabox-button-raised-danger>
+</mat-dialog-actions>

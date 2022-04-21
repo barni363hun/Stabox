@@ -95,6 +95,9 @@ $shadeColor: black;
 .lightMode .group {
   border-color: rgba($colorLightGray, 0.15);
 }
+.lightMode .contentContainer {
+  background-color: $bgColorWhite;
+}
 
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);
@@ -112,6 +115,17 @@ $shadeColor: black;
   border-radius: 10px;
   background: linear-gradient($colorLightYellow, $colorDarkYellow);
   box-shadow: $colorDarkYellow 0 0 3px inset;
+}
+.contentContainer {
+  background-color: $bgColorBlack;
+  color: $colorWhite;
+
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+
+  overflow: hidden; 
+  font-family: 'PT Sans Caption', sans-serif;
 }
 .content {
   background-color: $bgColorBlack;

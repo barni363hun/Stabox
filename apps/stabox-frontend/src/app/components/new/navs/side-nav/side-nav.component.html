@@ -1,0 +1,44 @@
+<div class="sideNavContainer">
+    <div class="sideNav">
+
+        <div class="logo">
+            <img class="logoImage" src="assets/new/icons/logo.svg">
+            <span class="logoText">stabox</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="nav">
+            <div class="navItem" routerLink="/" (mouseover)="homeIconSrc = 'assets/new/icons/homeGreen.svg'" (mouseleave)="homeIconSrc = 'assets/new/icons/homeWhite.svg'">
+                <img [src]="homeIconSrc">
+                <span>Home</span>
+            </div>
+            <div class="navItem" routerLink="/profile" (mouseover)="accountIconSrc = 'assets/new/icons/personGreen.svg'" (mouseleave)="accountIconSrc = 'assets/new/icons/personWhite.svg'">
+                <img [src]="accountIconSrc">
+                <span>Account</span>
+            </div>
+            <div class="navItem" routerLink="/addresses" (mouseover)="addressIconSrc = 'assets/new/icons/locationGreen.svg'" (mouseleave)="addressIconSrc = 'assets/new/icons/locationWhite.svg'">
+                <img [src]="addressIconSrc">
+                <span>Addressess</span>
+            </div>
+            <div class="navItem" routerLink="/dates" (mouseover)="dateIconSrc = 'assets/new/icons/dateGreen.svg'" (mouseleave)="dateIconSrc = 'assets/new/icons/dateWhite.svg'">
+                <img [src]="dateIconSrc">
+                <span>Dates</span>
+            </div>
+            <div class="navItem" routerLink="/package" (mouseover)="boxIconSrc = 'assets/new/icons/boxGreen.svg'" (mouseleave)="boxIconSrc = 'assets/new/icons/boxWhite.svg'">
+                <img [src]="boxIconSrc">
+                <span>Packages</span>
+            </div>
+        </div>
+
+        <div class="profileContainer">
+            <stabox-user-icon class="profileImage"></stabox-user-icon>
+            <div class="profileData">
+                <span class="nickname">{{ userService.user.username }}</span>
+                <span *ngIf="!userService.isShipper" class="role userColor">User</span>
+                <span *ngIf="userService.isShipper" class="role courierColor">Courier</span>
+            </div>
+            <mat-icon class="logoutIcon" (click)="this.userService.logout()" matTooltip="Sign out" matTooltipClass="statisticTooltip" matTooltipPosition="above" matTooltipShowDelay="500">power_settings_new</mat-icon>
+        </div>
+    </div>
+</div>

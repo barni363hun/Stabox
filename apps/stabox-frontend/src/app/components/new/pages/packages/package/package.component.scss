@@ -1,0 +1,171 @@
+@import '../../../colors.scss';
+@import '../../../variables.scss';
+
+::ng-deep .mat-card {
+  color: $white;
+  background: $navBlack;
+  font-family: $font;
+}
+
+::ng-deep .mat-card-header-text {
+  width: 100% !important;
+  margin: 0px !important;
+}
+
+::ng-deep .mat-card-header .mat-card-title {
+  font-size: 24px;
+  text-align: center;
+}
+
+::ng-deep .mat-card-subtitle,
+.mat-card-content {
+  font-size: 14px;
+}
+
+::ng-deep .mat-card-actions {
+  text-align: center;
+}
+
+.noGutters {
+  padding: 0;
+  margin: 0;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textRight {
+  text-align: right;
+}
+
+span {
+  text-align: center;
+}
+
+.green {
+  color: $blueGreen;
+}
+
+.periodsTitle {
+  font-size: 18px;
+}
+
+.packageDataInputRow {
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+.form-control {
+  width: 55%;
+  height: fit-content;
+
+  color: $white;
+  background: transparent;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 0 auto;
+
+  font-size: 14px;
+
+  border: 2px solid $blackLight;
+}
+.form-control:focus {
+  border-color: $blueGreen;
+  box-shadow: 0 0 0 2px rgba($blueGreen, 0.5);
+}
+.form-select {
+  width: 55%;
+  height: fit-content;
+
+  color: $white;
+  background: transparent;
+
+  background-image: url('../../../../../../assets/new/icons/arrowDownWhite.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 0 auto;
+
+  font-size: 14px;
+
+  border: 2px solid $blackLight;
+}
+.form-select:focus {
+  box-shadow: 0 0 0 2px rgba($blueGreen, 0.5);
+  border-color: $blueGreen;
+}
+.form-select option {
+  background-color: $black;
+}
+
+button {
+  height: fit-content;
+  width: fit-content;
+
+  color: $white;
+  background: linear-gradient(60deg, $blueGreen 50%, $green 50%);
+
+  padding: 1px 20px;
+  margin: 0;
+
+  font-size: 16px;
+
+  text-shadow: 1px 1px 4px rgba($black, 50%);
+  box-shadow: 0 0 5px rgba($black, 50%);
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  border: none;
+
+}
+button:hover {
+  cursor: pointer;
+  background: linear-gradient(60deg, $blueGreen 60%, $green 40%);
+}
+::ng-deep .mat-button-wrapper {
+  min-width: fit-content;
+  min-height: fit-content;
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media only screen and (max-width: 960px) {
+  .form-control,
+  .form-select {
+    width: 65%;
+  }
+}
+@media only screen and (max-width: 860px) {
+  .form-control,
+  .form-select {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .form-control,
+  .form-select {
+    width: 100%;
+  }
+}

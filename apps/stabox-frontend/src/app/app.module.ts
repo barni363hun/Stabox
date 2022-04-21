@@ -4,11 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon';
 import { AuthModule, AuthHttpInterceptor } from '@auth0/auth0-angular';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
+
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
 
 import {
   AccountButtonComponent,
@@ -39,8 +47,33 @@ import {
   SecondCardComponent,
   ThirdCardComponent,
   SnackbarComponent,
+  PackagesPageComponent,
+  HomePageComponent,
+  NavComponent,
+  ButtonRaisedComponent,
+  ButtonRaisedDangerComponent,
+  ButtonBasicComponent,
+  LandingComponent,
+  StatisticsComponent,
+  BenefitsComponent,
+  InstructionsComponent,
+  PageFooterComponent,
+  ProfilePageComponent,
+  SideNavComponent,
+  BottomNavComponent,
+  AccountComponent,
+  ExchangeDatesComponent,
+  DateInputComponent,
+  AddressesComponent,
+  AddressInputNewComponent,
+  SnackbarBasicComponent,
+  DialogComponent,
+  PackagesComponent,
+  PackageInputComponent,
+  PackageComponent,
+  NewPackageComponent,
+  NewReceiverComponent
 } from './components';
-import { PackagesPageComponent } from './components/pages/packages-page/packages-page.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +107,32 @@ import { PackagesPageComponent } from './components/pages/packages-page/packages
     NavbarComponent,
     AddressInputComponent,
     PackagesPageComponent,
+    NavComponent,
+    ButtonRaisedComponent,
+    ButtonRaisedDangerComponent,
+    ButtonBasicComponent,
+    LandingComponent,
+    StatisticsComponent,
+    BenefitsComponent,
+    InstructionsComponent,
+    PageFooterComponent,
+    ProfilePageComponent,
+    SideNavComponent,
+    BottomNavComponent,
+    ExchangeDatesComponent,
+    DateInputComponent,
+    AddressesComponent,
+    AddressInputNewComponent,
+    HomePageComponent,
+    AccountComponent,
+    SnackbarBasicComponent,
+    SnackbarBasicComponent,
+    DialogComponent,
+    PackagesComponent,
+    PackageInputComponent,
+    PackageComponent,
+    NewPackageComponent,
+    NewReceiverComponent,
   ],
   imports: [
     GooglePlaceModule,
@@ -96,6 +155,13 @@ import { PackagesPageComponent } from './components/pages/packages-page/packages
       },
     }),
     MatIconModule,
+    MatTooltipModule,
+    MatButtonModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatTabsModule,
+    MatCardModule
   ],
   bootstrap: [AppComponent],
   providers: [

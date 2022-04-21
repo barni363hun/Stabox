@@ -1,0 +1,28 @@
+@import '../../../../../app.component.scss';
+@import '../mainpage.component.scss';
+
+#secondCard {
+  margin-bottom: 200px;
+}
+
+#cardText {
+  text-align: center;
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 64px;
+}
+
+p {
+  font-size: 28px;
+}
+
+.aboutUsParagraph {
+  text-indent: 50px;
+}
+
+#bottomCardDesc {
+  width: 85%;
+  text-align: left;
+}

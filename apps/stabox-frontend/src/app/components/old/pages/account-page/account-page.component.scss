@@ -1,0 +1,317 @@
+@import '../../../../app.component.scss';
+
+.lightMode .accountDataTitle {
+  color: $colorLightBlue;
+}
+.lightMode .bigBtn {
+  color: $colorDarkGray;
+  border: 2px solid rgba($colorLightGray, 0.25);
+}
+.lightMode .bigBtn:hover {
+  border-color: $colorLightBlue;
+  box-shadow: inset 0 1px 1px rgba($colorLightBlue, 0.075),
+    0 0 8px rgba($colorDarkBlue, 0.6);
+}
+.lightMode .saveButton {
+  background: $colorWhite;
+  color: $colorDarkGray;
+}
+.lightMode .saveButtonOutline:hover .saveButton {
+  color: $colorWhite;
+}
+.lightMode .deleteIconDiv:hover {
+  background-color: rgba($colorLightGray, 0.15);
+}
+.lightMode .helpIcon {
+  color: $colorLightBlue;
+}
+
+.helpButtonDiv {
+  position: relative;
+}
+.helpButtonDiv:hover {
+  cursor: pointer;
+}
+.helpButtonDiv:hover .helpIcon {
+  transition: 0.35s;
+  transform: scale(2);
+}
+.helpButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: fit-content;
+  height: fit-content;
+}
+.helpIcon {
+  transition: 0.35s;
+  transform: scale(1.5);
+  color: $colorLightYellow;
+}
+
+.accountImageOutline {
+  width: fit-content;
+  position: relative;
+  padding: 2px;
+  border-radius: 50%;
+}
+
+.accountImage {
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+}
+
+.accountDataIcon {
+  transform: scale(1.3);
+  margin-right: 10px;
+}
+
+.accountDataTitle {
+  display: inline;
+  color: $colorLightYellow;
+  margin: 0;
+  font-size: 32px;
+}
+
+.accountDataUnderline {
+  height: 3px;
+  width: 235px;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.bigBtn {
+  width: fit-content;
+  background-color: transparent;
+  border: 2px solid rgba($colorDarkGray, 0.15);
+  border-radius: 25px;
+  padding: 15px;
+  margin: 10px 0;
+}
+
+.bigBtn:hover {
+  cursor: pointer;
+  transition: 0.25s;
+  border-color: $colorDarkYellow;
+  box-shadow: inset 0 1px 1px rgba($colorLightYellow, 0.075),
+    0 0 8px rgba($colorDarkYellow, 0.6);
+}
+
+.bigBtnImg {
+  height: 125px;
+}
+
+.bigBtnText {
+  font-size: 30px;
+  margin: 7.5px 0 0 30px;
+  margin-right: 25px;
+}
+
+.title {
+  font-size: 42px;
+}
+
+.saveButtonOutline {
+  width: fit-content;
+  position: relative;
+  padding: 3px;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+
+.saveButtonOutline:hover .saveButton {
+  cursor: pointer;
+  background: transparent;
+  text-shadow: 1px 1px 4px rgba($colorBlack, 0.75);
+}
+
+.saveButton {
+  background: $bgColorBlack;
+  color: $colorWhite;
+  border: none;
+  border-radius: 25px;
+  font-size: 22px;
+  padding: 1.5px 40px 1.5px 40px;
+}
+
+.dataInputDiv {
+  margin-top: -10px;
+}
+
+@media only screen and (max-width: 1400px) {
+  .accountImage {
+    width: 350px;
+    height: 350px;
+  }
+  .accountDataTitle {
+    font-size: 28px;
+  }
+  .accountDataUnderline {
+    width: 180px;
+  }
+  .bigBtnImg {
+    height: 115px;
+  }
+  .bigBtnText {
+    font-size: 26px;
+  }
+  .title {
+    font-size: 36px;
+  }
+  .saveButton {
+    font-size: 18px;
+    padding: 1.5px 30px 1.5px 30px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .accountImage {
+    width: 325px;
+    height: 325px;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .accountDataTitle {
+    font-size: 32px;
+  }
+  .accountDataUnderline {
+    width: 185px;
+  }
+  .bigBtnImg {
+    height: 100px;
+  }
+  .bigBtnText {
+    font-size: 26px;
+  }
+  .title {
+    font-size: 40px;
+  }
+  .deleteIcon {
+    transform: scale(1.35);
+  }
+  .deleteIconDiv {
+    padding: 7px;
+  }
+  .saveButton {
+    font-size: 20px;
+    padding: 1.5px 35px 1.5px 35px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .bigBtnImg {
+    height: 85px;
+  }
+  .bigBtnText {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .accountImage {
+    width: 300px;
+    height: 300px;
+  }
+  .bigBtnImg {
+    height: 85px;
+  }
+  .bigBtnText {
+    font-size: 22px;
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  .accountImage {
+    width: 275px;
+    height: 275px;
+  }
+  .bigBtnImg {
+    height: 70px;
+  }
+  .bigBtnText {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .accountImage {
+    width: 250px;
+    height: 250px;
+  }
+  .accountDataTitle {
+    font-size: 28px;
+  }
+  .accountDataUnderline {
+    width: 170px;
+  }
+  .bigBtnImg {
+    height: 85px;
+  }
+  .bigBtnText {
+    font-size: 22px;
+  }
+  .title {
+    font-size: 28px;
+  }
+  .bigBtnImg {
+    height: 85px;
+  }
+  .bigBtnText {
+    font-size: 18px;
+  }
+  .saveButton {
+    font-size: 16px;
+    padding: 1.5px 25px 1.5px 25px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .accountImage {
+    width: 200px;
+    height: 200px;
+  }
+  .accountDataTitle {
+    font-size: 24px;
+  }
+  .accountDataUnderline {
+    width: 155px;
+  }
+  .title {
+    font-size: 26px;
+  }
+  .bigBtnImg {
+    height: 75px;
+  }
+  .bigBtnText {
+    font-size: 16px;
+  }
+  .saveButton {
+    font-size: 14px;
+    padding: 1.5px 20px 1.5px 20px;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .title {
+    font-size: 24px;
+  }
+  .saveButton {
+    font-size: 12px;
+    padding: 1.5px 15px 1.5px 15px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .accountImage {
+    width: 175px;
+    height: 175px;
+  }
+  .title {
+    font-size: 22px;
+  }
+  input {
+    font-size: 14px;
+  }
+}

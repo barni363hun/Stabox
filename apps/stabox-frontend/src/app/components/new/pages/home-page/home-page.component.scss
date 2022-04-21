@@ -1,0 +1,58 @@
+@import '../../colors.scss';
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $blueGreen;
+}
+.content {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+
+  padding: 0 0 75px 0;
+  margin: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-color: $blueGreen $black;
+  scrollbar-width: thin;
+
+  position: relative;
+}
+
+@media only screen and (max-width: 1140px) {
+  .content {
+    padding: 0 0 70px 0;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .content {
+    padding: 0 0 65px 0;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .content {
+    padding: 0 0 60px 0;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .content {
+    padding: 0 0 55px 0;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .content {
+    padding: 0 0 50px 0;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .content {
+    padding: 0 0 45px 0;
+  }
+}

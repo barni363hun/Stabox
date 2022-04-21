@@ -1,0 +1,263 @@
+@import '../../../colors.scss';
+@import '../../../variables.scss';
+
+.light .benefitsContainer {
+  color: $blackLight;
+}
+.light .listItemDescription {
+  color: $descriptionLight;
+}
+
+.benefitsContainer {
+  width: 100%;
+  height: fit-content;
+
+  color: $white;
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.title {
+  padding: 0 10px;
+  margin: 0;
+
+  font-size: 64px;
+}
+
+.underline {
+  width: 85%;
+
+  padding: 0;
+  margin: 5px auto;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.listImage {
+  width: 100%;
+  height: 100%;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.benefitsListContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+::ng-deep .benefitsList {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 25px 0 0 0;
+
+  position: relative;
+
+  list-style: none;
+  margin-left: 0;
+  padding-left: 1.2em;
+}
+.benefitsList li {
+  height: fit-content;
+  width: fit-content;
+
+  list-style: none;
+  text-align: left;
+
+  padding: 0 0 0 75px;
+  margin: 25px 0;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.benefitsList li:before {
+  height: $listIconSize;
+  width: $listIconSize;
+
+  content: '';
+
+  background-image: url('../../../../../../assets/new/icons/listItem.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  left: 0;
+}
+.listItemTitle {
+  width: fit-content;
+  height: fit-content;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: 48px;
+}
+.listItemDescription {
+  width: fit-content;
+  height: fit-content;
+
+  color: $description;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: 32px;
+}
+
+@media only screen and (max-width: 1199.5px) {
+  .listImage {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1140px) {
+  .title {
+    font-size: 46px;
+  }
+  .benefitsList {
+    margin: 22.5px 0 0 0;
+  }
+  .benefitsList li {
+    padding: 0 0 0 60px;
+    margin: 22.5px;
+  }
+  $listIconSize: $listIconSize - 0.75em;
+  .benefitsList li:before {
+    height: $listIconSize;
+    width: $listIconSize;
+  }
+  .listItemTitle {
+    font-size: 40px;
+  }
+  .listItemDescription {
+    font-size: 27px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .title {
+    font-size: 38px;
+  }
+  .benefitsList {
+    margin: 20px 0 0 0;
+  }
+  .benefitsList li {
+    padding: 0 0 0 45px;
+    margin: 20px 0;
+  }
+  $listIconSize: $listIconSize - 1.25em;
+  .benefitsList li:before {
+    height: $listIconSize;
+    width: $listIconSize;
+  }
+  .listItemTitle {
+    font-size: 32px;
+  }
+  .listItemDescription {
+    font-size: 22px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .title {
+    font-size: 30px;
+  }
+  .benefitsList {
+    margin: 17.5px 0 0 0;
+  }
+  .benefitsList li {
+    padding: 0 0 0 30px;
+    margin: 17.5px 0;
+  }
+  $listIconSize: $listIconSize - 2.25em;
+  .benefitsList li:before {
+    height: $listIconSize;
+    width: $listIconSize;
+  }
+  .listItemTitle {
+    font-size: 24px;
+  }
+  .listItemDescription {
+    font-size: 17px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .title {
+    font-size: 22px;
+  }
+  .benefitsList {
+    margin: 15px 0 0 0;
+  }
+  .benefitsList li {
+    padding: 0 0 0 15px;
+    margin: 15px 0;
+  }
+  $listIconSize: $listIconSize - 3.25em;
+  .benefitsList li:before {
+    height: $listIconSize;
+    width: $listIconSize;
+  }
+  .listItemTitle {
+    font-size: 16px;
+  }
+  .listItemDescription {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .title {
+    font-size: 18px;
+  }
+  .benefitsList {
+    margin: 13.75px 0 0 0;
+  }
+  .benefitsList li {
+    padding: 0 0 0 7.5px;
+    margin: 13.75px 0;
+  }
+  $listIconSize: $listIconSize - 3.75em;
+  .benefitsList li:before {
+    height: $listIconSize;
+    width: $listIconSize;
+  }
+  .listItemTitle {
+    font-size: 12px;
+  }
+  .listItemDescription {
+    font-size: 8px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .title {
+    font-size: 16px;
+  }
+  .benefitsList {
+    margin: 12.5px 0 0 0;
+  }
+  .benefitsList li {
+    padding: 0 0 0 1px;
+    margin: 12.5px 0;
+  }
+  $listIconSize: $listIconSize - 4em;
+  .benefitsList li:before {
+    height: $listIconSize;
+    width: $listIconSize;
+  }
+  .listItemTitle {
+    font-size: 10px;
+  }
+  .listItemDescription {
+    font-size: 8px;
+  }
+}

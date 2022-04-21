@@ -1,0 +1,26 @@
+<div class="content">
+  <div class="title">
+    <span>Packages</span>
+    <div class="underline"></div>
+  </div>
+
+  <div class="addIconContainer">
+    <button mat-icon-button class="addButton" (click)="openNewPackageDialog()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <mat-tab-group class="mt-3" mat-align-tabs="center" animationDuration="0ms" (selectedTabChange)="filter($event)">
+    <div *ngFor="let tab of tabs; index as i;">
+      <mat-tab label="{{ tab }}" *ngIf="i == 0 || userService.isShipper">
+        <div class="container-fluid">
+          <div class="row mt-4">
+            <div class="my-2 col-xxl-4 col-sm-6 col-12" *ngFor="let pkg of packageService.packages">
+              <stabox-package [package]="pkg"></stabox-package>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </div>   
+  </mat-tab-group>
+</div>

@@ -1,0 +1,236 @@
+@import '../../../colors.scss';
+@import '../../../variables.scss';
+
+.content {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0 0 50px 0;
+  margin: 0;
+}
+
+.inputContainer {
+  width: 65%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0 auto;
+}
+
+.searchInputContainer {
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchButton {
+  padding: 35px;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.searchButton mat-icon {
+  transform: scale(2.5);
+}
+.searchButton:hover mat-icon {
+  color: $blueGreen;
+}
+
+::ng-deep .searchTooltip {
+  height: fit-content;
+  width: fit-content;
+
+  color: $white;
+  background-color: $hoverDark;
+
+  font-size: 18px;
+  font-family: $font;
+
+  text-align: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.form-control {
+  color: $white;
+  background: transparent;
+
+  margin: 10px 0;
+
+  font-size: 36px;
+
+  border: 2px solid $blackLight;
+}
+.form-control:focus {
+  border-color: $blueGreen;
+  box-shadow: 0 0 0 2px rgba($blueGreen, 0.5);
+}
+
+.buttonPanel {
+  height: fit-content;
+  width: 100%;
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button {
+  margin: 10px;
+}
+
+@media only screen and (max-width: 1140px) {
+  .content {
+    padding: 0 0 45px 0;
+  }
+  .inputContainer {
+    width: 67.5%;
+  }
+  .form-control {
+    font-size: 32px;
+    padding-top: 9.5px;
+    padding-bottom: 9.5px;
+  }
+  ::ng-deep .searchTooltip {
+    font-size: 17px;
+  }
+  .addButton,
+  .searchButton {
+    padding: 33px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .content {
+    padding: 0 0 40px 0;
+  }
+  .inputContainer {
+    width: 70%;
+  }
+  .form-control {
+    font-size: 28px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+  }
+  .searchButton mat-icon,
+  .addIconContainer mat-icon {
+    transform: scale(2.25);
+  }
+  ::ng-deep .searchTooltip {
+    font-size: 16px;
+  }
+  .addButton,
+  .searchButton {
+    padding: 31px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .content {
+    padding: 0 0 35px 0;
+  }
+  .inputContainer {
+    width: 72.5%;
+  }
+  .form-control {
+    font-size: 24px;
+    padding-top: 8.5px;
+    padding-bottom: 8.5px;
+  }
+  .searchButton mat-icon {
+    transform: scale(2);
+  }
+  .addIconContainer mat-icon {
+    transform: scale(1.75);
+  }
+  ::ng-deep .searchTooltip {
+    font-size: 15px;
+  }
+  .addButton,
+  .searchButton {
+    padding: 29px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .content {
+    padding: 0 0 30px 0;
+  }
+  .inputContainer {
+    width: 75%;
+  }
+  .form-control {
+    font-size: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .searchInputContainer {
+    flex-direction: column;
+  }
+  .searchButton mat-icon,
+  .addIconContainer mat-icon {
+    transform: scale(1.75);
+  }
+  ::ng-deep .searchTooltip {
+    font-size: 14px;
+  }
+  .addButton,
+  .searchButton {
+    padding: 27px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .content {
+    padding: 0 0 25px 0;
+  }
+  .inputContainer {
+    width: 80%;
+  }
+  .form-control {
+    font-size: 16px;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+  }
+  .searchButton mat-icon,
+  .addIconContainer mat-icon {
+    transform: scale(1.5);
+  }
+  ::ng-deep .searchTooltip {
+    font-size: 13px;
+  }
+  .addButton,
+  .searchButton {
+    padding: 25px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .content {
+    padding: 0 0 20px 0;
+  }
+  .inputContainer {
+    width: 85%;
+  }
+  .form-control {
+    font-size: 12px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+  .searchButton mat-icon,
+  .addIconContainer mat-icon {
+    transform: scale(1.25);
+  }
+  ::ng-deep .searchTooltip {
+    font-size: 12px;
+  }
+  .addButton,
+  .searchButton {
+    padding: 23px;
+  }
+}

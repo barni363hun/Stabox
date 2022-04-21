@@ -1,0 +1,33 @@
+<div [ngClass]="{ light: themeService.light }">
+    <div class="container-fluid footerContainer">
+        <div class="row">
+            <div class="col-12 socialsRow" *ngIf="!themeService.light">
+                <button mat-icon-button (mouseover)="instagramIconSrcLight = 'assets/new/icons/instagramGreen.svg'" (mouseleave)="instagramIconSrcLight = 'assets/new/icons/instagramLight.svg'">
+                    <img [src]="instagramIconSrcLight">
+                </button>
+                <button mat-icon-button (mouseover)="facebookIconSrcLight = 'assets/new/icons/facebookGreen.svg'" (mouseleave)="facebookIconSrcLight = 'assets/new/icons/facebookLight.svg'">
+                    <img [src]="facebookIconSrcLight">
+                </button>
+                <button mat-icon-button (mouseover)="twitterIconSrcLight = 'assets/new/icons/twitterGreen.svg'" (mouseleave)="twitterIconSrcLight = 'assets/new/icons/twitterLight.svg'">
+                    <img [src]="twitterIconSrcLight">
+                </button>
+            </div>
+            <div class="col-12 socialsRow" *ngIf="themeService.light">
+                <button mat-icon-button (mouseover)="instagramIconSrcDark =  'assets/new/icons/instagramGreen.svg'" (mouseleave)="instagramIconSrcDark =  'assets/new/icons/instagramDark.svg'">
+                    <img [src]="instagramIconSrcDark">
+                </button>
+                <button mat-icon-button (mouseover)="facebookIconSrcDark =  'assets/new/icons/facebookGreen.svg'" (mouseleave)="facebookIconSrcDark = 'assets/new/icons/facebookDark.svg'">
+                    <img [src]="facebookIconSrcDark">
+                </button>
+                <button mat-icon-button (mouseover)="twitterIconSrcDark =  'assets/new/icons/twitterGreen.svg'" (mouseleave)="twitterIconSrcDark = 'assets/new/icons/twitterDark.svg'">
+                    <img [src]="twitterIconSrcDark">
+                </button>
+            </div>
+            <div class="col-12 copyrightRow">
+                <mat-icon>copyright</mat-icon>
+                <span>2022 Stabox.&nbsp;</span>
+                <span>All rights reserved.</span>
+            </div>
+        </div>
+    </div>
+</div>

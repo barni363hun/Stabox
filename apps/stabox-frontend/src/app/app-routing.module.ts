@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@auth0/auth0-angular';
-import { AddPackageComponent } from './components/package/add-package/add-package.component';
-import { AddRecieverWithAddressComponent } from './components/package/add-reciever-with-address/add-reciever-with-address.component';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './services';
 
@@ -10,6 +8,13 @@ import {
   MainpageComponent,
   AccountPageComponent,
   PackagesPageComponent,
+  HomePageComponent,
+  ProfilePageComponent,
+  ExchangeDatesComponent,
+  AddressesComponent,
+  AddPackageComponent,
+  AddRecieverWithAddressComponent,
+  PackagesComponent,
 } from './components';
 
 @Component({
@@ -39,10 +44,34 @@ const routes: Routes = [
     component: PackagesPageComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'test1', component: AddRecieverWithAddressComponent },
-  { path: 'test', component: AddPackageComponent },
+
+  {
+    path: 'profile',
+    component: ProfilePageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'dates',
+    component: ExchangeDatesComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'addresses',
+    component: AddressesComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'package',
+    component: PackagesComponent,
+    canActivate: [AuthGuard],
+  },
+
   { path: 'logout', component: LogoutComponent },
-  { path: '**', component: MainpageComponent },
+  { 
+    path: '**',
+    component: MainpageComponent
+  },
+
 ];
 
 @NgModule({

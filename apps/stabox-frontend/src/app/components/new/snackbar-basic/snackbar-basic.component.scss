@@ -1,0 +1,60 @@
+@import '../colors.scss';
+@import '../variables.scss';
+
+span {
+  cursor: pointer;
+}
+
+::ng-deep .success {
+  color: $white;
+  background: linear-gradient(60deg, $blueGreen 50%, $green 50%);
+
+  padding: 0 10px;
+  margin: 0;
+
+  font-family: $font;
+  font-size: 24px;
+
+  text-shadow: 1px 1px 2px rgba($black, 50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+::ng-deep .error {
+  color: $white;
+  background: linear-gradient(60deg, $lightRed 50%, $red 50%);
+
+  padding: 0 10px;
+  margin: 0;
+
+  font-family: $font;
+  font-size: 24px;
+
+  text-shadow: 1px 1px 2px rgba($black, 50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+::ng-deep .info {
+  color: $white;
+  background: linear-gradient(60deg, $lightBlue 50%, $blue 50%);
+
+  padding: 0 10px;
+  margin: 0;
+
+  font-family: $font;
+  font-size: 24px;
+
+  text-shadow: 1px 1px 2px rgba($black, 50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

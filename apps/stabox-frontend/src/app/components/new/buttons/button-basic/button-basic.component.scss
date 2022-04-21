@@ -1,0 +1,60 @@
+@import '../../colors.scss';
+
+.button {
+  height: fit-content;
+  width: fit-content;
+
+  color: $white;
+
+  padding: 0 10px;
+  margin: 0;
+
+  font-size: 30px;
+  text-shadow: 1px 1px 4px rgba($black, 50%);
+}
+.underline {
+  width: 100%;
+  height: 3px;
+
+  background-color: $white;
+
+  padding: 0;
+  margin: 2px 0 0 0;
+
+  border: none;
+  border-radius: 5px;
+}
+.button:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1140px) {
+  .button {
+    font-size: 26px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .button {
+    font-size: 22px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .button {
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .button {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .button {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .button {
+    font-size: 10px;
+  }
+}

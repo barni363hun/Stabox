@@ -1,0 +1,31 @@
+<div class="content">
+    <div class="title">
+        <span>Exchange dates</span>
+        <div class="underline"></div>
+    </div>
+
+    <div class="inputContainer" *ngFor="let EXDate of exchangeDateService.exchangeDates;index as EXindex">
+        <select class="form-select" (change)="exchangeDateService.selectChange($event, EXindex)">
+            <option value="0" hidden>
+                {{ addressService.getAddressById(exchangeDateService.exchangeDates[EXindex].addressId).name }}
+              </option>
+              <option *ngFor="let address of addressService.addresses" [value]="address.id">
+                {{ address.name }}
+              </option>
+        </select>
+
+        <input class="form-control" type="datetime-local" [(ngModel)]="EXDate.startDate" />
+        <input class="form-control" type="datetime-local" [(ngModel)]="EXDate.endDate" />
+
+        <div class="buttonPanel">
+            <stabox-button-raised text="Save" (click)="exchangeDateService.save(EXDate)" class="button"></stabox-button-raised>
+            <stabox-button-raised-danger text="Remove" (click)="exchangeDateService.delete(EXindex)" class="button"></stabox-button-raised-danger>
+        </div>
+    </div>
+
+    <div class="addIconContainer">
+        <button mat-icon-button class="addButton" (click)="exchangeDateService.localeAddExchangeDate()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>

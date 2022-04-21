@@ -1,0 +1,57 @@
+<div class="content">
+  <div class="title">
+    <span>Account</span>
+    <div class="underline"></div>
+  </div>
+
+  <div class="accountDataContainer">
+    <div class="profileImageContainer">
+      <img class="profileImage" [src]="userService.authUser.picture">
+      <img (click)="openApplyAsCourierDialog()" *ngIf="!userService.isShipper" class="roleIcon" src="assets/new/icons/personGreen.svg" matTooltip="User" matTooltipClass="roleTooltip" matTooltipPosition="after">
+      <img (click)="openCourierVehiclesDialog()" *ngIf="userService.isShipper" class="roleIcon" src="assets/new/icons/courierYellow.svg" matTooltip="Manage vehicles" matTooltipClass="roleTooltip" matTooltipPosition="after">
+    </div>
+
+    <div class="accountData">
+
+      <div class="input-group">
+        <div class="input-group-text">
+          <mat-icon>verified_user</mat-icon>
+        </div>
+        <input type="text" class="form-control" placeholder="Username" [(ngModel)]="userService.user.username">
+      </div>
+
+      <div class="nameInputContainer">
+        <div class="input-group nameInput">
+          <div class="input-group-text">
+            <mat-icon>person</mat-icon>
+          </div>
+          <input type="text" class="form-control" placeholder="First name" [(ngModel)]="userService.user.firstName">
+        </div>
+
+        <div class="input-group nameInput">
+          <div class="input-group-text">
+            <mat-icon>person</mat-icon>
+          </div>
+          <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="userService.user.lastName">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div class="input-group-text">
+          <mat-icon>mail</mat-icon>
+        </div>
+        <input type="text" class="form-control" placeholder="Email address" [(ngModel)]="userService.user.email">
+      </div>
+
+      <div class="input-group">
+        <div class="input-group-text">
+          <mat-icon>phone</mat-icon>
+        </div>
+        <input type="text" class="form-control" placeholder="Phone number" [(ngModel)]="userService.user.phoneNumber">
+      </div>
+
+      <stabox-button-raised text="Save" (click)="userService.update()"></stabox-button-raised>
+
+    </div>
+  </div>
+</div>

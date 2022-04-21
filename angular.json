@@ -11,9 +11,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/stabox",
             "main": "apps/api/src/main.ts",
@@ -43,20 +41,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/api/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/api/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/api"
-          ],
+          "outputs": ["coverage/apps/api"],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
@@ -73,9 +65,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/stabox/frontend",
             "index": "apps/stabox-frontend/src/index.html",
@@ -88,7 +78,9 @@
               "apps/stabox-frontend/src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "apps/stabox-frontend/src/styles.scss"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
@@ -160,9 +152,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/stabox-frontend"
-          ],
+          "outputs": ["coverage/apps/stabox-frontend"],
           "options": {
             "jestConfig": "apps/stabox-frontend/jest.config.js",
             "passWithNoTests": true
@@ -190,20 +180,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/stabox-frontend-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/stabox-frontend-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "stabox-frontend"
-      ]
+      "implicitDependencies": ["stabox-frontend"]
     },
     "stabox-lib": {
       "projectType": "library",
@@ -213,9 +197,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/stabox-lib"
-          ],
+          "outputs": ["coverage/libs/stabox-lib"],
           "options": {
             "jestConfig": "libs/stabox-lib/jest.config.js",
             "passWithNoTests": true

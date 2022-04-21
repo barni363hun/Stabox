@@ -1,0 +1,268 @@
+@import '../../../colors.scss';
+
+.content {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0 0 100px 0;
+  margin: 0;
+}
+
+.title {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0 auto 100px auto;
+
+  font-size: 56px;
+
+  text-align: center;
+}
+.title span {
+  margin: 0 50px;
+}
+.underline {
+  height: 2px;
+  width: 100%;
+
+  background-color: rgba($white, 0.75);
+
+  border: none;
+  border-radius: 5px;
+}
+
+.inputContainer {
+  width: 65%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0 auto 50px auto;
+}
+
+.form-select {
+  color: $white;
+  background: transparent;
+
+  background-image: url('../../../../../../assets/new/icons/arrowDownWhite.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 15px 0;
+
+  font-size: 32px;
+
+  border: 2px solid $blackLight;
+}
+.form-select:focus {
+  box-shadow: 0 0 0 2px rgba($blueGreen, 0.5);
+  border-color: $blueGreen;
+}
+.form-select option {
+  background-color: $black;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+.form-control {
+  color: $white;
+  background: transparent;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 15px 0;
+
+  font-size: 32px;
+
+  border: 2px solid $blackLight;
+}
+.form-control:focus {
+  box-shadow: 0 0 0 2px rgba($blueGreen, 0.5);
+  border-color: $blueGreen;
+}
+
+.buttonPanel {
+  height: fit-content;
+  width: 100%;
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button {
+  margin: 10px;
+}
+
+.addIconContainer {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+}
+.addButton {
+  padding: 35px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addIconContainer mat-icon {
+  transform: scale(2.5);
+}
+
+@media only screen and (max-width: 1140px) {
+  .title {
+    margin: 0 auto 90px auto;
+    font-size: 50px;
+  }
+  .title span {
+    margin: 0 45px;
+  }
+  .inputContainer {
+    width: 67.5%;
+    margin: 0 auto 47.5px auto;
+  }
+  .form-control,
+  .form-select {
+    font-size: 32px;
+    padding-top: 9.5px;
+    padding-bottom: 9.5px;
+  }
+  .addButton {
+    padding: 33px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .title {
+    margin: 0 auto 80px auto;
+    font-size: 44px;
+  }
+  .title span {
+    margin: 0 40px;
+  }
+  .inputContainer {
+    width: 70%;
+    margin: 0 auto 45px auto;
+  }
+  .form-control,
+  .form-select {
+    font-size: 28px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+  }
+  .addButton {
+    padding: 31px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(2.25);
+  }
+}
+@media only screen and (max-width: 720px) {
+  .title {
+    margin: 0 auto 70px auto;
+    font-size: 38px;
+  }
+  .title span {
+    margin: 0 35px;
+  }
+  .inputContainer {
+    width: 72.5%;
+    margin: 0 auto 42.5px auto;
+  }
+  .form-control,
+  .form-select {
+    font-size: 24px;
+    padding-top: 8.5px;
+    padding-bottom: 8.5px;
+  }
+  .addButton {
+    padding: 29px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(2);
+  }
+}
+@media only screen and (max-width: 540px) {
+  .title {
+    margin: 0 auto 60px auto;
+    font-size: 32px;
+  }
+  .title span {
+    margin: 0 30px;
+  }
+  .inputContainer {
+    width: 75%;
+    margin: 0 auto 40px auto;
+  }
+  .form-control,
+  .form-select {
+    font-size: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .addButton {
+    padding: 27px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(1.75);
+  }
+}
+@media only screen and (max-width: 380px) {
+  .title {
+    margin: 0 auto 50px auto;
+    font-size: 26px;
+  }
+  .title span {
+    margin: 0 25px;
+  }
+  .inputContainer {
+    width: 80%;
+    margin: 0 auto 37.5px auto;
+  }
+  .form-control,
+  .form-select {
+    font-size: 16px;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+  }
+  .addButton {
+    padding: 25px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(1.5);
+  }
+}
+@media only screen and (max-width: 300px) {
+  .title {
+    margin: 0 auto 40px auto;
+    font-size: 20px;
+  }
+  .title span {
+    margin: 0 20px;
+  }
+  .inputContainer {
+    width: 85%;
+    margin: 0 auto 35px auto;
+  }
+  .form-control,
+  .form-select {
+    font-size: 12px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+  .addButton {
+    padding: 23px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(1.25);
+  }
+}

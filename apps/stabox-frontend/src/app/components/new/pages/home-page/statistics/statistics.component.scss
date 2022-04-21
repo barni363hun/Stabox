@@ -1,0 +1,151 @@
+@import '../../../colors.scss';
+@import '../../../variables.scss';
+
+.light .statisticsItem {
+  color: $blackLight;
+}
+
+.statisticsContainer {
+  width: 100%;
+  height: fit-content;
+
+  padding: 75px 0;
+  margin: 0;
+
+  position: relative;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.statisticsItem {
+  padding: 0;
+  margin: 0;
+
+  color: $white;
+
+  font-size: 48px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  position: relative;
+}
+.statisticsItem img {
+  width: $statisticsItemImageSize;
+  height: $statisticsItemImageSize;
+}
+::ng-deep .statisticTooltip {
+  height: fit-content;
+  width: fit-content;
+
+  color: $white;
+  background-color: $hoverDark;
+
+  font-size: 24px;
+  font-family: $font;
+
+  text-align: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media only screen and (max-width: 1140px) {
+  .statisticsContainer {
+    padding: 70px 0;
+  }
+  .statisticsItem {
+    font-size: 42px;
+  }
+  $statisticsItemImageSize: $statisticsItemImageSize - 20;
+  .statisticsItem img {
+    width: $statisticsItemImageSize;
+    height: $statisticsItemImageSize;
+  }
+  ::ng-deep .statisticTooltip {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .statisticsContainer {
+    padding: 65px 0;
+  }
+  .statisticsItem {
+    font-size: 36px;
+  }
+  $statisticsItemImageSize: $statisticsItemImageSize - 40;
+  .statisticsItem img {
+    width: $statisticsItemImageSize;
+    height: $statisticsItemImageSize;
+  }
+  ::ng-deep .statisticTooltip {
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .statisticsItem {
+    font-size: 30px;
+  }
+  $statisticsItemImageSize: $statisticsItemImageSize - 60;
+  .statisticsItem img {
+    width: $statisticsItemImageSize;
+    height: $statisticsItemImageSize;
+  }
+  ::ng-deep .statisticTooltip {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .statisticsContainer {
+    padding: 55px 0;
+  }
+  .statisticsItem {
+    font-size: 24px;
+  }
+  $statisticsItemImageSize: $statisticsItemImageSize - 80;
+  .statisticsItem img {
+    width: $statisticsItemImageSize;
+    height: $statisticsItemImageSize;
+  }
+  ::ng-deep .statisticTooltip {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .statisticsContainer {
+    padding: 45px 0;
+  }
+  .statisticsItem {
+    font-size: 21px;
+  }
+  $statisticsItemImageSize: $statisticsItemImageSize - 95;
+  .statisticsItem img {
+    width: $statisticsItemImageSize;
+    height: $statisticsItemImageSize;
+  }
+  ::ng-deep .statisticTooltip {
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .statisticsContainer {
+    padding: 35px 0;
+  }
+  .statisticsItem {
+    font-size: 18px;
+  }
+  $statisticsItemImageSize: $statisticsItemImageSize - 110;
+  .statisticsItem img {
+    width: $statisticsItemImageSize;
+    height: $statisticsItemImageSize;
+  }
+  ::ng-deep .statisticTooltip {
+    font-size: 8px;
+  }
+}

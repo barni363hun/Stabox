@@ -24,7 +24,6 @@ export class VehicleService {
       name: '',
     };
     this.vehicles.push(newVehicle);
-    //console.log(this.vehicles);
   }
 
   getVehicles() {
@@ -35,7 +34,6 @@ export class VehicleService {
         next: (res) => {
           this.vehicles = res;
           cSuccess('vehicles refreshed');
-          console.log(this.vehicles);
         },
         error: (err) => {
           cError(err.error.message);
@@ -54,13 +52,13 @@ export class VehicleService {
         .subscribe({
           next: (res) => {
             cSuccess('vehicle saved');
-            this.snackbarService.showSuccessSnackbar(
-              `Vehicle '${vehicle.name}' saved.`
-            );
+            this.snackbarService.show(3000,`Vehicle "${vehicle.name}" saved.`,'success');
+            this.snackbarService.showSuccessSnackbar(`Vehicle '${vehicle.name}' saved.`);
             this.getVehicles();
           },
           error: (err) => {
             cError(err.error.message);
+            this.snackbarService.show(3000, err.error.message, 'error');
             this.snackbarService.showErrorSnackbar(err.error.message);
           },
         });
@@ -76,13 +74,13 @@ export class VehicleService {
       .subscribe({
         next: (res) => {
           cSuccess('vehicle' + vehicle.name + ' created');
-          this.snackbarService.showSuccessSnackbar(
-            `Vehicle '${vehicle.name}' added.`
-          );
+          this.snackbarService.show(3000,`Vehicle "${vehicle.name}" added.`, 'success');
+          this.snackbarService.showSuccessSnackbar( `Vehicle '${vehicle.name}' added.`);
           this.getVehicles();
         },
         error: (err) => {
           cError(err.error.message);
+          this.snackbarService.show(3000, err.error.message, 'error');
           this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });
@@ -100,13 +98,11 @@ export class VehicleService {
       .subscribe({
         next: (res) => {
           cSuccess('vehicle ' + deleteVehicle.name + ' deleted');
-          this.snackbarService.showSuccessSnackbar(
-            `Vehicle '${deleteVehicle.name}' deleted.`
-          );
           this.getVehicles();
         },
         error: (err) => {
           cError(err.error.message);
+          this.snackbarService.show(3000, err.error.message, 'error');
           this.snackbarService.showErrorSnackbar(err.error.message);
         },
       });

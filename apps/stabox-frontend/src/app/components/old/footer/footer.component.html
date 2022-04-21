@@ -1,0 +1,26 @@
+<div class="container-fluid m-0 p-0" [ngClass]="{'lightMode': themeService.light}">
+    <div class="row footer unselectable">
+
+        <div class="col-12 m-0 p-0">
+            <div class="row socialsRow">
+                <div class="socialIconDiv col-3">
+                    <img class="socialIcon" [src]="themeService.light ? 'assets/old/LightMode/Instagram.svg' : 'assets/old/DarkMode/Instagram.svg'">
+                </div>
+
+                <div class="socialIconDiv col-3">
+                    <img class="socialIcon" [src]="themeService.light ? 'assets/old/LightMode/Facebook.svg' : 'assets/old/DarkMode/Facebook.svg'">
+                </div>
+
+                <div class="socialIconDiv col-3">
+                    <img class="socialIcon" [src]="themeService.light ? 'assets/old/LightMode/Twitter.svg' : 'assets/old/DarkMode/Twitter.svg'">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 centerElements">
+            <mat-icon class="copyrightIcon">copyright</mat-icon>
+            <p class="copyrightText">2022 All rights reserved</p>
+        </div>
+
+    </div>
+</div>

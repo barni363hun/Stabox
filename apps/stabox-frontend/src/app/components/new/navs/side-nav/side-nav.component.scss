@@ -1,0 +1,180 @@
+@import '../../colors.scss';
+@import '../../variables.scss';
+
+.sideNavContainer {
+  z-index: 1;
+
+  width: fit-content;
+  height: 100%;
+
+  padding: 0;
+  margin: 0;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sideNav {
+  width: fit-content;
+  height: 100%;
+
+  padding: 25px;
+  margin: 0;
+
+  background-color: $navBlack;
+}
+
+.logo {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 25px auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.logo img {
+  width: $logoImageSize;
+  height: $logoImageSize;
+
+  margin: 0 $logoImgTextDistance 0 0;
+}
+.logo span {
+  font-size: 32px;
+
+  margin: 0 0 8px $logoImgTextDistance;
+}
+
+.divider {
+  width: 100%;
+  height: 2px;
+
+  background-color: rgba($white, 0.75);
+
+  border-radius: 5px;
+}
+
+.nav {
+  width: fit-content;
+  height: fit-content;
+
+  margin: 50px 50px 0 50px;
+  padding: 0;
+
+  display: flex;
+  justify-content: left;
+  align-self: center;
+  flex-direction: column;
+}
+.navItem {
+  width: 100%;
+  height: fit-content;
+
+  margin: 5px 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+}
+.navItem:hover {
+  cursor: pointer;
+
+  color: $blueGreen;
+}
+.navItem img {
+  width: $sideNavItemImageSize;
+  height: $sideNavItemImageSize;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.navItem span {
+  font-size: 40px;
+
+  margin: 0 0 0 12.5px;
+}
+
+.profileContainer {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+
+  position: absolute;
+  left: 0;
+  bottom: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profileImage {
+  transform: scale(1.35);
+}
+.profileData {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0 25px 0 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  line-height: 1.75em;
+}
+.nickname {
+  font-size: 24px;
+}
+.role {
+  font-size: 18px;
+}
+.courierColor {
+  color: $yellow;
+}
+.userColor {
+  color: $blueGreen;
+}
+.logoutIcon {
+  transform: scale(1.5);
+
+  color: $lightRed;
+}
+.logoutIcon:hover {
+  cursor: pointer;
+}
+::ng-deep .statisticTooltip {
+  height: fit-content;
+  width: fit-content;
+
+  color: $white;
+  background-color: $hoverDark;
+
+  font-size: 18px;
+  font-family: $font;
+
+  text-align: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media only screen and (max-width: 1140px) {
+  .sideNavContainer {
+    display: none;
+  }
+}

@@ -1,0 +1,32 @@
+@import '../../../../../app.component.scss';
+@import '../mainpage.component.scss';
+
+h1 {
+  font-size: 64px;
+}
+
+p {
+  font-size: 28px;
+}
+
+#firstCard {
+  margin-bottom: 200px;
+}
+
+#cardText {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.servicesCard {
+  margin-bottom: 50px;
+}
+
+.servicesCardDesc {
+  font-size: 24px;
+  text-align: left;
+}
+
+#drawing {
+  margin-top: 50px;
+}

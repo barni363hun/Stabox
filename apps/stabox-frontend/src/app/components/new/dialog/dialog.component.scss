@@ -1,0 +1,454 @@
+@import '../colors.scss';
+@import '../variables.scss';
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $blueGreen;
+}
+::ng-deep .mat-dialog-container {
+  color: $white;
+  background-color: $black;
+
+  padding: 50px;
+  margin: 0;
+
+  font-family: $font;
+
+  text-align: center;
+
+  overflow: hidden;
+
+  scrollbar-color: $blueGreen $black;
+  scrollbar-width: thin;
+}
+
+::ng-deep .mat-dialog-title {
+  padding: 0;
+  margin: 0;
+
+  font-size: 48px;
+}
+
+.underline {
+  width: 85%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 15px auto 5px auto;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.vehiclesContent {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+}
+
+.vehicleRow {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+.form-control {
+  color: $white;
+  background: transparent;
+
+  font-size: 36px;
+
+  border-color: $descriptionLight;
+}
+.form-control:focus {
+  border-color: $blueGreen;
+  box-shadow: 0 0 0 2px rgba($blueGreen, 0.5);
+}
+
+.horizontalCenter {
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addIconContainer {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 100px 0 0 0;
+}
+.addButton {
+  padding: 35px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addIconContainer mat-icon {
+  transform: scale(2.5);
+}
+
+.content {
+  width: 85%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0 auto;
+}
+.instructionsColumn {
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.instructionsColumn h1 {
+  padding: 0;
+  margin: 10px 0;
+
+  font-size: 32px;
+}
+.instructionsColumn span {
+  color: $description;
+
+  padding: 0;
+  margin: 10px 0;
+
+  font-size: 26px;
+}
+$instructionsComponentImageSize: 175px;
+img {
+  width: $instructionsComponentImageSize;
+  height: $instructionsComponentImageSize;
+
+  padding: 0;
+  margin: 10px 0;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+$arrowIconSize: 125px;
+.arrowIcon {
+  width: $arrowIconSize;
+  height: $arrowIconSize;
+
+  padding: 0;
+  margin: 25px 0;
+}
+
+.button {
+  margin: 5px 25px;
+}
+
+::ng-deep .removeTooltip {
+  height: fit-content;
+  width: fit-content;
+
+  color: $white;
+  background-color: $hoverDark;
+
+  font-size: 18px;
+  font-family: $font;
+
+  text-align: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .arrowIcon {
+    transform: rotate(90deg);
+  }
+  .content {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 1140px) {
+  ::ng-deep .mat-dialog-container {
+    padding: 42.5px;
+  }
+  ::ng-deep .mat-dialog-title {
+    font-size: 46px;
+  }
+  .underline {
+    width: 87.5%;
+  }
+  .addButton {
+    padding: 33px;
+  }
+  .content {
+    width: 55%;
+  }
+  .instructionsColumn h1 {
+    margin: 9px 0;
+
+    font-size: 40px;
+  }
+  .instructionsColumn span {
+    margin: 9px 0;
+
+    font-size: 30px;
+  }
+  $instructionsComponentImageSize: $instructionsComponentImageSize - 15;
+  img {
+    width: $instructionsComponentImageSize;
+    height: $instructionsComponentImageSize;
+    margin: 9px 0;
+  }
+  $arrowIconSize: $arrowIconSize - 12.5;
+  .arrowIcon {
+    width: $arrowIconSize;
+    height: $arrowIconSize;
+    margin: 22.5px 0;
+  }
+  .form-control {
+    font-size: 32px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  ::ng-deep .mat-dialog-container {
+    padding: 35px;
+  }
+  ::ng-deep .mat-dialog-title {
+    font-size: 38px;
+  }
+  .underline {
+    width: 90%;
+  }
+  .addButton {
+    padding: 31px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(2.25);
+  }
+  .content {
+    width: 50%;
+  }
+  .instructionsColumn h1 {
+    margin: 8px 0;
+
+    font-size: 32px;
+  }
+  .instructionsColumn span {
+    margin: 8px 0;
+
+    font-size: 24px;
+  }
+  $instructionsComponentImageSize: $instructionsComponentImageSize - 30;
+  img {
+    width: $instructionsComponentImageSize;
+    height: $instructionsComponentImageSize;
+    margin: 8px 0;
+  }
+  $arrowIconSize: $arrowIconSize - 25;
+  .arrowIcon {
+    width: $arrowIconSize;
+    height: $arrowIconSize;
+    margin: 20px 0;
+  }
+  .form-control {
+    font-size: 28px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  ::ng-deep .mat-dialog-container {
+    padding: 27.5px;
+  }
+  ::ng-deep .mat-dialog-title {
+    font-size: 30px;
+  }
+  .underline {
+    width: 92.5%;
+  }
+  .addButton {
+    padding: 29px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(2);
+  }
+  .content {
+    width: 45%;
+  }
+  .instructionsColumn h1 {
+    margin: 7px 0;
+
+    font-size: 24px;
+  }
+  .instructionsColumn span {
+    margin: 7px 0;
+
+    font-size: 18px;
+  }
+  $instructionsComponentImageSize: $instructionsComponentImageSize - 45;
+  img {
+    width: $instructionsComponentImageSize;
+    height: $instructionsComponentImageSize;
+    margin: 7px 0;
+  }
+  $arrowIconSize: $arrowIconSize - 37.5;
+  .arrowIcon {
+    width: $arrowIconSize;
+    height: $arrowIconSize;
+    margin: 17.5px 0;
+  }
+  .form-control {
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  ::ng-deep .mat-dialog-container {
+    padding: 20px;
+  }
+  ::ng-deep .mat-dialog-title {
+    font-size: 22px;
+  }
+  .underline {
+    width: 95%;
+  }
+  .addButton {
+    padding: 27px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(1.75);
+  }
+  .content {
+    width: 40%;
+  }
+  .instructionsColumn h1 {
+    margin: 6px 0;
+
+    font-size: 18px;
+  }
+  .instructionsColumn span {
+    margin: 6px 0;
+
+    font-size: 14px;
+  }
+  $instructionsComponentImageSize: $instructionsComponentImageSize - 60;
+  img {
+    width: $instructionsComponentImageSize;
+    height: $instructionsComponentImageSize;
+    margin: 6px 0;
+  }
+  $arrowIconSize: $arrowIconSize - 50;
+  .arrowIcon {
+    width: $arrowIconSize;
+    height: $arrowIconSize;
+    margin: 15px 0;
+  }
+  .form-control {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  ::ng-deep .mat-dialog-container {
+    padding: 12.5px;
+  }
+  ::ng-deep .mat-dialog-title {
+    font-size: 18px;
+  }
+  .underline {
+    width: 97.5%;
+  }
+  .addButton {
+    padding: 25px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(1.5);
+  }
+  .content {
+    width: 35%;
+  }
+  .instructionsColumn h1 {
+    margin: 5px 0;
+
+    font-size: 16px;
+  }
+  .instructionsColumn span {
+    margin: 5px 0;
+
+    font-size: 12px;
+  }
+  $instructionsComponentImageSize: $instructionsComponentImageSize - 75;
+  img {
+    width: $instructionsComponentImageSize;
+    height: $instructionsComponentImageSize;
+    margin: 5px 0;
+  }
+  $arrowIconSize: $arrowIconSize - 62.5;
+  .arrowIcon {
+    width: $arrowIconSize;
+    height: $arrowIconSize;
+    margin: 12.5px 0;
+  }
+  .form-control {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  ::ng-deep .mat-dialog-container {
+    padding: 5px;
+  }
+  ::ng-deep .mat-dialog-title {
+    font-size: 16px;
+  }
+  .underline {
+    width: 100%;
+  }
+  .addButton {
+    padding: 23px;
+  }
+  .addIconContainer mat-icon {
+    transform: scale(1.25);
+  }
+  .instructionsColumn h1 {
+    margin: 4px 0;
+
+    font-size: 14px;
+  }
+  .instructionsColumn span {
+    margin: 4px 0;
+
+    font-size: 10px;
+  }
+  $instructionsComponentImageSize: $instructionsComponentImageSize - 100;
+  img {
+    width: $instructionsComponentImageSize;
+    height: $instructionsComponentImageSize;
+    margin: 4px 0;
+  }
+  $arrowIconSize: $arrowIconSize - 75;
+  .arrowIcon {
+    width: $arrowIconSize;
+    height: $arrowIconSize;
+    margin: 10px 0;
+  }
+  .decorativeLineContainer {
+    display: none;
+  }
+  .form-control {
+    font-size: 12px;
+  }
+}

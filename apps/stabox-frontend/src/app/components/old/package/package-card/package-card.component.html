@@ -1,0 +1,167 @@
+<div [ngClass]="{ lightMode: themeService.light }">
+  <div class="card my-3">
+    <div class="row centerElements">
+      <div class="col-12 m-0 p-0 centerElements gradientBg packageCardTitle">
+        <span class="packageTitle">{{package.name}}</span>
+      </div>
+      <div class="packageCardContent">
+        <div class="row">
+          <div class="col-12 mb-4">
+            <div class="row w-75 group">
+              <div class="col-12 m-0 p-0 text-center">
+                <div class="row">
+                  <div class="col-3 centerElements">
+                    <span class="gradient dateRangeTitle">From</span>
+                  </div>
+                  <div class="col-9 centerVertical">
+                    <div class="row w-100 m-0 p-0">
+                      <span>{{package.fromAddress.cityName}}</span>
+                      <span>{{package.fromAddress.zipCode}}</span>
+                    </div>
+                    <div class="row w-100 m-0 p-0">
+                      <span>{{package.fromAddress.street}}</span>
+                      <span>{{package.fromAddress.houseNumber}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 m-0 p-0 text-center">
+                <div class="row rowColoredBottom">
+                  <div class="col-3 centerElements">
+                    <span class="gradient dateRangeTitle">To</span>
+                  </div>
+                  <div class="col-9 centerVertical">
+                    <div class="row w-100 m-0 p-0">
+                      <span>{{package.reciever.address.cityName}}</span>
+                      <span>{{package.reciever.address.zipCode}}</span>
+                    </div>
+                    <div class="row w-100 m-0 p-0">
+                      <span>{{package.reciever.address.street}}</span>
+                      <span>{{package.reciever.address.houseNumber}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="row py-2 w-75 group">
+              <div class="row m-0 py-1">
+                <div class="col-6 textRight">
+                  <span class="packageText">Size(cm):</span>
+                </div>
+                <div class="col-6 centerVertical">
+                  <span class="packageData">{{package.size}}</span>
+                </div>
+              </div>
+              <div class="row m-0 py-1">
+                <div class="col-6 textRight">
+                  <span class="packageText">Weight:</span>
+                </div>
+                <div class="col-6 centerVertical">
+                  <span class="packageData">{{package.weight}}</span>
+                </div>
+              </div>
+              <div class="row m-0 py-1">
+                <div class="col-6 textRight">
+                  <span class="packageText">Fragile:</span>
+                </div>
+                <div class="col-6 centerVertical">
+                  <span class="packageData">{{ package.fragile ? 'Yes' : 'No' }}</span>
+                </div>
+              </div>
+              <div class="row m-0 py-1">
+                <div class="col-6 textRight">
+                  <span class="packageText">Status:</span>
+                </div>
+                <div class="col-6 centerVertical">
+                  <span [ngStyle]="{'color': getStyles(this.status)}" class="packageData">{{this.status}}</span>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+
+        <div class="mt-3" *ngIf="this.status ==='Active'">
+          <div class="row w-75 group mb-4">
+            <div class="col-12 centerElements rowColoredTop">
+              <span class="dateRangeTitle gradient">Exchange Date</span>
+            </div>
+
+            <div class="col-12 my-3 py-2 px-4 group">
+              <div class="row">
+                <span class="my-2 text-center">
+                  {{formatDate(this.package.postDate)}}
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-3" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
+          <div class="row w-75 group mb-4">
+            <div class="col-12 centerElements rowColoredTop">
+              <span class="dateRangeTitle gradient">Periods</span>
+            </div>
+
+            <div class="col-12 my-3 py-2 px-4 group">
+              <div class="row" *ngFor="let exDate of exchangeDates">
+                <span class="my-2 text-center">
+                  {{ formatDate(exDate.startDate) }} - {{ formatDate(exDate.endDate) }}
+                </span>
+              </div>
+            </div>
+
+            <div class="col-12 mb-1 centerElements">
+              <input class="w-75" type="datetime-local" [(ngModel)]="selectedExchangeDate" />
+            </div>
+          </div>
+
+          <div class="row centerElements">
+            <select class="packageCardSelect w-50 p-1" name="vehicle" id="vehicle" [(ngModel)]="selectedVehicle">
+              <option value="0" disabled selected>Vehicle</option>
+              <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.name}}</option>
+            </select>
+          </div>
+
+          <div class="col-12 mt-3 text-center">
+            <span class="btn addBtn" (click)="selectPostDate()">Accept</span>
+          </div>
+        </div>
+
+        
+        <div class="col-12">
+          <div class="row py-2 w-75 group " *ngIf="this.state == 'finishable' && !this.isUserTheOwner">
+            <div class="row m-0 py-1">
+              <div class="col-6 textRight">
+                <span class="packageText">Receiver:</span>
+              </div>
+            </div>
+            <div class="row m-0 py-1">
+              <div class="col-6 textRight">
+                <span class="packageData">{{ package.reciever.firstName}}</span>
+              </div>
+              <div class="col-6 centerVertical">
+                <span class="packageData">{{ package.reciever.lastName}}</span>
+              </div>
+            </div>
+            <div class="row m-0 py-1">
+              <div class="col-6 textRight">
+                <span class="packageData">{{ package.reciever.email}}</span>
+              </div>
+              <div class="col-6 centerVertical">
+                <span class="packageData">{{ package.reciever.phoneNumber}}</span>
+              </div>
+            </div>
+            <div class="row m-0 py-1">
+                <span class="btn yellowBtn" (click)="finishShipping()">Finish</span>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

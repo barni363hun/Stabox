@@ -1,0 +1,36 @@
+<div [ngClass]="{ light: themeService.light }">
+    <div class="instructionsContainer">
+        <span class="title">How do I become a courier?</span>
+        <img class="underline" src="assets/new/icons/underlineVar2.svg">
+        <div class="container-fluid mt-4">
+            <div class="content">
+                <div class="row">
+                    <div class="col-xl-4 col-12 instructionsColumn">
+                        <img [src]="!themeService.light ? 'assets/new/icons/fileLight.svg' : 'assets/new/icons/fileDark.svg'">
+                        <h1>Apply and sign a contract</h1>
+                        <span>After the application you will receive an email message with further instructions.</span>
+                    </div>
+                    <div class="col-xl-4 col-12 instructionsColumn">
+                        <img class="arrowIcon" [src]="!themeService.light ? 'assets/new/icons/arrowLight.svg' : 'assets/new/icons/arrowDark.svg'">
+                    </div>
+                    <div class="col-xl-4 col-12 instructionsColumn">
+                        <img [src]="!themeService.light ? 'assets/new/icons/briefcaseLight.svg' : 'assets/new/icons/briefcaseDark.svg'">
+                        <h1>Work whenever you want</h1>
+                        <span>Log into your account and set your work periods. Take matters into your own hands.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 buttonPanel">
+                    <div class="decorativeLineContainer">
+                        <div class="decorativeLine"></div>
+                    </div>
+                    <stabox-button-raised text="Apply as courier" (click)="userService.login()"></stabox-button-raised>
+                    <div class="decorativeLineContainer">
+                        <div class="decorativeLine"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

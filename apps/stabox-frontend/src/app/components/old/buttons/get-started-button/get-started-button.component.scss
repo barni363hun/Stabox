@@ -1,0 +1,55 @@
+@import '../../../../app.component.scss';
+
+.lightMode .joinNow {
+  color: $colorDarkGray;
+  background-color: $bgColorWhite;
+}
+
+.lightMode .outline:hover .joinNow {
+  background: linear-gradient(to right, $colorLightBlue 50%, $colorDarkBlue);
+}
+
+.lightMode .outline:hover .buttonText {
+  color: $bgColorWhite;
+  background: $bgColorWhite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.joinNow {
+  background-color: $bgColorBlack;
+  border: none;
+  color: $colorWhite;
+  border-radius: 75px;
+  font-size: 28px;
+  padding: 3.5px 45px 3.5px 45px;
+}
+
+.outline {
+  width: fit-content;
+  position: relative;
+  background: linear-gradient(to right, $colorLightYellow, $colorDarkYellow);
+  padding: 3px;
+  border-radius: 75px;
+}
+
+.outline:hover {
+  cursor: pointer;
+}
+
+.outline:hover .joinNow {
+  background: linear-gradient(
+    to right,
+    $colorLightYellow 50%,
+    $colorDarkYellow
+  );
+}
+
+.outline:hover .buttonText {
+  color: $bgColorBlack;
+  background: $bgColorBlack;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

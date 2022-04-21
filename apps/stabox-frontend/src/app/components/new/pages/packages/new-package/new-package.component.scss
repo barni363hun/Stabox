@@ -1,0 +1,217 @@
+@import '../../../colors.scss';
+@import '../../../variables.scss';
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $blueGreen;
+}
+::ng-deep .mat-dialog-container {
+    color: $white;
+    background-color: $black;
+  
+    padding: 50px;
+    margin: 0;
+  
+    font-family: $font;
+  
+    text-align: center;
+  
+    overflow: hidden;
+  
+    scrollbar-color: $blueGreen $black;
+    scrollbar-width: thin;
+}
+
+::ng-deep .mat-dialog-title {
+    padding: 0;
+    margin: 0;
+  
+    font-size: 48px;
+}
+
+.content {
+    width: 100%;
+    height: fit-content;
+  
+    padding: 0;
+    margin: 0;
+  }
+
+.underline {
+    width: 85%;
+    height: fit-content;
+  
+    padding: 0;
+    margin: 20px auto 5px auto;
+  
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.button {
+    margin: 5px 25px;
+}
+
+.cardTextDivContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+select,
+input,
+.cardText {
+  font-size: 32px;
+}
+.dimensionsIcon {
+    font-size: 36px;
+    margin: 0 5px;
+}
+
+.unselectable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.leftOffset {
+    padding-left: 55px;
+}
+
+.centerElements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.form-control {
+    color: $white;
+    background: transparent;
+  
+    margin: 10px 0;
+  
+    font-size: 36px;
+  
+    border: 2px solid $descriptionLight;
+}
+.form-control:focus {
+    border-color: $blueGreen;
+    box-shadow: 0 0 0 2px rgba($blueGreen, 0.5);
+}
+.form-select {
+    color: $white;
+    background: transparent;
+  
+    background-image: url('../../../../../../assets/new/icons/arrowDownWhite.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+  
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 15px 0;
+  
+    font-size: 32px;
+  
+    border: 2px solid $blackLight;
+}
+  .form-select:focus {
+    box-shadow: 0 0 0 2px rgba($blueGreen, 0.5);
+    border-color: $blueGreen;
+}
+  .form-select option {
+    background-color: $black;
+}
+
+@media only screen and (max-width: 1200px) {
+    .leftOffset {
+        padding: 0;
+    }
+}
+@media only screen and (max-width: 1140px) {
+    ::ng-deep .mat-dialog-container {
+      padding: 42.5px;
+    }
+    ::ng-deep .mat-dialog-title {
+      font-size: 46px;
+    }
+    .cardText,
+    .form-select,
+    .form-control {
+        font-size: 32px;
+    }
+}
+@media only screen and (max-width: 960px) {
+    ::ng-deep .mat-dialog-container {
+      padding: 35px;
+    }
+    ::ng-deep .mat-dialog-title {
+      font-size: 38px;
+    }
+    .cardText,
+    .form-select,
+    .form-control {
+        font-size: 28px;
+    }
+}
+@media only screen and (max-width: 720px) {
+    ::ng-deep .mat-dialog-container {
+      padding: 27.5px;
+    }
+    ::ng-deep .mat-dialog-title {
+      font-size: 30px;
+    }
+    .cardText,
+    .form-select,
+    .form-control {
+        font-size: 24px;
+    }
+}
+@media only screen and (max-width: 540px) {
+    ::ng-deep .mat-dialog-container {
+      padding: 20px;
+    }
+    ::ng-deep .mat-dialog-title {
+      font-size: 22px;
+    }
+    .cardText,
+    .form-select,
+    .form-control {
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 380px) {
+    ::ng-deep .mat-dialog-container {
+      padding: 12.5px;
+    }
+    ::ng-deep .mat-dialog-title {
+      font-size: 18px;
+    }
+    .cardText,
+    .form-select,
+    .form-control {
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width: 300px) {
+    ::ng-deep .mat-dialog-container {
+      padding: 5px;
+    }
+    ::ng-deep .mat-dialog-title {
+      font-size: 16px;
+    }
+    .cardText,
+    .form-select,
+    .form-control {
+        font-size: 12px;
+    }
+}

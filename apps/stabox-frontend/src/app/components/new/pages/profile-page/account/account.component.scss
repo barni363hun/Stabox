@@ -1,0 +1,340 @@
+@import '../../../colors.scss';
+@import '../../../variables.scss';
+
+.content {
+  width: 100%;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+}
+
+.title {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0 auto 100px auto;
+
+  font-size: 56px;
+
+  text-align: center;
+}
+.title span {
+  margin: 0 50px;
+}
+.underline {
+  height: 2px;
+  width: 100%;
+
+  background-color: rgba($white, 0.75);
+
+  border: none;
+  border-radius: 5px;
+}
+
+.accountDataContainer {
+  width: 100%;
+  height: 100%;
+  min-height: fit-content;
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profileImageContainer {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+
+  position: relative;
+}
+.profileImage {
+  width: $profileImageSize;
+  height: $profileImageSize;
+
+  background-color: $white;
+
+  padding: 0;
+  margin: 0 0 50px 0;
+
+  border: none;
+  border-radius: 50%;
+}
+
+.roleIconContainer {
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  margin: 0;
+
+  position: absolute;
+  bottom: 15px;
+  right: -15px;
+}
+.roleIcon {
+  width: $roleIconSize;
+  height: $roleIconSize;
+
+  position: absolute;
+  bottom: 15px;
+  right: -15px;
+}
+.roleIcon:hover {
+  cursor: pointer;
+}
+::ng-deep .roleTooltip {
+  height: fit-content;
+  width: fit-content;
+
+  color: $white;
+  background-color: $hoverDark;
+
+  font-size: 18px;
+  font-family: $font;
+
+  text-align: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.accountData {
+  padding: 0 0 50px 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.input-group {
+  margin: 0 0 15px 0;
+}
+.input-group-text {
+  width: fit-content;
+  height: fit-content;
+
+  color: $white;
+  background-color: $blueGreen;
+
+  padding: 25px;
+
+  border-color: $descriptionLight;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-group-text mat-icon {
+  transform: scale(2.3);
+
+  text-shadow: 1px 1px 2px rgba(black, 0.25);
+}
+.input-group input {
+  color: $white;
+  background: transparent;
+
+  font-size: 36px;
+
+  border-left: none;
+  border-color: $descriptionLight;
+}
+.input-group input:focus {
+  border-color: $blueGreen;
+}
+.form-control:focus {
+  box-shadow: 0 0 0 2px rgba($blueGreen, 0.5);
+}
+
+.nameInputContainer {
+  display: flex;
+}
+
+@media only screen and (max-width: 1140px) {
+  .title {
+    margin: 0 auto 90px auto;
+    font-size: 50px;
+  }
+  .title span {
+    margin: 0 45px;
+  }
+  $profileImageSize: $profileImageSize - 35;
+  .profileImage {
+    width: $profileImageSize;
+    height: $profileImageSize;
+  }
+  $roleIconSize: $roleIconSize - 5px;
+  .roleIcon {
+    width: $roleIconSize;
+    height: $roleIconSize;
+  }
+  .input-group-text {
+    padding: 22px;
+  }
+  .input-group-text mat-icon {
+    transform: scale(2.1);
+  }
+  .input-group input {
+    font-size: 32px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .title {
+    margin: 0 auto 80px auto;
+    font-size: 44px;
+  }
+  .title span {
+    margin: 0 40px;
+  }
+  $profileImageSize: $profileImageSize - 70;
+  .profileImage {
+    width: $profileImageSize;
+    height: $profileImageSize;
+  }
+  $roleIconSize: $roleIconSize - 10px;
+  .roleIcon {
+    width: $roleIconSize;
+    height: $roleIconSize;
+    bottom: 16px;
+    right: -14px;
+  }
+  .input-group-text {
+    padding: 19px;
+  }
+  .input-group-text mat-icon {
+    transform: scale(1.9);
+  }
+  .input-group input {
+    font-size: 28px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .title {
+    margin: 0 auto 70px auto;
+    font-size: 38px;
+  }
+  .title span {
+    margin: 0 35px;
+  }
+  $profileImageSize: $profileImageSize - 105;
+  .profileImage {
+    width: $profileImageSize;
+    height: $profileImageSize;
+  }
+  $roleIconSize: $roleIconSize - 15px;
+  .roleIcon {
+    width: $roleIconSize;
+    height: $roleIconSize;
+    bottom: 17px;
+    right: -13px;
+  }
+  .input-group-text {
+    padding: 16px;
+  }
+  .input-group-text mat-icon {
+    transform: scale(1.7);
+  }
+  .input-group input {
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .title {
+    margin: 0 auto 60px auto;
+    font-size: 32px;
+  }
+  .title span {
+    margin: 0 30px;
+  }
+  $profileImageSize: $profileImageSize - 140;
+  .profileImage {
+    width: $profileImageSize;
+    height: $profileImageSize;
+  }
+  $roleIconSize: $roleIconSize - 20px;
+  .roleIcon {
+    width: $roleIconSize;
+    height: $roleIconSize;
+    bottom: 18px;
+    right: -12px;
+  }
+  .input-group-text {
+    padding: 13px;
+  }
+  .input-group-text mat-icon {
+    transform: scale(1.5);
+  }
+  .input-group input {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .nameInputContainer {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .title {
+    margin: 0 auto 50px auto;
+    font-size: 26px;
+  }
+  .title span {
+    margin: 0 25px;
+  }
+  $profileImageSize: $profileImageSize - 175;
+  .profileImage {
+    width: $profileImageSize;
+    height: $profileImageSize;
+  }
+  $roleIconSize: $roleIconSize - 25px;
+  .roleIcon {
+    width: $roleIconSize;
+    height: $roleIconSize;
+    bottom: 19px;
+    right: -11px;
+  }
+  .input-group-text {
+    padding: 10px;
+  }
+  .input-group input {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .title {
+    margin: 0 auto 40px auto;
+    font-size: 20px;
+  }
+  .title span {
+    margin: 0 20px;
+  }
+  $profileImageSize: $profileImageSize - 210;
+  .profileImage {
+    width: $profileImageSize;
+    height: $profileImageSize;
+  }
+  $roleIconSize: $roleIconSize - 30px;
+  .roleIcon {
+    width: $roleIconSize;
+    height: $roleIconSize;
+    bottom: 20px;
+    right: -10px;
+  }
+  .input-group-text {
+    padding: 7px;
+  }
+  .input-group input {
+    font-size: 12px;
+  }
+}

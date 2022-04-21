@@ -1,0 +1,121 @@
+<span mat-dialog-title *ngIf="data.title">{{ data.title }}</span>
+
+<img class="underline" src="assets/new/icons/underlineVar2.svg">
+
+<mat-dialog-content>
+    <div class="content">
+
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-sm-12 centerElements">
+              <div class="cardTextDivContent">
+                <span class="cardText unselectable leftOffset">Name</span>
+              </div>
+            </div>
+            <div class="col-xl-9 col-sm-12 centerElements">
+              <input class="form-control" type="text" placeholder="Name" name="region" [(ngModel)]="package.name">
+            </div>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-sm-12 centerElements">
+              <div class="cardTextDivContent">
+                <span class="cardText unselectable leftOffset">Size(cm)</span>
+              </div>
+            </div>
+            <div class="col-xl-9 col-sm-12 centerElements">
+              <input class="form-control" type="number" name="sizeX" [(ngModel)]="sizeX">
+              <span class="unselectable dimensionsIcon">x</span>
+              <input class="form-control" type="number" name="sizeY" [(ngModel)]="sizeY">
+              <span class="unselectable dimensionsIcon">x</span>
+              <input class="form-control" type="number" placeholder="Z" name="sizeZ" [(ngModel)]="sizeZ">
+            </div>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-sm-12 centerElements">
+              <div class="cardTextDivContent">
+                <span class="cardText unselectable leftOffset">Weight</span>
+              </div>
+            </div>
+            <div class="col-xl-9 col-sm-12 centerElements">
+              <input class="form-control" type="number" min="0" name="weight" [(ngModel)]="myWeight">
+              <select class="form-select w-25" name="weightSelect" [(ngModel)]="selectedWeight">
+                <option value="g">g</option>
+                <option value="kg">kg</option>
+              </select>
+            
+            </div>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-sm-12 centerElements">
+              <div class="cardTextDivContent">
+                <span class="cardText gradient unselectable leftOffset">Fragile</span>
+              </div>
+            </div>
+            <div class="col-xl-9 col-sm-12 centerElements">
+              <select class="form-select" name="fragility" [(ngModel)]="this.package.fragile">
+                <option [ngValue]="true">Yes</option>
+                <option [ngValue]="false">No</option>
+              </select>
+            </div>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-sm-12 centerElements">
+                <div class="cardTextDivContent">
+                    <button mat-icon-button class="me-1" routerLink="/addresses" (click)="dialogRef.close()">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                    <span class="cardText unselectable ms-1">From</span>
+                </div>
+            </div>
+            <div class="col-xl-9 col-sm-12 centerElements">
+                <select class="form-select" name="address" [(ngModel)]="selectedAddress" [value]="0">
+                    <option [ngValue]="0" disabled selected>Address</option>
+                    <option *ngFor="let address of addresses" [value]="address.id">
+                        {{ address.cityName }} {{ address.street }}
+                        {{ address.houseNumber }}
+                    </option>
+                </select>
+            </div>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-sm-12 centerElements">
+              <div class="cardTextDivContent">
+                <button mat-icon-button class="me-1" (click)="openNewReceiverDialog()">
+                    <mat-icon>add</mat-icon>
+                </button>
+                <span class="cardText unselectable ms-1">Receiver</span>
+              </div>
+            </div>
+            <div class="col-xl-9 col-sm-12 centerElements">
+                <select class="form-select" name="reciever" [(ngModel)]="selectedReciever" [value]="0">
+                    <option [ngValue]="0" disabled selected>Receiver</option>
+                    <option *ngFor="let reciever of this.recieverService.userSRecievers" [value]="reciever.id">
+                      {{ reciever.firstName + ' ' + reciever.lastName }}
+                    </option>
+                </select>
+            </div>
+        </div>
+      </div>
+
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center" *ngIf="!data.showVehicles">
+    <stabox-button-raised (click)="addPackage()" text="{{ data.confirmButtonText }}" class="button"></stabox-button-raised>
+    <stabox-button-raised-danger mat-dialog-close text="{{ data.cancelButtonText }}" class="button"></stabox-button-raised-danger>
+</mat-dialog-actions>

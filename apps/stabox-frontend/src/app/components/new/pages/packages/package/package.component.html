@@ -1,0 +1,101 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{package.name}}</mat-card-title>
+        <mat-card-subtitle>
+            <div class="container-fluid noGutters">
+                <div class="row noGutters">
+                    <div class="row noGutters">
+                        <div class="col-6 center noGutters green">From</div>
+                        <div class="col-6 center noGutters green">To</div>
+                    </div>
+                    <div class="row noGutters">
+                        <div class="col-6 center noGutters">
+                            <span>
+                                {{package.fromAddress.zipCode}}&nbsp;
+                                {{package.fromAddress.cityName}},&nbsp;
+                                {{package.fromAddress.street}}&nbsp;
+                                {{package.fromAddress.houseNumber}}
+                            </span>
+                        </div>
+                        <div class="col-6 center noGutters">
+                            <span>
+                                {{package.reciever.address.zipCode}}&nbsp;
+                                {{package.reciever.address.cityName}},&nbsp;
+                                {{package.reciever.address.street}}&nbsp;
+                                {{package.reciever.address.houseNumber}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="container-fluid noGutters">
+            <div class="row m-0 py-1">
+                <div class="col-6 textRight">
+                    <span class="packageText">Size(cm):</span>
+                </div>
+                <div class="col-6">
+                    <span>{{package.size}}</span>
+                </div>
+            </div>
+            <div class="row m-0 py-1">
+                <div class="col-6 textRight">
+                    <span>Weight:</span>
+                </div>
+                <div class="col-6">
+                    <span>{{package.weight}}</span>
+                </div>
+            </div>
+            <div class="row m-0 py-1">
+                <div class="col-6 textRight">
+                    <span>Fragile:</span>
+                </div>
+                <div class="col-6">
+                    <span>{{ package.fragile ? 'Yes' : 'No' }}</span>
+                </div>
+            </div>
+            <div class="row m-0 py-1">
+                <div class="col-6 textRight">
+                    <span>Status:</span>
+                </div>
+                <div class="col-6">
+                    <span [ngStyle]="{'color': getStyles(this.status)}">{{this.status}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid noGutters my-2" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
+            <div class="row m-0 py-1">
+                <span class="periodsTitle green">Periods</span>
+                <span class="my-2" *ngFor="let exDate of exchangeDates">
+                    {{ formatDate(exDate.startDate) }} - {{ formatDate(exDate.endDate) }}
+                </span>
+            </div>
+        </div>
+
+        <div class="container-fluid noGutters" *ngIf="this.state =='shippable' && !this.isUserTheOwner">
+            <div class="row m-0 py-1 packageDataInputRow">
+                <input class="form-control my-1" type="datetime-local" [(ngModel)]="selectedExchangeDate"/>
+                <select class="form-select my-1" name="vehicle" id="vehicle" [(ngModel)]="selectedVehicle">
+                    <option value="0" disabled selected>Vehicle</option>
+                    <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{vehicle.name}}</option>
+                  </select>
+            </div>
+        </div>
+
+
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-raised-button *ngIf="this.state == 'shippable' && !this.isUserTheOwner" (click)="selectPostDate()">
+            Accept
+        </button>
+        <button mat-raised-button *ngIf="this.state == 'finishable' && !this.isUserTheOwner" (click)="finishShipping()">
+            Finish
+        </button>
+    </mat-card-actions>
+
+</mat-card>
