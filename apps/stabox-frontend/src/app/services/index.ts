@@ -6,3 +6,4 @@ export * from './snackbar.service';
 export * from './theme.service';
 export * from './reciever.service';
 export * from './package.service';
+export * from './layout.service';

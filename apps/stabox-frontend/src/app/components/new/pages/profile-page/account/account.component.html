@@ -8,7 +8,7 @@
     <div class="profileImageContainer">
       <img class="profileImage" [src]="userService.authUser.picture">
       <img (click)="openApplyAsCourierDialog()" *ngIf="!userService.isShipper" class="roleIcon" src="assets/new/icons/personGreen.svg" matTooltip="User" matTooltipClass="roleTooltip" matTooltipPosition="after">
-      <img (click)="openCourierVehiclesDialog()" *ngIf="userService.isShipper" class="roleIcon" src="assets/new/icons/courierYellow.svg" matTooltip="Courier" matTooltipClass="roleTooltip" matTooltipPosition="after">
+      <img (click)="openCourierVehiclesDialog()" *ngIf="userService.isShipper" class="roleIcon" src="assets/new/icons/courierYellow.svg" matTooltip="Manage vehicles" matTooltipClass="roleTooltip" matTooltipPosition="after">
     </div>
 
     <div class="accountData">

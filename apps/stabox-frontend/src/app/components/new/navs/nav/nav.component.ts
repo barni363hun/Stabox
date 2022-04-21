@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeService } from '../../../../services';
+import { Router } from '@angular/router';
+import { ThemeService, LayoutService } from '../../../../services';
 
 @Component({
   selector: 'stabox-nav',
@@ -12,10 +13,15 @@ export class NavComponent implements OnInit {
 
   isChecked: boolean = true;
 
-  constructor(public themeService: ThemeService) {}
+  constructor(
+    public themeService: ThemeService,
+    public layoutService: LayoutService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.isChecked = !this.themeService.light;
+    this.layoutService.getLayout();
   }
 
   toggleTheme() {
@@ -38,5 +44,10 @@ export class NavComponent implements OnInit {
     } else {
       this.themeService.setTheme('light');
     }
+  }
+
+  setLayout() {
+    this.layoutService.setLayout('old')
+    this.router.navigate(['/']);
   }
 }

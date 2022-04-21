@@ -12,7 +12,7 @@ export class SnackbarService {
   showConfirm = false;
   message = '';
 
-  new = true;
+  new = false;
 
   constructor(private snackBar: MatSnackBar) {}
 

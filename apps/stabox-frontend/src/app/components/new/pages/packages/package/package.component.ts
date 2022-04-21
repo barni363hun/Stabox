@@ -80,7 +80,7 @@ export class PackageComponent implements OnInit {
 
   finishShipping() {
     this.packageService.finishPackage(this.package.id);
-    this.snackbarService.show(3000, `Package '${this.package.name}' delivered. Earned ${this.package.price} stabucks!`, 'success');
+    this.snackbarService.show(3000, `Package '${this.package.name}' delivered.`, 'success');
     this.snackbarService.showSuccessSnackbar(`Package  '${this.package.name}' delivered. Earned ${this.package.price} Stabucks!`);
     this.updateState();
   }

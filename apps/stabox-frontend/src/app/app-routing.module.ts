@@ -29,35 +29,22 @@ class LogoutComponent implements OnInit {
 }
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: MainpageComponent,
-  //   pathMatch: 'full',
-  // },
-  // {
-  //   path: 'account',
-  //   component: AccountPageComponent,
-  //   canActivate: [AuthGuard],
-  // },
-  // {
-  //   path: 'packages',
-  //   component: PackagesPageComponent,
-  //   canActivate: [AuthGuard],
-  // },
-  // { 
-  //   path: '**',
-  //   component: MainpageComponent
-  // },
-
   {
-    path: 'packages',
-    component: PackagesComponent,
+    path: '',
+    component: MainpageComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'account',
+    component: AccountPageComponent,
     canActivate: [AuthGuard],
   },
   {
-    path: '',
-    component: HomePageComponent,
+    path: 'packages',
+    component: PackagesPageComponent,
+    canActivate: [AuthGuard],
   },
+
   {
     path: 'profile',
     component: ProfilePageComponent,
@@ -73,10 +60,17 @@ const routes: Routes = [
     component: AddressesComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: 'package',
+    component: PackagesComponent,
+    canActivate: [AuthGuard],
+  },
 
-  { path: 'test1', component: AddRecieverWithAddressComponent },
-  { path: 'test', component: AddPackageComponent },
   { path: 'logout', component: LogoutComponent },
+  { 
+    path: '**',
+    component: MainpageComponent
+  },
 
 ];
 

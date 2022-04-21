@@ -1,6 +1,11 @@
 <div [ngClass]="{ light: themeService.light }">
     <div class="nav">
-        <button mat-icon-button class="navItem" routerLink="/home" (mouseover)="homeIconSrc = 'assets/new/icons/homeGreen.svg'" (mouseleave)="homeIconSrc = 'assets/new/icons/homeWhite.svg'">
+        <div class="layoutToggleContainer">
+            <button mat-icon-button (click)="setLayout()" matTooltip="Switch layout" matTooltipClass="layoutTooltip">
+                <mat-icon>arrow_left</mat-icon>
+            </button>
+        </div>
+        <button mat-icon-button class="navItem" routerLink="/" (mouseover)="homeIconSrc = 'assets/new/icons/homeGreen.svg'" (mouseleave)="homeIconSrc = 'assets/new/icons/homeWhite.svg'">
             <img [src]="homeIconSrc">
         </button>
         <button mat-icon-button class="navItem" routerLink="/profile" (mouseover)="accountIconSrc = 'assets/new/icons/personGreen.svg'" (mouseleave)="accountIconSrc = 'assets/new/icons/personWhite.svg'">

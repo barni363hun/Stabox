@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ThemeService, UserService } from '../../../services';
+import { LayoutService, SnackbarService, ThemeService, UserService } from '../../../services';
 
 @Component({
   selector: 'stabox-navbar',
@@ -9,12 +9,23 @@ import { ThemeService, UserService } from '../../../services';
 })
 export class NavbarComponent implements OnInit {
   showSideBar = false;
+
   constructor(
     public userService: UserService,
-    public themeService: ThemeService
+    public themeService: ThemeService,
+    public snackbarService: SnackbarService,
+    public layoutService: LayoutService,
+    private router: Router
   ) {
     this.themeService.getTheme();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.layoutService.getLayout();
+  }
+
+  setLayout() {
+    this.layoutService.setLayout('new');
+    this.router.navigate(['/']);
+  }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeService } from '../../../../services';
+import { SnackbarService, ThemeService } from '../../../../services';
 
 @Component({
   selector: 'app-mainpage',
@@ -7,7 +7,7 @@ import { ThemeService } from '../../../../services';
   styleUrls: ['./mainpage.component.scss'],
 })
 export class MainpageComponent implements OnInit {
-  constructor(public themeService: ThemeService) {}
+  constructor(public themeService: ThemeService, public snackbarService: SnackbarService) {}
 
   ngOnInit(): void {}
 }

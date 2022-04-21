@@ -1,4 +1,4 @@
-<div [ngClass]="{ lightMode: themeService.light }">
+<div [ngClass]="{ lightMode: themeService.light }" *ngIf="!snackbarService.new">
   <div class="content">
     <div class="page">
 
@@ -11,3 +11,5 @@
     <app-footer></app-footer>
   </div>
 </div>
+
+<stabox-home-page *ngIf="snackbarService.new"></stabox-home-page>

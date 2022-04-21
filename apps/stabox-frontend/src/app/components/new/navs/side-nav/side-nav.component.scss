@@ -106,17 +106,19 @@
 }
 
 .profileContainer {
-  width: fit-content;
+  width: 100%;
   height: fit-content;
 
   padding: 0;
-  margin: 0 50px auto 50px;
+  margin: 0;
 
   position: absolute;
+  left: 0;
   bottom: 50px;
 
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .profileImage {
   transform: scale(1.35);

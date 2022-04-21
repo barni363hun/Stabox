@@ -54,6 +54,42 @@
   user-select: none;
 }
 
+.layoutToggleContainer {
+  width: fit-content;
+  height: fit-content;
+
+  position: absolute;
+  left: 5%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.layoutToggleContainer button mat-icon {
+  transform: scale(1.5);
+}
+.layoutToggleContainer:hover button mat-icon {
+  color: $blueGreen;
+}
+::ng-deep .layoutTooltip {
+  height: fit-content;
+  width: fit-content;
+
+  color: $white;
+  background-color: $hoverDark;
+
+  font-size: 14px;
+  font-family: $font;
+
+  text-align: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .themeToggleContainer {
   width: fit-content;
   height: fit-content;
